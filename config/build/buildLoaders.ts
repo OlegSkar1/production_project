@@ -27,5 +27,13 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     ],
   };
 
-  return [tsLoader, scssLoader];
+  const fontLoader = {
+    test: /\.(woff(2)?|eot|ttf|otf|svg)$/i,
+    type: 'asset/resource',
+    generator: {
+      filename: 'assets/fonts/[name][ext]',
+    },
+  };
+
+  return [tsLoader, scssLoader, fontLoader];
 }
