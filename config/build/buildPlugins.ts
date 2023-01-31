@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 
@@ -14,6 +15,9 @@ export function buildPlugins({
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
+    }),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
     }),
   ];
 }
