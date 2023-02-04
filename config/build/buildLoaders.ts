@@ -17,9 +17,9 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
         loader: 'css-loader',
         options: {
           modules: {
-            auto: (resourcePath: string) =>
-              Boolean(resourcePath.includes('.module.')),
+            auto: (resourcePath: string) => Boolean(resourcePath.includes('.module.')),
             localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
+            exportLocalsConvention: 'camelCase',
           },
         },
       },
