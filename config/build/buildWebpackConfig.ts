@@ -5,9 +5,7 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolver } from './buildResolver';
 import { BuildOptions } from './types/config';
 
-export function buildWebpackConfig(
-  options: BuildOptions
-): webpack.Configuration {
+export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
   const { mode, paths, isDev } = options;
 
   return {
@@ -17,6 +15,7 @@ export function buildWebpackConfig(
       filename: '[name].[contenthash].js',
       path: paths.build,
       clean: true,
+      assetModuleFilename: 'assets/[contenthash].[ext]',
     },
     module: {
       rules: buildLoaders(options),
