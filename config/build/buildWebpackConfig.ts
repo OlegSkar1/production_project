@@ -4,6 +4,7 @@ import { buildLoaders } from './buildLoaders';
 import { buildPlugins } from './buildPlugins';
 import { buildResolver } from './buildResolver';
 import { BuildOptions } from './types/config';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
   const { mode, paths, isDev } = options;
@@ -21,7 +22,9 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       rules: buildLoaders(options),
     },
     resolve: buildResolver(options),
-    plugins: buildPlugins(options),
+    plugins: isDev
+      ? [...buildPlugins(options), new ReactRefreshWebpackPlugin()].filter(Boolean)
+      : buildPlugins(options),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevserver(options) : undefined,
     cache: false,

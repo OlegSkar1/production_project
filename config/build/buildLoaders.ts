@@ -5,8 +5,24 @@ import { BuildOptions } from './types/config';
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const tsLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: [
+      {
+        loader: 'ts-loader',
+      },
+    ],
     exclude: /node_modules/,
+  };
+
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+        plugins: [[isDev && 'react-refresh/babel', {}].filter(Boolean)],
+      },
+    },
   };
 
   const scssLoader = {
@@ -47,5 +63,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
-  return [tsLoader, scssLoader, fontLoader, svgLoader, imgLoader];
+  return [babelLoader, tsLoader, scssLoader, fontLoader, svgLoader, imgLoader];
 }
