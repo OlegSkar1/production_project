@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    jest: true,
   },
   extends: [
     'eslint:recommended',
@@ -53,6 +54,7 @@ module.exports = {
         'newlines-between': 'always-and-inside-groups',
       },
     ],
+    'max-len': [2, { code: 100, ignoreComments: true }],
   },
   globals: {
     __IS_DEV__: true,
