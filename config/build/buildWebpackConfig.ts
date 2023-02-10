@@ -1,10 +1,11 @@
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import webpack from 'webpack';
+
 import { buildDevserver } from './buildDevServer';
 import { buildLoaders } from './buildLoaders';
 import { buildPlugins } from './buildPlugins';
 import { buildResolver } from './buildResolver';
 import { BuildOptions } from './types/config';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
   const { mode, paths, isDev } = options;

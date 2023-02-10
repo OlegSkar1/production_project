@@ -1,13 +1,13 @@
 import { createContext, FC, useMemo, useState } from 'react';
 
 export enum Theme {
-    DARK = 'dark',
-    LIGHT = 'light',
+  DARK = 'dark',
+  LIGHT = 'light',
 }
 
 export interface ThemeContextProps {
-    theme: Theme;
-    setTheme: (theme: Theme) => void;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps);

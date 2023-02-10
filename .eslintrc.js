@@ -6,9 +6,11 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:import/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:i18next/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -19,8 +21,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import', 'i18next', 'prettier'],
   rules: {
+    'i18next/no-literal-string': [2, { markupOnly: true, ignoreAttribute: ['to'] }],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     'react/jsx-indent': [2, 2],
@@ -38,6 +41,18 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'react/jsx-no-undef': [2, { allowGlobals: true }],
     'react/prop-types': 0,
+    'prettier/prettier': 2,
+    'import/order': [
+      2,
+      {
+        groups: ['external', 'builtin', 'index', 'sibling', 'parent', 'internal', 'type'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always-and-inside-groups',
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,
@@ -45,6 +60,9 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      typescript: {},
     },
   },
 };
