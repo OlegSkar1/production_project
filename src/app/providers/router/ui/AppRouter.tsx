@@ -3,19 +3,22 @@ import { Routes, Route } from 'react-router-dom';
 
 import { routeConfig } from '../config/routeConfig';
 
+import { PageLoader } from 'features/PageLoader';
+
 export const AppRouter = () => {
   return (
-    // eslint-disable-next-line i18next/no-literal-string
-    <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        {routeConfig.map(({ path, element }) => (
-          <Route
-            key={path}
-            path={path}
-            element={<div className='content-wrapper'>{element}</div>}
-          />
-        ))}
-      </Routes>
-    </Suspense>
+    <Routes>
+      {routeConfig.map(({ path, element }) => (
+        <Route
+          key={path}
+          path={path}
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <div className='content-wrapper'>{element}</div>
+            </Suspense>
+          }
+        />
+      ))}
+    </Routes>
   );
 };
