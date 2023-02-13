@@ -2,5 +2,8 @@
   "about-link": "About us",
   "language": "Русский",
   "main-link": "Main",
-  "not-found-page": "Not found Page"
+  "not-found-page": "Not found Page",
+  "throw-error": "throw error",
+  "update-page": "update page",
+  "error": "an unexpected error occurred"
 }

@@ -2,5 +2,8 @@
   "about-link": "О нас",
   "language": "English",
   "main-link": "Главная",
-  "not-found-page": "Страница не найдена"
+  "not-found-page": "Страница не найдена",
+  "throw-error": "бросить ошибку",
+  "update-page": "обновить страницу",
+  "error": "произошла непредвиденная ошибка"
 }
