@@ -19,9 +19,12 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
   const toggleHandler = () => setCollapsed((prev) => !prev);
 
   return (
-    <div className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
+    <div
+      data-testid='sidebar'
+      className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
+    >
       {/* eslint-disable-next-line i18next/no-literal-string */}
-      <Button className={cls.toggleButton} onClick={toggleHandler}>
+      <Button data-testid='sidebar-toggle' className={cls.toggleButton} onClick={toggleHandler}>
         Toggle
       </Button>
       <div className={cls.switchers}>
