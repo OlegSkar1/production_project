@@ -21,7 +21,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
   return (
     <div
       data-testid='sidebar'
-      className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
+      className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}
     >
       {/* eslint-disable-next-line i18next/no-literal-string */}
       <Button data-testid='sidebar-toggle' className={cls.toggleButton} onClick={toggleHandler}>

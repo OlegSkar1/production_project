@@ -11,7 +11,7 @@ export const PageLoader: React.FC<PageLoaderProps> = (props) => {
   const { className } = props;
 
   return (
-    <div className={classNames(cls.pageLoader, {}, [className])}>
+    <div className={classNames(cls.pageLoader, [className], {})}>
       <Loader />
     </div>
   );

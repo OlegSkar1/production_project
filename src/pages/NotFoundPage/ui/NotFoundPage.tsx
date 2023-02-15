@@ -12,5 +12,5 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation();
 
-  return <div className={classNames(cls.notFoundPage, {}, [className])}>{t('not-found-page')}</div>;
+  return <div className={classNames(cls.notFoundPage, [className], {})}>{t('not-found-page')}</div>;
 };

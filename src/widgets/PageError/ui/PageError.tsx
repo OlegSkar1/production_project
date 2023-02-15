@@ -18,7 +18,7 @@ export const PageError: React.FC<PageErrorProps> = (props) => {
   };
 
   return (
-    <div className={classNames(cls.pageError, {}, [className])}>
+    <div className={classNames(cls.pageError, [className], {})}>
       <p style={{ fontWeight: 'bold' }}>{t('error')}</p>
       <Button onClick={updateHandler}>{t('update-page')}</Button>
     </div>

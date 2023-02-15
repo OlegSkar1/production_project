@@ -1,6 +1,6 @@
 const plugins = [];
 
-if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'production') {
   plugins.push('react-refresh/babel');
 }
 
@@ -15,5 +15,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: plugins,
+  // plugins: plugins,
 };
