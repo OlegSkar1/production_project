@@ -23,7 +23,7 @@ export default {
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/config/jest/jestEmptyComponent.tsx',
-    '\\.s?css$': 'identity-obj-proxy',
+    '\\.(css|scss)$': 'identity-obj-proxy',
   },
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
