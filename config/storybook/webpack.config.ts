@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import webpack, { RuleSetRule } from 'webpack';
 
 import path from 'path';
 
@@ -14,6 +14,18 @@ export default ({ config }: { config: webpack.Configuration }) => {
   };
   config.resolve.modules.push(paths.src);
   config.resolve.extensions.push('.ts', '.tsx', '.js');
+
+  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    if (/svg/.test(rule.test as string)) {
+      return { ...rule, exclude: /\.svg$/i };
+    }
+    return rule;
+  });
+
+  config.module.rules.push({
+    test: /\.svg$/i,
+    use: ['@svgr/webpack'],
+  });
   config.module.rules.push(buildCssLoader(true));
   return config;
 };

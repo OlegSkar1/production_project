@@ -54,6 +54,7 @@ module.exports = {
       },
     ],
     'max-len': [2, { code: 100, ignoreComments: true }],
+    'react/display-name': 'off',
   },
   globals: {
     __IS_DEV__: true,
