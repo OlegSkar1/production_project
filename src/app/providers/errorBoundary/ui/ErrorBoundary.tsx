@@ -1,4 +1,4 @@
-import React, { ErrorInfo, ReactNode } from 'react';
+import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 
 import { PageError } from 'widgets/PageError';
 
@@ -10,7 +10,7 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
@@ -33,12 +33,14 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     if (hasError) {
       // Можно отрендерить запасной UI произвольного вида
       return (
-        <h1>
+        <Suspense fallback=''>
           <PageError />
-        </h1>
+        </Suspense>
       );
     }
 
     return children;
   }
 }
+
+export default ErrorBoundary;

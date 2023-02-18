@@ -1,1 +1,3 @@
-export { ErrorBoundary } from './ui/errorBoundary';
+import ErrorBoundary from './ui/ErrorBoundary';
+
+export { ErrorBoundary };
