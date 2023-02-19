@@ -14,11 +14,19 @@
     "paths": {
       "*": ["./src/*"]
     },
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCaseOnly",
+        }
+      }
+    ]
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
 }

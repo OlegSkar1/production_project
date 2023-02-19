@@ -2,16 +2,15 @@ import { fireEvent, screen } from '@testing-library/react';
 
 import { Sidebar } from './Sidebar';
 
-// eslint-disable-next-line max-len
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { ComponentRender } from 'shared/lib/tests/ComponentRender/ComponentsRender';
 
 describe('Sidebar', () => {
   it('render', () => {
-    renderWithTranslation(<Sidebar />);
+    ComponentRender(<Sidebar />);
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
   it('toggle sidebar', () => {
-    renderWithTranslation(<Sidebar />);
+    ComponentRender(<Sidebar />);
     const button = screen.getByTestId('sidebar-toggle');
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     fireEvent.click(button);

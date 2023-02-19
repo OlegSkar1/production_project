@@ -8,5 +8,6 @@
   "css.validate": true,
   "scss.validate": true,
   "stylelint.enable": true,
-  "stylelint.validate": ["css", "scss"]
+  "stylelint.validate": ["css", "scss"],
+  "cssModules.camelCase": true
 }
