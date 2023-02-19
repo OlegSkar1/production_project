@@ -15,14 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }: NavbarProps) => {
 
   return (
     <div className={classNames(cls.navbar, [className], {})}>
-      <div className={classNames(cls.links)}>
-        <AppLink to='/' theme={AppLinkTheme.SECONDARY}>
-          {t('main-link')}
-        </AppLink>
-        <AppLink to='/about' theme={AppLinkTheme.SECONDARY}>
-          {t('about-link')}
-        </AppLink>
-      </div>
+      <div className={classNames(cls.links)}>/</div>
     </div>
   );
 };

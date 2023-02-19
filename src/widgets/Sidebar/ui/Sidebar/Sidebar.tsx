@@ -1,12 +1,18 @@
 import { useState } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import cls from './Sidebar.module.scss';
 
+import { routePath } from 'app/providers/router/config/routeConfig';
 import { LangSwitcher } from 'features/LangSwitcher';
 import { ThemeSwither } from 'features/ThemeSwither';
+import AboutIcon from 'shared/assets/icons/about_us.svg';
+import HomeIcon from 'shared/assets/icons/home.svg';
 import { classNames } from 'shared/lib';
 
-import { Button } from 'shared/ui';
+import { AppLink, Button } from 'shared/ui';
+import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 interface SidebarProps {
   className?: string;
@@ -15,6 +21,7 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = (props) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const { t } = useTranslation();
 
   const toggleHandler = () => setCollapsed((prev) => !prev);
 
@@ -23,13 +30,34 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
       data-testid='sidebar'
       className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}
     >
-      {/* eslint-disable-next-line i18next/no-literal-string */}
-      <Button data-testid='sidebar-toggle' className={cls.toggleButton} onClick={toggleHandler}>
-        Toggle
+      <div className={classNames(cls.items)}>
+        <AppLink to={routePath.main} theme={AppLinkTheme.SECONDARY} className={cls.item}>
+          <HomeIcon className={cls.icon} />
+          <span className={cls.link}>{t('main-link')}</span>
+        </AppLink>
+        <AppLink
+          to={routePath.about}
+          theme={AppLinkTheme.SECONDARY}
+          className={classNames(cls.item)}
+        >
+          <AboutIcon className={cls.icon} />
+          <span className={cls.link}>{t('about-link')}</span>
+        </AppLink>
+      </div>
+
+      <Button
+        square
+        size='L'
+        variant='backgroundInverted'
+        data-testid='sidebar-toggle'
+        className={cls.toggleButton}
+        onClick={toggleHandler}
+      >
+        {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.switchers}>
         <ThemeSwither />
-        <LangSwitcher />
+        <LangSwitcher short={collapsed} />
       </div>
     </div>
   );

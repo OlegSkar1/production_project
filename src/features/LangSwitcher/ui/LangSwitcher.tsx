@@ -7,10 +7,11 @@ import { Button } from 'shared/ui';
 
 interface LangSwitcherProps {
   className?: string;
+  short?: boolean;
 }
 
 export const LangSwitcher: React.FC<LangSwitcherProps> = (props) => {
-  const { className } = props;
+  const { className, short } = props;
 
   const { t, i18n } = useTranslation();
 
@@ -23,7 +24,7 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = (props) => {
       className={classNames(cls.langSwitcher, [className], {})}
       onClick={changeLang}
     >
-      {t('language')}
+      {t(short ? 'shortLng' : 'language')}
     </Button>
   );
 };

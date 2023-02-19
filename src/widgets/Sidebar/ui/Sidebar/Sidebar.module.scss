@@ -9,16 +9,11 @@
   transition: width 0.3s;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
   position: absolute;
   bottom: 25px;
 
   display: flex;
-  flex-wrap: wrap;
   gap: 15px;
   align-items: center;
   justify-content: center;
@@ -27,5 +22,40 @@
 }
 
 .toggleButton {
-  margin-left: 10px;
+  position: absolute;
+  right: calc(var(--font-line-l) * -1);
+  bottom: var(--font-line-l);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0 0 20px;
+}
+
+.item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--inverted-primary-color)
+}
+
+.link {
+  transition: all 0.3s;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+  }
+
+  .link {
+    display: none
+  }
 }
