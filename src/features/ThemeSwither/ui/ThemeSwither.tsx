@@ -4,7 +4,7 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import { classNames } from 'shared/lib';
-import { Button, ButtonTheme } from 'shared/ui';
+import { Button } from 'shared/ui';
 
 interface ThemeSwitherProps {
   className?: string;
@@ -17,7 +17,7 @@ export const ThemeSwither: React.FC<ThemeSwitherProps> = (props) => {
 
   return (
     <Button
-      theme={ButtonTheme.CLEAR}
+      variant={'clear'}
       className={classNames(cls.themeSwither, [className], {})}
       onClick={toggleTheme}
     >

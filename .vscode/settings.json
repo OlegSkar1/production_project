@@ -7,4 +7,6 @@
   "i18n-ally.keystyle": "nested",
   "css.validate": true,
   "scss.validate": true,
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "scss"]
 }

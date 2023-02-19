@@ -24,7 +24,10 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import', 'i18next', 'prettier'],
   rules: {
-    'i18next/no-literal-string': [2, { markupOnly: true, ignoreAttribute: ['to', 'data-testid'] }],
+    'i18next/no-literal-string': [
+      2,
+      { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'variant'] },
+    ],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     'react/jsx-indent': [2, 2],
