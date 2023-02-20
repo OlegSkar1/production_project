@@ -37,29 +37,29 @@
   padding: 0;
 }
 
-.square.M {
+.square.small {
   width: var(--font-line-m);
   height: var(--font-line-m);
 }
 
-.square.L {
+.square.large {
   width: var(--font-line-l);
   height: var(--font-line-l);
 }
 
-.square.XL {
+.square.extra-large {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
 }
 
-.M {
+.small {
   font: var(--font-m)
 }
 
-.L {
+.large {
   font: var(--font-l)
 }
 
-.XL {
+.extra-large {
   font: var(--font-xl)
 }

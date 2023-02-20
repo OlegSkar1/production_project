@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib';
 
 type ButtonVariant = 'clear' | 'outlined' | 'background' | 'backgroundInverted';
 
-type ButtonSize = 'M' | 'L' | 'XL';
+type ButtonSize = 'small' | 'large' | 'extraLarge';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -16,7 +16,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { className, children, variant, square, size = 'M', ...otherProps } = props;
+  const { className, children, variant, square, size = 'small', ...otherProps } = props;
 
   const mods: Record<string, boolean> = {
     [cls.square]: square,

@@ -47,7 +47,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
 
       <Button
         square
-        size='L'
+        size='large'
         variant='backgroundInverted'
         data-testid='sidebar-toggle'
         className={cls.toggleButton}

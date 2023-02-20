@@ -24,25 +24,25 @@ Clear.args = {
   variant: 'clear',
 };
 
-export const OutlinedSizeM = Template.bind({});
-OutlinedSizeM.args = {
+export const OutlinedSizeSmall = Template.bind({});
+OutlinedSizeSmall.args = {
   children: 'Text',
   variant: 'outlined',
-  size: 'M',
+  size: 'small',
 };
 
-export const OutlinedSizeL = Template.bind({});
-OutlinedSizeL.args = {
+export const OutlinedSizeLarge = Template.bind({});
+OutlinedSizeLarge.args = {
   children: 'Text',
   variant: 'outlined',
-  size: 'L',
+  size: 'large',
 };
 
-export const OutlinedSizeXL = Template.bind({});
-OutlinedSizeXL.args = {
+export const OutlinedSizeExtraLarge = Template.bind({});
+OutlinedSizeExtraLarge.args = {
   children: 'Text',
   variant: 'outlined',
-  size: 'XL',
+  size: 'extraLarge',
 };
 
 export const OutlinedDark = Template.bind({});
@@ -70,17 +70,17 @@ Square.args = {
   square: true,
   variant: 'backgroundInverted',
 };
-export const SquareSizeL = Template.bind({});
-SquareSizeL.args = {
+export const SquareSizeLarge = Template.bind({});
+SquareSizeLarge.args = {
   children: '>',
   square: true,
-  size: 'L',
+  size: 'large',
   variant: 'backgroundInverted',
 };
-export const SquareSizeXL = Template.bind({});
-SquareSizeXL.args = {
+export const SquareSizeExtraLarge = Template.bind({});
+SquareSizeExtraLarge.args = {
   children: '>',
-  size: 'XL',
+  size: 'extraLarge',
   square: true,
   variant: 'backgroundInverted',
 };

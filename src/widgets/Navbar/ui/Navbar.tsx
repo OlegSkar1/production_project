@@ -1,10 +1,10 @@
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import cls from './Navbar.module.scss';
 
 import { classNames } from 'shared/lib';
-import { AppLink } from 'shared/ui';
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Button, Modal } from 'shared/ui';
 
 interface NavbarProps {
   className?: string;
@@ -13,9 +13,21 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ className }: NavbarProps) => {
   const { t } = useTranslation();
 
+  const [isAuthModal, setIsAuthModal] = useState(false);
+
+  const onToggleModal = useCallback(() => {
+    setIsAuthModal((prev) => !prev);
+  }, []);
+
   return (
     <div className={classNames(cls.navbar, [className], {})}>
-      <div className={classNames(cls.links)}>/</div>
+      <Button variant='clear' className={classNames(cls.links)} onClick={onToggleModal}>
+        {t('Sign in')}
+      </Button>
+      <Modal isOpen={isAuthModal} onClose={onToggleModal}>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero
+        incidunt accusamus veritatis commodi provident sapiente?
+      </Modal>
     </div>
   );
 };
