@@ -16,11 +16,7 @@ export const ThemeSwither: React.FC<ThemeSwitherProps> = (props) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button
-      variant={'clear'}
-      className={classNames(cls.themeSwither, [className], {})}
-      onClick={toggleTheme}
-    >
+    <Button variant={'clear'} className={classNames('', [className], {})} onClick={toggleTheme}>
       {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
     </Button>
   );
