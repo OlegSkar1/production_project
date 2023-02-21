@@ -24,11 +24,10 @@ Clear.args = {
   variant: 'clear',
 };
 
-export const OutlinedSizeSmall = Template.bind({});
-OutlinedSizeSmall.args = {
+export const Outlined = Template.bind({});
+Outlined.args = {
   children: 'Text',
   variant: 'outlined',
-  size: 'small',
 };
 
 export const OutlinedSizeLarge = Template.bind({});
@@ -51,6 +50,20 @@ OutlinedDark.args = {
   variant: 'outlined',
 };
 OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OutlinedInverted = Template.bind({});
+OutlinedInverted.args = {
+  children: 'Text',
+  variant: 'outlinedInverted',
+};
+
+export const OutlinedInvertedDark = Template.bind({});
+OutlinedInvertedDark.args = {
+  children: 'Text',
+  variant: 'outlinedInverted',
+};
+
+OutlinedInvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Background = Template.bind({});
 Background.args = {

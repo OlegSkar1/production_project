@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal } from './Modal';
 
 import { Theme } from 'app/providers/ThemeProvider';
-import { PortalDecorator } from 'shared/config/storybook/PortalDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
 export default {
@@ -24,4 +23,11 @@ Default.args = {
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
 };
 
-// Default.decorators = [PortalDecorator];
+export const Dark = Template.bind({});
+Default.args = {
+  children:
+    // eslint-disable-next-line max-len
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
+};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

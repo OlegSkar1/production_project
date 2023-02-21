@@ -4,7 +4,12 @@ import cls from './Button.module.scss';
 
 import { classNames } from 'shared/lib';
 
-type ButtonVariant = 'clear' | 'outlined' | 'background' | 'backgroundInverted';
+type ButtonVariant =
+  | 'clear'
+  | 'outlined'
+  | 'background'
+  | 'backgroundInverted'
+  | 'outlinedInverted';
 
 type ButtonSize = 'small' | 'large' | 'extraLarge';
 
