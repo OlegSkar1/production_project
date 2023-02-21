@@ -2,6 +2,7 @@ import { ReactNode, useCallback, useEffect } from 'react';
 
 import cls from './Modal.module.scss';
 
+import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib';
 import { Portal } from 'shared/ui/Portal/ui/Portal';
 
@@ -14,6 +15,8 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = (props) => {
   const { className, children, isOpen, onClose } = props;
+
+  const { theme } = useTheme();
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -50,10 +53,15 @@ export const Modal: React.FC<ModalProps> = (props) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.modal, [className], mods)} onClick={onCloseHandler}>
+      <div
+        className={classNames(cls.modal, [className, theme, 'app_modal'], mods)}
+        onClick={onCloseHandler}
+      >
         <div className={cls.overlay}>
           <div
-            className={classNames(cls.content, [className], { [cls.closed]: !isOpen })}
+            className={classNames(cls.content, [className], {
+              [cls.closed]: !isOpen,
+            })}
             onClick={onContentClick}
           >
             {children}

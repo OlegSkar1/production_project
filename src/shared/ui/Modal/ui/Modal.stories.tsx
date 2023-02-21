@@ -24,7 +24,7 @@ Default.args = {
 };
 
 export const Dark = Template.bind({});
-Default.args = {
+Dark.args = {
   children:
     // eslint-disable-next-line max-len
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
