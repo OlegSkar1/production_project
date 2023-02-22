@@ -18,9 +18,13 @@ export const Counter: React.FC = () => {
 
   return (
     <div>
-      <h1>value = {counterValue}</h1>
-      <Button onClick={increment}>increment</Button>
-      <Button onClick={decrement}>decrement</Button>
+      <h1 data-testid='counter-title'>value = {counterValue}</h1>
+      <Button data-testid='increment-btn' onClick={increment}>
+        increment
+      </Button>
+      <Button data-testid='decrement-btn' onClick={decrement}>
+        decrement
+      </Button>
     </div>
   );
 };
