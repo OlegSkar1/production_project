@@ -1,3 +1,4 @@
+export { Input } from './Input/Input';
 export { Portal } from './Portal/ui/Portal';
 export { Modal } from './Modal/ui/Modal';
 export { Loader } from './Loader/Loader';

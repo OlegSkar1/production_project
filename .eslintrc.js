@@ -28,6 +28,8 @@ module.exports = {
       2,
       { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'variant', 'size'] },
     ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     'react/jsx-indent': [2, 2],

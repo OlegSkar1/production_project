@@ -7,5 +7,7 @@
   "throw-error": "throw error",
   "update-page": "update page",
   "error": "an unexpected error occurred",
-  "Sign in": "Sign In"
+  "Sign in": "Sign In",
+  "Enter login": "Enter login",
+  "Enter password": "Enter password"
 }

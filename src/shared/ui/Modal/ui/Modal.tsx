@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
 import cls from './Modal.module.scss';
 
@@ -15,17 +15,23 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = (props) => {
   const { className, children, isOpen, onClose } = props;
+  const [isClosing, setIsClosing] = useState(false);
+  const timeoutRef = useRef(null);
 
   const { theme } = useTheme();
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
+    [cls.closed]: isClosing,
   };
 
   const onCloseHandler = useCallback(() => {
-    if (onClose) {
+    setIsClosing(true);
+
+    timeoutRef.current = setTimeout(() => {
+      setIsClosing(false);
       onClose();
-    }
+    }, 200);
   }, [onClose]);
 
   const onContentClick = (e: React.MouseEvent) => {
@@ -48,8 +54,13 @@ export const Modal: React.FC<ModalProps> = (props) => {
 
     return () => {
       window.removeEventListener('keydown', onKeyDown);
+      clearTimeout(timeoutRef.current);
     };
   }, [isOpen, onKeyDown]);
+
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <Portal>
@@ -58,12 +69,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
         onClick={onCloseHandler}
       >
         <div className={cls.overlay}>
-          <div
-            className={classNames(cls.content, [className], {
-              [cls.closed]: !isOpen,
-            })}
-            onClick={onContentClick}
-          >
+          <div className={classNames(cls.content, [className], {})} onClick={onContentClick}>
             {children}
           </div>
         </div>
