@@ -12,9 +12,12 @@
     "strictNullChecks": false, // проверка на null undefined
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     },
     "strictBindCallApply": true,
+    "skipLibCheck": true,
     "plugins": [
       {
         "name": "typescript-plugin-css-modules",
