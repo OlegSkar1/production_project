@@ -8,6 +8,9 @@
   "update-page": "update page",
   "error": "an unexpected error occurred",
   "Sign in": "Sign In",
-  "Enter login": "Enter login",
-  "Enter password": "Enter password"
+  "Enter login": "login",
+  "Enter password": "password",
+  "authorization form": "Authorization form",
+  "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "Sign out": "Sign out"
 }

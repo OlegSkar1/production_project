@@ -8,5 +8,13 @@
 }
 
 .secondary {
+  color: var(--secondary-color);
+}
+
+.inverted-primary {
   color: var(--inverted-primary-color);
+}
+
+.inverted-secondary {
+  color: var(--inverted-secondary-color);
 }

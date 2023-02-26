@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useEffect, useRef } from 'react';
+import { InputHTMLAttributes, memo, useEffect, useRef } from 'react';
 
 import cls from './Input.module.scss';
 
@@ -13,7 +13,7 @@ interface InputProps extends HTMLInputProps {
   label?: string;
 }
 
-export const Input: React.FC<InputProps> = (props) => {
+export const Input: React.FC<InputProps> = memo((props) => {
   const { className, value, onChange, type = 'text', label, autoFocus, ...otherProps } = props;
   const ref = useRef<HTMLInputElement>(null);
 
@@ -30,14 +30,7 @@ export const Input: React.FC<InputProps> = (props) => {
   return (
     <div className={classNames(cls.inputWrapper, [className], {})}>
       {label && <div className={cls.label}>{label}</div>}
-      <input
-        ref={ref}
-        type={type}
-        value={value}
-        onChange={onChangeHandler}
-        className={cls.input}
-        {...otherProps}
-      />
+      <input ref={ref} type={type} value={value} onChange={onChangeHandler} className={cls.input} {...otherProps} />
     </div>
   );
-};
+});

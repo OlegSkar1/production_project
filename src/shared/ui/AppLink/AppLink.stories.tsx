@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { AppLink, AppLinkTheme } from './AppLink';
+import { AppLink } from './AppLink';
 
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
@@ -19,19 +19,29 @@ const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />
 export const Primary = Template.bind({});
 Primary.args = {
   children: 'Text',
-  theme: AppLinkTheme.PRIMARY,
+  theme: 'primary',
+};
+export const InvertedPrimary = Template.bind({});
+InvertedPrimary.args = {
+  children: 'Text',
+  theme: 'invertedPrimary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: 'Text',
-  theme: AppLinkTheme.SECONDARY,
+  theme: 'secondary',
+};
+export const InvertedSecondary = Template.bind({});
+InvertedSecondary.args = {
+  children: 'Text',
+  theme: 'invertedSecondary',
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
   children: 'Text',
-  theme: AppLinkTheme.PRIMARY,
+  theme: 'primary',
 };
 
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -39,7 +49,21 @@ PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const SecondaryDark = Template.bind({});
 SecondaryDark.args = {
   children: 'Text',
-  theme: AppLinkTheme.SECONDARY,
+  theme: 'secondary',
 };
 
 SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const InvertedPrimaryDark = Template.bind({});
+InvertedPrimaryDark.args = {
+  children: 'Text',
+  theme: 'invertedPrimary',
+};
+InvertedPrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const InvertedSecondaryDark = Template.bind({});
+InvertedSecondaryDark.args = {
+  children: 'Text',
+  theme: 'invertedSecondary',
+};
+InvertedSecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];

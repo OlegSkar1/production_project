@@ -97,3 +97,9 @@ SquareSizeExtraLarge.args = {
   square: true,
   variant: 'backgroundInverted',
 };
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Text',
+  variant: 'outlined',
+  disabled: true,
+};

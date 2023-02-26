@@ -12,7 +12,6 @@ import HomeIcon from 'shared/assets/icons/home.svg';
 import { classNames } from 'shared/lib';
 
 import { AppLink, Button } from 'shared/ui';
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 interface SidebarProps {
   className?: string;
@@ -26,20 +25,13 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
   const toggleHandler = () => setCollapsed((prev) => !prev);
 
   return (
-    <div
-      data-testid='sidebar'
-      className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}
-    >
+    <div data-testid='sidebar' className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}>
       <div className={classNames(cls.items)}>
-        <AppLink to={routePath.main} theme={AppLinkTheme.SECONDARY} className={cls.item}>
+        <AppLink to={routePath.main} theme='invertedSecondary' className={cls.item}>
           <HomeIcon className={cls.icon} />
           <span className={cls.link}>{t('main-link')}</span>
         </AppLink>
-        <AppLink
-          to={routePath.about}
-          theme={AppLinkTheme.SECONDARY}
-          className={classNames(cls.item)}
-        >
+        <AppLink to={routePath.about} theme='invertedSecondary' className={classNames(cls.item)}>
           <AboutIcon className={cls.icon} />
           <span className={cls.link}>{t('about-link')}</span>
         </AppLink>

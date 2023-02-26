@@ -24,9 +24,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     },
     resolve: buildResolver(options),
     plugins: isDev
-      ? [...buildPlugins(options), new ReactRefreshWebpackPlugin({ overlay: false })].filter(
-          Boolean
-        )
+      ? [...buildPlugins(options), new ReactRefreshWebpackPlugin({ overlay: false })].filter(Boolean)
       : buildPlugins(options),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevserver(options) : undefined,

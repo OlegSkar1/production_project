@@ -15,11 +15,11 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
-  label: 'Enter text',
+  label: 'Text',
   value: 'text',
 };
 
 export const Dark = Template.bind({});
-Dark.args = { label: 'Enter text', value: 'text' };
+Dark.args = { label: 'Text', value: 'text' };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -1,4 +1,4 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 
 import path from 'path';
 
@@ -12,7 +12,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
-  config.resolve.modules.push(paths.src);
+  config.resolve.modules = [paths.src, 'node_modules'];
   config.resolve.extensions.push('.ts', '.tsx', '.js');
 
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
@@ -27,5 +27,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
     use: ['@svgr/webpack'],
   });
   config.module.rules.push(buildCssLoader(true));
+
+  config.plugins.push(
+    new DefinePlugin({
+      __IS_DEV__: true,
+    })
+  );
   return config;
 };

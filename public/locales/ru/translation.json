@@ -8,6 +8,9 @@
   "update-page": "обновить страницу",
   "error": "произошла непредвиденная ошибка",
   "Sign in": "Войти",
-  "Enter login": "Введите логин",
-  "Enter password": "Введите пароль"
+  "Enter login": "логин",
+  "Enter password": "пароль",
+  "authorization form": "Форма авторизации",
+  "You entered an incorrect username or password": "Вы ввели неверный логин или пароль",
+  "Sign out": "Выйти"
 }

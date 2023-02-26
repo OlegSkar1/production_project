@@ -26,7 +26,7 @@ module.exports = {
   rules: {
     'i18next/no-literal-string': [
       2,
-      { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'variant', 'size'] },
+      { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'variant', 'size', 'theme'] },
     ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -58,7 +58,7 @@ module.exports = {
         'newlines-between': 'always-and-inside-groups',
       },
     ],
-    'max-len': [2, { code: 100, ignoreComments: true }],
+    'max-len': [2, { code: 120, ignoreComments: true }],
     'react/display-name': 'off',
   },
   globals: {

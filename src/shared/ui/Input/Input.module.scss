@@ -1,26 +1,26 @@
 .inputWrapper {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 
-    .label {
-        width: 100%;
-        max-width: 100px;
-    }
+  .label {
+    width: 100%;
+    max-width: 60px;
+  }
 }
 
 .input {
-    width: 100%;
-    max-width: 290px;
+  width: 100%;
+  max-width: 290px;
 
-    color: var(--inverted-secondary-color);
+  color: var(--inverted-secondary-color);
 
-    background: var(--inverted-bg-color);
-    border: none;
-    border-radius: 6px;
-    outline: none;
+  background: var(--inverted-bg-color);
+  border: none;
+  border-radius: 6px;
+  outline: none;
 
-    &[value]{
-        padding-left: 10px;
-    }
+  &[value] {
+    padding-left: 10px;
+  }
 }
