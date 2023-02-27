@@ -1,8 +1,12 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
 import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
+import path from 'path';
 
 import { BuildOptions } from './types/config';
 
@@ -21,6 +25,14 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     }),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '..', '..', 'public', 'locales'),
+          to: path.resolve(__dirname, '..', '..', 'build', 'locales'),
+        },
+      ],
     }),
   ];
 
