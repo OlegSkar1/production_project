@@ -11,11 +11,14 @@ interface ModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
 export const Modal: React.FC<ModalProps> = (props) => {
-  const { className, children, isOpen, onClose } = props;
+  const { className, children, isOpen, onClose, lazy } = props;
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
   const timeoutRef = useRef(null);
 
   const { theme } = useTheme();
@@ -25,13 +28,20 @@ export const Modal: React.FC<ModalProps> = (props) => {
     [cls.closed]: isClosing,
   };
 
-  const onCloseHandler = useCallback(() => {
-    setIsClosing(true);
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
-    timeoutRef.current = setTimeout(() => {
-      setIsClosing(false);
-      onClose();
-    }, 200);
+  const onCloseHandler = useCallback(() => {
+    if (onClose) {
+      setIsClosing(true);
+      timeoutRef.current = setTimeout(() => {
+        setIsClosing(false);
+        onClose();
+      }, 200);
+    }
   }, [onClose]);
 
   const onContentClick = (e: React.MouseEvent) => {
@@ -58,7 +68,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     };
   }, [isOpen, onKeyDown]);
 
-  if (!isOpen) {
+  if (!isMounted && lazy) {
     return null;
   }
 
