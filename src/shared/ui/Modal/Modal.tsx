@@ -19,8 +19,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  const timeoutRef = useRef(null);
-
   const { theme } = useTheme();
 
   const mods: Record<string, boolean> = {
@@ -37,10 +35,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
   const onCloseHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
-      timeoutRef.current = setTimeout(() => {
-        setIsClosing(false);
-        onClose();
-      }, 200);
     }
   }, [onClose]);
 
@@ -63,8 +57,8 @@ export const Modal: React.FC<ModalProps> = (props) => {
     }
 
     return () => {
+      setIsClosing(false);
       window.removeEventListener('keydown', onKeyDown);
-      clearTimeout(timeoutRef.current);
     };
   }, [isOpen, onKeyDown]);
 
@@ -74,7 +68,11 @@ export const Modal: React.FC<ModalProps> = (props) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.modal, [className, theme, 'app_modal'], mods)} onClick={onCloseHandler}>
+      <div
+        className={classNames(cls.modal, [className, theme, 'app_modal'], mods)}
+        onClick={onCloseHandler}
+        onAnimationEnd={isClosing && onClose}
+      >
         <div className={cls.overlay}>
           <div className={classNames(cls.content, [className], {})} onClick={onContentClick}>
             {children}

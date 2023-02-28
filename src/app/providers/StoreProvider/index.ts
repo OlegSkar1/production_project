@@ -1,2 +1,2 @@
 export { StoreProvider } from './ui/StoreProvider';
-export type { StateSchema } from './config/StateSchema';
+export type { StateSchema, ReduxWithReducerManager } from './config/StateSchema';

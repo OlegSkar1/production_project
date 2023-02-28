@@ -49,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }: NavbarProps) => {
       <Button variant='clear' className={classNames(cls.links)} onClick={onShowModal}>
         {t('Sign in')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
     </div>
   );
 };
