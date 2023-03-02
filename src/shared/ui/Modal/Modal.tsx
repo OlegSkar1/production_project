@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 
 import cls from './Modal.module.scss';
 
@@ -71,7 +71,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
       <div
         className={classNames(cls.modal, [className, theme, 'app_modal'], mods)}
         onClick={onCloseHandler}
-        onAnimationEnd={isClosing && onClose}
+        onAnimationEnd={isClosing ? onClose : undefined}
       >
         <div className={cls.overlay}>
           <div className={classNames(cls.content, [className], {})} onClick={onContentClick}>
