@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
@@ -8,7 +10,7 @@ interface ThemeSwitherProps {
   className?: string;
 }
 
-export const ThemeSwither: React.FC<ThemeSwitherProps> = (props) => {
+export const ThemeSwither: React.FC<ThemeSwitherProps> = memo((props) => {
   const { className } = props;
 
   const { theme, toggleTheme } = useTheme();
@@ -18,4 +20,4 @@ export const ThemeSwither: React.FC<ThemeSwitherProps> = (props) => {
       {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
     </Button>
   );
-};
+});

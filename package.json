@@ -18,6 +18,7 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:ok": "loki approve",
+    "test:ui:update": "loki update",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "sb": "start-storybook -p 6006 -c ./config/storybook",
     "sb:build": "build-storybook -c ./config/storybook",

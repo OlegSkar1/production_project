@@ -3,9 +3,11 @@ import { initReactI18next } from 'react-i18next';
 
 import enAbout from '../../../../public/locales/en/about.json';
 import enMain from '../../../../public/locales/en/main.json';
+import enProfile from '../../../../public/locales/en/profile.json';
 import enTranslation from '../../../../public/locales/en/translation.json';
 import ruAbout from '../../../../public/locales/ru/about.json';
 import ruMain from '../../../../public/locales/ru/main.json';
+import ruProfile from '../../../../public/locales/ru/profile.json';
 import ruTranslation from '../../../../public/locales/ru/translation.json';
 
 const resources = {
@@ -13,11 +15,13 @@ const resources = {
     translation: enTranslation,
     main: enMain,
     about: enAbout,
+    profile: enProfile,
   },
   ru: {
     translation: ruTranslation,
     main: ruMain,
     about: ruAbout,
+    profile: ruProfile,
   },
 };
 
