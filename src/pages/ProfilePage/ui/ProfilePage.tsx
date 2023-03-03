@@ -1,7 +1,4 @@
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import cls from './ProfilePage.module.scss';
 
 import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 import { classNames } from 'shared/lib';
@@ -18,7 +15,6 @@ const reducers: ReducersList = {
 
 const ProfilePage: React.FC<ProfilePageProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
 
   useEffect(() => {

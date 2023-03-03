@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useState } from 'react';
 
 import cls from './Sidebar.module.scss';
 

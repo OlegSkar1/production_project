@@ -21,7 +21,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
 
   const { theme } = useTheme();
 
-  const mods: Record<string, boolean> = {
+  const mods: Record<string, boolean | undefined> = {
     [cls.opened]: isOpen,
     [cls.closed]: isClosing,
   };

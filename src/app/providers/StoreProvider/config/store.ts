@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { NavigateOptions, To } from 'react-router-dom';
 

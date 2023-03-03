@@ -10,7 +10,6 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strictNullChecks": false, // проверка на null undefined
     "baseUrl": ".",
     "paths": {
       "*": [
