@@ -29,7 +29,7 @@ export const Input: React.FC<InputProps> = memo((props) => {
 
   return (
     <div className={classNames(cls.inputWrapper, [className], {})}>
-      {label && <div className={cls.label}>{label}</div>}
+      {label && <div>{label}</div>}
       <input ref={ref} type={type} value={value} onChange={onChangeHandler} className={cls.input} {...otherProps} />
     </div>
   );
