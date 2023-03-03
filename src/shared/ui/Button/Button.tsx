@@ -3,6 +3,7 @@ import { ButtonHTMLAttributes, memo } from 'react';
 import cls from './Button.module.scss';
 
 import { classNames } from 'shared/lib';
+import { Additional, Mods } from 'shared/lib/classNames/classNames';
 
 type ButtonVariant = 'clear' | 'clearInverted' | 'outlined' | 'background' | 'backgroundInverted' | 'outlinedInverted';
 
@@ -17,14 +18,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<ButtonProps> = memo((props) => {
-  const { className, children, variant, square, disabled, size = 'small', ...otherProps } = props;
+  const { className, children, variant = 'clear', square, disabled, size = 'small', ...otherProps } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.square]: square,
     [cls.disabled]: disabled,
   };
 
-  const additional = [className, cls[variant], cls[size]];
+  const additional: Additional = [className, cls[variant], cls[size]];
 
   return (
     <button className={classNames(cls.button, additional, mods)} disabled={disabled} {...otherProps}>

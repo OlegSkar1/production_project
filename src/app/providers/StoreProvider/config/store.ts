@@ -1,4 +1,4 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { NavigateOptions, To } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ export const CreateReduxStore = (
   const reducerManager = createReducerManager(rootReducers);
 
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) =>
@@ -36,7 +36,6 @@ export const CreateReduxStore = (
         },
       }),
   });
-
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   store.reducerManager = reducerManager;

@@ -10,7 +10,7 @@ import { Loader, Modal } from 'shared/ui';
 interface LoginModalProps {
   className?: string;
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
 }
 
 export const LoginModal: React.FC<LoginModalProps> = (props) => {
