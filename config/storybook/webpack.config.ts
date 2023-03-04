@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 
 import path from 'path';
@@ -13,29 +12,37 @@ export default ({ config }: { config: webpack.Configuration }) => {
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
-  config.resolve!.modules = [paths.src, 'node_modules'];
-  config.resolve!.extensions!.push('.ts', '.tsx', '.js');
 
-  const rules = config.module!.rules as RuleSetRule[];
+  if (config.resolve) {
+    config.resolve.modules = [paths.src, 'node_modules'];
+    config.resolve.extensions?.push('.ts', '.tsx', '.js');
+  }
 
-  config.module!.rules = rules.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
-    }
-    return rule;
-  });
+  if (config.module) {
+    const rules = config.module.rules as RuleSetRule[];
 
-  config.module!.rules.push({
-    test: /\.svg$/i,
-    use: ['@svgr/webpack'],
-  });
-  config.module!.rules.push(buildCssLoader(true));
+    config.module.rules = rules.map((rule: RuleSetRule) => {
+      if (/svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
+      return rule;
+    });
 
-  config.plugins!.push(
-    new DefinePlugin({
-      __IS_DEV__: true,
-      __API__: '',
-    })
-  );
+    config.module.rules.push({
+      test: /\.svg$/i,
+      use: ['@svgr/webpack'],
+    });
+    config.module.rules.push(buildCssLoader(true));
+  }
+
+  if (config.plugins) {
+    config.plugins.push(
+      new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify(''),
+      })
+    );
+  }
+
   return config;
 };
