@@ -18,3 +18,9 @@
     padding-left: 10px;
   }
 }
+
+.readonly {
+  input[value] {
+    opacity: 0.8;
+  }
+}

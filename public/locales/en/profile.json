@@ -3,5 +3,8 @@
   "profile": "Profile",
   "edit": "Edit",
   "yourName": "Your name",
-  "yourLastname": "Your surname"
+  "yourLastname": "Your surname",
+  "cancel": "Cancel",
+  "profile_title_error": "An error occurred while loading the profile",
+  "profile_text_error": "Try refreshing the pageTry refreshing the page"
 }

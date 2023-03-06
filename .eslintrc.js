@@ -26,7 +26,7 @@ module.exports = {
   rules: {
     'i18next/no-literal-string': [
       2,
-      { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'variant', 'size', 'theme'] },
+      { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'variant', 'size', 'theme', 'align'] },
     ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',

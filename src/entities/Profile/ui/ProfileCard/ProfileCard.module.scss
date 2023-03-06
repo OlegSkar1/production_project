@@ -1,12 +1,7 @@
 .profile-card {
-  max-width: 400px;
+  width: 100%;
   padding: 20px;
   border: 2px solid var(--inverted-bg-color);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
 }
 
 .data {
@@ -16,6 +11,10 @@
   margin-top: 15px;
 }
 
+.loading,
 .error {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
 }

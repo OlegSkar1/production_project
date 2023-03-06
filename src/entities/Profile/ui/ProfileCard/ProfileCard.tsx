@@ -1,39 +1,48 @@
 import { useTranslation } from 'react-i18next';
 
-import { useSelector } from 'react-redux';
-
 import cls from './ProfileCard.module.scss';
 
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { Profile } from '../../model/types/profile';
 
 import { classNames } from 'shared/lib';
-import { Button, Input, Text } from 'shared/ui';
+import { Input, Loader, Text } from 'shared/ui';
 
 interface ProfileCardProps {
   className?: string;
+  data?: Profile;
+  isLoading?: boolean;
+  error?: string;
+  readonly?: boolean;
+  onChangeFirst?: (val: string) => void;
+  onChangeLastName?: (val: string) => void;
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
-  const { className } = props;
+  const { className, data, isLoading, error, readonly, onChangeFirst, onChangeLastName } = props;
 
   const { t } = useTranslation('profile');
-  const data = useSelector(getProfileData);
-  const isLoading = useSelector(getProfileIsLoading);
-  const error = useSelector(getProfileError);
+
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.profileCard, [className, cls.loading], {})}>
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={classNames(cls.profileCard, [className, cls.error], {})}>
+        <Text title={t('profile_title_error')} theme='error' text={t('profile_text_error')} align='center' />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.profileCard, [className], {})}>
-      <div className={cls.header}>
-        <Text title={t('profile')} />
-        <Button disabled={isLoading} variant='outlined'>
-          {t('edit')}
-        </Button>
-      </div>
       <div className={cls.data}>
-        <Input value={data?.first} label={t('yourName')} />
-        <Input value={data?.lastname} label={t('yourLastname')} />
+        <Input readonly={readonly} value={data?.first} label={t('yourName')} onChange={onChangeFirst} />
+        <Input readonly={readonly} value={data?.lastname} label={t('yourLastname')} onChange={onChangeLastName} />
       </div>
     </div>
   );

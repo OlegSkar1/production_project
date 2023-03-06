@@ -3,5 +3,8 @@
   "profile": "Профиль",
   "edit": "Редактировать",
   "yourName": "Ваше имя",
-  "yourLastname": "Ваша фамилия"
+  "yourLastname": "Ваша фамилия",
+  "cancel": "Отменить",
+  "profile_title_error": "Произошла ошибка при загрузке профиля",
+  "profile_text_error": "Попробуйте обновить страницу"
 }

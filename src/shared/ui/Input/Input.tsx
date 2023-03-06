@@ -4,17 +4,18 @@ import cls from './Input.module.scss';
 
 import { classNames } from 'shared/lib';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'disabled'>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
   label?: string;
+  readonly?: boolean;
 }
 
 export const Input: React.FC<InputProps> = memo((props) => {
-  const { className, value, onChange, type = 'text', label, autoFocus, ...otherProps } = props;
+  const { className, value, onChange, type = 'text', label, autoFocus, readonly, ...otherProps } = props;
   const ref = useRef<HTMLInputElement>(null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,9 +29,17 @@ export const Input: React.FC<InputProps> = memo((props) => {
   }, [autoFocus]);
 
   return (
-    <div className={classNames(cls.inputWrapper, [className], {})}>
+    <div className={classNames(cls.inputWrapper, [className], { [cls.readonly]: readonly })}>
       {label && <div>{label}</div>}
-      <input ref={ref} type={type} value={value} onChange={onChangeHandler} className={cls.input} {...otherProps} />
+      <input
+        ref={ref}
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        className={cls.input}
+        disabled={readonly}
+        {...otherProps}
+      />
     </div>
   );
 });

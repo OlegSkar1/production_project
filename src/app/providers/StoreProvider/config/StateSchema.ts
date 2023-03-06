@@ -4,9 +4,9 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 
 import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ProfileCardSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -14,7 +14,7 @@ export interface StateSchema {
 
   // async reducers
   loginForm?: LoginSchema;
-  profile?: ProfileSchema;
+  profile?: ProfileCardSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
