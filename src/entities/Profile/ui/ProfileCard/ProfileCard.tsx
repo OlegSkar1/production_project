@@ -15,10 +15,24 @@ interface ProfileCardProps {
   readonly?: boolean;
   onChangeFirst?: (val: string) => void;
   onChangeLastName?: (val: string) => void;
+  onChangeAge?: (val: string) => void;
+  onChangeCity?: (val: string) => void;
+  onChangeUsername?: (val: string) => void;
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
-  const { className, data, isLoading, error, readonly, onChangeFirst, onChangeLastName } = props;
+  const {
+    className,
+    data,
+    isLoading,
+    error,
+    readonly,
+    onChangeFirst,
+    onChangeLastName,
+    onChangeAge,
+    onChangeCity,
+    onChangeUsername,
+  } = props;
 
   const { t } = useTranslation('profile');
 
@@ -39,10 +53,13 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
   }
 
   return (
-    <div className={classNames(cls.profileCard, [className], {})}>
+    <div className={classNames(cls.profileCard, [className], { [cls.editable]: !readonly })}>
       <div className={cls.data}>
         <Input readonly={readonly} value={data?.first} label={t('yourName')} onChange={onChangeFirst} />
         <Input readonly={readonly} value={data?.lastname} label={t('yourLastname')} onChange={onChangeLastName} />
+        <Input readonly={readonly} value={data?.age} label={t('yourAge')} onChange={onChangeAge} />
+        <Input readonly={readonly} value={data?.city} label={t('yourCity')} onChange={onChangeCity} />
+        <Input readonly={readonly} value={data?.username} label={t('yourUsername')} onChange={onChangeUsername} />
       </div>
     </div>
   );

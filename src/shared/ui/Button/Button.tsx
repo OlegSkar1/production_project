@@ -5,7 +5,14 @@ import cls from './Button.module.scss';
 import { classNames } from 'shared/lib';
 import { Additional, Mods } from 'shared/lib/classNames/classNames';
 
-type ButtonVariant = 'clear' | 'clearInverted' | 'outlined' | 'background' | 'backgroundInverted' | 'outlinedInverted';
+type ButtonVariant =
+  | 'clear'
+  | 'clearInverted'
+  | 'outlined'
+  | 'ontlinedRed'
+  | 'background'
+  | 'backgroundInverted'
+  | 'outlinedInverted';
 
 type ButtonSize = 'small' | 'large' | 'extraLarge';
 

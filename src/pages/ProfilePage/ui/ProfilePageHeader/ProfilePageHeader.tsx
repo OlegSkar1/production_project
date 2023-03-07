@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import cls from './ProfilePageHeader.module.scss';
 
+import { updateProfileData } from 'features/EditableProfileCard';
 import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileCardActions } from 'features/EditableProfileCard/model/slice/profileCardSlice';
 import { classNames } from 'shared/lib';
@@ -16,7 +17,7 @@ interface ProfilePageHeaderProps {
 
 export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation('profile');
+  const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
   const readonly = useSelector(getProfileReadonly);
@@ -29,16 +30,25 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props) => {
     dispatch(profileCardActions.setCancel());
   }, [dispatch]);
 
+  const onSave = useCallback(() => {
+    dispatch(updateProfileData());
+  }, [dispatch]);
+
   return (
     <div className={classNames(cls.profilePageHeader, [className], {})}>
       {readonly ? (
-        <Button className={cls.editBtn} variant='outlined' onClick={onEdit}>
+        <Button variant='outlined' onClick={onEdit}>
           {t('edit')}
         </Button>
       ) : (
-        <Button className={cls.editBtn} variant='outlined' onClick={onCancel}>
-          {t('cancel')}
-        </Button>
+        <>
+          <Button variant='outlined' onClick={onSave}>
+            {t('save')}
+          </Button>
+          <Button variant='ontlinedRed' onClick={onCancel}>
+            {t('cancel')}
+          </Button>
+        </>
       )}
     </div>
   );

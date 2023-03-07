@@ -26,6 +26,13 @@
   border-radius: 5px;
 }
 
+.ontlined_red {
+  color: var(--red-light);
+  background: none;
+  border: 2px solid var(--red-light);
+  border-radius: 5px;
+}
+
 .outlined_inverted {
   color: var(--inverted-primary-color);
   background: none;

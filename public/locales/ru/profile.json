@@ -1,10 +1,11 @@
 {
   "profilePage": "Страница профиля",
   "profile": "Профиль",
-  "edit": "Редактировать",
   "yourName": "Ваше имя",
   "yourLastname": "Ваша фамилия",
-  "cancel": "Отменить",
   "profile_title_error": "Произошла ошибка при загрузке профиля",
-  "profile_text_error": "Попробуйте обновить страницу"
+  "profile_text_error": "Попробуйте обновить страницу",
+  "yourAge": "Ваш возраст",
+  "yourCity": "Ваш город",
+  "yourUsername": "Ваше имя пользователя"
 }

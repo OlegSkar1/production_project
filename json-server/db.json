@@ -28,7 +28,7 @@
   "profile": {
     "first": "Олег",
     "lastname": "Скареднов",
-    "age": 30,
+    "age": "30",
     "currency": "RUB",
     "country": "Russia",
     "city": "Yekaterinburg",

@@ -7,9 +7,9 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileCardActions, profileCardReducer } from '../../model/slice/profileCardSlice';
 
 import { ProfileCard } from 'entities/Profile';
-import { profileCardActions, profileCardReducer } from 'features/EditableProfileCard/model/slice/profileCardSlice';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -45,6 +45,26 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = (props) =
     },
     [dispatch]
   );
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      if (/^\d*$/g.test(value || '')) {
+        dispatch(profileCardActions.updateProfile({ age: value || '' }));
+      }
+    },
+    [dispatch]
+  );
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(profileCardActions.updateProfile({ city: value || '' }));
+    },
+    [dispatch]
+  );
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(profileCardActions.updateProfile({ username: value || '' }));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
@@ -56,6 +76,9 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = (props) =
           readonly={readonly}
           onChangeFirst={onChangeFirst}
           onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
         />
       </div>
     </DynamicModuleLoader>

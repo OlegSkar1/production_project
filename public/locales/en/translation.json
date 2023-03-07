@@ -13,5 +13,8 @@
   "Enter password": "password",
   "authorization form": "Authorization form",
   "You entered an incorrect username or password": "You entered an incorrect username or password",
-  "Sign out": "Sign out"
+  "Sign out": "Sign out",
+  "edit": "Edit",
+  "cancel": "Cancel",
+  "save": "Save"
 }
