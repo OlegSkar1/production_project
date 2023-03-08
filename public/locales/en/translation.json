@@ -16,5 +16,14 @@
   "Sign out": "Sign out",
   "edit": "Edit",
   "cancel": "Cancel",
-  "save": "Save"
+  "save": "Save",
+  "profile": "Profile",
+  "avatar": "Avatar",
+  "currency_label": "Currency",
+  "Country_label": "Your country",
+  "russia": "Russia",
+  "ukraine": "Ukraine",
+  "belarus": "Belarus",
+  "kazakhstan": "Kazakhstan",
+  "armenia": "Armenia"
 }

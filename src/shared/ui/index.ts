@@ -1,3 +1,5 @@
+export { Select } from './Select/Select';
+export { Avatar } from './Avatar/Avatar';
 export { Text } from './Text/Text';
 export { Input } from './Input/Input';
 export { Portal } from './Portal/Portal';

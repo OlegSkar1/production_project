@@ -18,6 +18,18 @@ Normal.args = {
   label: 'Text',
   value: 'text',
 };
+export const Readonly = Template.bind({});
+Readonly.args = {
+  label: 'Text',
+  value: 'text',
+  readonly: true,
+};
+export const Clear = Template.bind({});
+Clear.args = {
+  variant: 'clear',
+  label: 'Text',
+  value: 'text',
+};
 
 export const Dark = Template.bind({});
 Dark.args = { label: 'Text', value: 'text' };

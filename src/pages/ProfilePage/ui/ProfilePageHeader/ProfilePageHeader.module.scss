@@ -1,8 +1,11 @@
 .profile-page-header {
   display: flex;
-  gap: 15px;
   align-items: center;
-  justify-content: flex-end;
-
+  justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.header-btns {
+  display: flex;
+  gap: 15px;
 }

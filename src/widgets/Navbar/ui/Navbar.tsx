@@ -34,17 +34,13 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
     dispatch(userActions.logout());
   }, [dispatch]);
 
-  if (authData) {
-    return (
-      <div className={classNames(cls.navbar, [className], {})}>
-        <Button variant='clear' className={classNames(cls.links)} onClick={onLogout}>
-          {t('Sign out')}
-        </Button>
-      </div>
-    );
-  }
-
-  return (
+  return authData ? (
+    <div className={classNames(cls.navbar, [className], {})}>
+      <Button variant='clear' className={classNames(cls.links)} onClick={onLogout}>
+        {t('Sign out')}
+      </Button>
+    </div>
+  ) : (
     <div className={classNames(cls.navbar, [className], {})}>
       <Button variant='clear' className={classNames(cls.links)} onClick={onShowModal}>
         {t('Sign in')}

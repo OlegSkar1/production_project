@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import cls from './EditableProfileCard.module.scss';
@@ -9,7 +9,10 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileCardActions, profileCardReducer } from '../../model/slice/profileCardSlice';
 
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
+import { fetchProfileData } from 'features/EditableProfileCard/model/services/fetchProfileData';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -22,15 +25,19 @@ const initialReducers: ReducersList = {
   profile: profileCardReducer,
 };
 
-export const EditableProfileCard: React.FC<EditableProfileCardProps> = (props) => {
+export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((props) => {
   const { className } = props;
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
 
   const data = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
-
-  const dispatch = useAppDispatch();
 
   const onChangeFirst = useCallback(
     (value?: string) => {
@@ -65,6 +72,24 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = (props) =
     },
     [dispatch]
   );
+  const onChangeAvatarLink = useCallback(
+    (value?: string) => {
+      dispatch(profileCardActions.updateProfile({ avatar: value || '' }));
+    },
+    [dispatch]
+  );
+  const onChangeCurrency = useCallback(
+    (currency: Currency) => {
+      dispatch(profileCardActions.updateProfile({ currency }));
+    },
+    [dispatch]
+  );
+  const onChangeCountry = useCallback(
+    (country: Country) => {
+      dispatch(profileCardActions.updateProfile({ country }));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
@@ -79,8 +104,11 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = (props) =
           onChangeAge={onChangeAge}
           onChangeCity={onChangeCity}
           onChangeUsername={onChangeUsername}
+          onChangeAvatarLink={onChangeAvatarLink}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
         />
       </div>
     </DynamicModuleLoader>
   );
-};
+});

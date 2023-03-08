@@ -4,8 +4,11 @@ import cls from './ProfileCard.module.scss';
 
 import { Profile } from '../../model/types/profile';
 
+import { Country, CountrySelect } from 'entities/Country';
+import { Currency, CurrencySelect } from 'entities/Currency';
 import { classNames } from 'shared/lib';
 import { Input, Loader, Text } from 'shared/ui';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface ProfileCardProps {
   className?: string;
@@ -18,6 +21,9 @@ interface ProfileCardProps {
   onChangeAge?: (val: string) => void;
   onChangeCity?: (val: string) => void;
   onChangeUsername?: (val: string) => void;
+  onChangeAvatarLink?: (val: string) => void;
+  onChangeCurrency?: (val: Currency) => void;
+  onChangeCountry?: (val: Country) => void;
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
@@ -32,6 +38,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
     onChangeAge,
     onChangeCity,
     onChangeUsername,
+    onChangeAvatarLink,
+    onChangeCurrency,
+    onChangeCountry,
   } = props;
 
   const { t } = useTranslation('profile');
@@ -55,11 +64,33 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
   return (
     <div className={classNames(cls.profileCard, [className], { [cls.editable]: !readonly })}>
       <div className={cls.data}>
-        <Input readonly={readonly} value={data?.first} label={t('yourName')} onChange={onChangeFirst} />
-        <Input readonly={readonly} value={data?.lastname} label={t('yourLastname')} onChange={onChangeLastName} />
-        <Input readonly={readonly} value={data?.age} label={t('yourAge')} onChange={onChangeAge} />
-        <Input readonly={readonly} value={data?.city} label={t('yourCity')} onChange={onChangeCity} />
-        <Input readonly={readonly} value={data?.username} label={t('yourUsername')} onChange={onChangeUsername} />
+        {data?.avatar && <Avatar src={data.avatar} alt={t('avatar', { ns: 'translation' })} />}
+        <Input variant='clear' readonly={readonly} value={data?.first} label={t('yourName')} onChange={onChangeFirst} />
+        <Input
+          variant='clear'
+          readonly={readonly}
+          value={data?.lastname}
+          label={t('yourLastname')}
+          onChange={onChangeLastName}
+        />
+        <Input variant='clear' readonly={readonly} value={data?.age} label={t('yourAge')} onChange={onChangeAge} />
+        <Input variant='clear' readonly={readonly} value={data?.city} label={t('yourCity')} onChange={onChangeCity} />
+        <Input
+          variant='clear'
+          readonly={readonly}
+          value={data?.username}
+          label={t('yourUsername')}
+          onChange={onChangeUsername}
+        />
+        <Input
+          variant='clear'
+          readonly={readonly}
+          value={data?.avatar}
+          label={t('avatar_path')}
+          onChange={onChangeAvatarLink}
+        />
+        <CurrencySelect onChange={onChangeCurrency} readonly={readonly} value={data?.currency} />
+        <CountrySelect onChange={onChangeCountry} readonly={readonly} value={data?.country} />
       </div>
     </div>
   );

@@ -3,8 +3,10 @@ import { InputHTMLAttributes, memo, useEffect, useRef } from 'react';
 import cls from './Input.module.scss';
 
 import { classNames } from 'shared/lib';
+import { Mods } from 'shared/lib/classNames/classNames';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'disabled'>;
+type InputVariant = 'default' | 'clear';
 
 interface InputProps extends HTMLInputProps {
   className?: string;
@@ -12,10 +14,21 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   label?: string;
   readonly?: boolean;
+  variant?: InputVariant;
 }
 
 export const Input: React.FC<InputProps> = memo((props) => {
-  const { className, value, onChange, type = 'text', label, autoFocus, readonly, ...otherProps } = props;
+  const {
+    className,
+    value,
+    onChange,
+    type = 'text',
+    label,
+    autoFocus,
+    readonly,
+    variant = 'default',
+    ...otherProps
+  } = props;
   const ref = useRef<HTMLInputElement>(null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,9 +41,14 @@ export const Input: React.FC<InputProps> = memo((props) => {
     }
   }, [autoFocus]);
 
+  const mods: Mods = {
+    [cls.readonly]: readonly,
+    [cls[variant]]: variant,
+  };
+
   return (
-    <div className={classNames(cls.inputWrapper, [className], { [cls.readonly]: readonly })}>
-      {label && <div>{label}</div>}
+    <div className={classNames(cls.inputWrapper, [className], mods)}>
+      {label && <div className={cls.label}>{label}</div>}
       <input
         ref={ref}
         type={type}

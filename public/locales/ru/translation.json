@@ -16,5 +16,14 @@
   "Sign out": "Выйти",
   "edit": "Редактировать",
   "cancel": "Отменить",
-  "save": "Сохранить"
+  "save": "Сохранить",
+  "profile": "Профиль",
+  "avatar": "Аватар",
+  "currency_label": "Валюта",
+  "Country_label": "Ваша страна",
+  "russia": "Россия",
+  "ukraine": "Украина",
+  "belarus": "Беларусь",
+  "kazakhstan": "Казахстан",
+  "armenia": "Армения"
 }

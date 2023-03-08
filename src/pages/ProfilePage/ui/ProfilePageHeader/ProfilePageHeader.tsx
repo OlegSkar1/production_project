@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -9,13 +9,13 @@ import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors
 import { profileCardActions } from 'features/EditableProfileCard/model/slice/profileCardSlice';
 import { classNames } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button } from 'shared/ui';
+import { Button, Text } from 'shared/ui';
 
 interface ProfilePageHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props) => {
+export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation();
 
@@ -36,20 +36,21 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = (props) => {
 
   return (
     <div className={classNames(cls.profilePageHeader, [className], {})}>
+      <Text title={t('profile')} />
       {readonly ? (
         <Button variant='outlined' onClick={onEdit}>
           {t('edit')}
         </Button>
       ) : (
-        <>
+        <div className={cls.headerBtns}>
           <Button variant='outlined' onClick={onSave}>
             {t('save')}
           </Button>
           <Button variant='ontlinedRed' onClick={onCancel}>
             {t('cancel')}
           </Button>
-        </>
+        </div>
       )}
     </div>
   );
-};
+});

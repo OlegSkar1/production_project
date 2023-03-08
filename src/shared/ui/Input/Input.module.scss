@@ -9,7 +9,6 @@
 
   color: var(--inverted-secondary-color);
 
-  background: var(--inverted-bg-color);
   border: none;
   border-radius: 6px;
   outline: none;
@@ -20,7 +19,19 @@
 }
 
 .readonly {
-  input[value] {
-    opacity: 0.8;
+  .input[value] {
+    opacity: 0.7;
   }
+}
+
+.default .input {
+  background: var(--inverted-bg-color);
+}
+
+.clear .input {
+  background: none;
+}
+
+.label {
+  flex-shrink: 0;
 }

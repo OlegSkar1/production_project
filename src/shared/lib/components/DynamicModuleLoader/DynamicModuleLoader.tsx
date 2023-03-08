@@ -24,7 +24,6 @@ export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = (props) =
 
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
-      if (store.reducerManager.getReducerMap()[name as StateSchemaKey]) return;
       store.reducerManager.add(name as StateSchemaKey, reducer);
       dispatch({ type: `@@INIT ${name} reducer` });
     });
