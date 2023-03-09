@@ -7,12 +7,12 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { fetchProfileData } from '../../model/services/fetchProfileData';
 import { profileCardActions, profileCardReducer } from '../../model/slice/profileCardSlice';
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
-import { fetchProfileData } from 'features/EditableProfileCard/model/services/fetchProfileData';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';

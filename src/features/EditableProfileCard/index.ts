@@ -1,4 +1,11 @@
+export { getProfileData } from './model/selectors/getProfileData/getProfileData';
+export { getProfileError } from './model/selectors/getProfileError/getProfileError';
+export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
+export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
+export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+export { validateProfileErrors } from './model/services/validateProfileErrors';
 export { updateProfileData } from './model/services/updateProfileData';
 export { fetchProfileData } from './model/services/fetchProfileData';
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
-export { ProfileCardSchema } from './model/types/ProfileCardSchema';
+export { ProfileCardSchema, ValidateProfileErrors } from './model/types/ProfileCardSchema';

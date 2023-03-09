@@ -13,6 +13,7 @@ const initialState: ProfileCardSchema = {
   isLoading: false,
   error: undefined,
   readonly: true,
+  validateErrors: undefined,
 };
 
 export const profileCardSlice = createSlice({
@@ -25,6 +26,7 @@ export const profileCardSlice = createSlice({
     setCancel: (state) => {
       state.readonly = true;
       state.form = state.data;
+      state.validateErrors = undefined;
     },
     updateProfile: (state, action: PayloadAction<Profile>) => {
       state.form = {
@@ -49,7 +51,7 @@ export const profileCardSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(updateProfileData.pending, (state) => {
-        state.error = undefined;
+        state.validateErrors = undefined;
         state.isLoading = true;
       })
       .addCase(updateProfileData.fulfilled, (state, action) => {
@@ -59,7 +61,7 @@ export const profileCardSlice = createSlice({
         state.readonly = true;
       })
       .addCase(updateProfileData.rejected, (state, action) => {
-        state.error = action.payload;
+        state.validateErrors = action.payload;
         state.isLoading = false;
       });
   },

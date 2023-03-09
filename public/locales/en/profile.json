@@ -3,9 +3,13 @@
   "yourName": "Your name",
   "yourLastname": "Your surname",
   "profile_title_error": "An error occurred while loading the profile",
-  "profile_text_error": "Try refreshing the pageTry refreshing the page",
+  "profile_text_error": "Try refreshing the page",
   "yourAge": "Your age",
   "yourCity": "Your City",
   "yourUsername": "Your user name",
-  "avatar_path": "Enter link to avatar"
+  "avatar_path": "Enter link to avatar",
+  "incorrect_data": "First and last name are required",
+  "incorrect_age": "Incorrect age",
+  "no_data": "Data not specifiedData not specified",
+  "server_error": "Server error on save"
 }
