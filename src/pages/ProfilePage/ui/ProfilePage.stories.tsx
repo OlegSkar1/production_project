@@ -5,7 +5,6 @@ import ProfilePage from './ProfilePage';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ValidateProfileErrors } from 'features/EditableProfileCard';
 import avatar from 'shared/assets/images/avatar.jpg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';

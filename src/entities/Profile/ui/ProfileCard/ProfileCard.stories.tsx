@@ -2,10 +2,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ProfileCard } from './ProfileCard';
 
+import avatar from '../../../../shared/assets/images/avatar.jpg';
+
 import { Country } from 'entities/Country';
 
 import { Currency } from 'entities/Currency';
-import avatar from 'shared/assets/images/avatar.jpg';
 
 export default {
   title: 'entities/ProfileCard',
