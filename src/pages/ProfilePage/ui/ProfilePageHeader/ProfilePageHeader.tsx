@@ -31,7 +31,9 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-    dispatch(updateProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(updateProfileData());
+    }
   }, [dispatch]);
 
   return (

@@ -1,4 +1,4 @@
-import { ValidateProfileErrors } from '../types/ProfileCardSchema';
+import { ValidateProfileErrors } from '../../types/ProfileCardSchema';
 
 import { Profile } from 'entities/Profile';
 

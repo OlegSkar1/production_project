@@ -7,7 +7,7 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import { fetchProfileData } from '../../model/services/fetchProfileData';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileCardActions, profileCardReducer } from '../../model/slice/profileCardSlice';
 
 import { Country } from 'entities/Country';
@@ -31,7 +31,9 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const data = useSelector(getProfileForm);

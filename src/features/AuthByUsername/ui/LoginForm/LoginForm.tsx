@@ -51,9 +51,11 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
   );
 
   const onButtonClick = useCallback(async () => {
-    const result = await dispatch(loginByUsername({ username, password }));
-    if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess();
+    if (__PROJECT__ !== 'storybook') {
+      const result = await dispatch(loginByUsername({ username, password }));
+      if (result.meta.requestStatus === 'fulfilled') {
+        onSuccess();
+      }
     }
   }, [dispatch, onSuccess, password, username]);
 
@@ -66,7 +68,12 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
         )}
         <Input onChange={loginHandler} value={username} type='text' label={t('Enter login')} autoFocus />
         <Input onChange={passwordHandler} value={password} type='password' label={t('Enter password')} />
-        <Button disabled={isLoading} variant='outlined' onClick={onButtonClick} className={cls.loginBtn}>
+        <Button
+          disabled={isLoading}
+          variant='outlined'
+          onClick={onButtonClick}
+          className={classNames(cls.loginBtn, [], { [cls.loading]: isLoading })}
+        >
           {t('Sign in')}
         </Button>
       </div>
