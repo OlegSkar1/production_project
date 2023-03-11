@@ -31,3 +31,12 @@ Dark.args = {
 };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Blue = Template.bind({});
+Blue.args = {
+  children:
+    // eslint-disable-next-line max-len
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
+};
+
+Blue.decorators = [ThemeDecorator(Theme.BLUE)];

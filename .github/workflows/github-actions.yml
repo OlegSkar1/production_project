@@ -5,15 +5,13 @@ on:
     branches:
       - main
       - dev
-      - ci-cd
   pull_request:
     branches:
       - main
       - dev
-      - ci-cd
 jobs:
   buildAndTest:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [17.x]

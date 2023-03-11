@@ -27,7 +27,10 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
   }, [dispatch]);
 
   const onCancel = useCallback(() => {
-    dispatch(profileCardActions.setCancel());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(profileCardActions.setCancel());
+    }
+    dispatch(profileCardActions.setReadonly(true));
   }, [dispatch]);
 
   const onSave = useCallback(() => {

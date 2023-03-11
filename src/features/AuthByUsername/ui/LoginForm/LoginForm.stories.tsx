@@ -22,6 +22,10 @@ export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: 'asd' } }), ThemeDecorator(Theme.DARK)];
 
+export const Blue = Template.bind({});
+Blue.args = {};
+Blue.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: 'asd' } }), ThemeDecorator(Theme.BLUE)];
+
 export const WithError = Template.bind({});
 WithError.args = {};
 WithError.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: 'asd', error: 'ERROR' } })];

@@ -43,16 +43,28 @@ PrimaryDark.args = {
   children: 'Text',
   theme: 'primary',
 };
-
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PrimaryBlue = Template.bind({});
+PrimaryBlue.args = {
+  children: 'Text',
+  theme: 'primary',
+};
+PrimaryBlue.decorators = [ThemeDecorator(Theme.BLUE)];
 
 export const SecondaryDark = Template.bind({});
 SecondaryDark.args = {
   children: 'Text',
   theme: 'secondary',
 };
-
 SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SecondaryBlue = Template.bind({});
+SecondaryBlue.args = {
+  children: 'Text',
+  theme: 'secondary',
+};
+SecondaryBlue.decorators = [ThemeDecorator(Theme.BLUE)];
 
 export const InvertedPrimaryDark = Template.bind({});
 InvertedPrimaryDark.args = {
@@ -61,9 +73,23 @@ InvertedPrimaryDark.args = {
 };
 InvertedPrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const InvertedPrimaryBlue = Template.bind({});
+InvertedPrimaryBlue.args = {
+  children: 'Text',
+  theme: 'invertedPrimary',
+};
+InvertedPrimaryBlue.decorators = [ThemeDecorator(Theme.BLUE)];
+
 export const InvertedSecondaryDark = Template.bind({});
 InvertedSecondaryDark.args = {
   children: 'Text',
   theme: 'invertedSecondary',
 };
 InvertedSecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const InvertedSecondaryBlue = Template.bind({});
+InvertedSecondaryBlue.args = {
+  children: 'Text',
+  theme: 'invertedSecondary',
+};
+InvertedSecondaryBlue.decorators = [ThemeDecorator(Theme.BLUE)];

@@ -24,9 +24,16 @@ Readonly.args = {
   value: 'text',
   readonly: true,
 };
+
 export const Clear = Template.bind({});
 Clear.args = {
   variant: 'clear',
+  label: 'Text',
+  value: 'text',
+};
+export const Inverted = Template.bind({});
+Inverted.args = {
+  variant: 'inverted',
   label: 'Text',
   value: 'text',
 };
@@ -35,3 +42,8 @@ export const Dark = Template.bind({});
 Dark.args = { label: 'Text', value: 'text' };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Blue = Template.bind({});
+Blue.args = { label: 'Text', value: 'text' };
+
+Blue.decorators = [ThemeDecorator(Theme.BLUE)];
