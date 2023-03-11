@@ -1,21 +1,18 @@
-.title {
-  font: var(--font-l);
-  color: var(--primary-color);
-}
-
-.paragraph {
-  font: var(--font-m);
-  color: var(--secondary-color);
-}
-
+.primary,
 .error {
+  color: var(--primary-color);
+
   .title {
-    color: var(--red-light);
+    font: var(--font-l);
   }
 
   .paragraph {
-    color: var(--red-dark);
+    font: var(--font-m);
   }
+}
+
+.error {
+  color: var(--red-light);
 }
 
 .left {

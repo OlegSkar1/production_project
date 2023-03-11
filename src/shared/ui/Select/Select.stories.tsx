@@ -32,3 +32,14 @@ Dark.args = {
 };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Blue = Template.bind({});
+Blue.args = {
+  options: [
+    { value: '123', content: 'Первый пункт' },
+    { value: '12345', content: 'Второй пункт' },
+  ],
+  label: 'Укажите значение',
+};
+
+Blue.decorators = [ThemeDecorator(Theme.BLUE)];

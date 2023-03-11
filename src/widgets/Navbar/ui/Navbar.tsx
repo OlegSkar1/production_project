@@ -36,13 +36,13 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
 
   return authData ? (
     <div className={classNames(cls.navbar, [className], {})}>
-      <Button variant='clear' className={classNames(cls.links)} onClick={onLogout}>
+      <Button variant='clearInverted' className={classNames(cls.links)} onClick={onLogout}>
         {t('Sign out')}
       </Button>
     </div>
   ) : (
     <div className={classNames(cls.navbar, [className], {})}>
-      <Button variant='clear' className={classNames(cls.links)} onClick={onShowModal}>
+      <Button variant='clearInverted' className={classNames(cls.links)} onClick={onShowModal}>
         {t('Sign in')}
       </Button>
       {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}

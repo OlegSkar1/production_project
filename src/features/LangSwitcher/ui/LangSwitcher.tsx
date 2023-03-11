@@ -17,7 +17,7 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = memo((props) => {
     i18n.changeLanguage(i18n.language.includes('ru') ? 'en' : 'ru');
   };
   return (
-    <Button variant='clear' onClick={changeLang}>
+    <Button variant='clearInverted' onClick={changeLang}>
       {t(short ? 'shortLng' : 'language')}
     </Button>
   );

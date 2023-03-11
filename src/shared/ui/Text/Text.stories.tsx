@@ -66,3 +66,28 @@ onlyTextDark.args = {
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
 };
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const DefaultBlue = Template.bind({});
+DefaultBlue.args = {
+  title: 'Title Lorem ipsum',
+  text:
+    // eslint-disable-next-line max-len
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
+};
+DefaultBlue.decorators = [ThemeDecorator(Theme.BLUE)];
+
+export const onlyTitleBlue = Template.bind({});
+onlyTitleBlue.args = {
+  title:
+    // eslint-disable-next-line max-len
+    'Lorem ipsum dolor',
+};
+onlyTitleBlue.decorators = [ThemeDecorator(Theme.BLUE)];
+
+export const onlyTextBlue = Template.bind({});
+onlyTextBlue.args = {
+  text:
+    // eslint-disable-next-line max-len
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
+};
+onlyTextBlue.decorators = [ThemeDecorator(Theme.BLUE)];

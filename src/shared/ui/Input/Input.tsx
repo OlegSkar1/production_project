@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib';
 import { Mods } from 'shared/lib/classNames/classNames';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'disabled'>;
-type InputVariant = 'default' | 'clear';
+type InputVariant = 'default' | 'clear' | 'inverted';
 
 interface InputProps extends HTMLInputProps {
   className?: string;
@@ -43,18 +43,17 @@ export const Input: React.FC<InputProps> = memo((props) => {
 
   const mods: Mods = {
     [cls.readonly]: readonly,
-    [cls[variant]]: variant,
   };
 
   return (
-    <div className={classNames(cls.inputWrapper, [className], mods)}>
-      {label && <div className={cls.label}>{label}</div>}
+    <div className={classNames(cls.inputWrapper, [className], {})}>
+      {label && <span>{label}</span>}
       <input
         ref={ref}
         type={type}
         value={value}
         onChange={onChangeHandler}
-        className={cls.input}
+        className={classNames(cls.input, [className, cls[variant]], mods)}
         disabled={readonly}
         {...otherProps}
       />

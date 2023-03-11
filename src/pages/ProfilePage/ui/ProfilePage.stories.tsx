@@ -5,9 +5,10 @@ import ProfilePage from './ProfilePage';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import avatar from 'shared/assets/images/avatar.jpg';
+
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { avatar } from 'shared/const/imagePaths';
 
 export default {
   title: 'pages/ProfilePage',

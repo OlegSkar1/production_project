@@ -66,8 +66,14 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
         {error && (
           <Text text={t('You entered an incorrect username or password')} theme='error' className={cls.formError} />
         )}
-        <Input onChange={loginHandler} value={username} type='text' label={t('Enter login')} autoFocus />
-        <Input onChange={passwordHandler} value={password} type='password' label={t('Enter password')} />
+        <Input onChange={loginHandler} value={username} variant='inverted' label={t('Enter login')} autoFocus />
+        <Input
+          onChange={passwordHandler}
+          value={password}
+          variant='inverted'
+          type='password'
+          label={t('Enter password')}
+        />
         <Button
           disabled={isLoading}
           variant='outlined'

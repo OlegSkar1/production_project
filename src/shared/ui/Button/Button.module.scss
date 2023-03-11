@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
 
-  color: var(--secondary-color);
+  color: var(--primary-color);
 
   background: none;
   border: none;
@@ -47,7 +47,7 @@
 }
 
 .background_inverted {
-  color: var(--inverted-secondary-color);
+  color: var(--inverted-primary-color);
   background: var(--inverted-bg-color);
   border: none;
 }

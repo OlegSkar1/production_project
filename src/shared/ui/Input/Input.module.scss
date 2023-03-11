@@ -7,7 +7,7 @@
 .input {
   flex-grow: 1;
 
-  color: var(--inverted-secondary-color);
+  color: var(--primary-color);
 
   border: none;
   border-radius: 6px;
@@ -18,20 +18,22 @@
   }
 }
 
-.readonly {
-  .input[value] {
-    opacity: 0.7;
-  }
+.inverted {
+  color: var(--secondary-color);
 }
 
-.default .input {
+.readonly {
+  opacity: 0.7;
+}
+
+.default {
   background: var(--inverted-bg-color);
 }
 
-.clear .input {
+.clear {
   background: none;
 }
 
-.label {
+.clear-inverted {
   flex-shrink: 0;
 }
