@@ -15,7 +15,7 @@ describe('userSlice', () => {
     const state: DeepPartial<UserSchema> = {
       authData: userValue,
     };
-    expect(userReducer(state as UserSchema, userActions.getAuthData())).toEqual({ authData: userValue });
+    expect(userReducer(state as UserSchema, userActions.getAuthData())).toEqual({ authData: userValue, _inited: true });
   });
   it('should logout', () => {
     const state: DeepPartial<UserSchema> = {
