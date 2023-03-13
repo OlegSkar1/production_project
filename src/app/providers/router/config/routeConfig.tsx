@@ -1,6 +1,8 @@
 import { RouteProps } from 'react-router-dom';
 
 import { AboutPage } from 'pages/AboutPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
@@ -17,7 +19,11 @@ export const AppRoutes = {
   MAIN: 'main',
   ABOUT: 'about',
   PROFILE: 'profile',
-  NOT_FOUND: 'notFound', // несуществующий роут, должен быть последним
+  ARTICLES: 'articles',
+  ARTICLES_DETAILS: 'articles_details',
+
+  // несуществующий роут, должен быть последним
+  NOT_FOUND: 'notFound',
 } as const;
 
 export const routePath: Record<AppRoutes, string> = {
@@ -25,6 +31,8 @@ export const routePath: Record<AppRoutes, string> = {
   about: '/about',
   profile: '/profile',
   notFound: '*',
+  articles: '/articles',
+  articles_details: '/articles/', // +id
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -39,6 +47,16 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   profile: {
     path: routePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  articles: {
+    path: routePath.articles,
+    element: <ArticlesPage />,
+    authOnly: true,
+  },
+  articles_details: {
+    path: routePath.articles_details + ':id',
+    element: <ArticleDetailsPage />,
     authOnly: true,
   },
   notFound: {

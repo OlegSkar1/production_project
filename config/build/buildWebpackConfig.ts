@@ -18,6 +18,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       path: paths.build,
       clean: true,
       assetModuleFilename: 'assets/[contenthash].[ext]',
+      publicPath: '/',
     },
     module: {
       rules: buildLoaders(options),

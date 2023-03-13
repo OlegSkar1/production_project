@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
@@ -33,4 +34,4 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
   );
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);
