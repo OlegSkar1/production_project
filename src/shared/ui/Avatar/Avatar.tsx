@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { CSSProperties, memo, useMemo } from 'react';
 
 import cls from './Avatar.module.scss';
 
@@ -8,13 +8,21 @@ type AvatarSize = 'normal' | 'small';
 
 interface AvatarProps {
   className?: string;
-  src?: string;
-  alt?: string;
-  size?: AvatarSize;
+  src: string;
+  alt: string;
+  size?: AvatarSize | number;
 }
 
 export const Avatar: React.FC<AvatarProps> = memo((props) => {
   const { className, src, size = 'normal', alt } = props;
 
-  return <img src={src} alt={alt} className={classNames(cls.avatar, [className, cls[size]], {})} />;
+  const styles = useMemo<CSSProperties>(
+    () => ({
+      width: size,
+      height: size,
+    }),
+    [size]
+  );
+
+  return <img src={src} alt={alt} className={classNames(cls.avatar, [className, cls[size]], {})} style={styles} />;
 });

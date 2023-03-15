@@ -1,3 +1,11 @@
 .article-text-block {
-	
+	display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.paragraph-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
 }

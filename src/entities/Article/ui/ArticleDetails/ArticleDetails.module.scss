@@ -8,3 +8,39 @@
     gap: 16px;
     justify-content: center;
 }
+
+.skeleton-circle {
+    margin: 0 auto
+}
+
+.avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.views-wrapper,
+.calendar-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.views-wrapper {
+    margin-bottom: 10px;
+}
+
+.calendar-wrapper {
+    margin-bottom: 16px;
+}
+
+.article-title,
+.article-sub-title {
+    margin-bottom: 15px;
+}
+
+.block-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

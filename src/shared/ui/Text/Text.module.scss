@@ -1,7 +1,4 @@
-.primary,
-.error {
-  color: var(--primary-color);
-
+.size_m {
   .title {
     font: var(--font-l);
   }
@@ -10,6 +7,21 @@
     font: var(--font-m);
   }
 }
+
+.size_l {
+  .title {
+    font: var(--font-xl);
+  }
+
+  .paragraph {
+    font: var(--font-l);
+  }
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
 
 .error {
   color: var(--red-light);

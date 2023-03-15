@@ -5,26 +5,26 @@ interface BaseBlock {
   type: BlockType;
 }
 
-interface TextBlock extends BaseBlock {
+export interface TextBlock extends BaseBlock {
   type: 'TEXT';
   title?: string;
   paragraph: string[];
 }
 
-interface CodeBlock extends BaseBlock {
+export interface CodeBlock extends BaseBlock {
   type: 'CODE';
   code: string;
 }
 
-interface ImageBlock extends BaseBlock {
+export interface ImageBlock extends BaseBlock {
   type: 'IMAGE';
   title: string;
   src: string;
 }
 
-type ArticleBlock = TextBlock | ImageBlock | CodeBlock;
+export type ArticleBlock = TextBlock | ImageBlock | CodeBlock;
 
-type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS';
+export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS';
 
 export interface Article {
   id: string;

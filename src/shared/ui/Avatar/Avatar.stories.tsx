@@ -24,3 +24,10 @@ Small.args = {
   alt: 'avatar',
   size: 'small',
 };
+
+export const Custom = Template.bind({});
+Custom.args = {
+  src: avatar,
+  alt: 'avatar',
+  size: 200,
+};

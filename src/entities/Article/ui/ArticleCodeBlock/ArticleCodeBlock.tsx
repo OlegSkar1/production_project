@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleCodeBlock.module.scss';
@@ -9,9 +9,9 @@ interface ArticleCodeBlockProps {
   className?: string;
 }
 
-export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = (props) => {
+export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation();
 
-  return <div className={classNames(cls.articleCodeBlock, [className], {})}></div>;
-};
+  return <div className={classNames(cls.articleCodeBlock, [className], {})}>ArticleCodeBlock</div>;
+});

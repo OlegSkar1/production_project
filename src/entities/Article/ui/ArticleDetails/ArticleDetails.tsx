@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
@@ -9,13 +9,24 @@ import { fetchArticleById } from '../../model/services/fetchArticleById';
 
 import { articleReducer } from '../../model/slice/articleSlice';
 
+import { ArticleBlock } from '../../model/types/article';
+
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
+
+import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
+
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+
 import { getArticleData } from 'entities/Article/model/selectors/getArticleData/getArticleData';
 import { getArticleError } from 'entities/Article/model/selectors/getArticleError/getArticleError';
 import { getArticleIsLoading } from 'entities/Article/model/selectors/getArticleIsLoading/getArticleIsLoading';
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Skeleton, Text } from 'shared/ui';
+import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
+import { Avatar, Icon, Skeleton, Text } from 'shared/ui';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -24,6 +35,19 @@ interface ArticleDetailsProps {
 
 const initialReducers: ReducersList = {
   article: articleReducer,
+};
+
+const articleBlock = (block: ArticleBlock) => {
+  switch (block.type) {
+    case 'CODE':
+      return <ArticleCodeBlock />;
+    case 'IMAGE':
+      return <ArticleImageBlock />;
+    case 'TEXT':
+      return <ArticleTextBlock block={block} />;
+    default:
+      return null;
+  }
 };
 
 export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
@@ -36,20 +60,20 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
 
   const { t } = useTranslation('articles');
 
-  useEffect(() => {
+  useInitEffect(() => {
     dispatch(fetchArticleById(id));
-  }, [dispatch, id]);
+  });
 
   let content;
 
   if (loading) {
     content = (
       <div className={cls.skeletonWrapper}>
-        <Skeleton variant='circle' />
-        <Skeleton variant='title' />
-        <Skeleton variant='text' />
-        <Skeleton variant='text' />
-        <Skeleton variant='text' />
+        <Skeleton variant='circle' className={cls.skeletonCircle} width={200} height={200} />
+        <Skeleton variant='title' height={32} />
+        <Skeleton variant='text' height={24} />
+        <Skeleton variant='text' width={55} />
+        <Skeleton variant='text' width={105} />
         <Skeleton variant='text' />
         <Skeleton variant='text' />
         <Skeleton variant='text' height={50} />
@@ -58,8 +82,25 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
     );
   } else if (error) {
     content = <Text align='center' title={t('an error occurred while loading the article')} />;
-  } else {
-    content = <div>article details</div>;
+  } else if (article) {
+    content = (
+      <>
+        <div className={cls.avatarWrapper}>
+          <Avatar size={200} src={article.img} alt={article.title} />
+        </div>
+        <Text title={article.title} size='size_l' className={cls.articleTitle} />
+        <Text text={article.subtitle} size='size_l' className={cls.articleSubTitle} />
+        <div className={cls.viewsWrapper}>
+          <Icon Svg={EyeIcon} />
+          <Text text={String(article.views)} />
+        </div>
+        <div className={cls.calendarWrapper}>
+          <Icon Svg={CalendarIcon} />
+          <Text text={article.createdAt} />
+        </div>
+        <div className={cls.blockWrapper}>{article.blocks.map(articleBlock)}</div>
+      </>
+    );
   }
 
   return (
