@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleCodeBlock.module.scss';
 
+import { CodeBlock } from '../../model/types/article';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 
 interface ArticleCodeBlockProps {

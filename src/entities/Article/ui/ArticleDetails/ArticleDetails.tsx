@@ -40,11 +40,11 @@ const initialReducers: ReducersList = {
 const articleBlock = (block: ArticleBlock) => {
   switch (block.type) {
     case 'CODE':
-      return <ArticleCodeBlock />;
+      return <ArticleCodeBlock key={block.id} />;
     case 'IMAGE':
-      return <ArticleImageBlock />;
+      return <ArticleImageBlock key={block.id} />;
     case 'TEXT':
-      return <ArticleTextBlock block={block} />;
+      return <ArticleTextBlock block={block} key={block.id} />;
     default:
       return null;
   }

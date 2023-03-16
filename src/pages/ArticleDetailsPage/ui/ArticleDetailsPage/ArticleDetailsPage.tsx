@@ -23,7 +23,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   return (
     <div className={classNames('', [className], {})}>
-      <ArticleDetails id={id} className={cls.test} />
+      <ArticleDetails id={id} />
     </div>
   );
 };
