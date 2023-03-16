@@ -1,4 +1,3 @@
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import webpack from 'webpack';
 
 import { buildDevserver } from './buildDevServer';
@@ -24,9 +23,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       rules: buildLoaders(options),
     },
     resolve: buildResolver(options),
-    plugins: isDev
-      ? [...buildPlugins(options), new ReactRefreshWebpackPlugin({ overlay: false })].filter(Boolean)
-      : buildPlugins(options),
+    plugins: buildPlugins(options),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevserver(options) : undefined,
   };

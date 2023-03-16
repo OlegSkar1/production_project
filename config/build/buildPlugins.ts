@@ -1,5 +1,7 @@
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
@@ -36,10 +38,11 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): W
         },
       ],
     }),
+    new ForkTsCheckerWebpackPlugin({ async: false }),
   ];
 
   if (isDev) {
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }), new ReactRefreshWebpackPlugin({ overlay: false }));
   }
 
   return plugins;

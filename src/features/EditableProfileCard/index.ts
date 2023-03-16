@@ -8,4 +8,5 @@ export { validateProfileErrors } from './model/services/validateProfileErrors/va
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
-export { ProfileCardSchema, ValidateProfileErrors } from './model/types/ProfileCardSchema';
+export type { ProfileCardSchema } from './model/types/ProfileCardSchema';
+export { ValidateProfileErrors } from './model/types/ProfileCardSchema';

@@ -13,5 +13,6 @@ export const ArticleImageBlock: FC<ArticleImageBlockProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation();
 
+  // eslint-disable-next-line i18next/no-literal-string
   return <div className={classNames(cls.articleImageBlock, [className], {})}>ArticleImageBlock</div>;
 });

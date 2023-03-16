@@ -18,12 +18,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { t } = useTranslation('articles');
 
   if (!id) {
-    return <div className={classNames(cls.articleDetailsPage, [className], {})}>{t('Article not found')}</div>;
+    return <div className={classNames('', [className], {})}>{t('Article not found')}</div>;
   }
 
   return (
-    <div className={classNames(cls.articleDetailsPage, [className], {})}>
-      <ArticleDetails id={id} />
+    <div className={classNames('', [className], {})}>
+      <ArticleDetails id={id} className={cls.test} />
     </div>
   );
 };
