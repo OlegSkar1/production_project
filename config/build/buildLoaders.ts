@@ -5,14 +5,12 @@ import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-  const babelLoader = {
-    test: /\.(js|ts|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
-      },
+  const esBuildLoader = {
+    test: /\.[jt]sx?$/,
+    loader: 'esbuild-loader',
+    options: {
+      target: 'es2015',
+      jsx: 'automatic',
     },
   };
 
@@ -39,5 +37,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
-  return [babelLoader, scssLoader, fontLoader, svgLoader, imgLoader];
+  return [esBuildLoader, scssLoader, fontLoader, svgLoader, imgLoader];
 }

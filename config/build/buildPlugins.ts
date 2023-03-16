@@ -38,7 +38,7 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): W
         },
       ],
     }),
-    new ForkTsCheckerWebpackPlugin({ async: false }),
+    new ForkTsCheckerWebpackPlugin(),
   ];
 
   if (isDev) {

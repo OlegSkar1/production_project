@@ -15,6 +15,13 @@ export function buildCssLoader(isDev: boolean) {
           },
         },
       },
+      {
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'css',
+          minify: true,
+        },
+      },
       'sass-loader',
     ],
   };
