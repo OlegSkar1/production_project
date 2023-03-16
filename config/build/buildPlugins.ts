@@ -12,7 +12,7 @@ import path from 'path';
 
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, apiUrl, project, analyze }: BuildOptions): WebpackPluginInstance[] {
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -42,7 +42,11 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): W
   ];
 
   if (isDev) {
-    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }), new ReactRefreshWebpackPlugin({ overlay: false }));
+    plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
+  }
+
+  if (analyze) {
+    plugins.push(new BundleAnalyzerPlugin());
   }
 
   return plugins;
