@@ -40,9 +40,9 @@ const initialReducers: ReducersList = {
 const articleBlock = (block: ArticleBlock) => {
   switch (block.type) {
     case 'CODE':
-      return <ArticleCodeBlock key={block.id} />;
+      return <ArticleCodeBlock block={block} key={block.id} />;
     case 'IMAGE':
-      return <ArticleImageBlock key={block.id} />;
+      return <ArticleImageBlock block={block} key={block.id} />;
     case 'TEXT':
       return <ArticleTextBlock block={block} key={block.id} />;
     default:
@@ -88,7 +88,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
         <div className={cls.avatarWrapper}>
           <Avatar size={200} src={article.img} alt={article.title} />
         </div>
-        <Text title={article.title} size='size_l' className={cls.articleTitle} />
+        <Text title={article.title} size='size_l' />
         <Text text={article.subtitle} size='size_l' className={cls.articleSubTitle} />
         <div className={cls.viewsWrapper}>
           <Icon Svg={EyeIcon} />

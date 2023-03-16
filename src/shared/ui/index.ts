@@ -1,3 +1,4 @@
+export { Code } from './Code/Code';
 export { Icon } from './Icon/Icon';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Select } from './Select/Select';

@@ -18,7 +18,7 @@ export interface CodeBlock extends BaseBlock {
 
 export interface ImageBlock extends BaseBlock {
   type: 'IMAGE';
-  title: string;
+  title?: string;
   src: string;
 }
 

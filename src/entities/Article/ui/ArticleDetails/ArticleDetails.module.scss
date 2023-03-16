@@ -23,24 +23,20 @@
 .views-wrapper,
 .calendar-wrapper {
     display: flex;
-    gap: 10px;
-}
-
-.views-wrapper {
-    margin-bottom: 10px;
+    gap: 5px;
 }
 
 .calendar-wrapper {
     margin-bottom: 16px;
 }
 
-.article-title,
+
 .article-sub-title {
-    margin-bottom: 15px;
+    margin-bottom: 6px;
 }
 
 .block-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 }
