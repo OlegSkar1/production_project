@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { articleActions, articleReducer } from './articleSlice';
+import { articleReducer } from './articleSlice';
 
 import { fetchArticleById } from '../services/fetchArticleById';
 import { Article, ArticleSchema } from '../types/article';
