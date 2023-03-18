@@ -13,5 +13,5 @@ interface ArticleCodeBlockProps {
 export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = memo((props) => {
   const { className, block } = props;
 
-  return <Code className={classNames('', [className], {})}>{block.code}</Code>;
+  return <Code className={classNames('', [className], {})} text={block.code} />;
 });

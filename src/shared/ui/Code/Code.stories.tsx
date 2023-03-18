@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
-  children:
+  text:
     'export default {\n' +
     "  title: 'shared/Code',\n" +
     '  component: Code,\n' +
@@ -31,7 +31,7 @@ Light.args = {
 
 export const Dark = Template.bind({});
 Dark.args = {
-  children:
+  text:
     'export default {\n' +
     "  title: 'shared/Code',\n" +
     '  component: Code,\n' +
@@ -46,7 +46,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Blue = Template.bind({});
 Blue.args = {
-  children:
+  text:
     'export default {\n' +
     "  title: 'shared/Code',\n" +
     '  component: Code,\n' +

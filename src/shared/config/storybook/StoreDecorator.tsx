@@ -2,6 +2,7 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 import { Story } from '@storybook/react';
 
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { articleReducer } from 'entities/Article/model/slice/articleSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileCardReducer } from 'features/EditableProfileCard/model/slice/profileCardSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -9,6 +10,7 @@ import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicM
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileCardReducer,
+  article: articleReducer,
 };
 
 export const StoreDecorator =

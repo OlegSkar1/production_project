@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import cls from './Icon.module.scss';
 
@@ -9,8 +9,8 @@ interface IconProps {
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
-export const Icon: FC<IconProps> = (props) => {
+export const Icon: FC<IconProps> = memo((props) => {
   const { className, Svg } = props;
 
   return <Svg className={classNames(cls.icon, [className], {})} />;
-};
+});

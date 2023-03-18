@@ -1,21 +1,10 @@
 /* eslint-disable max-len */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { articleActions, articleReducer } from './articleSlice';
 
-import { ArticleDetails } from './ArticleDetails';
+import { fetchArticleById } from '../services/fetchArticleById';
+import { Article, ArticleSchema } from '../types/article';
 
-import { Article } from '../../model/types/article';
-
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-
-export default {
-  title: 'entities/ArticleDetails',
-  component: ArticleDetails,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticleDetails>;
-
-const article: Article = {
+const data: Article = {
   id: '1',
   title: 'JavaScript для начинающих. Урок 1',
   subtitle: 'JavaScript',
@@ -86,32 +75,16 @@ const article: Article = {
     },
   ],
 };
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-  StoreDecorator({
-    article: {
-      data: article,
-    },
-  }),
-];
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [
-  StoreDecorator({
-    article: {
-      isLoading: true,
-    },
-  }),
-];
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [
-  StoreDecorator({
-    article: {
-      error: 'error',
-    },
-  }),
-];
+describe('userSlice', () => {
+  it('should fetch article', () => {
+    const state: DeepPartial<ArticleSchema> = {
+      data,
+    };
+    expect(articleReducer(state as ArticleSchema, fetchArticleById.fulfilled(data, '', ''))).toEqual({
+      isLoading: false,
+      error: undefined,
+      data,
+    });
+  });
+});
