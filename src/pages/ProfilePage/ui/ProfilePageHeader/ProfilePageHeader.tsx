@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 
 import cls from './ProfilePageHeader.module.scss';
 
-import { updateProfileData } from 'features/EditableProfileCard';
+import { getUserAuthData } from 'entities/User';
+import { getProfileData, updateProfileData } from 'features/EditableProfileCard';
 import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileCardActions } from 'features/EditableProfileCard/model/slice/profileCardSlice';
 import { classNames } from 'shared/lib';
@@ -18,6 +19,11 @@ interface ProfilePageHeaderProps {
 export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation();
+
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+
+  const canEdit = authData?.id === profileData?.id;
 
   const dispatch = useAppDispatch();
   const readonly = useSelector(getProfileReadonly);
@@ -42,18 +48,22 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
   return (
     <div className={classNames(cls.profilePageHeader, [className], {})}>
       <Text title={t('profile')} />
-      {readonly ? (
-        <Button variant='outlined' onClick={onEdit}>
-          {t('edit')}
-        </Button>
-      ) : (
-        <div className={cls.headerBtns}>
-          <Button variant='outlined' onClick={onSave}>
-            {t('save')}
-          </Button>
-          <Button variant='ontlinedRed' onClick={onCancel}>
-            {t('cancel')}
-          </Button>
+      {canEdit && (
+        <div className='btnWrapper'>
+          {readonly ? (
+            <Button variant='outlined' onClick={onEdit}>
+              {t('edit')}
+            </Button>
+          ) : (
+            <div className={cls.headerBtns}>
+              <Button variant='outlined' onClick={onSave}>
+                {t('save')}
+              </Button>
+              <Button variant='ontlinedRed' onClick={onCancel}>
+                {t('cancel')}
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>

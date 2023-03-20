@@ -28,5 +28,8 @@
   "kazakhstan": "Казахстан",
   "armenia": "Армения",
   "Comments not found": "Комментарии не найдены",
-  "Comments": "Комментарии"
+  "Comments": "Комментарии",
+  "Enter comment text": "Введите текст комментария:",
+  "Send": "Отправить",
+  "Failed to post comment": "Не удалось отправить комментарий, попробуйте еще раз"
 }

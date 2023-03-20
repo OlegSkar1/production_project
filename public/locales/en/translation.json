@@ -28,5 +28,8 @@
   "kazakhstan": "Kazakhstan",
   "armenia": "Armenia",
   "Comments not found": "Comments not found",
-  "Comments": "Comments"
+  "Comments": "Comments",
+  "Enter comment text": "Enter comment text:",
+  "Send": "Send",
+  "Failed to post comment": "Failed to post comment, please try again"
 }

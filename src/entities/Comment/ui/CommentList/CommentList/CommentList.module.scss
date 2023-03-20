@@ -1,7 +1,5 @@
-.comment-card {
-    margin-top: 10px;
-}
-
-.comments-title {
-    margin-bottom: 24px;
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
 }

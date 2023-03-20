@@ -1,6 +1,8 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { useParams } from 'react-router-dom';
+
 import cls from './EditableProfileCard.module.scss';
 
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -16,6 +18,7 @@ import { ProfileCard } from 'entities/Profile';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -28,13 +31,15 @@ const initialReducers: ReducersList = {
 export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((props) => {
   const { className } = props;
 
+  const { id } = useParams<{ id: string }>();
+
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+  useInitEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   const data = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -94,7 +99,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
   );
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
       <div className={classNames(cls.editableProfileCard, [className], {})}>
         <ProfileCard
           data={data}

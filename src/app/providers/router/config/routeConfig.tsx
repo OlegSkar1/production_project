@@ -29,10 +29,10 @@ export const AppRoutes = {
 export const routePath: Record<AppRoutes, string> = {
   main: '/',
   about: '/about',
-  profile: '/profile',
+  profile: '/profile/', // + id
   notFound: '*',
   articles: '/articles',
-  articles_details: '/articles/', // +id
+  articles_details: '/articles/', // + id
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -45,7 +45,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <AboutPage />,
   },
   profile: {
-    path: routePath.profile,
+    path: routePath.profile + ':id',
     element: <ProfilePage />,
     authOnly: true,
   },
