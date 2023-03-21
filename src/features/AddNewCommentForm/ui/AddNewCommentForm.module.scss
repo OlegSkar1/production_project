@@ -1,9 +1,10 @@
 .add-new-comment-form {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 
-    padding: 20px;
+  padding: 20px;
 
-	border: solid 1px var(--inverted-secondary-color);
+  border: solid 1px var(--inverted-secondary-color);
+  border-radius: 5px;
 }

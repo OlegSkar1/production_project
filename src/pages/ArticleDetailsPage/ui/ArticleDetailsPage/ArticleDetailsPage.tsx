@@ -7,11 +7,11 @@ import { useParams } from 'react-router-dom';
 import cls from './ArticleDetailsPage.module.scss';
 
 import { articleDetailsCommentsError, articleDetailsCommentsIsLoading } from '../../model/selectors/comments';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
-import { fetchArticleComments } from '../../model/services/fetchArticleComments';
+import { fetchArticleComments } from '../../model/services/fetchArticleComments/fetchArticleComments';
 
-import { articleCommentReducer, articleCommentSelectors } from '../../model/slice/atricleCommentSlice';
+import { articleCommentReducer, articleCommentSelectors } from '../../model/slice/articleCommentSlice';
 
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
@@ -44,6 +44,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   const onSendComment = useCallback(
     (text: string) => {
+      console.log(text);
       dispatch(addCommentForArticle(text));
     },
     [dispatch]
@@ -62,7 +63,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <Text
         theme='error'
         className={classNames(cls.articleDetailsPage, [className], {})}
-        text={t('Failed to post comment')}
+        text={t('Failed to post comment', { ns: 'translation' })}
       />
     );
   }

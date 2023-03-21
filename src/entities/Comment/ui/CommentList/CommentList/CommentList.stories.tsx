@@ -13,4 +13,9 @@ export default {
 const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  comments: [
+    { id: '1', text: 'Comment1', user: { id: '1', username: 'user' } },
+    { id: '2', text: 'Comment2', user: { id: '2', username: 'user' } },
+  ],
+};
