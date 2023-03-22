@@ -11,8 +11,6 @@ export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
 };
 
-export type ValueOf<T> = T[keyof T];
-
 export type AppRoutes = ValueOf<typeof AppRoutes>;
 
 export const AppRoutes = {

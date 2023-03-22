@@ -1,3 +1,6 @@
+export { ArticleType } from './model/types/article';
+export { ArticleView } from './model/types/article';
+export { ArticleList } from './ui/ArticleList/ArticleList';
 export { fetchArticleById } from './model/services/fetchArticleById';
 export { getArticleData } from './model/selectors/getArticleData/getArticleData';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';

@@ -1,0 +1,61 @@
+.GRID {
+  cursor: pointer;
+  width: 220px;
+  transition: 0.2s;
+
+  .date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+  }
+
+  &:hover {
+    transform: scale(1.01);
+    opacity: 0.8;
+
+    .date {
+      display: block;
+    }
+  }
+
+  .img-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  .img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .info-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .types p {
+    overflow: hidden;
+    width: 130px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .views {
+    margin-left: auto;
+  }
+
+  .title {
+    margin-top: 8px;
+
+    p {
+      overflow: hidden;
+      width: 200px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

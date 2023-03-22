@@ -24,7 +24,20 @@ export interface ImageBlock extends BaseBlock {
 
 export type ArticleBlock = TextBlock | ImageBlock | CodeBlock;
 
-export type ArticleType = 'IT' | 'SCIENCE' | 'ECONOMICS';
+export type ArticleType = ValueOf<typeof ArticleType>;
+
+export const ArticleType = {
+  IT: 'IT',
+  SCIENCE: 'SCIENCE',
+  ECONOMICS: 'ECONOMICS',
+} as const;
+
+export type ArticleView = ValueOf<typeof ArticleView>;
+
+export const ArticleView = {
+  LIST: 'LIST',
+  GRID: 'GRID',
+} as const;
 
 export interface Article {
   id: string;
@@ -32,7 +45,7 @@ export interface Article {
   subtitle: string;
   img: string;
   createdAt: string;
-  views: number;
+  views: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
 }
