@@ -15,6 +15,7 @@ interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
+  error?: string;
   view?: ArticleView;
 }
 
@@ -22,7 +23,7 @@ const getSkeleton = (view: ArticleView) =>
   new Array(view === 'GRID' ? 9 : 3).fill(0).map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
-  const { className, articles, isLoading, view = ArticleView.GRID } = props;
+  const { className, articles, isLoading, error, view = ArticleView.GRID } = props;
   const { t } = useTranslation();
 
   if (isLoading) {

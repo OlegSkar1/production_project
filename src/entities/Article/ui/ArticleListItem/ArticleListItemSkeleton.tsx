@@ -3,14 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleListItem.module.scss';
 
-import { Article, ArticleView, TextBlock } from '../../model/types/article';
+import { ArticleView } from '../../model/types/article';
 
-import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
-
-import { routePath } from 'app/providers/router/config/routeConfig';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, Avatar, Card, Icon, Skeleton, Text } from 'shared/ui';
+import { Card, Skeleton } from 'shared/ui';
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -36,7 +32,16 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
           <Skeleton variant='title' className={cls.title} />
           {types}
           <Skeleton height={200} className={cls.img} />
-          <Skeleton height={250} />
+          <div className={cls.skeletonTextWrapper}>
+            <Skeleton variant='text' />
+            <Skeleton variant='text' />
+            <Skeleton variant='text' />
+            <Skeleton variant='text' />
+            <Skeleton variant='text' />
+            <Skeleton variant='text' />
+            <Skeleton variant='text' />
+          </div>
+
           <div className={cls.footer}>
             <Skeleton width={100} height={25} />
             {views}
@@ -56,7 +61,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
           {types}
           {views}
         </div>
-        <Skeleton variant='title' />
+        <Skeleton variant='title' className={cls.title} />
       </Card>
     </div>
   );

@@ -9,5 +9,6 @@
   "scss.validate": true,
   "stylelint.enable": true,
   "stylelint.validate": ["css", "scss"],
-  "cssModules.camelCase": true
+  "cssModules.camelCase": true,
+  "i18n-ally.sourceLanguage": "ru"
 }

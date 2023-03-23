@@ -58,17 +58,19 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   return (
     <div className={classNames('', [className, cls[view]], {})}>
-      <Card>
-        <div className={cls.imgWrapper}>
-          <img src={article.img} alt={article.title} className={cls.img} />
-          <Text text={article.createdAt} className={cls.date} />
-        </div>
-        <div className={cls.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <Text text={article.title} className={cls.title} />
-      </Card>
+      <AppLink to={`${routePath.articles_details}${article.id}`}>
+        <Card>
+          <div className={cls.imgWrapper}>
+            <img src={article.img} alt={article.title} className={cls.img} />
+            <Text text={article.createdAt} className={cls.date} />
+          </div>
+          <div className={cls.infoWrapper}>
+            {types}
+            {views}
+          </div>
+          <Text text={article.title} className={cls.title} />
+        </Card>
+      </AppLink>
     </div>
   );
 };

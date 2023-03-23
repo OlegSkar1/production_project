@@ -37,6 +37,12 @@
     max-height: 200px;
   }
 
+  .skeleton-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
   .footer {
     display: flex;
     align-items: center;
