@@ -3,11 +3,14 @@ import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleListItem.module.scss';
 
-import { Article, ArticleView } from '../../model/types/article';
+import { Article, ArticleView, TextBlock } from '../../model/types/article';
 
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+
+import { routePath } from 'app/providers/router/config/routeConfig';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Card, Icon, Text } from 'shared/ui';
+import { AppLink, Avatar, Card, Icon, Text } from 'shared/ui';
 
 interface ArticleListItemProps {
   className?: string;
@@ -17,23 +20,52 @@ interface ArticleListItemProps {
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   const { className, article, view } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
+
+  const types = <Text text={article.type.join(', ')} className={cls.types} />;
+  const views = (
+    <div className={cls.viewsWrapper}>
+      <Text text={article.views} />
+      <Icon Svg={EyeIcon} />
+    </div>
+  );
 
   if (view === ArticleView.LIST) {
-    return <div className={classNames(cls.articleListItem, [className, cls[view]], {})}>{article.title}</div>;
+    const block = article.blocks.find((block) => block.type === 'TEXT') as TextBlock;
+
+    return (
+      <div className={classNames(cls.articleListItem, [className, cls[view]], {})}>
+        <Card>
+          <div className={cls.headerWrapper}>
+            {article.user.avatar && <Avatar src={article.user.avatar} alt={article.title} size={30} />}
+            <Text text={article.user.username} className={cls.username} />
+            <Text text={article.createdAt} className={cls.date} />
+          </div>
+          <Text title={article.title} className={cls.title} />
+          {types}
+          <img src={article.img} alt={article.title} className={cls.img} />
+          <ArticleTextBlock block={block} className={cls.content} />
+          <div className={cls.footer}>
+            <AppLink to={`${routePath.articles_details}${article.id}`} className={cls.link} theme='outlined'>
+              {t('read more')}
+            </AppLink>
+            {views}
+          </div>
+        </Card>
+      </div>
+    );
   }
 
   return (
-    <div className={classNames(cls.articleListItem, [className, cls[view]], {})}>
+    <div className={classNames('', [className, cls[view]], {})}>
       <Card>
         <div className={cls.imgWrapper}>
           <img src={article.img} alt={article.title} className={cls.img} />
           <Text text={article.createdAt} className={cls.date} />
         </div>
         <div className={cls.infoWrapper}>
-          <Text text={article.type.join(', ')} className={cls.types} />
-          <Text className={cls.views} text={article.views} />
-          <Icon Svg={EyeIcon} />
+          {types}
+          {views}
         </div>
         <Text text={article.title} className={cls.title} />
       </Card>

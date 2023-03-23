@@ -2,10 +2,10 @@
   color: var(--primary-color);
   text-decoration: none;
   transition: opacity 0.2s;
-  
+
   &:hover {
     opacity: 0.7;
-    transition: opacity 0.2s
+    transition: opacity 0.2s;
   }
 }
 
@@ -23,4 +23,10 @@
 
 .inverted-secondary {
   color: var(--inverted-secondary-color);
+}
+
+.outlined {
+  padding: 5px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
 }

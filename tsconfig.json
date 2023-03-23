@@ -20,14 +20,6 @@
     "strictBindCallApply": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "classnameTransform": "camelCaseOnly",
-        }
-      }
-    ]
   },
   "ts-node": {
     "compilerOptions": {

@@ -15,6 +15,10 @@ describe('getArticleData', () => {
       createdAt: '18.05.2022',
       views: '1092',
       type: ['IT'],
+      user: {
+        id: '1',
+        username: 'admin',
+      },
       blocks: [
         {
           id: '1',

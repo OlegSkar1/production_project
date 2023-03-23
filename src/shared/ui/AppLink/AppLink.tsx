@@ -5,7 +5,7 @@ import cls from './AppLink.module.scss';
 
 import { classNames } from 'shared/lib';
 
-type AppLinkTheme = 'primary' | 'secondary' | 'invertedPrimary' | 'invertedSecondary';
+type AppLinkTheme = 'primary' | 'secondary' | 'invertedPrimary' | 'invertedSecondary' | 'outlined';
 
 interface AppLinkProps extends LinkProps {
   className?: string;

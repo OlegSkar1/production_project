@@ -19,6 +19,11 @@ const article = {
   createdAt: '18.05.2022',
   views: '1092',
   type: ['IT', 'ECONOMICS', 'SCIENCE'],
+  user: {
+    id: '1',
+    username: 'admin',
+    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+  },
   blocks: [
     {
       id: '1',
@@ -90,6 +95,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   return (
     <div className={classNames(cls.articlesPage, [className], {})}>
       <ArticleList
+        isLoading
         articles={new Array(16).fill(0).map((item, index) => ({
           ...article,
           id: String(index),

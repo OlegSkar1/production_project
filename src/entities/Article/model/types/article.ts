@@ -1,3 +1,5 @@
+import { User } from 'entities/User';
+
 type BlockType = 'TEXT' | 'CODE' | 'IMAGE';
 
 interface BaseBlock {
@@ -41,6 +43,7 @@ export const ArticleView = {
 
 export interface Article {
   id: string;
+  user: User;
   title: string;
   subtitle: string;
   img: string;
