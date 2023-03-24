@@ -22,7 +22,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
-import { AppLink, Text } from 'shared/ui';
+import { AppLink } from 'shared/ui';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -34,7 +34,7 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
-  const { id } = useParams<{ id: string }>();
+  const { id = '1' } = useParams<{ id: string }>();
   const { t } = useTranslation('articles');
 
   const comments = useSelector(articleCommentSelectors.selectAll);
@@ -46,7 +46,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   const onSendComment = useCallback(
     (text: string) => {
-      console.log(text);
       dispatch(addCommentForArticle(text));
     },
     [dispatch]
@@ -60,16 +59,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     return <div className={classNames(cls.articleDetailsPage, [className], {})}>{t('Article not found')}</div>;
   }
 
-  if (commentsError) {
-    return (
-      <Text
-        theme='error'
-        className={classNames(cls.articleDetailsPage, [className], {})}
-        text={t('Failed to post comment', { ns: 'translation' })}
-      />
-    );
-  }
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.articleDetailsPage, [className], {})}>
@@ -79,7 +68,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         <ArticleDetails id={id} />
         {!articleError && (
           <>
-            <AddNewCommentForm onSendComment={onSendComment} />
+            <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
             <CommentList comments={comments} isLoading={commentsIsLoading} />
           </>
         )}

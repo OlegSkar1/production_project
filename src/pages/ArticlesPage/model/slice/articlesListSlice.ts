@@ -1,9 +1,11 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { fetchArticles } from '../services/fetchArticles';
 import { ArticlesListSchema } from '../types/articles';
 
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
+import { VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
 const articlesListAdapter = createEntityAdapter<Article>();
 
@@ -21,7 +23,29 @@ export const articlesListSlice = createSlice({
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
       state.view = action.payload;
+      localStorage.setItem(VIEW_LOCALSTORAGE_KEY, action.payload);
     },
+    getInitView: (state) => {
+      const savedView = localStorage.getItem(VIEW_LOCALSTORAGE_KEY);
+      if (savedView) {
+        state.view = savedView as ArticleView;
+      }
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticles.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(fetchArticles.fulfilled, (state, action) => {
+        state.isLoading = false;
+        articlesListAdapter.setAll(state, action.payload);
+      })
+      .addCase(fetchArticles.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 

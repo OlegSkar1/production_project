@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleList.module.scss';
@@ -22,7 +22,7 @@ interface ArticleListProps {
 const getSkeleton = (view: ArticleView) =>
   new Array(view === 'GRID' ? 9 : 3).fill(0).map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
-export const ArticleList: FC<ArticleListProps> = (props) => {
+export const ArticleList: FC<ArticleListProps> = memo((props) => {
   const { className, articles, isLoading, error, view = ArticleView.GRID } = props;
   const { t } = useTranslation();
 
@@ -37,4 +37,4 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
       {articles.length > 0 ? articles.map(renderArticle) : null}
     </div>
   );
-};
+});

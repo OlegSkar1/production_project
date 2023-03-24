@@ -7,10 +7,12 @@ export const fetchArticles = createAsyncThunk<Article[], void, ThunkConfig<strin
   'articlesList/fetchArticles',
 
   async (_, thunkApi) => {
-    const { rejectWithValue, dispatch, extra } = thunkApi;
+    const { rejectWithValue, extra } = thunkApi;
 
     try {
-      const res = await extra.api.get<Article[]>('/articles');
+      const res = await extra.api.get<Article[]>('/articles', {
+        params: { _expand: 'user' },
+      });
 
       if (!res.data) {
         throw new Error();

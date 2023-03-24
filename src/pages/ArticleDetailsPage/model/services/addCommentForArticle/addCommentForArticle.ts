@@ -9,7 +9,7 @@ import { Comment } from 'entities/Comment';
 import { getUserAuthData } from 'entities/User';
 
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
-  'articleComment/addCommentForArticle',
+  'articleComments/addCommentForArticle',
 
   async (text, thunkApi) => {
     const { rejectWithValue, dispatch, getState, extra } = thunkApi;

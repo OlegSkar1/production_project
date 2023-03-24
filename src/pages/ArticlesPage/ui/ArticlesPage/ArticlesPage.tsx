@@ -1,19 +1,21 @@
 /* eslint-disable max-len */
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
 
 import cls from './ArticlesPage.module.scss';
 
-import { Article, ArticleList } from 'entities/Article';
 import {
   articlesListError,
   articlesListIsLoading,
   articlesListView,
-} from 'pages/ArticlesPage/model/selectors/articlesList/articlesList';
-import { fetchArticles } from 'pages/ArticlesPage/model/services/fetchArticles';
-import { articleListSelectors, articlesListReducer } from 'pages/ArticlesPage/model/slice/articlesListSlice';
+} from '../../model/selectors/articlesList/articlesList';
+import { fetchArticles } from '../../model/services/fetchArticles';
+import { articleListSelectors, articlesListActions, articlesListReducer } from '../../model/slice/articlesListSlice';
+
+import { ArticleList, ArticleView } from 'entities/Article';
+import { ArticleViewChanger } from 'features/ArticleViewChanger';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -40,11 +42,20 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
   useInitEffect(() => {
     dispatch(fetchArticles());
+    dispatch(articlesListActions.getInitView());
   });
+
+  const onChangeView = useCallback(
+    (newView: ArticleView) => {
+      dispatch(articlesListActions.setView(newView));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.articlesPage, [className], {})}>
+        <ArticleViewChanger onViewClick={onChangeView} view={view} />
         <ArticleList articles={articles} isLoading={isLoading} view={view} error={error} />
       </div>
     </DynamicModuleLoader>

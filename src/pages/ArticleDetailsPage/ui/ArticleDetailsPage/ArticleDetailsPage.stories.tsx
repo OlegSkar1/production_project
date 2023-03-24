@@ -9,14 +9,6 @@ import { ArticleCommentSchema } from 'pages/ArticleDetailsPage/model/types/artic
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-export default {
-  title: 'pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
 const article: Article = {
   id: '1',
   title: 'Javascript news',
@@ -87,26 +79,43 @@ const comments: ArticleCommentSchema = {
   },
 };
 
+export default {
+  title: 'pages/ArticleDetailsPage',
+  component: ArticleDetailsPage,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+  decorators: [
+    StoreDecorator({
+      article: {
+        data: article,
+      },
+      articleComments: comments,
+    }),
+  ],
+} as ComponentMeta<typeof ArticleDetailsPage>;
+
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [
-  StoreDecorator({
-    article: {
-      data: article,
-    },
-    articleComments: comments,
-  }),
-];
+
+export const ErrorArticle = Template.bind({});
+ErrorArticle.args = {};
+ErrorArticle.decorators = [StoreDecorator({ article: { error: 'error' } })];
+
+export const ErrorСщььутеы = Template.bind({});
+ErrorСщььутеы.args = {};
+ErrorСщььутеы.decorators = [StoreDecorator({ article: { data: article }, addCommentForm: {} })];
+
+export const Loading = Template.bind({});
+Loading.args = {};
+Loading.decorators = [StoreDecorator({ article: { isLoading: true } })];
+
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [
-  StoreDecorator({
-    article: {
-      data: article,
-    },
-    articleComments: comments,
-  }),
-  ThemeDecorator(Theme.DARK),
-];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Blue = Template.bind({});
+Blue.args = {};
+Blue.decorators = [ThemeDecorator(Theme.BLUE)];

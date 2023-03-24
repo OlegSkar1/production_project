@@ -19,3 +19,8 @@ Normal.args = {
     { id: '2', text: 'Comment2', user: { id: '2', username: 'user' } },
   ],
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+  isLoading: true,
+};
