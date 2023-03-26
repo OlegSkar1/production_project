@@ -46,7 +46,7 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.profilePageHeader, [className], {})}>
+    <header className={classNames(cls.profilePageHeader, [className], {})}>
       <Text title={t('profile')} />
       {canEdit && (
         <div className='btnWrapper'>
@@ -66,6 +66,6 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
           )}
         </div>
       )}
-    </div>
+    </header>
   );
 });

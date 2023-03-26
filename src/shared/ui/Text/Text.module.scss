@@ -1,19 +1,19 @@
 .size_m {
-  .title {
+  &.title {
     font: var(--font-l);
   }
 
-  .paragraph {
+  &.paragraph {
     font: var(--font-m);
   }
 }
 
 .size_l {
-  .title {
+  &.title {
     font: var(--font-xl);
   }
 
-  .paragraph {
+  &.paragraph {
     font: var(--font-l);
   }
 }
@@ -21,7 +21,6 @@
 .primary {
   color: var(--primary-color);
 }
-
 
 .error {
   color: var(--red-light);

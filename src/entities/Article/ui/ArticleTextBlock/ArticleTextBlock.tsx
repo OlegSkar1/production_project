@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleTextBlock.module.scss';
 
@@ -15,16 +14,15 @@ interface ArticleTextBlockProps {
 
 export const ArticleTextBlock: FC<ArticleTextBlockProps> = memo((props) => {
   const { className, block } = props;
-  const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.articleTextBlock, [className], {})}>
+    <section className={classNames(cls.articleTextBlock, [className], {})}>
       {block.title && <Text title={block.title} className={cls.textBlockTitle} />}
       <div className={cls.paragraphWrapper}>
         {block.paragraph.map((str) => (
           <Text text={str} key={str} className={cls.textBlockParagraph} />
         ))}
       </div>
-    </div>
+    </section>
   );
 });

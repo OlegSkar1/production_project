@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleImageBlock.module.scss';
 
@@ -15,12 +14,11 @@ interface ArticleImageBlockProps {
 
 export const ArticleImageBlock: FC<ArticleImageBlockProps> = memo((props) => {
   const { block, className } = props;
-  const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.imageBlockWrapper, [className], {})}>
+    <figure className={classNames(cls.imageBlockWrapper, [className], {})}>
       <img src={block.src} alt={block.title} />
-      {block.title && <Text text={block.title} align='center' />}
-    </div>
+      <figcaption>{block.title && <Text text={block.title} align='center' />}</figcaption>
+    </figure>
   );
 });

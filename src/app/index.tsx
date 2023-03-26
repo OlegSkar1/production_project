@@ -25,10 +25,10 @@ const App = () => {
     <div className={classNames('app', [theme], {})}>
       <Suspense fallback=''>
         <Navbar />
-        <div className='content-page'>
+        <main className='content-page'>
           <Sidebar />
           {inited && <AppRouter />}
-        </div>
+        </main>
       </Suspense>
     </div>
   );

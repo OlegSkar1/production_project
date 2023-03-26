@@ -34,12 +34,12 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
   }
 
   return (
-    <div className={classNames(cls.commentCard, [className], {})}>
+    <article className={classNames(cls.commentCard, [className], {})}>
       <AppLink to={`${routePath.profile}${comment.user.id}`} className={cls.userWrapper}>
         {comment.user.avatar ? <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} /> : null}
         <Text title={comment.user.username} />
       </AppLink>
       <Text text={comment.text} />
-    </div>
+    </article>
   );
 });

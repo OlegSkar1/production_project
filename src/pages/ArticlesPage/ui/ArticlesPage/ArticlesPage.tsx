@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
 import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
 
@@ -20,6 +18,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
+import { Page } from 'shared/ui';
 
 interface ArticlesPageProps {
   className?: string;
@@ -31,7 +30,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation('articles');
 
   const dispatch = useAppDispatch();
 
@@ -41,8 +39,8 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const view = useSelector(articlesListView);
 
   useInitEffect(() => {
-    dispatch(fetchArticles());
     dispatch(articlesListActions.getInitView());
+    dispatch(fetchArticles({ page: 1 }));
   });
 
   const onChangeView = useCallback(
@@ -52,12 +50,16 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     [dispatch]
   );
 
+  const test = () => {
+    console.log('test');
+  };
+
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.articlesPage, [className], {})}>
+      <Page onScrollEnd={test} className={classNames(cls.articlesPage, [className], {})}>
         <ArticleViewChanger onViewClick={onChangeView} view={view} />
         <ArticleList articles={articles} isLoading={isLoading} view={view} error={error} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

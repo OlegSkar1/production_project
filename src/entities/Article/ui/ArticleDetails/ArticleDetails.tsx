@@ -88,16 +88,18 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
         <div className={cls.avatarWrapper}>
           <Avatar size={200} src={article.img} alt={article.title} />
         </div>
-        <Text title={article.title} size='size_l' />
-        <Text text={article.subtitle} size='size_l' className={cls.articleSubTitle} />
-        <div className={cls.viewsWrapper}>
-          <Icon Svg={EyeIcon} />
-          <Text text={String(article.views)} />
-        </div>
-        <div className={cls.calendarWrapper}>
-          <Icon Svg={CalendarIcon} />
-          <Text text={article.createdAt} />
-        </div>
+        <header>
+          <Text title={article.title} size='size_l' />
+          <Text text={article.subtitle} size='size_l' className={cls.articleSubTitle} />
+          <div className={cls.viewsWrapper}>
+            <Icon Svg={EyeIcon} />
+            <Text text={String(article.views)} />
+          </div>
+          <div className={cls.calendarWrapper}>
+            <Icon Svg={CalendarIcon} />
+            <Text text={article.createdAt} />
+          </div>
+        </header>
         <div className={cls.blockWrapper}>{article.blocks.map(articleBlock)}</div>
       </>
     );
@@ -105,7 +107,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classNames(cls.articleDetails, [className], {})}>{content}</div>
+      <article className={classNames(cls.articleDetails, [className], {})}>{content}</article>
     </DynamicModuleLoader>
   );
 });

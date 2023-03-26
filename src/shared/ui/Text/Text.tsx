@@ -21,9 +21,9 @@ export const Text: React.FC<TextProps> = memo((props) => {
   const { className, title, text, theme = 'primary', align = 'left', size = 'size_m' } = props;
 
   return (
-    <div className={classNames('', [className, cls[theme], cls[align], cls[size]], {})}>
-      {title && <p className={cls.title}>{title}</p>}
-      {text && <p className={cls.paragraph}>{text}</p>}
-    </div>
+    <>
+      {title && <p className={classNames(cls.title, [className, cls[theme], cls[align], cls[size]], {})}>{title}</p>}
+      {text && <p className={classNames(cls.paragraph, [className, cls[theme], cls[align], cls[size]], {})}>{text}</p>}
+    </>
   );
 });

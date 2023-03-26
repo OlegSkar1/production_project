@@ -22,7 +22,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
-import { AppLink } from 'shared/ui';
+import { AppLink, Page } from 'shared/ui';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -61,7 +61,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articleDetailsPage, [className], {})}>
+      <Page className={classNames(cls.articleDetailsPage, [className], {})}>
         <AppLink to={routePath.articles} className={cls.link} theme='outlined'>
           {t('back to list')}
         </AppLink>
@@ -72,7 +72,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
             <CommentList comments={comments} isLoading={commentsIsLoading} />
           </>
         )}
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

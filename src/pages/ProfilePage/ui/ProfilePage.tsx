@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 import { EditableProfileCard, getProfileValidateErrors, ValidateProfileErrors } from 'features/EditableProfileCard';
-import { Text } from 'shared/ui';
+import { Page, Text } from 'shared/ui';
 
 interface ProfilePageProps {
   className?: string;
@@ -25,12 +25,12 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
   };
 
   return (
-    <>
+    <Page>
       <ProfilePageHeader />
       {validateErrors?.length &&
         validateErrors.map((err) => <Text key={err} theme='error' text={validateErrorsTranslates[err]} />)}
       <EditableProfileCard />
-    </>
+    </Page>
   );
 };
 

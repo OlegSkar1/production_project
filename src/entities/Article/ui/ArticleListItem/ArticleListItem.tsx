@@ -34,13 +34,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     const block = article.blocks.find((block) => block.type === 'TEXT') as TextBlock;
 
     return (
-      <div className={classNames(cls.articleListItem, [className, cls[view]], {})}>
+      <article className={classNames(cls.articleListItem, [className, cls[view]], {})}>
         <Card>
-          <div className={cls.headerWrapper}>
+          <header className={cls.headerWrapper}>
             {article.user.avatar && <Avatar src={article.user.avatar} alt={article.title} size={30} />}
             <Text text={article.user.username} className={cls.username} />
             <Text text={article.createdAt} className={cls.date} />
-          </div>
+          </header>
           <Text title={article.title} className={cls.title} />
           {types}
           <img src={article.img} alt={article.title} className={cls.img} />
@@ -52,7 +52,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             {views}
           </div>
         </Card>
-      </div>
+      </article>
     );
   }
 

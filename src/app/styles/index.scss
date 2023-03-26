@@ -19,12 +19,3 @@
 .content-page {
   display: flex;
 }
-
-.content-wrapper {
-  overflow-y: auto;
-  flex-grow: 1;
-
-  width: 1%;
-  height: calc(100vh - var(--navbar-height));
-  padding: 20px 20px 20px 45px;
-}

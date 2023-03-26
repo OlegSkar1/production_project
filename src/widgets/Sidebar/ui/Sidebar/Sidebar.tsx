@@ -32,7 +32,7 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
 
   return (
     <div data-testid='sidebar' className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}>
-      <div className={classNames(cls.items)}>{itemsList}</div>
+      <nav className={classNames(cls.items)}>{itemsList}</nav>
 
       <Button
         square

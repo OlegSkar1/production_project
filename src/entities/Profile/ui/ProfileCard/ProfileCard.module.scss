@@ -1,13 +1,12 @@
 .profile-card {
-  width: 100%;
-  padding: 20px;
-  border: 2px solid var(--inverted-secondary-color);
-}
-
-.data {
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  width: 100%;
+  padding: 20px;
+
+  border: 2px solid var(--inverted-secondary-color);
 }
 
 .loading,
