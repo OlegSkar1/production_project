@@ -21,6 +21,7 @@ export const articlesListSlice = createSlice({
     view: ArticleView.GRID,
     page: 1,
     hasMore: true,
+    _inited: false,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
@@ -32,6 +33,7 @@ export const articlesListSlice = createSlice({
     },
     getInitView: (state) => {
       const savedView = localStorage.getItem(VIEW_LOCALSTORAGE_KEY) as ArticleView;
+      state._inited = true;
 
       if (savedView) {
         state.view = savedView;

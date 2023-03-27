@@ -52,6 +52,7 @@ const state: ArticlesListSchema = {
   view: ArticleView.GRID,
   limit: 5,
   isLoading: false,
+  _inited: false,
 };
 
 beforeEach(() => {

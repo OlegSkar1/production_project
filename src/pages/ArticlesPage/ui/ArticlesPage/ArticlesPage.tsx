@@ -6,10 +6,13 @@ import cls from './ArticlesPage.module.scss';
 
 import {
   articlesListError,
+  articlesListInited,
   articlesListIsLoading,
   articlesListView,
 } from '../../model/selectors/articlesList/articlesList';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initedFetchArticles } from '../../model/services/initedFetchArticles/initedFetchArticles/initedFetchArticles';
 import {
   articleListSelectors,
   articlesListActions,
@@ -18,7 +21,6 @@ import {
 
 import { ArticleList, ArticleView } from 'entities/Article';
 import { ArticleViewChanger } from 'features/ArticleViewChanger';
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -44,8 +46,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const view = useSelector(articlesListView);
 
   useInitEffect(() => {
-    dispatch(articlesListActions.getInitView());
-    dispatch(fetchArticles({ page: 1 }));
+    dispatch(initedFetchArticles());
   });
 
   const onChangeView = useCallback(
@@ -60,7 +61,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         isLoading={isLoading}
         onScrollEnd={onLoadNewArticles}
