@@ -37,5 +37,5 @@ export const useInfiniteScroll = (props: UseInfiniteScrollProps) => {
         observer.unobserve(targetElement);
       }
     };
-  }, [callback, targetRef, wrapperRef]);
+  }, [callback, isLoading, targetRef, wrapperRef]);
 };
