@@ -1,10 +1,5 @@
-.views-wrapper {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-
 .LIST {
+  display: block;
   width: 100%;
 
   .header-wrapper {
@@ -53,7 +48,7 @@
 
 .GRID {
   cursor: pointer;
-  width: 220px;
+  width: 25%;
   transition: 0.2s;
 
   .date {
@@ -74,13 +69,12 @@
 
   .img-wrapper {
     position: relative;
-    width: 200px;
-    height: 200px;
   }
 
   .img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+    margin: auto;
     object-fit: contain;
   }
 

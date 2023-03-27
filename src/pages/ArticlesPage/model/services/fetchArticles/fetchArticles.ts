@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { articlesListLimit } from '../selectors/articlesList/articlesList';
+import { articlesListLimit } from '../../selectors/articlesList/articlesList';
 
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';

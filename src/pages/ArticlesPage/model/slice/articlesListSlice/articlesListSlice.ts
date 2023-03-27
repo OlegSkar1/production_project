@@ -1,13 +1,13 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchArticles } from '../services/fetchArticles';
-import { ArticlesListSchema } from '../types/articles';
+import { fetchArticles } from '../../services/fetchArticles/fetchArticles';
+import { ArticlesListSchema } from '../../types/articles';
 
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
 import { VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
-const articlesListAdapter = createEntityAdapter<Article>();
+export const articlesListAdapter = createEntityAdapter<Article>();
 
 export const articleListSelectors = articlesListAdapter.getSelectors<StateSchema>(
   (state) => state.articlesList || articlesListAdapter.getInitialState()
@@ -27,6 +27,9 @@ export const articlesListSlice = createSlice({
       state.view = action.payload;
       localStorage.setItem(VIEW_LOCALSTORAGE_KEY, action.payload);
     },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
     getInitView: (state) => {
       const savedView = localStorage.getItem(VIEW_LOCALSTORAGE_KEY) as ArticleView;
 
@@ -44,7 +47,8 @@ export const articlesListSlice = createSlice({
       })
       .addCase(fetchArticles.fulfilled, (state, action) => {
         state.isLoading = false;
-        articlesListAdapter.setAll(state, action.payload);
+        articlesListAdapter.addMany(state, action.payload);
+        state.hasMore = action.payload.length > 0;
       })
       .addCase(fetchArticles.rejected, (state, action) => {
         state.isLoading = false;

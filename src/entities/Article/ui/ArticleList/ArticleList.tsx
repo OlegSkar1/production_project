@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleList.module.scss';
 
@@ -24,17 +23,13 @@ const getSkeleton = (view: ArticleView) =>
 
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
   const { className, articles, isLoading, error, view = ArticleView.GRID } = props;
-  const { t } = useTranslation();
-
-  if (isLoading) {
-    return <div className={classNames(cls.articleList, [className], {})}>{getSkeleton(view)}</div>;
-  }
 
   const renderArticle = (article: Article) => <ArticleListItem article={article} view={view} key={article.id} />;
 
   return (
-    <div className={classNames(cls.articleList, [className], {})}>
+    <div className={classNames(cls.articleList, [className, cls[view]], {})}>
       {articles.length > 0 ? articles.map(renderArticle) : null}
+      {isLoading && getSkeleton(view)}
     </div>
   );
 });

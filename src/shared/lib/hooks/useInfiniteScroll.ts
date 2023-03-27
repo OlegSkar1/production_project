@@ -4,10 +4,11 @@ interface UseInfiniteScrollProps {
   wrapperRef: MutableRefObject<HTMLElement>;
   targetRef: MutableRefObject<HTMLElement>;
   callback?: () => void;
+  isLoading?: boolean;
 }
 
 export const useInfiniteScroll = (props: UseInfiniteScrollProps) => {
-  const { targetRef, wrapperRef, callback } = props;
+  const { targetRef, wrapperRef, callback, isLoading } = props;
 
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
@@ -15,7 +16,7 @@ export const useInfiniteScroll = (props: UseInfiniteScrollProps) => {
     const targetElement = targetRef.current;
     const wrapperElement = wrapperRef.current;
 
-    if (callback) {
+    if (callback && !isLoading) {
       const options = {
         root: wrapperElement,
         rootMargin: '20px 20px 20px 45px',

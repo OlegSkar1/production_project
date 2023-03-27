@@ -11,7 +11,10 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 
 import { fetchArticleComments } from '../../model/services/fetchArticleComments/fetchArticleComments';
 
-import { articleCommentReducer, articleCommentSelectors } from '../../model/slice/articleCommentSlice';
+import {
+  articleCommentReducer,
+  articleCommentSelectors,
+} from '../../model/slice/articleCommentSlice/articleCommentSlice';
 
 import { routePath } from 'app/providers/router/config/routeConfig';
 import { ArticleDetails, getArticleError } from 'entities/Article';

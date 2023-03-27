@@ -9,11 +9,16 @@ import {
   articlesListIsLoading,
   articlesListView,
 } from '../../model/selectors/articlesList/articlesList';
-import { fetchArticles } from '../../model/services/fetchArticles';
-import { articleListSelectors, articlesListActions, articlesListReducer } from '../../model/slice/articlesListSlice';
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import {
+  articleListSelectors,
+  articlesListActions,
+  articlesListReducer,
+} from '../../model/slice/articlesListSlice/articlesListSlice';
 
 import { ArticleList, ArticleView } from 'entities/Article';
 import { ArticleViewChanger } from 'features/ArticleViewChanger';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -50,13 +55,17 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     [dispatch]
   );
 
-  const test = () => {
-    console.log('test');
-  };
+  const onLoadNewArticles = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <Page onScrollEnd={test} className={classNames(cls.articlesPage, [className], {})}>
+      <Page
+        isLoading={isLoading}
+        onScrollEnd={onLoadNewArticles}
+        className={classNames(cls.articlesPage, [className], {})}
+      >
         <ArticleViewChanger onViewClick={onChangeView} view={view} />
         <ArticleList articles={articles} isLoading={isLoading} view={view} error={error} />
       </Page>

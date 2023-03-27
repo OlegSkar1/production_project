@@ -1,5 +1,13 @@
 .article-list {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
+
+  &.GRID {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &.LIST {
+    flex-direction: column;
+  }
 }
