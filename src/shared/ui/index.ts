@@ -1,4 +1,3 @@
-export { Page } from './Page/Page';
 export { Card } from './Card/Card';
 export { Code } from './Code/Code';
 export { Icon } from './Icon/Icon';

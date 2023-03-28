@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 import { EditableProfileCard, getProfileValidateErrors, ValidateProfileErrors } from 'features/EditableProfileCard';
-import { Page, Text } from 'shared/ui';
+import { Text } from 'shared/ui';
+import { Page } from 'widgets/Page';
 
 interface ProfilePageProps {
   className?: string;

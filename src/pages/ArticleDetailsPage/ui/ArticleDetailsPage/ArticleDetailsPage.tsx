@@ -25,7 +25,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
-import { AppLink, Page } from 'shared/ui';
+import { AppLink } from 'shared/ui';
+import { Page } from 'widgets/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;
