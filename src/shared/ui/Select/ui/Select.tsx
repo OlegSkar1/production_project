@@ -2,23 +2,13 @@ import { ChangeEvent, memo, useMemo } from 'react';
 
 import cls from './Select.module.scss';
 
+import { SelectProps } from '../model/types/select';
+
 import { classNames } from 'shared/lib';
 
-interface OptionList {
-  value: string;
-  content: string;
-}
+const typedMemo: <T>(cb: T) => T = memo;
 
-interface selectProps {
-  className?: string;
-  options?: OptionList[];
-  value?: string;
-  onChange?: (value: string) => void;
-  readonly?: boolean;
-  label?: string;
-}
-
-export const Select: React.FC<selectProps> = memo((props) => {
+export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
   const { className, options, value, onChange, readonly, label } = props;
 
   const optionsList = useMemo(
@@ -32,7 +22,7 @@ export const Select: React.FC<selectProps> = memo((props) => {
   );
 
   const changeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
   return (

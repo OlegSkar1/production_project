@@ -6,6 +6,7 @@ import { ArticleSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { AddCommentSchema } from 'features/AddNewCommentForm';
+import { ArticlesFilterSchema } from 'features/ArticlePageFilter';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileCardSchema } from 'features/EditableProfileCard';
 import { ScrollSaveSchema } from 'features/ScrollSave';
@@ -24,6 +25,7 @@ export interface StateSchema {
   articleComments?: articleCommentSchema;
   addCommentForm?: AddCommentSchema;
   articlesList?: ArticlesListSchema;
+  articlesFilter?: ArticlesFilterSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

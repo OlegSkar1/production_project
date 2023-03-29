@@ -41,6 +41,14 @@ export const ArticleView = {
   GRID: 'GRID',
 } as const;
 
+export type SortType = ValueOf<typeof SortType>;
+
+export const SortType = {
+  TITLE: 'title',
+  CREATED_AT: 'createdAt',
+  VIEWS: 'views',
+} as const;
+
 export interface Article {
   id: string;
   user: User;

@@ -16,7 +16,7 @@ export const initedFetchArticles = createAsyncThunk<void, void, ThunkConfig<stri
 
     if (!inited) {
       dispatch(articlesListActions.getInitView());
-      dispatch(fetchArticles({ page: 1 }));
+      dispatch(fetchArticles({}));
     }
   }
 );

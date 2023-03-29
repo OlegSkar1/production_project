@@ -93,7 +93,7 @@ describe('fetchArticles', () => {
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
-    const result = await thunk.callThunk({ page: 2 });
+    const result = await thunk.callThunk({ replace: false });
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
@@ -111,7 +111,7 @@ describe('fetchArticles', () => {
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const result = await thunk.callThunk({ page: 2 });
+    const result = await thunk.callThunk({ replace: false });
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);

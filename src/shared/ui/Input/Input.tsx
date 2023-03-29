@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib';
 import { Mods } from 'shared/lib/classNames/classNames';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'disabled'>;
-type InputVariant = 'default' | 'clear' | 'inverted';
+type InputVariant = 'default' | 'clear' | 'inverted' | 'outlined';
 
 interface InputProps extends HTMLInputProps {
   className?: string;

@@ -31,5 +31,13 @@
   "Comments": "Comments",
   "Enter comment text": "Enter comment text:",
   "Send": "Send",
-  "Failed to post comment": "Failed to post comment, please try again"
+  "Failed to post comment": "Failed to post comment, please try again",
+  "date": "date",
+  "title": "title",
+  "views": "views",
+  "Sort by": "Sort by:",
+  "asc": "ascending",
+  "desc": "descending",
+  "search": "Search:",
+  "order by": "Order by:"
 }

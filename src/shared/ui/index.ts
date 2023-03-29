@@ -1,8 +1,8 @@
+export { Select } from './Select/ui/Select';
 export { Card } from './Card/Card';
 export { Code } from './Code/Code';
 export { Icon } from './Icon/Icon';
 export { Skeleton } from './Skeleton/Skeleton';
-export { Select } from './Select/Select';
 export { Avatar } from './Avatar/Avatar';
 export { Text } from './Text/Text';
 export { Input } from './Input/Input';

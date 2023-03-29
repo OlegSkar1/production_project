@@ -35,6 +35,8 @@
   background: none;
 }
 
-.clear-inverted {
-  flex-shrink: 0;
+.outlined {
+  background: none;
+  border: 1px solid var(--inverted-bg-color);
+  border-radius: 6px;
 }

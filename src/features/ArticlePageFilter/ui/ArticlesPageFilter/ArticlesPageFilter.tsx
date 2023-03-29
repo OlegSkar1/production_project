@@ -1,0 +1,107 @@
+import { FC, memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { useSelector } from 'react-redux';
+
+import cls from './ArticlesPageFilter.module.scss';
+
+import { getOrder, getSearch, getSort } from '../../model/selectors/filterSelectors';
+
+import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
+
+import { SortType } from 'entities/Article';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { OrderType } from 'shared/types';
+import { Card, Input, Select } from 'shared/ui';
+import { OptionList } from 'shared/ui/Select';
+
+interface ArticlesPageFilterProps {
+  className?: string;
+  onChangeSort: (replace: boolean) => void;
+}
+
+const reducers: ReducersList = {
+  articlesFilter: articlesFilterReducer,
+};
+
+export const ArticlesPageFilter: FC<ArticlesPageFilterProps> = memo((props) => {
+  const { className, onChangeSort } = props;
+  const { t } = useTranslation();
+
+  const dispatch = useAppDispatch();
+
+  const sort = useSelector(getSort);
+  const order = useSelector(getOrder);
+  const search = useSelector(getSearch);
+
+  const sortOptions = useMemo<OptionList<SortType>[]>(
+    () => [
+      {
+        value: SortType.CREATED_AT,
+        content: t('date'),
+      },
+      {
+        value: SortType.TITLE,
+        content: t('title'),
+      },
+      {
+        value: SortType.VIEWS,
+        content: t('views'),
+      },
+    ],
+    [t]
+  );
+
+  const orderOptions = useMemo<OptionList<OrderType>[]>(
+    () => [
+      {
+        value: 'asc',
+        content: t('asc'),
+      },
+      {
+        value: 'desc',
+        content: t('desc'),
+      },
+    ],
+    [t]
+  );
+  const onSort = useCallback(
+    (val: SortType) => {
+      dispatch(articlesFilterActions.setSort(val));
+      onChangeSort(true);
+    },
+    [dispatch, onChangeSort]
+  );
+
+  const onOrder = useCallback(
+    (val: OrderType) => {
+      dispatch(articlesFilterActions.setOrder(val));
+      onChangeSort(true);
+    },
+    [dispatch, onChangeSort]
+  );
+
+  const onSearch = useCallback(
+    (val: string) => {
+      dispatch(articlesFilterActions.setSearch(val));
+      onChangeSort(true);
+    },
+    [dispatch, onChangeSort]
+  );
+
+  return (
+    <DynamicModuleLoader reducers={reducers}>
+      <div className={classNames(cls.articlesPageFilter, [className], {})}>
+        <div className={cls.filterWrapper}>
+          <Select options={sortOptions} label={t('Sort by')} value={sort} onChange={onSort} />
+          <Select options={orderOptions} label={t('order by')} onChange={onOrder} value={order} />
+        </div>
+        <Card>
+          <Input label={t('search')} value={search} onChange={onSearch} variant='outlined' />
+        </Card>
+      </div>
+    </DynamicModuleLoader>
+  );
+});

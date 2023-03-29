@@ -22,6 +22,7 @@ export const articlesListSlice = createSlice({
     page: 1,
     hasMore: true,
     _inited: false,
+    limit: 9,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
@@ -43,14 +44,22 @@ export const articlesListSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticles.pending, (state) => {
+      .addCase(fetchArticles.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+
+        if (action.meta.arg.replace) {
+          articlesListAdapter.removeAll(state);
+        }
       })
       .addCase(fetchArticles.fulfilled, (state, action) => {
         state.isLoading = false;
-        articlesListAdapter.addMany(state, action.payload);
-        state.hasMore = action.payload.length > 0;
+        state.limit ? (state.hasMore = action.payload.length >= state.limit) : null;
+        if (action.meta.arg.replace && state.limit) {
+          articlesListAdapter.setAll(state, action.payload);
+        } else {
+          articlesListAdapter.addMany(state, action.payload);
+        }
       })
       .addCase(fetchArticles.rejected, (state, action) => {
         state.isLoading = false;

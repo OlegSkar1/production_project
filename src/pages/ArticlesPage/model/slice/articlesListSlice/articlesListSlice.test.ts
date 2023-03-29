@@ -88,6 +88,6 @@ describe('articleListSlice', () => {
     });
   });
   it('fetchArticles fulfilled', () => {
-    expect(articlesListReducer(state, fetchArticles.fulfilled([article], '', { page: 1 }))).toEqual(state);
+    expect(articlesListReducer(state, fetchArticles.fulfilled([article], '', { replace: false }))).toEqual(state);
   });
 });
