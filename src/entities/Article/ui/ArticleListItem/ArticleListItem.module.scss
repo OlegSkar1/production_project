@@ -72,7 +72,6 @@
   }
 
   .img {
-    width: 250px;
     height: 250px;
     margin: auto;
     object-fit: contain;
@@ -80,8 +79,10 @@
 
   .info-wrapper {
     display: flex;
+    gap: 5px;
     align-items: center;
     justify-content: space-between;
+
     margin-top: 8px;
   }
 

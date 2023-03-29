@@ -55,7 +55,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
     <div className={classNames('', [className, cls[view]], {})}>
       <Card>
         <div className={cls.imgWrapper}>
-          <Skeleton width={200} height={200} />
+          <Skeleton height={200} />
         </div>
         <div className={cls.infoWrapper}>
           {types}

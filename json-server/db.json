@@ -18,7 +18,7 @@
       "subtitle": "JavaScript",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "createdAt": "18.05.2022",
-      "views": "1092",
+      "views": 1092,
       "userId": "1",
       "type": [
         "IT"
@@ -92,7 +92,7 @@
       "subtitle": "Kotlin",
       "img": "https://logo-logos.com/2016/10/Kotlin_logo_image_picture.png",
       "createdAt": "20.06.2022",
-      "views": "1000",
+      "views": 1000,
       "userId": "1",
       "type": [
         "IT"
@@ -166,7 +166,7 @@
       "subtitle": "Python",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
       "createdAt": "18.05.2021",
-      "views": "743",
+      "views": 743,
       "userId": "1",
       "type": [
         "IT"
@@ -240,7 +240,7 @@
       "subtitle": "JavaScript",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "createdAt": "01.02.2023",
-      "views": "355",
+      "views": 355,
       "userId": "1",
       "type": [
         "IT"
@@ -314,7 +314,7 @@
       "subtitle": "Kotlin",
       "img": "https://logo-logos.com/2016/10/Kotlin_logo_image_picture.png",
       "createdAt": "27.10.2022",
-      "views": "15235",
+      "views": 15235,
       "userId": "1",
       "type": [
         "IT"
@@ -388,7 +388,7 @@
       "subtitle": "Python",
       "img": "https://logos-world.net/wp-content/uploads/2021/10/Python-Symbol.png",
       "createdAt": "12.11.2020",
-      "views": "13744",
+      "views": 13744,
       "userId": "1",
       "type": [
         "IT"
@@ -462,7 +462,7 @@
       "subtitle": "Golang",
       "img": "https://openupthecloud.com/wp-content/uploads/2020/01/Golang.png",
       "createdAt": "15.07.2022",
-      "views": "3457",
+      "views": 3457,
       "userId": "1",
       "type": [
         "IT"
@@ -536,7 +536,7 @@
       "subtitle": "Ruby",
       "img": "https://www.vectorlogo.zone/logos/ruby-lang/ruby-lang-ar21.png",
       "createdAt": "11.01.2022",
-      "views": "10920",
+      "views": 10920,
       "userId": "1",
       "type": [
         "IT"
@@ -610,7 +610,7 @@
       "subtitle": "Php",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Webysther_20160423_-_Elephpant.svg/2560px-Webysther_20160423_-_Elephpant.svg.png",
       "createdAt": "18.05.2022",
-      "views": "1092",
+      "views": 1092,
       "userId": "1",
       "type": [
         "IT"
@@ -684,7 +684,7 @@
       "subtitle": "Java",
       "img": "https://1000logos.net/wp-content/uploads/2020/09/Java-Logo.png",
       "createdAt": "03.11.2019",
-      "views": "73244",
+      "views": 73244,
       "userId": "1",
       "type": [
         "IT"
@@ -758,7 +758,7 @@
       "subtitle": "Webpack",
       "img": "https://raw.githubusercontent.com/webpack/media/master/logo/logo-on-white-bg.png",
       "createdAt": "05.10.2022",
-      "views": "11203",
+      "views": 11203,
       "userId": "1",
       "type": [
         "IT"
@@ -832,7 +832,7 @@
       "subtitle": "Vite",
       "img": "https://cdn.dribbble.com/users/1198445/screenshots/15064463/105628281-b86efa80-5e44-11eb-821c-87d5fddb9f8a_4x.png",
       "createdAt": "10.01.2023",
-      "views": "576",
+      "views": 576,
       "userId": "1",
       "type": [
         "IT"
@@ -906,7 +906,7 @@
       "subtitle": "TypeScript",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/TypeScript_Logo_%28Blue%29.svg/2560px-TypeScript_Logo_%28Blue%29.svg.png",
       "createdAt": "18.03.2022",
-      "views": "55222",
+      "views": 55222,
       "userId": "1",
       "type": [
         "IT"
@@ -980,7 +980,7 @@
       "subtitle": "React",
       "img": "https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png",
       "createdAt": "01.009.2022",
-      "views": "120433",
+      "views": 120433,
       "userId": "1",
       "type": [
         "IT"
@@ -1054,7 +1054,7 @@
       "subtitle": "Vue",
       "img": "https://www.vectorlogo.zone/logos/vuejs/vuejs-ar21.png",
       "createdAt": "11.02.2021",
-      "views": "4033",
+      "views": 4033,
       "userId": "1",
       "type": [
         "IT"
@@ -1128,7 +1128,7 @@
       "subtitle": "Angular",
       "img": "https://cdn.worldvectorlogo.com/logos/angular-3.svg",
       "createdAt": "25.11.2021",
-      "views": "2034",
+      "views": 2034,
       "userId": "1",
       "type": [
         "IT"
@@ -1202,7 +1202,7 @@
       "subtitle": "Docker",
       "img": "https://www.docker.com/wp-content/uploads/2022/03/horizontal-logo-monochromatic-white.png",
       "createdAt": "22.05.2022",
-      "views": "368",
+      "views": 368,
       "userId": "1",
       "type": [
         "IT"
@@ -1276,7 +1276,7 @@
       "subtitle": "ESbuild",
       "img": "https://user-images.githubusercontent.com/1941540/79317564-6a81a980-7f38-11ea-9817-1a668c618fce.png",
       "createdAt": "17.07.2021",
-      "views": "811",
+      "views": 811,
       "userId": "1",
       "type": [
         "IT"
@@ -1350,7 +1350,7 @@
       "subtitle": "C++",
       "img": "https://e7.pngegg.com/pngimages/46/626/png-clipart-c-logo-the-c-programming-language-computer-icons-computer-programming-source-code-programming-miscellaneous-template.png",
       "createdAt": "18.05.2022",
-      "views": "1092",
+      "views": 1092,
       "userId": "1",
       "type": [
         "IT"

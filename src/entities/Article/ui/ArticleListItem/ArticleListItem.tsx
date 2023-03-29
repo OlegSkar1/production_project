@@ -25,7 +25,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
     <div className={cls.viewsWrapper}>
-      <Text text={article.views} />
+      <Text text={String(article.views)} />
       <Icon Svg={EyeIcon} />
     </div>
   );

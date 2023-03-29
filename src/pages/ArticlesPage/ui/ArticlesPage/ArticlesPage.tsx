@@ -25,6 +25,7 @@ import { ArticleViewChanger } from 'features/ArticleViewChanger';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
 import { Page } from 'widgets/Page';
 
@@ -45,7 +46,6 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const isLoading = useSelector(articlesListIsLoading);
   const error = useSelector(articlesListError);
   const view = useSelector(articlesListView);
-  const limit = useSelector(articlesListLimit);
 
   useInitEffect(() => {
     dispatch(initedFetchArticles());
@@ -70,6 +70,8 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     [dispatch]
   );
 
+  const debouncedSort = useDebounce(onChangeSort, 500);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
@@ -78,7 +80,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         className={classNames(cls.articlesPage, [className], {})}
       >
         <div className={cls.articlesHeaderWrapper}>
-          <ArticlesPageFilter onChangeSort={onChangeSort} />
+          <ArticlesPageFilter onChangeSort={debouncedSort} />
           <ArticleViewChanger onViewClick={onChangeView} view={view} />
         </div>
 

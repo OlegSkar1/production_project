@@ -11,7 +11,7 @@ const data: Article = {
   subtitle: 'JavaScript',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   createdAt: '18.05.2022',
-  views: '1092',
+  views: 1092,
   type: ['IT'],
   user: {
     id: '1',
