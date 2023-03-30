@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import cls from './ArticlesPageFilter.module.scss';
 
-import { getOrder, getSearch, getSort } from '../../model/selectors/filterSelectors';
+import { getOrder, getSort } from '../../model/selectors/filterSelectors';
 
 import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
 
@@ -14,7 +14,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { OrderType } from 'shared/types';
-import { Card, Input, Select } from 'shared/ui';
+import { Select } from 'shared/ui';
 import { OptionList } from 'shared/ui/Select';
 
 interface ArticlesPageFilterProps {
@@ -34,7 +34,6 @@ export const ArticlesPageFilter: FC<ArticlesPageFilterProps> = memo((props) => {
 
   const sort = useSelector(getSort);
   const order = useSelector(getOrder);
-  const search = useSelector(getSearch);
 
   const sortOptions = useMemo<OptionList<SortType>[]>(
     () => [
@@ -83,24 +82,11 @@ export const ArticlesPageFilter: FC<ArticlesPageFilterProps> = memo((props) => {
     [dispatch, onChangeSort]
   );
 
-  const onSearch = useCallback(
-    (val: string) => {
-      dispatch(articlesFilterActions.setSearch(val));
-      onChangeSort(true);
-    },
-    [dispatch, onChangeSort]
-  );
-
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.articlesPageFilter, [className], {})}>
-        <div className={cls.filterWrapper}>
-          <Select options={sortOptions} label={t('Sort by')} value={sort} onChange={onSort} />
-          <Select options={orderOptions} label={t('order by')} onChange={onOrder} value={order} />
-        </div>
-        <Card>
-          <Input label={t('search')} value={search} onChange={onSearch} variant='outlined' />
-        </Card>
+        <Select options={sortOptions} label={t('Sort by')} value={sort} onChange={onSort} />
+        <Select options={orderOptions} label={t('order by')} onChange={onOrder} value={order} />
       </div>
     </DynamicModuleLoader>
   );

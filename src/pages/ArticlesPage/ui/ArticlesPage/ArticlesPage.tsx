@@ -20,7 +20,7 @@ import {
 } from '../../model/slice/articlesListSlice/articlesListSlice';
 
 import { ArticleList, ArticleView } from 'entities/Article';
-import { ArticlesPageFilter } from 'features/ArticlePageFilter';
+import { ArticlesPageFilter, ArticlesPageSearch } from 'features/ArticlePageFilter';
 import { ArticleViewChanger } from 'features/ArticleViewChanger';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -70,8 +70,6 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     [dispatch]
   );
 
-  const debouncedSort = useDebounce(onChangeSort, 500);
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
@@ -80,10 +78,10 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         className={classNames(cls.articlesPage, [className], {})}
       >
         <div className={cls.articlesHeaderWrapper}>
-          <ArticlesPageFilter onChangeSort={debouncedSort} />
+          <ArticlesPageFilter onChangeSort={onChangeSort} />
           <ArticleViewChanger onViewClick={onChangeView} view={view} />
         </div>
-
+        <ArticlesPageSearch onChangeSort={onChangeSort} className={cls.search} />
         <ArticleList articles={articles} isLoading={isLoading} view={view} error={error} />
       </Page>
     </DynamicModuleLoader>
