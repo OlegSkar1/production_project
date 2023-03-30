@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleViewChanger } from './ArticleViewChanger';
 
 export default {
-  title: 'shared/ArticleViewChanger',
+  title: 'features/ArticlesViewChanger',
   component: ArticleViewChanger,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -4,6 +4,7 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleReducer } from 'entities/Article/model/slice/articleSlice';
 import { addCommentReducer } from 'features/AddNewCommentForm/model/slice/addCommentSlice';
+import { articlesFilterReducer } from 'features/ArticlePageFilter';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileCardReducer } from 'features/EditableProfileCard/model/slice/profileCardSlice';
 import { articleCommentReducer } from 'pages/ArticleDetailsPage/model/slice/articleCommentSlice/articleCommentSlice';
@@ -17,6 +18,7 @@ const defaultAsyncReducers: ReducersList = {
   articleComments: articleCommentReducer,
   addCommentForm: addCommentReducer,
   articlesList: articlesListReducer,
+  articlesFilter: articlesFilterReducer,
 };
 
 export const StoreDecorator =
