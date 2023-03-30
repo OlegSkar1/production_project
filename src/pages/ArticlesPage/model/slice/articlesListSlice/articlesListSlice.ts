@@ -55,7 +55,7 @@ export const articlesListSlice = createSlice({
       .addCase(fetchArticles.fulfilled, (state, action) => {
         state.isLoading = false;
         state.limit ? (state.hasMore = action.payload.length >= state.limit) : null;
-        if (action.meta.arg.replace && state.limit) {
+        if (action.meta.arg.replace) {
           articlesListAdapter.setAll(state, action.payload);
         } else {
           articlesListAdapter.addMany(state, action.payload);

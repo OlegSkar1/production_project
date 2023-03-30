@@ -1,13 +1,14 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
+
+import { useSearchParams } from 'react-router-dom';
 
 import cls from './ArticlesPage.module.scss';
 
 import {
   articlesListError,
   articlesListIsLoading,
-  articlesListLimit,
   articlesListView,
 } from '../../model/selectors/articlesList/articlesList';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
@@ -20,12 +21,11 @@ import {
 } from '../../model/slice/articlesListSlice/articlesListSlice';
 
 import { ArticleList, ArticleView } from 'entities/Article';
-import { ArticlesPageFilter, ArticlesPageSearch } from 'features/ArticlePageFilter';
+import { ArticlesPageFilter, ArticlesPageSearch, getOrder, getSearch, getSort } from 'features/ArticlePageFilter';
 import { ArticleViewChanger } from 'features/ArticleViewChanger';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
 import { Page } from 'widgets/Page';
 
@@ -40,6 +40,8 @@ const reducers: ReducersList = {
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const { className } = props;
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const dispatch = useAppDispatch();
 
   const articles = useSelector(articleListSelectors.selectAll);
@@ -47,8 +49,16 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const error = useSelector(articlesListError);
   const view = useSelector(articlesListView);
 
+  const sort = useSelector(getSort);
+  const order = useSelector(getOrder);
+  const search = useSelector(getSearch);
+
+  useEffect(() => {
+    setSearchParams({ sort, order, search });
+  }, [order, search, setSearchParams, sort]);
+
   useInitEffect(() => {
-    dispatch(initedFetchArticles());
+    dispatch(initedFetchArticles(searchParams));
   });
 
   const onChangeView = useCallback(

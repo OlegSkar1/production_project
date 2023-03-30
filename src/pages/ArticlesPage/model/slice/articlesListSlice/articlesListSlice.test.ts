@@ -78,6 +78,7 @@ describe('articleListSlice', () => {
       ...state,
       view: ArticleView.LIST,
       limit: 4,
+      _inited: true,
     });
   });
   it('should not to be get initView ', () => {
@@ -85,9 +86,13 @@ describe('articleListSlice', () => {
       ...state,
       view: ArticleView.GRID,
       limit: 5,
+      _inited: true,
     });
   });
   it('fetchArticles fulfilled', () => {
-    expect(articlesListReducer(state, fetchArticles.fulfilled([article], '', { replace: false }))).toEqual(state);
+    expect(articlesListReducer(state, fetchArticles.fulfilled([article], '', { replace: false }))).toEqual({
+      ...state,
+      hasMore: false,
+    });
   });
 });

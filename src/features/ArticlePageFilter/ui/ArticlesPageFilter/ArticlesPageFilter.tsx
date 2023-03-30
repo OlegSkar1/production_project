@@ -28,6 +28,7 @@ const reducers: ReducersList = {
 
 export const ArticlesPageFilter: FC<ArticlesPageFilterProps> = memo((props) => {
   const { className, onChangeSort } = props;
+
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();

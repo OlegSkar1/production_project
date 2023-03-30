@@ -23,6 +23,7 @@ const reducers: ReducersList = {
 
 export const ArticlesPageSearch: FC<ArticlesPageSearchProps> = (props) => {
   const { className, onChangeSort } = props;
+
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
