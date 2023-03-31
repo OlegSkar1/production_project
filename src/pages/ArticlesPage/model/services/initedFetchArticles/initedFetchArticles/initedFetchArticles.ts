@@ -7,7 +7,7 @@ import { articlesListActions } from '../../../slice/articlesListSlice/articlesLi
 import { fetchArticles } from '../../fetchArticles/fetchArticles';
 
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { SortType } from 'entities/Article';
+import { ArticleType, SortType } from 'entities/Article';
 import { articlesFilterActions } from 'features/ArticlePageFilter/model/slice/filterSlice';
 import { OrderType } from 'shared/types';
 
@@ -22,11 +22,13 @@ export const initedFetchArticles = createAsyncThunk<void, URLSearchParams, Thunk
     const sort = searchParams.get('sort');
     const order = searchParams.get('order');
     const search = searchParams.get('search');
+    const type = searchParams.get('type');
 
     if (!inited) {
       dispatch(articlesFilterActions.setSort((sort as SortType) ?? ''));
       dispatch(articlesFilterActions.setOrder((order as OrderType) ?? ''));
       dispatch(articlesFilterActions.setSearch(search ?? ''));
+      dispatch(articlesFilterActions.setTab(type as ArticleType) ?? 'ALL');
 
       dispatch(articlesListActions.getInitView());
       dispatch(fetchArticles({}));

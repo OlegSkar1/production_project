@@ -21,7 +21,15 @@ import {
 } from '../../model/slice/articlesListSlice/articlesListSlice';
 
 import { ArticleList, ArticleView } from 'entities/Article';
-import { ArticlesPageFilter, ArticlesPageSearch, getOrder, getSearch, getSort } from 'features/ArticlePageFilter';
+import {
+  ArticlesPageSort,
+  ArticlesPageSearch,
+  getOrder,
+  getSearch,
+  getSort,
+  ArticlesPageTabs,
+  getTab,
+} from 'features/ArticlePageFilter';
 import { ArticleViewChanger } from 'features/ArticleViewChanger';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -52,10 +60,11 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const sort = useSelector(getSort);
   const order = useSelector(getOrder);
   const search = useSelector(getSearch);
+  const tab = useSelector(getTab);
 
   useEffect(() => {
-    setSearchParams({ sort, order, search });
-  }, [order, search, setSearchParams, sort]);
+    setSearchParams({ sort, order, search, type: tab });
+  }, [tab, sort, order, search, setSearchParams]);
 
   useInitEffect(() => {
     dispatch(initedFetchArticles(searchParams));
@@ -92,10 +101,11 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         className={classNames(cls.articlesPage, [className], {})}
       >
         <div className={cls.articlesHeaderWrapper}>
-          <ArticlesPageFilter onChangeSort={onChangeSort} />
+          <ArticlesPageSort onChangeSort={onChangeSort} />
           <ArticleViewChanger onViewClick={onChangeView} view={view} />
         </div>
         <ArticlesPageSearch onChangeSort={onChangeSort} className={cls.search} />
+        <ArticlesPageTabs onTabClick={onChangeSort} className={cls.tabs} />
         <ArticleList articles={articles} isLoading={isLoading} view={view} error={error} />
       </Page>
     </DynamicModuleLoader>

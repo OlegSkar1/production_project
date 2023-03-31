@@ -4,7 +4,7 @@ import { articlesListLimit, articlesListPage } from '../../selectors/articlesLis
 
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import { getOrder, getSearch, getSort } from 'features/ArticlePageFilter';
+import { getOrder, getSearch, getSort, getTab } from 'features/ArticlePageFilter';
 
 interface FetchArticlesProps {
   replace?: boolean;
@@ -21,10 +21,19 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticlesProps, Thu
     const order = getOrder(getState());
     const search = getSearch(getState());
     const page = articlesListPage(getState());
+    const tab = getTab(getState());
 
     try {
       const res = await extra.api.get<Article[]>('/articles', {
-        params: { _expand: 'user', _page: page, _limit: limit, _sort: sort, _order: order, q: search },
+        params: {
+          _expand: 'user',
+          _page: page,
+          _limit: limit,
+          _sort: sort,
+          _order: order,
+          q: search,
+          type: tab === 'ALL' ? undefined : tab,
+        },
       });
 
       if (!res.data) {

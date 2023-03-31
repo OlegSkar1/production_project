@@ -2,13 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ArticlesFilterSchema } from '../types/articlesFilterTypes';
 
-import { SortType } from 'entities/Article';
+import { ArticleType, SortType } from 'entities/Article';
 import { OrderType } from 'shared/types';
 
 const initialState: ArticlesFilterSchema = {
   sort: SortType.CREATED_AT,
   order: 'asc',
   search: '',
+  tab: 'ALL',
 };
 
 export const articlesFilterSlice = createSlice({
@@ -23,6 +24,9 @@ export const articlesFilterSlice = createSlice({
     },
     setSearch: (state: ArticlesFilterSchema, action: PayloadAction<string>) => {
       state.search = action.payload;
+    },
+    setTab: (state: ArticlesFilterSchema, action: PayloadAction<ArticleType>) => {
+      state.tab = action.payload;
     },
   },
 });

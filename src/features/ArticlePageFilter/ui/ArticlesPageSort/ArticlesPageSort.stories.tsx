@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ArticlesPageFilter } from './ArticlesPageFilter';
+import { ArticlesPageSort } from './ArticlesPageSort';
 
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
@@ -8,7 +8,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
 export default {
   title: 'features/ArticlesPageFilter/Sort',
-  component: ArticlesPageFilter,
+  component: ArticlesPageSort,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -20,9 +20,9 @@ export default {
       },
     }),
   ],
-} as ComponentMeta<typeof ArticlesPageFilter>;
+} as ComponentMeta<typeof ArticlesPageSort>;
 
-const Template: ComponentStory<typeof ArticlesPageFilter> = (args) => <ArticlesPageFilter {...args} />;
+const Template: ComponentStory<typeof ArticlesPageSort> = (args) => <ArticlesPageSort {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

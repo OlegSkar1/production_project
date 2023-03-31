@@ -1,4 +1,4 @@
-import { ChangeEvent, memo, useMemo } from 'react';
+import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 
 import cls from './Select.module.scss';
 
@@ -21,9 +21,12 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     [options]
   );
 
-  const changeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value as T);
-  };
+  const changeHandler = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      onChange?.(e.target.value as T);
+    },
+    [onChange]
+  );
 
   return (
     <div className={classNames(cls.wrapper, [className], {})}>

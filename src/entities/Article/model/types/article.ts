@@ -29,6 +29,7 @@ export type ArticleBlock = TextBlock | ImageBlock | CodeBlock;
 export type ArticleType = ValueOf<typeof ArticleType>;
 
 export const ArticleType = {
+  ALL: 'ALL',
   IT: 'IT',
   SCIENCE: 'SCIENCE',
   ECONOMICS: 'ECONOMICS',

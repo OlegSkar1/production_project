@@ -1,3 +1,4 @@
+export { Tabs } from './Tabs/ui/Tabs';
 export { Select } from './Select/ui/Select';
 export { Card } from './Card/Card';
 export { Code } from './Code/Code';

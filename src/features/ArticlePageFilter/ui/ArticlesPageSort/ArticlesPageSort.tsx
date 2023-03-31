@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
 
-import cls from './ArticlesPageFilter.module.scss';
+import cls from './ArticlesPageSort.module.scss';
 
 import { getOrder, getSort } from '../../model/selectors/filterSelectors';
 
@@ -17,7 +17,7 @@ import { OrderType } from 'shared/types';
 import { Select } from 'shared/ui';
 import { OptionList } from 'shared/ui/Select';
 
-interface ArticlesPageFilterProps {
+interface ArticlesPageSortProps {
   className?: string;
   onChangeSort: (replace: boolean) => void;
 }
@@ -26,7 +26,7 @@ const reducers: ReducersList = {
   articlesFilter: articlesFilterReducer,
 };
 
-export const ArticlesPageFilter: FC<ArticlesPageFilterProps> = memo((props) => {
+export const ArticlesPageSort: FC<ArticlesPageSortProps> = memo((props) => {
   const { className, onChangeSort } = props;
 
   const { t } = useTranslation();
@@ -85,7 +85,7 @@ export const ArticlesPageFilter: FC<ArticlesPageFilterProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={classNames(cls.articlesPageFilter, [className], {})}>
+      <div className={classNames(cls.articlesPageSort, [className], {})}>
         <Select options={sortOptions} label={t('Sort by')} value={sort} onChange={onSort} />
         <Select options={orderOptions} label={t('order by')} onChange={onOrder} value={order} />
       </div>
