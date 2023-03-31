@@ -69,13 +69,17 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   );
 
   const onLoadNewArticles = useCallback(() => {
-    dispatch(fetchNextArticlesPage());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchNextArticlesPage());
+    }
   }, [dispatch]);
 
   const onChangeSort = useCallback(
     (replace: boolean) => {
-      dispatch(articlesListActions.setPage(1));
-      dispatch(fetchArticles({ replace }));
+      if (__PROJECT__ !== 'storybook') {
+        dispatch(articlesListActions.setPage(1));
+        dispatch(fetchArticles({ replace }));
+      }
     },
     [dispatch]
   );

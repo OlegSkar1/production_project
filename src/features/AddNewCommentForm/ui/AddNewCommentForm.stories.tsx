@@ -17,3 +17,9 @@ const Template: ComponentStory<typeof AddNewCommentForm> = (args) => <AddNewComm
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({ addCommentForm: { text: 'Add New Comment' } })];
+
+export const Error = Template.bind({});
+Error.args = {
+  error: 'error',
+};
+Error.decorators = [StoreDecorator({ addCommentForm: {} })];

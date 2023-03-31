@@ -104,9 +104,9 @@ export const ErrorArticle = Template.bind({});
 ErrorArticle.args = {};
 ErrorArticle.decorators = [StoreDecorator({ article: { error: 'error' } })];
 
-export const ErrorСщььутеы = Template.bind({});
-ErrorСщььутеы.args = {};
-ErrorСщььутеы.decorators = [StoreDecorator({ article: { data: article }, addCommentForm: {} })];
+export const WithoutComments = Template.bind({});
+WithoutComments.args = {};
+WithoutComments.decorators = [StoreDecorator({ article: { data: article }, addCommentForm: {} })];
 
 export const Loading = Template.bind({});
 Loading.args = {};

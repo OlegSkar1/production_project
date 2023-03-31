@@ -84,7 +84,7 @@ export const ArticlesPageFilter: FC<ArticlesPageFilterProps> = memo((props) => {
   );
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <div className={classNames(cls.articlesPageFilter, [className], {})}>
         <Select options={sortOptions} label={t('Sort by')} value={sort} onChange={onSort} />
         <Select options={orderOptions} label={t('order by')} onChange={onOrder} value={order} />

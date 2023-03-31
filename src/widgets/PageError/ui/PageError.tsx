@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import cls from './PageError.module.scss';
 
 import { classNames } from 'shared/lib';
-import { Button } from 'shared/ui';
+import { Button, Text } from 'shared/ui';
 
 interface PageErrorProps {
   className?: string;
@@ -19,7 +19,7 @@ export const PageError: React.FC<PageErrorProps> = (props) => {
 
   return (
     <div className={classNames(cls.pageError, [className], {})}>
-      <p style={{ fontWeight: 'bold' }}>{t('error')}</p>
+      <Text title={t('error')} align='center' size='size_l' theme='error' />
       <Button onClick={updateHandler}>{t('update-page')}</Button>
     </div>
   );
