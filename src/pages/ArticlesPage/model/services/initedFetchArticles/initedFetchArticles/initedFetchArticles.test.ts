@@ -1,5 +1,3 @@
-import { URLSearchParams } from 'url';
-
 import { initedFetchArticles } from './initedFetchArticles';
 
 import { fetchArticles } from '../../fetchArticles/fetchArticles';
@@ -7,7 +5,6 @@ import { fetchArticles } from '../../fetchArticles/fetchArticles';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 jest.mock('../../fetchArticles/fetchArticles');
-jest.mock('url');
 
 describe('initedFetchArticles', () => {
   it('fetch articlesList if not inited', async () => {
@@ -24,12 +21,10 @@ describe('initedFetchArticles', () => {
       },
     });
 
-    const searchParams = new URLSearchParams({ sort: 'sort', order: 'order', search: 'search' });
+    await thunk.callThunk(new URLSearchParams('sort=recent&order=asc&search=testing&type=ALL'));
 
-    await thunk.callThunk(searchParams);
-
-    expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(fetchArticles).not.toBeCalled();
+    expect(thunk.dispatch).toHaveBeenCalledTimes(8);
+    expect(fetchArticles).toBeCalled();
   });
   it('should not to be fetch if inited', async () => {
     const thunk = new TestAsyncThunk(initedFetchArticles, {
@@ -44,7 +39,7 @@ describe('initedFetchArticles', () => {
       },
     });
 
-    await thunk.callThunk({} as URLSearchParams);
+    await thunk.callThunk(new URLSearchParams('sort=recent&order=asc&search=testing&type=ALL'));
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(fetchArticles).not.toBeCalled();

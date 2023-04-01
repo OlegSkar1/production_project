@@ -28,10 +28,10 @@ export const initedFetchArticles = createAsyncThunk<void, URLSearchParams, Thunk
       dispatch(articlesFilterActions.setSort((sort as SortType) ?? ''));
       dispatch(articlesFilterActions.setOrder((order as OrderType) ?? ''));
       dispatch(articlesFilterActions.setSearch(search ?? ''));
-      dispatch(articlesFilterActions.setTab(type as ArticleType) ?? 'ALL');
+      dispatch(articlesFilterActions.setTab((type as ArticleType) ?? 'ALL'));
 
       dispatch(articlesListActions.getInitView());
-      dispatch(fetchArticles({}));
+      dispatch(fetchArticles({ searchParams }));
     }
   }
 );

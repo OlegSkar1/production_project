@@ -8,6 +8,7 @@ import { getOrder, getSearch, getSort, getTab } from 'features/ArticlePageFilter
 
 interface FetchArticlesProps {
   replace?: boolean;
+  searchParams?: URLSearchParams;
 }
 
 export const fetchArticles = createAsyncThunk<Article[], FetchArticlesProps, ThunkConfig<string>>(
