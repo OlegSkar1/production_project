@@ -48,6 +48,7 @@
 
 .GRID {
   cursor: pointer;
+  flex-shrink: 0;
   width: 25%;
   transition: 0.2s;
 
@@ -103,4 +104,10 @@
       white-space: nowrap;
     }
   }
+}
+
+.views-wrapper {
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }

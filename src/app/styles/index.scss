@@ -19,3 +19,19 @@
 .content-page {
   display: flex;
 }
+
+*::-webkit-scrollbar-track {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--scrollbar-shadow);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}

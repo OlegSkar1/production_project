@@ -21,6 +21,7 @@ import { ArticleDetails, getArticleError } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { AddNewCommentForm } from 'features/AddNewCommentForm';
 
+import { RecommendArticles } from 'features/RecommendArticles';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -72,6 +73,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         <ArticleDetails id={id} />
         {!articleError && (
           <>
+            <RecommendArticles />
             <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
             <CommentList comments={comments} isLoading={commentsIsLoading} />
           </>

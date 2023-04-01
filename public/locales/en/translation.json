@@ -39,5 +39,6 @@
   "asc": "ascending",
   "desc": "descending",
   "search": "Search:",
-  "order by": "Order by:"
+  "order by": "Order by:",
+  "articles not found": "Articles not found"
 }

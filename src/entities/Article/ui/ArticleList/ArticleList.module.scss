@@ -1,13 +1,13 @@
 .article-list {
   display: flex;
   gap: 20px;
+}
 
-  &.GRID {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.GRID {
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  &.LIST {
-    flex-direction: column;
-  }
+.LIST {
+  flex-direction: column;
 }

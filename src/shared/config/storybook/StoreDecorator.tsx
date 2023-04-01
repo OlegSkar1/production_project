@@ -7,6 +7,7 @@ import { addCommentReducer } from 'features/AddNewCommentForm/model/slice/addCom
 import { articlesFilterReducer } from 'features/ArticlePageFilter';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileCardReducer } from 'features/EditableProfileCard/model/slice/profileCardSlice';
+import { recommendArticlesReducer } from 'features/RecommendArticles';
 import { articleCommentReducer } from 'pages/ArticleDetailsPage/model/slice/articleCommentSlice/articleCommentSlice';
 import { articlesListReducer } from 'pages/ArticlesPage/model/slice/articlesListSlice/articlesListSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -19,6 +20,7 @@ const defaultAsyncReducers: ReducersList = {
   addCommentForm: addCommentReducer,
   articlesList: articlesListReducer,
   articlesFilter: articlesFilterReducer,
+  recommendArticles: recommendArticlesReducer,
 };
 
 export const StoreDecorator =

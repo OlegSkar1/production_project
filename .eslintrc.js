@@ -28,7 +28,7 @@ module.exports = {
       2,
       {
         markupOnly: true,
-        ignoreAttribute: ['to', 'data-testid', 'variant', 'size', 'theme', 'align', 'title', 'text'],
+        ignoreAttribute: ['to', 'data-testid', 'variant', 'size', 'theme', 'align', 'title', 'text', 'target'],
       },
     ],
     'react-hooks/rules-of-hooks': 'error',

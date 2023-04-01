@@ -13,7 +13,7 @@ import {
 } from '../../model/selectors/articlesList/articlesList';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { initedFetchArticles } from '../../model/services/initedFetchArticles/initedFetchArticles/initedFetchArticles';
+import { initedFetchArticles } from '../../model/services/initedFetchArticles/initedFetchArticles';
 import {
   articleListSelectors,
   articlesListActions,

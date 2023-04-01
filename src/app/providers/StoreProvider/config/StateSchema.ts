@@ -9,6 +9,7 @@ import { AddCommentSchema } from 'features/AddNewCommentForm';
 import { ArticlesFilterSchema } from 'features/ArticlePageFilter';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileCardSchema } from 'features/EditableProfileCard';
+import { RecommendArticleSchema } from 'features/RecommendArticles';
 import { ScrollSaveSchema } from 'features/ScrollSave';
 import { articleCommentSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesListSchema } from 'pages/ArticlesPage';
@@ -26,6 +27,7 @@ export interface StateSchema {
   addCommentForm?: AddCommentSchema;
   articlesList?: ArticlesListSchema;
   articlesFilter?: ArticlesFilterSchema;
+  recommendArticles?: RecommendArticleSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

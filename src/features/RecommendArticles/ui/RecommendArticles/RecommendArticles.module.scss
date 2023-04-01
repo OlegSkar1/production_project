@@ -1,0 +1,8 @@
+.articles {
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  padding: 10px;
+}

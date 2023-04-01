@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleListItem.module.scss';
@@ -16,10 +16,11 @@ interface ArticleListItemProps {
   className?: string;
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
-  const { className, article, view } = props;
+  const { className, article, view, target } = props;
   const { t } = useTranslation('articles');
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -34,7 +35,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     const block = article.blocks.find((block) => block.type === 'TEXT') as TextBlock;
 
     return (
-      <article className={classNames(cls.articleListItem, [className, cls[view]], {})}>
+      <article className={classNames('', [className, cls[view]], {})}>
         <Card>
           <header className={cls.headerWrapper}>
             {article.user.avatar && <Avatar src={article.user.avatar} alt={article.title} size={30} />}
@@ -46,7 +47,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           <img src={article.img} alt={article.title} className={cls.img} />
           <ArticleTextBlock block={block} className={cls.content} />
           <div className={cls.footer}>
-            <AppLink to={`${routePath.articles_details}${article.id}`} className={cls.link} theme='outlined'>
+            <AppLink to={`${routePath.articles_details}${article.id}`} theme='outlined'>
               {t('read more')}
             </AppLink>
             {views}
@@ -58,7 +59,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   return (
     <div className={classNames('', [className, cls[view]], {})}>
-      <AppLink to={`${routePath.articles_details}${article.id}`}>
+      <AppLink to={`${routePath.articles_details}${article.id}`} target={target}>
         <Card>
           <div className={cls.imgWrapper}>
             <img src={article.img} alt={article.title} className={cls.img} />
