@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import cls from './ArticleDetailsPage.module.scss';
 
-import { articleDetailsCommentsError, articleDetailsCommentsIsLoading } from '../../model/selectors/comments';
+import { articleDetailsCommentsError, articleDetailsCommentsIsLoading } from '../../model/selectors/comments/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 import { fetchArticleComments } from '../../model/services/fetchArticleComments/fetchArticleComments';
@@ -16,7 +16,8 @@ import {
   articleCommentSelectors,
 } from '../../model/slice/articleCommentSlice/articleCommentSlice';
 
-import { routePath } from 'app/providers/router/config/routeConfig';
+import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader';
+
 import { ArticleDetails, getArticleError } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { AddNewCommentForm } from 'features/AddNewCommentForm';
@@ -26,7 +27,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
-import { AppLink } from 'shared/ui';
 import { Page } from 'widgets/Page';
 
 interface ArticleDetailsPageProps {
@@ -67,9 +67,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.articleDetailsPage, [className], {})}>
-        <AppLink to={routePath.articles} className={cls.link} theme='outlined'>
-          {t('back to list')}
-        </AppLink>
+        <ArticleDetailsHeader />
         <ArticleDetails id={id} />
         {!articleError && (
           <>

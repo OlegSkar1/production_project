@@ -2,6 +2,7 @@ import { RouteProps } from 'react-router-dom';
 
 import { AboutPage } from 'pages/AboutPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -18,7 +19,9 @@ export const AppRoutes = {
   ABOUT: 'about',
   PROFILE: 'profile',
   ARTICLES: 'articles',
-  ARTICLES_DETAILS: 'articles_details',
+  ARTICLE_DETAILS: 'article_details',
+  ARTICLE_EDIT: 'article_edit',
+  ARTICLE_CREATE: 'article_create',
 
   // несуществующий роут, должен быть последним
   NOT_FOUND: 'notFound',
@@ -27,10 +30,12 @@ export const AppRoutes = {
 export const routePath: Record<AppRoutes, string> = {
   main: '/',
   about: '/about',
-  profile: '/profile/', // + id
+  profile: '/profile/:id',
   notFound: '*',
   articles: '/articles',
-  articles_details: '/articles/', // + id
+  article_details: '/articles/:id',
+  article_edit: '/articles/:id/edit',
+  article_create: '/articles/new',
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -43,7 +48,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <AboutPage />,
   },
   profile: {
-    path: routePath.profile + ':id',
+    path: routePath.profile,
     element: <ProfilePage />,
     authOnly: true,
   },
@@ -52,11 +57,23 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <ArticlesPage />,
     authOnly: true,
   },
-  articles_details: {
-    path: routePath.articles_details + ':id',
+  article_details: {
+    path: routePath.article_details,
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
+  article_edit: {
+    path: routePath.article_edit,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  article_create: {
+    path: routePath.article_create,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+
+  //last
   notFound: {
     path: routePath.notFound,
     element: <NotFoundPage />,

@@ -40,5 +40,7 @@
   "desc": "descending",
   "search": "Search:",
   "order by": "Order by:",
-  "articles not found": "Articles not found"
+  "articles not found": "Articles not found",
+  "Edit": "Edit",
+  "Create article": "Create article"
 }

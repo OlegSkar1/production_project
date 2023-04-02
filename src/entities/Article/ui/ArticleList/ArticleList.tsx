@@ -35,7 +35,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
   );
 
   if (!isLoading && articles.length === 0) {
-    <Text text={t('articles not found')} align='center' size='size_l' />;
+    return <Text text={t('articles not found')} align='center' size='size_l' />;
   }
 
   return (

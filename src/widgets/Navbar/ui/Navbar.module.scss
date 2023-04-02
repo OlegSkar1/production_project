@@ -11,6 +11,11 @@
 
 .links {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   margin-left: auto;
+}
+
+.title {
+  width: var(--sidebar-width);
+  padding-left: 15px;
 }

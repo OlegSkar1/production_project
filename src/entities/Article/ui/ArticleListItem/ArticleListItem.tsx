@@ -1,6 +1,8 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { generatePath } from 'react-router-dom';
+
 import cls from './ArticleListItem.module.scss';
 
 import { Article, ArticleView, TextBlock } from '../../model/types/article';
@@ -22,6 +24,8 @@ interface ArticleListItemProps {
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation('articles');
+
+  const pathToArticleDetails = generatePath(routePath.article_details, { id: article.id });
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
@@ -47,7 +51,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           <img src={article.img} alt={article.title} className={cls.img} />
           <ArticleTextBlock block={block} className={cls.content} />
           <div className={cls.footer}>
-            <AppLink to={`${routePath.articles_details}${article.id}`} theme='outlined'>
+            <AppLink to={pathToArticleDetails} theme='outlined'>
               {t('read more')}
             </AppLink>
             {views}
@@ -59,7 +63,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   return (
     <div className={classNames('', [className, cls[view]], {})}>
-      <AppLink to={`${routePath.articles_details}${article.id}`} target={target}>
+      <AppLink to={pathToArticleDetails} target={target}>
         <Card>
           <div className={cls.imgWrapper}>
             <img src={article.img} alt={article.title} className={cls.img} />

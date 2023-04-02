@@ -40,5 +40,7 @@
   "desc": "убыванию",
   "search": "Поиск:",
   "order by": "Порядок по:",
-  "articles not found": "Статьи не найдены"
+  "articles not found": "Статьи не найдены",
+  "Edit": "Редактировать",
+  "Create article": "Создать статью"
 }

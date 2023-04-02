@@ -1,3 +1,4 @@
+export { articleReducer } from './model/slice/articleSlice';
 export { SortType } from './model/types/article';
 export { getArticleError } from './model/selectors/getArticleError/getArticleError';
 export { ArticleType } from './model/types/article';
