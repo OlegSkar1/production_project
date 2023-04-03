@@ -1,6 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { getArticleData } from 'entities/Article';
+import { getArticleData } from '../getArticleData/getArticleData';
+
 import { getUserAuthData } from 'entities/User';
 
 export const getUserIsEditArticle = createSelector(getUserAuthData, getArticleData, (user, article) => {

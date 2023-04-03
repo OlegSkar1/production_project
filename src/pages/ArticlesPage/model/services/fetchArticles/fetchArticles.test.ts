@@ -43,7 +43,7 @@ const data: Article[] = [
     ],
   },
   {
-    id: '1',
+    id: '2',
     title: 'JavaScript для начинающих. Урок 1',
     subtitle: 'JavaScript',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
@@ -90,10 +90,16 @@ describe('fetchArticles', () => {
         limit: 5,
         page: 1,
       },
+      articlesFilter: {
+        order: 'asc',
+        sort: 'createdAt',
+        search: 'Java',
+        tab: 'ALL',
+      },
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
-    const result = await thunk.callThunk({ replace: false });
+    const result = await thunk.callThunk({ replace: true });
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);

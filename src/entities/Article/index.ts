@@ -1,3 +1,4 @@
+export { getUserIsEditArticle } from './model/selectors/getUserIsEditArticle/getUserIsEditArticle';
 export { articleReducer } from './model/slice/articleSlice';
 export { SortType } from './model/types/article';
 export { getArticleError } from './model/selectors/getArticleError/getArticleError';

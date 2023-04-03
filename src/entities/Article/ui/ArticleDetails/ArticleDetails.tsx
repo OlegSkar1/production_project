@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 
 import cls from './ArticleDetails.module.scss';
 
+import { getArticleData } from '../../model/selectors/getArticleData/getArticleData';
+import { getArticleError } from '../../model/selectors/getArticleError/getArticleError';
+import { getArticleIsLoading } from '../../model/selectors/getArticleIsLoading/getArticleIsLoading';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 
 import { articleReducer } from '../../model/slice/articleSlice';
@@ -17,9 +20,6 @@ import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
-import { getArticleData } from 'entities/Article/model/selectors/getArticleData/getArticleData';
-import { getArticleError } from 'entities/Article/model/selectors/getArticleError/getArticleError';
-import { getArticleIsLoading } from 'entities/Article/model/selectors/getArticleIsLoading/getArticleIsLoading';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { classNames } from 'shared/lib/classNames/classNames';

@@ -1522,6 +1522,12 @@
       "userId": "1",
       "text": "test",
       "id": "tUhTD17"
+    },
+    {
+      "articleId": "17",
+      "userId": "1",
+      "text": "docker comment",
+      "id": "AY8eQvV"
     }
   ],
   "users": [

@@ -7,9 +7,8 @@ import { generatePath, useParams } from 'react-router-dom';
 
 import cls from './ArticleDetailsHeader.module.scss';
 
-import { getUserIsEditArticle } from '../../model/selectors/getUserIsEditArticle/getUserIsEditArticle';
-
 import { routePath } from 'app/providers/router/config/routeConfig';
+import { getUserIsEditArticle } from 'entities/Article/model/selectors/getUserIsEditArticle/getUserIsEditArticle';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui';
 

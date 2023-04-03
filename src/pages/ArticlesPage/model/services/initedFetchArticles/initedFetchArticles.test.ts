@@ -4,7 +4,7 @@ import { fetchArticles } from '../fetchArticles/fetchArticles';
 
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-jest.mock('../../fetchArticles/fetchArticles');
+jest.mock('../fetchArticles/fetchArticles');
 
 describe('initedFetchArticles', () => {
   it('fetch articlesList if not inited', async () => {

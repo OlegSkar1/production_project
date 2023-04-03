@@ -7,6 +7,7 @@ import { ArticleSchema } from '../types/article';
 const initialState: ArticleSchema = {
   isLoading: false,
   error: undefined,
+  data: undefined,
 };
 
 export const articleSlice = createSlice({

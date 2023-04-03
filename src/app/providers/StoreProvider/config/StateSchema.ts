@@ -11,7 +11,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileCardSchema } from 'features/EditableProfileCard';
 import { RecommendArticleSchema } from 'features/RecommendArticles';
 import { ScrollSaveSchema } from 'features/ScrollSave';
-import { articleCommentSchema } from 'pages/ArticleDetailsPage';
+import { ArticleCommentSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesListSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
@@ -23,7 +23,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileCardSchema;
   article?: ArticleSchema;
-  articleComments?: articleCommentSchema;
+  articleComments?: ArticleCommentSchema;
   addCommentForm?: AddCommentSchema;
   articlesList?: ArticlesListSchema;
   articlesFilter?: ArticlesFilterSchema;
