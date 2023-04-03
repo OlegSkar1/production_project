@@ -28,11 +28,15 @@ const getSkeleton = (view: ArticleView) =>
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
   const { className, articles, isLoading, error, target, view = ArticleView.GRID } = props;
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
 
   const renderArticle = (article: Article) => (
     <ArticleListItem article={article} view={view} key={article.id} target={target} />
   );
+
+  if (error) {
+    return <Text text={t('article list error')} align='center' size='size_l' theme='error' />;
+  }
 
   if (!isLoading && articles.length === 0) {
     return <Text text={t('articles not found')} align='center' size='size_l' />;
@@ -40,7 +44,6 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 
   return (
     <div className={classNames(cls.articleList, [className, cls[view]], {})}>
-      {error && <Text text={t('articles not found')} align='center' size='size_l' />}
       {articles.length > 0 ? articles.map(renderArticle) : null}
       {isLoading && getSkeleton(view)}
     </div>

@@ -81,7 +81,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
       </div>
     );
   } else if (error) {
-    content = <Text align='center' title={t('an error occurred while loading the article')} />;
+    content = <Text align='center' title={t('an error occurred while loading the article')} theme='error' />;
   } else if (article) {
     content = (
       <>

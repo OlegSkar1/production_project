@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
@@ -16,7 +16,7 @@ interface ArticleDetailsHeaderProps {
   className?: string;
 }
 
-export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = (props) => {
+export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation();
   const isEdit = useSelector(getUserIsEditArticle);
@@ -36,4 +36,4 @@ export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = (props) => {
       )}
     </div>
   );
-};
+});

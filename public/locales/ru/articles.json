@@ -3,5 +3,11 @@
   "Article not found": "Статья не найдена",
   "an error occurred while loading the article": "Произошла ошибка при загрузке статьи",
   "read more": "читать далее...",
-  "back to list": "назад к списку"
+  "back to list": "назад к списку",
+  "article list error": "Произошла ошибка при загрузке статей, пожалуйста попробуйте позже.",
+  "articles not found": "Статьи не найдены",
+  "all": "Все",
+  "it": "Айти",
+  "science": "Наука",
+  "economics": "Экономика"
 }

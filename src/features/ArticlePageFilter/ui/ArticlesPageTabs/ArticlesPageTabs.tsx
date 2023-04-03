@@ -1,5 +1,6 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, memo, useCallback, useMemo } from 'react';
 
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import cls from './ArticlesPageTabs.module.scss';
@@ -19,30 +20,36 @@ interface ArticlesPageTabsProps {
   onTabClick: (replace: boolean) => void;
 }
 
-const tabs: TabItem<ArticleType>[] = [
-  {
-    value: 'ALL',
-    content: 'ALL',
-  },
-  {
-    value: 'IT',
-    content: 'IT',
-  },
-  {
-    value: 'SCIENCE',
-    content: 'SCIENCE',
-  },
-  {
-    value: 'ECONOMICS',
-    content: 'ECONOMICS',
-  },
-];
-
 export const ArticlesPageTabs: FC<ArticlesPageTabsProps> = memo((props) => {
   const { className, onTabClick } = props;
+
   const dispatch = useAppDispatch();
 
+  const { t } = useTranslation('articles');
+
   const tab = useSelector(getTab);
+
+  const tabs: TabItem<ArticleType>[] = useMemo(
+    () => [
+      {
+        value: 'ALL',
+        content: t('all'),
+      },
+      {
+        value: 'IT',
+        content: t('it'),
+      },
+      {
+        value: 'SCIENCE',
+        content: t('science'),
+      },
+      {
+        value: 'ECONOMICS',
+        content: t('economics'),
+      },
+    ],
+    [t]
+  );
 
   const onTabHandler = useCallback(
     (tab: TabItem<string>) => {
