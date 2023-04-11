@@ -22,8 +22,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import', 'i18next', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import', 'i18next', 'prettier', 'olegskar-fsd-checker'],
   rules: {
+    'olegskar-fsd-checker/paths-checker': 2,
     'i18next/no-literal-string': [
       2,
       {

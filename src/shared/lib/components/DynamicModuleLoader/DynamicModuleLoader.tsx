@@ -4,8 +4,9 @@ import { useEffect } from 'react';
 
 import { useStore } from 'react-redux';
 
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+
 import { ReduxWithReducerManager, StateSchema, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
