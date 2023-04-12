@@ -35,6 +35,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
+import { HStack } from 'shared/ui';
 import { Page } from 'widgets/Page';
 
 interface ArticlesPageProps {
@@ -103,10 +104,10 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
         onScrollEnd={onLoadNewArticles}
         className={classNames(cls.articlesPage, [className], {})}
       >
-        <div className={cls.articlesHeaderWrapper}>
+        <HStack justify='between' className={cls.articlesHeaderWrapper}>
           <ArticlesPageSort onChangeSort={onChangeSort} />
           <ArticleViewChanger onViewClick={onChangeView} view={view} />
-        </div>
+        </HStack>
         <ArticlesPageSearch onChangeSort={onChangeSort} className={cls.search} />
         <ArticlesPageTabs onTabClick={onChangeSort} className={cls.tabs} />
         <ArticleList articles={articles} isLoading={isLoading} view={view} error={error} />

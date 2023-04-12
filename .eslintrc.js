@@ -43,6 +43,7 @@ module.exports = {
           'justify',
           'align',
           'gap',
+          'tagname',
         ],
       },
     ],

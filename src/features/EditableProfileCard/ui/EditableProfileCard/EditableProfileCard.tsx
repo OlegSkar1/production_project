@@ -100,7 +100,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
-      <div className={classNames(cls.editableProfileCard, [className], {})}>
+      <div className={classNames('', [className], {})}>
         <ProfileCard
           data={data}
           isLoading={isLoading}

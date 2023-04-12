@@ -37,7 +37,7 @@ JustifyEnd.args = {
 
 export const JustifyBeetwen = Template.bind({});
 JustifyBeetwen.args = {
-  justify: 'beetwen',
+  justify: 'between',
 };
 
 export const DirectionColumn = Template.bind({});

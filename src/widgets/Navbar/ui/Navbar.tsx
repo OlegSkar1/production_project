@@ -10,7 +10,7 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { classNames } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, Button, Text } from 'shared/ui';
+import { AppLink, Button, HStack, Text } from 'shared/ui';
 
 interface NavbarProps {
   className?: string;
@@ -37,25 +37,25 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
 
   if (authData) {
     return (
-      <header className={classNames(cls.navbar, [className], {})}>
+      <HStack max tagname='header' className={classNames(cls.navbar, [className], {})}>
         <Text title='Blog App' className={cls.title} />
-        <nav className={cls.links}>
+        <HStack tagname='nav' gap='16' className={cls.links}>
           <AppLink to={routePath.article_create}>{t('Create article')}</AppLink>
           <Button variant='clearInverted' onClick={onLogout}>
             {t('Sign out')}
           </Button>
-        </nav>
-      </header>
+        </HStack>
+      </HStack>
     );
   }
 
   return (
-    <header className={classNames(cls.navbar, [className], {})}>
+    <HStack max tagname='header' className={classNames(cls.navbar, [className], {})}>
       <Text title='Blog App' className={cls.title} />
       <Button variant='clearInverted' className={classNames(cls.links)} onClick={onShowModal}>
         {t('Sign in')}
       </Button>
       {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
-    </header>
+    </HStack>
   );
 });

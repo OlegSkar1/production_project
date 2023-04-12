@@ -11,7 +11,7 @@ import { LangSwitcher } from 'features/LangSwitcher';
 import { ThemeSwither } from 'features/ThemeSwither';
 import { classNames } from 'shared/lib';
 
-import { Button, VStack } from 'shared/ui';
+import { Button, HStack, VStack } from 'shared/ui';
 
 interface SidebarProps {
   className?: string;
@@ -32,10 +32,9 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
 
   return (
     <div data-testid='sidebar' className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}>
-      <VStack align='start' gap='16' className={classNames(cls.items)}>
+      <VStack tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
         {itemsList}
       </VStack>
-      {/*TODO VStack add tag nav*/}
       <Button
         square
         size='large'
@@ -46,10 +45,10 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={cls.switchers}>
+      <HStack max gap='16' justify='center' className={cls.switchers}>
         <ThemeSwither />
         <LangSwitcher short={collapsed} />
-      </div>
+      </HStack>
     </div>
   );
 });

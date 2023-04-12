@@ -10,7 +10,7 @@ import { SidebarItemsType } from '../../model/types/items';
 
 import { getUserAuthData } from 'entities/User';
 import { classNames } from 'shared/lib';
-import { AppLink } from 'shared/ui';
+import { AppLink, HStack } from 'shared/ui';
 
 interface SidebarItemProps {
   item: SidebarItemsType;
@@ -27,11 +27,11 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo(({ item, collapsed }
   }
 
   return (
-    <div className={classNames(cls.item, [], { [cls.collapsed]: collapsed })}>
-      <AppLink to={item.path} theme='invertedPrimary' className={cls.item}>
+    <AppLink to={item.path} theme='invertedPrimary'>
+      <HStack gap='8' className={classNames(cls.item, [], { [cls.collapsed]: collapsed })}>
         <item.Icon className={cls.icon} />
         <span className={cls.link}>{t(item.text)}</span>
-      </AppLink>
-    </div>
+      </HStack>
+    </AppLink>
   );
 });

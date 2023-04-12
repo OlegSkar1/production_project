@@ -15,7 +15,7 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, Input, Text } from 'shared/ui';
+import { Button, Input, Text, VStack } from 'shared/ui';
 
 interface LoginFormProps {
   className?: string;
@@ -61,7 +61,7 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classNames(cls.loginForm, [className], {})}>
+      <VStack gap='16' className={classNames('', [className], {})}>
         <Text title={t('authorization form')} className={cls.formTitle} />
         {error && (
           <Text text={t('You entered an incorrect username or password')} theme='error' className={cls.formError} />
@@ -82,7 +82,7 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
         >
           {t('Sign in')}
         </Button>
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

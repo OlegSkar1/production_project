@@ -2,6 +2,7 @@ import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 
 import cls from './Select.module.scss';
 
+import { HStack } from '../../Stack/HStack/HStack';
 import { SelectProps } from '../model/types/select';
 
 import { classNames } from 'shared/lib';
@@ -29,11 +30,11 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
   );
 
   return (
-    <div className={classNames(cls.wrapper, [className], {})}>
+    <HStack gap='16' className={classNames(cls.wrapper, [className], {})}>
       {label && <span>{label}</span>}
       <select disabled={readonly} value={value} className={cls.select} onChange={changeHandler}>
         {optionsList}
       </select>
-    </div>
+    </HStack>
   );
 });

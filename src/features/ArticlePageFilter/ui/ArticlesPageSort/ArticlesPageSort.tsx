@@ -14,7 +14,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { OrderType } from 'shared/types';
-import { Select } from 'shared/ui';
+import { HStack, Select } from 'shared/ui';
 import { OptionList } from 'shared/ui/Select';
 
 interface ArticlesPageSortProps {
@@ -85,10 +85,10 @@ export const ArticlesPageSort: FC<ArticlesPageSortProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={classNames(cls.articlesPageSort, [className], {})}>
+      <HStack gap='32' className={classNames('', [className], {})}>
         <Select options={sortOptions} label={t('Sort by')} value={sort} onChange={onSort} />
         <Select options={orderOptions} label={t('order by')} onChange={onOrder} value={order} />
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

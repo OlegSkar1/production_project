@@ -4,6 +4,7 @@ import cls from './Tabs.module.scss';
 
 import { Button } from '../../Button/Button';
 
+import { HStack } from '../../Stack/HStack/HStack';
 import { TabItem } from '../model/types/tabs';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -28,7 +29,7 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
   );
 
   return (
-    <div className={classNames(cls.tabs, [className], {})}>
+    <HStack gap='8' className={classNames(cls.tabs, [className], {})}>
       {tabs.map((tab) => (
         <Button
           variant={tab.value === value ? 'backgroundInverted' : 'outlined'}
@@ -39,6 +40,6 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
           {tab.content}
         </Button>
       ))}
-    </div>
+    </HStack>
   );
 });
