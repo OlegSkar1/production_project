@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Flex } from './Flex';
 
 export default {
-  title: 'shared/Stack/Flex',
+  title: 'shared/Flex',
   component: Flex,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -43,6 +43,7 @@ JustifyBeetwen.args = {
 export const DirectionColumn = Template.bind({});
 DirectionColumn.args = {
   direction: 'column',
+  align: 'center',
 };
 
 export const DirectionColumnAlignStart = Template.bind({});

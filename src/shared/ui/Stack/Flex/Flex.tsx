@@ -1,9 +1,8 @@
-import { FC, ReactNode, memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC, ReactNode } from 'react';
 
 import cls from './Flex.module.scss';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
 type FlexJustify = 'start' | 'center' | 'end' | 'beetwen';
 
@@ -13,13 +12,14 @@ type FlexDirection = 'row' | 'column';
 
 type FlexGap = '4' | '8' | '16' | '32';
 
-interface FlexProps {
+export interface FlexProps {
   className?: string;
   justify?: FlexJustify;
   align?: FlexAlign;
   direction?: FlexDirection;
   gap?: FlexGap;
-  children?: ReactNode;
+  max?: boolean;
+  children: ReactNode;
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -30,9 +30,9 @@ const justifyClasses: Record<FlexJustify, string> = {
 };
 
 const alignClasses: Record<FlexAlign, string> = {
-  start: cls.AlignStart,
-  center: cls.AlignCenter,
-  end: cls.AlignEnd,
+  start: cls.alignStart,
+  center: cls.alignCenter,
+  end: cls.alignEnd,
 };
 
 const directionClasses: Record<FlexDirection, string> = {
@@ -48,7 +48,7 @@ const gapClasses: Record<FlexGap, string> = {
 };
 
 export const Flex: FC<FlexProps> = (props) => {
-  const { className, children, justify = 'start', align = 'center', direction = 'row', gap } = props;
+  const { className, children, justify = 'start', align = 'center', direction = 'row', gap, max } = props;
 
   const classes = [
     className,
@@ -58,5 +58,9 @@ export const Flex: FC<FlexProps> = (props) => {
     gap && gapClasses[gap],
   ];
 
-  return <div className={classNames(cls.flex, classes, {})}>{children}</div>;
+  const mods: Mods = {
+    [cls.max]: max,
+  };
+
+  return <div className={classNames(cls.flex, classes, mods)}>{children}</div>;
 };
