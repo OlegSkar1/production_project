@@ -5,12 +5,10 @@ import { useSelector } from 'react-redux';
 
 import { generatePath, useParams } from 'react-router-dom';
 
-import cls from './ArticleDetailsHeader.module.scss';
-
 import { routePath } from 'app/providers/router/config/routeConfig';
 import { getUserIsEditArticle } from 'entities/Article/model/selectors/getUserIsEditArticle/getUserIsEditArticle';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui';
+import { AppLink, HStack } from 'shared/ui';
 
 interface ArticleDetailsHeaderProps {
   className?: string;
@@ -25,7 +23,7 @@ export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = memo((props) 
   const pathToEditArticle = generatePath(routePath.article_edit, { id });
 
   return (
-    <div className={classNames(cls.articleDetailsHeader, [className], {})}>
+    <HStack justify='between' className={classNames('', [className], {})}>
       <AppLink to={routePath.articles} theme='outlined'>
         {t('back to list', { ns: 'articles' })}
       </AppLink>
@@ -34,6 +32,6 @@ export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = memo((props) 
           {t('Edit')}
         </AppLink>
       )}
-    </div>
+    </HStack>
   );
 });

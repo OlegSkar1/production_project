@@ -1,9 +1,7 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useParams } from 'react-router-dom';
-
-import cls from './EditableProfileCard.module.scss';
 
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
@@ -100,22 +98,21 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
-      <div className={classNames('', [className], {})}>
-        <ProfileCard
-          data={data}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-          onChangeFirst={onChangeFirst}
-          onChangeLastName={onChangeLastName}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatarLink={onChangeAvatarLink}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-        />
-      </div>
+      <ProfileCard
+        className={classNames('', [className], {})}
+        data={data}
+        isLoading={isLoading}
+        error={error}
+        readonly={readonly}
+        onChangeFirst={onChangeFirst}
+        onChangeLastName={onChangeLastName}
+        onChangeAge={onChangeAge}
+        onChangeCity={onChangeCity}
+        onChangeUsername={onChangeUsername}
+        onChangeAvatarLink={onChangeAvatarLink}
+        onChangeCurrency={onChangeCurrency}
+        onChangeCountry={onChangeCountry}
+      />
     </DynamicModuleLoader>
   );
 });

@@ -12,7 +12,7 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { routePath } from 'app/providers/router/config/routeConfig';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, Avatar, Card, Icon, Text } from 'shared/ui';
+import { AppLink, Avatar, Card, HStack, Icon, Text } from 'shared/ui';
 
 interface ArticleListItemProps {
   className?: string;
@@ -29,10 +29,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
-    <div className={cls.viewsWrapper}>
+    <HStack gap='4'>
       <Text text={String(article.views)} />
       <Icon Svg={EyeIcon} />
-    </div>
+    </HStack>
   );
 
   if (view === ArticleView.LIST) {
@@ -41,21 +41,21 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     return (
       <article className={classNames('', [className, cls[view]], {})}>
         <Card>
-          <header className={cls.headerWrapper}>
+          <HStack gap='8'>
             {article.user.avatar && <Avatar src={article.user.avatar} alt={article.title} size={30} />}
             <Text text={article.user.username} className={cls.username} />
             <Text text={article.createdAt} className={cls.date} />
-          </header>
-          <Text title={article.title} className={cls.title} />
+          </HStack>
+          <Text title={article.title} className={cls.title} size='size_l' />
           {types}
           <img src={article.img} alt={article.title} className={cls.img} />
           <ArticleTextBlock block={block} className={cls.content} />
-          <div className={cls.footer}>
+          <HStack justify='between' className={cls.footer}>
             <AppLink to={pathToArticleDetails} theme='outlined'>
               {t('read more')}
             </AppLink>
             {views}
-          </div>
+          </HStack>
         </Card>
       </article>
     );
@@ -69,11 +69,11 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             <img src={article.img} alt={article.title} className={cls.img} />
             <Text text={article.createdAt} className={cls.date} />
           </div>
-          <div className={cls.infoWrapper}>
+          <HStack gap='4' justify='between' className={cls.infoWrapper}>
             {types}
             {views}
-          </div>
-          <Text text={article.title} className={cls.title} />
+          </HStack>
+          <Text title={article.title} className={cls.title} size='size_s' />
         </Card>
       </AppLink>
     </div>

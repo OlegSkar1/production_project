@@ -41,11 +41,9 @@ export const ArticlesPageSearch: FC<ArticlesPageSearchProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={classNames('', [className], {})}>
-        <Card>
-          <Input label={t('search')} value={search} onChange={onSearch} variant='outlined' />
-        </Card>
-      </div>
+      <Card className={classNames('', [className], {})}>
+        <Input label={t('search')} value={search} onChange={onSearch} variant='outlined' />
+      </Card>
     </DynamicModuleLoader>
   );
 };

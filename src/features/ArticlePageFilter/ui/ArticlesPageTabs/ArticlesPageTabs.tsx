@@ -3,8 +3,6 @@ import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import cls from './ArticlesPageTabs.module.scss';
-
 import { getTab } from '../../model/selectors/filterSelectors';
 
 import { articlesFilterActions } from '../../model/slice/filterSlice';

@@ -1,12 +1,11 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import cls from './ArticleListItem.module.scss';
 
 import { ArticleView } from '../../model/types/article';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Card, Skeleton } from 'shared/ui';
+import { Card, HStack, Skeleton, VStack } from 'shared/ui';
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -15,7 +14,6 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
   const { className, view } = props;
-  const { t } = useTranslation('articles');
 
   const types = <Skeleton width={100} height={16} className={cls.types} />;
   const views = <Skeleton width={50} height={16} />;
@@ -24,15 +22,15 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
     return (
       <div className={classNames('', [className, cls[view]], {})}>
         <Card>
-          <div className={cls.headerWrapper}>
+          <HStack className={cls.headerWrapper}>
             <Skeleton variant='circle' width={30} height={30} />
             <Skeleton width={50} height={16} className={cls.username} />
             <Skeleton width={50} height={16} className={cls.date} />
-          </div>
+          </HStack>
           <Skeleton variant='title' className={cls.title} />
           {types}
           <Skeleton height={200} className={cls.img} />
-          <div className={cls.skeletonTextWrapper}>
+          <VStack gap='4'>
             <Skeleton variant='text' />
             <Skeleton variant='text' />
             <Skeleton variant='text' />
@@ -40,12 +38,12 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
             <Skeleton variant='text' />
             <Skeleton variant='text' />
             <Skeleton variant='text' />
-          </div>
+          </VStack>
 
-          <div className={cls.footer}>
+          <HStack justify='between' className={cls.footer}>
             <Skeleton width={100} height={25} />
             {views}
-          </div>
+          </HStack>
         </Card>
       </div>
     );
@@ -57,10 +55,10 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
         <div className={cls.imgWrapper}>
           <Skeleton height={200} />
         </div>
-        <div className={cls.infoWrapper}>
+        <HStack justify='between' className={cls.infoWrapper}>
           {types}
           {views}
-        </div>
+        </HStack>
         <Skeleton variant='title' className={cls.title} />
       </Card>
     </div>

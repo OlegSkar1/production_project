@@ -1,19 +1,10 @@
 .profile-card {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-
-  width: 100%;
   padding: 20px;
-
   border: 2px solid var(--inverted-secondary-color);
 }
 
 .loading,
 .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 300px;
 }
 

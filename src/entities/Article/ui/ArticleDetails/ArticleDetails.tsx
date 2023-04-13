@@ -26,7 +26,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
-import { Avatar, Icon, Skeleton, Text } from 'shared/ui';
+import { Avatar, HStack, Icon, Skeleton, Text, VStack } from 'shared/ui';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -40,7 +40,7 @@ const initialReducers: ReducersList = {
 const articleBlock = (block: ArticleBlock) => {
   switch (block.type) {
     case 'CODE':
-      return <ArticleCodeBlock block={block} key={block.id} />;
+      return <ArticleCodeBlock block={block} key={block.id} className={cls.code} />;
     case 'IMAGE':
       return <ArticleImageBlock block={block} key={block.id} />;
     case 'TEXT':
@@ -68,7 +68,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
 
   if (loading) {
     content = (
-      <div className={cls.skeletonWrapper}>
+      <VStack align='start' gap='16'>
         <Skeleton variant='circle' className={cls.skeletonCircle} width={200} height={200} />
         <Skeleton variant='title' height={32} />
         <Skeleton variant='text' height={24} />
@@ -78,29 +78,31 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
         <Skeleton variant='text' />
         <Skeleton variant='text' height={50} />
         <Skeleton variant='text' height={150} />
-      </div>
+      </VStack>
     );
   } else if (error) {
     content = <Text align='center' title={t('an error occurred while loading the article')} theme='error' />;
   } else if (article) {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
+        <HStack max justify='center' className={cls.avatarWrapper}>
           <Avatar size={200} src={article.img} alt={article.title} />
-        </div>
-        <header>
-          <Text title={article.title} size='size_l' />
-          <Text text={article.subtitle} size='size_l' className={cls.articleSubTitle} />
-          <div className={cls.viewsWrapper}>
+        </HStack>
+        <VStack tagname='header' align='start'>
+          <Text tagname='h1' title={article.title} size='size_l' />
+          <Text tagname='h2' title={article.subtitle} size='size_m' className={cls.articleSubTitle} />
+          <HStack gap='4'>
             <Icon Svg={EyeIcon} />
             <Text text={String(article.views)} />
-          </div>
-          <div className={cls.calendarWrapper}>
+          </HStack>
+          <HStack gap='4' className={cls.calendarWrapper}>
             <Icon Svg={CalendarIcon} />
             <Text text={article.createdAt} />
-          </div>
-        </header>
-        <div className={cls.blockWrapper}>{article.blocks.map(articleBlock)}</div>
+          </HStack>
+        </VStack>
+        <VStack gap='32' align='start'>
+          {article.blocks.map(articleBlock)}
+        </VStack>
       </>
     );
   }

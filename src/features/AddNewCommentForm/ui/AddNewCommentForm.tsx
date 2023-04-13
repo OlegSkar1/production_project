@@ -11,7 +11,7 @@ import { addCommentActions, addCommentReducer } from '../model/slice/addCommentS
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, Input, Text } from 'shared/ui';
+import { Button, HStack, Input, Text } from 'shared/ui';
 
 interface AddNewCommentFormProps {
   className?: string;
@@ -46,12 +46,12 @@ const AddNewCommentForm: FC<AddNewCommentFormProps> = (props) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       {error && <Text theme='error' align='center' text={t('Failed to post comment', { ns: 'translation' })} />}
-      <div className={classNames(cls.addNewCommentForm, [className], {})}>
+      <HStack gap='16' className={classNames(cls.addNewCommentForm, [className], {})}>
         <Input label={t('Enter comment text')} variant='clear' value={text} onChange={onChange} />
         <Button variant='outlined' onClick={onSendHandler}>
           {t('Send')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 };

@@ -6,7 +6,7 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
 type FlexJustify = 'start' | 'center' | 'end' | 'between';
 
-type FlexAlign = 'start' | 'center' | 'end';
+type FlexAlign = 'start' | 'center' | 'end' | 'normal';
 
 type FlexDirection = 'row' | 'column';
 
@@ -23,6 +23,7 @@ const alignClasses: Record<FlexAlign, string> = {
   start: cls.alignStart,
   center: cls.alignCenter,
   end: cls.alignEnd,
+  normal: cls.alignNormal,
 };
 
 const directionClasses: Record<FlexDirection, string> = {

@@ -21,6 +21,23 @@ Default.args = {
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
 };
 
+export const SizeS = Template.bind({});
+SizeS.args = {
+  tagname: 'h3',
+  size: 'size_s',
+  title: 'Title Lorem ipsum',
+  text:
+    // eslint-disable-next-line max-len
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
+};
+export const SizeM = Template.bind({});
+SizeM.args = {
+  size: 'size_m',
+  title: 'Title Lorem ipsum',
+  text:
+    // eslint-disable-next-line max-len
+    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nulla quam vel rerum vero incidunt accusamus veritatis commodi provident sapiente?',
+};
 export const SizeL = Template.bind({});
 SizeL.args = {
   size: 'size_l',

@@ -20,8 +20,8 @@ export const Code: FC<CodeProps> = memo((props) => {
   }, [text]);
 
   return (
-    <div className={cls.codeWrapper}>
-      <pre className={classNames(cls.code, [className], {})}>
+    <div className={classNames(cls.codeWrapper, [className], {})}>
+      <pre className={cls.code}>
         <Button variant='clear' className={cls.codeBtn} onClick={onCopy}>
           <CopyIcon className={cls.btnIcon} />
         </Button>

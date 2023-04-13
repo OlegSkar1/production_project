@@ -8,7 +8,7 @@ import { Comment } from '../../../model/types/comment';
 
 import { routePath } from 'app/providers/router/config/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, Avatar, Skeleton, Text } from 'shared/ui';
+import { AppLink, Avatar, HStack, Skeleton, Text } from 'shared/ui';
 
 interface CommentCardProps {
   className?: string;
@@ -22,10 +22,10 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
   if (isLoading) {
     return (
       <div className={classNames(cls.commentCard, [className], {})}>
-        <div className={cls.userWrapper}>
+        <HStack gap='8' align='end' className={cls.userWrapper}>
           <Skeleton variant='circle' width={30} height={30} />
           <Skeleton variant='title' />
-        </div>
+        </HStack>
         <Skeleton variant='text' height={50} />
       </div>
     );
@@ -39,9 +39,11 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
 
   return (
     <article className={classNames(cls.commentCard, [className], {})}>
-      <AppLink to={pathToProfile} className={cls.userWrapper}>
-        {comment.user.avatar ? <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} /> : null}
-        <Text title={comment.user.username} />
+      <AppLink to={pathToProfile}>
+        <HStack gap='8' className={cls.userWrapper}>
+          {comment.user.avatar ? <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} /> : null}
+          <Text text={comment.user.username} size='size_l' />
+        </HStack>
       </AppLink>
       <Text text={comment.text} />
     </article>

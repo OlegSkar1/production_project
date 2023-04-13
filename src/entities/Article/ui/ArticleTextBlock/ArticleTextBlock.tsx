@@ -1,11 +1,9 @@
 import { FC, memo } from 'react';
 
-import cls from './ArticleTextBlock.module.scss';
-
 import { TextBlock } from '../../model/types/article';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
+import { Text, VStack } from 'shared/ui';
 
 interface ArticleTextBlockProps {
   className?: string;
@@ -16,13 +14,13 @@ export const ArticleTextBlock: FC<ArticleTextBlockProps> = memo((props) => {
   const { className, block } = props;
 
   return (
-    <section className={classNames(cls.articleTextBlock, [className], {})}>
-      {block.title && <Text title={block.title} className={cls.textBlockTitle} />}
-      <div className={cls.paragraphWrapper}>
+    <VStack tagname='section' gap='8' align='start' className={classNames('', [className], {})}>
+      {block.title && <Text tagname='h3' title={block.title} />}
+      <VStack align='start' gap='4'>
         {block.paragraph.map((str) => (
-          <Text text={str} key={str} className={cls.textBlockParagraph} />
+          <Text text={str} key={str} />
         ))}
-      </div>
-    </section>
+      </VStack>
+    </VStack>
   );
 });

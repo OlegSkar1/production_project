@@ -7,7 +7,7 @@ import { Profile } from '../../model/types/profile';
 import { Country, CountrySelect } from 'entities/Country';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { classNames } from 'shared/lib';
-import { Input, Loader, Text } from 'shared/ui';
+import { HStack, Input, Loader, Text, VStack } from 'shared/ui';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface ProfileCardProps {
@@ -47,22 +47,27 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.profileCard, [className, cls.loading], {})}>
+      <HStack justify='center' className={classNames(cls.profileCard, [className, cls.loading], {})}>
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={classNames(cls.profileCard, [className, cls.error], {})}>
+      <HStack justify='center' className={classNames(cls.profileCard, [className, cls.error], {})}>
         <Text title={t('profile_title_error')} theme='error' text={t('profile_text_error')} align='center' />
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <article className={classNames(cls.profileCard, [className], { [cls.editable]: !readonly })}>
+    <VStack
+      tagname='article'
+      gap='16'
+      align='normal'
+      className={classNames(cls.profileCard, [className], { [cls.editable]: !readonly })}
+    >
       {data?.avatar && <Avatar src={data.avatar} alt={t('avatar', { ns: 'translation' })} />}
       <Input variant='clear' readonly={readonly} value={data?.first} label={t('yourName')} onChange={onChangeFirst} />
       <Input
@@ -90,6 +95,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
       />
       <CurrencySelect onChange={onChangeCurrency} readonly={readonly} value={data?.currency} />
       <CountrySelect onChange={onChangeCountry} readonly={readonly} value={data?.country} />
-    </article>
+    </VStack>
   );
 };

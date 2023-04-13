@@ -10,7 +10,7 @@ import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors
 import { profileCardActions } from 'features/EditableProfileCard/model/slice/profileCardSlice';
 import { classNames } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, Text } from 'shared/ui';
+import { Button, HStack, Text } from 'shared/ui';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -46,7 +46,7 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
   }, [dispatch]);
 
   return (
-    <header className={classNames(cls.profilePageHeader, [className], {})}>
+    <HStack tagname='header' justify='between' className={classNames(cls.profilePageHeader, [className], {})}>
       <Text title={t('profile')} />
       {canEdit && (
         <div className='btnWrapper'>
@@ -55,17 +55,17 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
               {t('edit')}
             </Button>
           ) : (
-            <div className={cls.headerBtns}>
+            <HStack gap='16'>
               <Button variant='outlined' onClick={onSave}>
                 {t('save')}
               </Button>
               <Button variant='ontlinedRed' onClick={onCancel}>
                 {t('cancel')}
               </Button>
-            </div>
+            </HStack>
           )}
         </div>
       )}
-    </header>
+    </HStack>
   );
 });

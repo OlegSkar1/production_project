@@ -8,8 +8,6 @@ type TextTheme = 'primary' | 'error';
 type TextAlign = 'left' | 'right' | 'center';
 type Size = 'size_s' | 'size_m' | 'size_l';
 
-type TagName = keyof JSX.IntrinsicElements;
-
 interface TextProps {
   className?: string;
   title?: string;
@@ -17,11 +15,11 @@ interface TextProps {
   theme?: TextTheme;
   align?: TextAlign;
   size?: Size;
-  tag?: TagName;
+  tagname?: 'h1' | 'h2' | 'h3';
 }
 
 export const Text: React.FC<TextProps> = memo((props) => {
-  const { className, title, text, theme = 'primary', align = 'left', size = 'size_m', tag: Tag = 'p' } = props;
+  const { className, title, text, theme = 'primary', align = 'left', size = 'size_m', tagname: Tag = 'h1' } = props;
 
   return (
     <>

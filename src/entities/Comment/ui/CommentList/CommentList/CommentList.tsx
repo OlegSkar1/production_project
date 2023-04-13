@@ -8,7 +8,7 @@ import { Comment } from '../../../model/types/comment';
 import { CommentCard } from '../../CommentCard/CommentCard/CommentCard';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
+import { Text, VStack } from 'shared/ui';
 
 interface CommentListProps {
   className?: string;
@@ -22,21 +22,21 @@ export const CommentList: FC<CommentListProps> = memo((props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.commentList, [className], {})}>
+      <VStack gap='8' align='normal' className={classNames('', [className], {})}>
         <CommentCard isLoading className={cls.loading} />
         <CommentCard isLoading className={cls.loading} />
         <CommentCard isLoading className={cls.loading} />
-      </div>
+      </VStack>
     );
   }
 
   return (
-    <div className={classNames(cls.commentList, [className], {})}>
+    <VStack gap='8' align='normal' className={classNames('', [className], {})}>
       {comments?.length ? (
         comments?.map((comment) => <CommentCard isLoading={isLoading} key={comment.id} comment={comment} />)
       ) : (
         <Text title={t('Comments not found')} />
       )}
-    </div>
+    </VStack>
   );
 });

@@ -1,5 +1,7 @@
 import { FC, memo } from 'react';
 
+import cls from './ArticleCodeBlock.module.scss';
+
 import { CodeBlock } from '../../model/types/article';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -13,5 +15,5 @@ interface ArticleCodeBlockProps {
 export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = memo((props) => {
   const { className, block } = props;
 
-  return <Code className={classNames('', [className], {})} text={block.code} />;
+  return <Code className={classNames(cls.articleCodeBlock, [className], {})} text={block.code} />;
 });
