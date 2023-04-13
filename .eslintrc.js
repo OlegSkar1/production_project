@@ -30,6 +30,7 @@ module.exports = {
       {
         markupOnly: true,
         ignoreAttribute: [
+          'as',
           'to',
           'data-testid',
           'variant',

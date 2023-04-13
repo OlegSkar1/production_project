@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Currency } from '../model/types/currency';
 
 import { classNames } from 'shared/lib';
-import { Select } from 'shared/ui';
+import { ListBox, ListBoxItems } from 'shared/ui';
 
 interface CurrencySelectProps {
   className?: string;
@@ -13,7 +13,7 @@ interface CurrencySelectProps {
   readonly?: boolean;
 }
 
-const options = [
+const options: ListBoxItems[] = [
   { value: Currency.RUB, content: Currency.RUB },
   { value: Currency.USD, content: Currency.USD },
   { value: Currency.EUR, content: Currency.EUR },
@@ -32,13 +32,13 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo((props) => {
   );
 
   return (
-    <Select
-      label={t('currency_label')}
-      options={options}
-      value={value}
+    <ListBox
+      items={options}
       onChange={onChangeHandler}
+      label={t('currency_label')}
+      value={value}
       readonly={readonly}
       className={classNames('', [className], {})}
-    ></Select>
+    />
   );
 });

@@ -1,0 +1,45 @@
+.list-box {
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  z-index: 10000;
+
+  min-width: 100%;
+
+  background: var(--listbox-bg);
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0 rgb(34 60 80 / 20%);
+}
+
+.trigger {
+  margin: 0;
+  padding: 0;
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.item {
+  padding: 10px 20px;
+}
+
+.active {
+  cursor: pointer;
+  background: var(--inverted-primary-color);
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.top {
+  bottom: 100%;
+}
+
+.bottom {
+  top: 100%;
+}

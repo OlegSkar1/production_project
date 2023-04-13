@@ -18,7 +18,7 @@ export const PageError: React.FC<PageErrorProps> = (props) => {
   };
 
   return (
-    <VStack max gap='16' className={classNames(cls.pageError, [className], {})}>
+    <VStack max gap='16' justify='center' className={classNames(cls.pageError, [className], {})}>
       <Text title={t('error')} align='center' size='size_l' theme='error' />
       <Button onClick={updateHandler}>{t('update-page')}</Button>
     </VStack>

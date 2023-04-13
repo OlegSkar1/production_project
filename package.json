@@ -117,6 +117,8 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@headlessui/react": "^1.7.14",
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
     "i18next": "^21.6.11",

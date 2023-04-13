@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Country } from '../model/types/county';
 
 import { classNames } from 'shared/lib';
-import { Select } from 'shared/ui';
+import { ListBox, ListBoxItems } from 'shared/ui';
 
 interface CountrySelectProps {
   className?: string;
@@ -25,7 +25,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo((props) => {
     [onChange]
   );
 
-  const options = useMemo(
+  const options: ListBoxItems[] = useMemo(
     () => [
       { value: Country.Russia, content: t('russia') },
       { value: Country.Ukraine, content: t('ukraine') },
@@ -37,13 +37,13 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo((props) => {
   );
 
   return (
-    <Select
-      label={t('Country_label')}
-      options={options}
-      value={value}
+    <ListBox
+      items={options}
       onChange={onChangeHandler}
+      value={value}
       readonly={readonly}
       className={classNames('', [className], {})}
-    ></Select>
+      label={t('Country_label')}
+    />
   );
 });
