@@ -30,6 +30,9 @@ module.exports = {
       {
         markupOnly: true,
         ignoreAttribute: [
+          'src',
+          'alt',
+          'refName',
           'as',
           'to',
           'data-testid',

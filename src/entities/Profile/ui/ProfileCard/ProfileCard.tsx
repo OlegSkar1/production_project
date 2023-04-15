@@ -55,9 +55,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
 
   if (error) {
     return (
-      <HStack justify='center' className={classNames(cls.profileCard, [className, cls.error], {})}>
+      <VStack justify='center' className={classNames(cls.profileCard, [className, cls.error], {})}>
         <Text title={t('profile_title_error')} theme='error' text={t('profile_text_error')} align='center' />
-      </HStack>
+      </VStack>
     );
   }
 

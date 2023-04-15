@@ -9,28 +9,36 @@ import { Button } from '../Button/Button';
 import { HStack } from '../Stack/HStack/HStack';
 
 import { classNames } from 'shared/lib';
+import { DirectionType } from 'shared/types/ui';
 
-export interface ListBoxItems {
+export interface ListBoxItem {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
-
-type DirectionType = 'top' | 'bottom';
 
 interface ListBoxProps {
   className?: string;
   value?: string;
   defaultValue?: string;
   onChange: <T extends string>(value: T) => void;
-  items: ListBoxItems[];
+  items: ListBoxItem[];
   label?: string;
   readonly?: boolean;
   direction?: DirectionType;
 }
 
+const mapDirectionClasses: Record<DirectionType, string> = {
+  'top left': cls.directionTopLeft,
+  'top right': cls.directionTopRight,
+  'bottom left': cls.directionBottomLeft,
+  'bottom right': cls.directionBottomRight,
+};
+
 export const ListBox: FC<ListBoxProps> = (props) => {
-  const { className, value, onChange, items, label, defaultValue, readonly, direction = 'bottom' } = props;
+  const { className, value, onChange, items, label, defaultValue, readonly, direction = 'bottom left' } = props;
+
+  const optionsClasses = [mapDirectionClasses[direction]];
 
   return (
     <HStack gap='4'>
@@ -43,12 +51,12 @@ export const ListBox: FC<ListBoxProps> = (props) => {
         className={classNames(cls.listBox, [className], {})}
         disabled={readonly}
       >
-        <HListbox.Button className={classNames(cls.trigger, [], { [cls.disable]: readonly })}>
+        <HListbox.Button as={'div'} className={classNames(cls.trigger, [], { [cls.disable]: readonly })}>
           <Button disabled={readonly} variant='backgroundInverted'>
             {value ?? defaultValue}
           </Button>
         </HListbox.Button>
-        <HListbox.Options className={classNames(cls.options, [cls[direction]], {})}>
+        <HListbox.Options className={classNames(cls.options, optionsClasses, {})}>
           {items.map((item) => (
             <HListbox.Option as={Fragment} key={item.value} value={item.value} disabled={item.disabled}>
               {({ active, selected }) => (

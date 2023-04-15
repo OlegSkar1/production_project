@@ -1,12 +1,17 @@
-.list-box {
+.dropdown {
   position: relative;
 }
 
-.options {
+.items {
   position: absolute;
   z-index: 10000;
 
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
   min-width: 100%;
+  padding: 10px 0;
 
   background: var(--listbox-bg);
   border-radius: 10px;
@@ -14,6 +19,8 @@
 }
 
 .trigger {
+  cursor: pointer;
+
   margin: 0;
   padding: 0;
 
@@ -23,12 +30,22 @@
 }
 
 .item {
-  padding: 10px 20px;
+  cursor: pointer;
+
+  width: 100%;
+  padding: 0 20px;
+
+  color: var(--primary-color);
+
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .active {
   cursor: pointer;
   background: var(--inverted-primary-color);
+  border-radius: 10px;
 }
 
 .disable {
