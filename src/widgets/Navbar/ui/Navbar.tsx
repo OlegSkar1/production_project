@@ -38,6 +38,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
   }, [dispatch]);
 
   if (authData) {
+    console.log(authData.id);
     const profilePath = generatePath(routePath.profile, { id: authData.id });
 
     return (

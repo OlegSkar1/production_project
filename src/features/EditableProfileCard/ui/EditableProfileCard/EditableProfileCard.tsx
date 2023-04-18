@@ -1,4 +1,5 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { useParams } from 'react-router-dom';
@@ -7,16 +8,20 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileCardActions, profileCardReducer } from '../../model/slice/profileCardSlice';
+
+import { ValidateProfileErrors } from '../../model/types/ProfileCardSchema';
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
+
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
+import { Text } from 'shared/ui';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -29,15 +34,26 @@ const initialReducers: ReducersList = {
 export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((props) => {
   const { className } = props;
 
+  const { t } = useTranslation('profile');
+
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorsTranslates = {
+    [ValidateProfileErrors.INCORRECT_DATA]: t('incorrect_data'),
+    [ValidateProfileErrors.INCORRECT_AGE]: t('incorrect_age'),
+    [ValidateProfileErrors.NO_DATA]: t('no_data'),
+    [ValidateProfileErrors.SERVER_ERROR]: t('server_error'),
+  };
+
   const { id } = useParams<{ id: string }>();
 
   const dispatch = useAppDispatch();
 
-  useInitEffect(() => {
-    if (id) {
+  useEffect(() => {
+    if (id && __PROJECT__ !== 'storybook') {
       dispatch(fetchProfileData(id));
     }
-  });
+  }, [dispatch, id]);
 
   const data = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -95,6 +111,11 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
     },
     [dispatch]
   );
+
+  {
+    validateErrors?.length &&
+      validateErrors.map((err) => <Text key={err} theme='error' text={validateErrorsTranslates[err]} />);
+  }
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>

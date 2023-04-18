@@ -11,7 +11,7 @@ interface FetchArticlesProps {
   searchParams?: URLSearchParams;
 }
 
-export const fetchArticles = createAsyncThunk<Article[], FetchArticlesProps, ThunkConfig<string>>(
+export const fetchArticles = createAsyncThunk<Article[], FetchArticlesProps, ThunkConfig<boolean>>(
   'articlesList/fetchArticles',
 
   async (props, thunkApi) => {
@@ -45,7 +45,7 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticlesProps, Thu
     } catch (error) {
       console.log(error);
 
-      return rejectWithValue('error');
+      return rejectWithValue(true);
     }
   }
 );

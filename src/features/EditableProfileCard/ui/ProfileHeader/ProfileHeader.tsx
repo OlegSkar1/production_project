@@ -2,28 +2,26 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import cls from './ProfilePageHeader.module.scss';
+import cls from './ProfileHeader.module.scss';
 
-import { getUserAuthData } from 'entities/User';
-import { getProfileData, updateProfileData } from 'features/EditableProfileCard';
-import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileCardActions } from 'features/EditableProfileCard/model/slice/profileCardSlice';
+import { updateProfileData } from '../..';
+import { canEdit } from '../../model/selectors/canEdit/canEdit';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { profileCardActions } from '../../model/slice/profileCardSlice';
+
 import { classNames } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, HStack, Text } from 'shared/ui';
 
-interface ProfilePageHeaderProps {
+interface ProfileHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) => {
+export const ProfileHeader: React.FC<ProfileHeaderProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation();
 
-  const authData = useSelector(getUserAuthData);
-  const profileData = useSelector(getProfileData);
-
-  const canEdit = authData?.id === profileData?.id;
+  const canEditProfile = useSelector(canEdit);
 
   const dispatch = useAppDispatch();
   const readonly = useSelector(getProfileReadonly);
@@ -46,9 +44,9 @@ export const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = memo((props) 
   }, [dispatch]);
 
   return (
-    <HStack tagname='header' justify='between' className={classNames(cls.profilePageHeader, [className], {})}>
+    <HStack tagname='header' justify='between' className={classNames(cls.profileHeader, [className], {})}>
       <Text title={t('profile')} />
-      {canEdit && (
+      {canEditProfile && (
         <div className='btnWrapper'>
           {readonly ? (
             <Button variant='outlined' onClick={onEdit}>

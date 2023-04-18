@@ -26,8 +26,8 @@ export const initedFetchArticles = createAsyncThunk<void, URLSearchParams, Thunk
     const type = searchParams.get('type');
 
     if (!inited) {
-      dispatch(articlesFilterActions.setSort((sort as SortType) ?? ''));
-      dispatch(articlesFilterActions.setOrder((order as OrderType) ?? ''));
+      dispatch(articlesFilterActions.setSort((sort as SortType) ?? SortType.CREATED_AT));
+      dispatch(articlesFilterActions.setOrder((order as OrderType) ?? 'asc'));
       dispatch(articlesFilterActions.setSearch(search ?? ''));
       dispatch(articlesFilterActions.setTab((type as ArticleType) ?? 'ALL'));
 

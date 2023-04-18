@@ -45,7 +45,7 @@ export const articlesListSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticles.pending, (state, action) => {
-        state.error = undefined;
+        state.isError = undefined;
         state.isLoading = true;
 
         if (action.meta.arg.replace) {
@@ -63,7 +63,7 @@ export const articlesListSlice = createSlice({
       })
       .addCase(fetchArticles.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.isError = action.payload;
       });
   },
 });

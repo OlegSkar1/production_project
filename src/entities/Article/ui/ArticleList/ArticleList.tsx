@@ -16,7 +16,7 @@ interface ArticleListProps {
   className?: string;
   articles: Article[];
   isLoading?: boolean;
-  error?: string;
+  isError?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
 }
@@ -25,7 +25,7 @@ const getSkeleton = (view: ArticleView) =>
   new Array(view === 'GRID' ? 9 : 3).fill(0).map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
-  const { className, articles, isLoading, error, target, view = ArticleView.GRID } = props;
+  const { className, articles, isLoading, isError, target, view = ArticleView.GRID } = props;
 
   const { t } = useTranslation('articles');
 
@@ -33,7 +33,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
     <ArticleListItem article={article} view={view} key={article.id} target={target} />
   );
 
-  if (error) {
+  if (isError) {
     return <Text text={t('article list error')} align='center' size='size_l' theme='error' />;
   }
 
