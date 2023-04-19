@@ -69,13 +69,21 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
       className={classNames(cls.profileCard, [className], { [cls.editable]: !readonly })}
     >
       {data?.avatar && <Avatar src={data.avatar} alt={t('avatar', { ns: 'translation' })} />}
-      <Input variant='clear' readonly={readonly} value={data?.first} label={t('yourName')} onChange={onChangeFirst} />
+      <Input
+        variant='clear'
+        readonly={readonly}
+        value={data?.first}
+        label={t('yourName')}
+        onChange={onChangeFirst}
+        data-testid='ProfileCard.first'
+      />
       <Input
         variant='clear'
         readonly={readonly}
         value={data?.lastname}
         label={t('yourLastname')}
         onChange={onChangeLastName}
+        data-testid='ProfileCard.lastname'
       />
       <Input variant='clear' readonly={readonly} value={data?.age} label={t('yourAge')} onChange={onChangeAge} />
       <Input variant='clear' readonly={readonly} value={data?.city} label={t('yourCity')} onChange={onChangeCity} />

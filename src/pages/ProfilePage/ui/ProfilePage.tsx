@@ -1,6 +1,8 @@
 import { memo } from 'react';
 
-import { EditableProfileCard, ProfileHeader } from 'features/EditableProfileCard';
+import { useParams } from 'react-router-dom';
+
+import { EditableProfileCard } from 'features/EditableProfileCard';
 import { Page } from 'widgets/Page';
 
 interface ProfilePageProps {
@@ -8,10 +10,10 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: React.FC<ProfilePageProps> = () => {
+  const { id } = useParams<{ id: string }>();
   return (
     <Page>
-      <ProfileHeader />
-      <EditableProfileCard />
+      <EditableProfileCard id={id} />
     </Page>
   );
 };

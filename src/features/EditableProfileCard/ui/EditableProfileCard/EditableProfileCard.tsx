@@ -2,8 +2,6 @@ import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { useParams } from 'react-router-dom';
-
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -13,6 +11,8 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileCardActions, profileCardReducer } from '../../model/slice/profileCardSlice';
 
 import { ValidateProfileErrors } from '../../model/types/ProfileCardSchema';
+
+import { ProfileHeader } from '../ProfileHeader/ProfileHeader';
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
@@ -25,6 +25,7 @@ import { Text } from 'shared/ui';
 
 interface EditableProfileCardProps {
   className?: string;
+  id: string | undefined;
 }
 
 const initialReducers: ReducersList = {
@@ -32,7 +33,7 @@ const initialReducers: ReducersList = {
 };
 
 export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((props) => {
-  const { className } = props;
+  const { className, id } = props;
 
   const { t } = useTranslation('profile');
 
@@ -45,12 +46,10 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
     [ValidateProfileErrors.SERVER_ERROR]: t('server_error'),
   };
 
-  const { id } = useParams<{ id: string }>();
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (id && __PROJECT__ !== 'storybook') {
+    if (id && __PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
       dispatch(fetchProfileData(id));
     }
   }, [dispatch, id]);
@@ -112,13 +111,13 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
     [dispatch]
   );
 
-  {
-    validateErrors?.length &&
-      validateErrors.map((err) => <Text key={err} theme='error' text={validateErrorsTranslates[err]} />);
-  }
-
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
+      <ProfileHeader />
+      {validateErrors?.length &&
+        validateErrors.map((err) => (
+          <Text key={err} theme='error' text={validateErrorsTranslates[err]} data-testid='EditableProfileCard.Error' />
+        ))}
       <ProfileCard
         className={classNames('', [className], {})}
         data={data}

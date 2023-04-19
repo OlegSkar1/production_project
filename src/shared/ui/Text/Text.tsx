@@ -16,17 +16,39 @@ interface TextProps {
   align?: TextAlign;
   size?: Size;
   tagname?: 'h1' | 'h2' | 'h3';
+  'data-testid'?: string;
 }
 
 export const Text: React.FC<TextProps> = memo((props) => {
-  const { className, title, text, theme = 'primary', align = 'left', size = 'size_m', tagname: Tag = 'h1' } = props;
+  const {
+    className,
+    title,
+    text,
+    theme = 'primary',
+    align = 'left',
+    size = 'size_m',
+    tagname: Tag = 'h1',
+    'data-testid': dataTestId = 'Text',
+  } = props;
 
   return (
     <>
       {title && (
-        <Tag className={classNames(cls.title, [className, cls[theme], cls[align], cls[size]], {})}>{title}</Tag>
+        <Tag
+          className={classNames(cls.title, [className, cls[theme], cls[align], cls[size]], {})}
+          data-testid={`${dataTestId}.Header`}
+        >
+          {title}
+        </Tag>
       )}
-      {text && <p className={classNames(cls.paragraph, [className, cls[theme], cls[align], cls[size]], {})}>{text}</p>}
+      {text && (
+        <p
+          className={classNames(cls.paragraph, [className, cls[theme], cls[align], cls[size]], {})}
+          data-testid={`${dataTestId}.Paragraph`}
+        >
+          {text}
+        </p>
+      )}
     </>
   );
 });

@@ -49,15 +49,15 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = memo((props) => {
       {canEditProfile && (
         <div className='btnWrapper'>
           {readonly ? (
-            <Button variant='outlined' onClick={onEdit}>
+            <Button variant='outlined' onClick={onEdit} data-testid='ProfileHeader.editBtn'>
               {t('edit')}
             </Button>
           ) : (
             <HStack gap='16'>
-              <Button variant='outlined' onClick={onSave}>
+              <Button variant='outlined' onClick={onSave} data-testid='ProfileHeader.saveBtn'>
                 {t('save')}
               </Button>
-              <Button variant='ontlinedRed' onClick={onCancel}>
+              <Button variant='ontlinedRed' onClick={onCancel} data-testid='ProfileHeader.cancelBtn'>
                 {t('cancel')}
               </Button>
             </HStack>
