@@ -8,7 +8,7 @@ import { generatePath } from 'react-router-dom';
 import cls from './Navbar.module.scss';
 
 import { routePath } from 'app/providers/router/config/routeConfig';
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isAdminRole, isManagerRole, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { classNames } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -22,6 +22,11 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
+
+  const isAdmin = useSelector(isAdminRole);
+  const isManager = useSelector(isManagerRole);
+
+  const isUserAvailable = isAdmin || isManager;
 
   const [isAuthModal, setIsAuthModal] = useState(false);
 
@@ -48,6 +53,14 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
           <AppLink to={routePath.article_create}>{t('Create article')}</AppLink>
           <Dropdown
             items={[
+              ...(isUserAvailable
+                ? [
+                    {
+                      content: t('adminPanel'),
+                      href: routePath.admin_panel,
+                    },
+                  ]
+                : []),
               {
                 content: t('profile'),
                 href: profilePath,

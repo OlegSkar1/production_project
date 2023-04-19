@@ -4,7 +4,7 @@
 
 .options {
   position: absolute;
-  z-index: 10000;
+  z-index: var(--listbox-z-index);
 
   min-width: 100%;
 

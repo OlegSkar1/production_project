@@ -2,7 +2,7 @@
   pointer-events: none;
 
   position: fixed;
-  z-index: -1;
+  z-index: var(--hide-modal-z-index);
   inset: 0;
 
   opacity: 0;

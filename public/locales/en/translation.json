@@ -41,5 +41,7 @@
   "search": "Search:",
   "order by": "Order by:",
   "Edit": "Edit",
-  "Create article": "Create article"
+  "Create article": "Create article",
+  "adminPanel": "Admin panel",
+  "not access": "You do not have access to this page"
 }

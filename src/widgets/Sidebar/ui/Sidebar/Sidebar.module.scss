@@ -1,6 +1,6 @@
 .sidebar {
   position: relative;
-  z-index: 1;
+  z-index: var(--sidebar-z-index);
 
   flex-shrink: 0;
 
