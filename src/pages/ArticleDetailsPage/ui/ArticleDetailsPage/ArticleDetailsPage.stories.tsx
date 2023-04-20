@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import withMock from 'storybook-addon-mock';
+
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 import { ArticleCommentSchema } from '../../model/types/articleCommentSchema';
@@ -93,7 +95,27 @@ export default {
       },
       articleComments: comments,
     }),
+    withMock,
   ],
+  parameters: {
+    reactRouter: {
+      routePath: '/articles/:id/edit',
+      routeParams: { id: '1' },
+    },
+    mockData: [
+      {
+        url: `${__API__}/articles?_limit=4`,
+        method: 'GET',
+        status: 200,
+        response: [
+          { ...article, id: '1' },
+          { ...article, id: '2' },
+          { ...article, id: '3' },
+          { ...article, id: '4' },
+        ],
+      },
+    ],
+  },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;

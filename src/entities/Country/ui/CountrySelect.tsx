@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Country } from '../model/types/county';
 
 import { classNames } from 'shared/lib';
+import { DirectionType } from 'shared/types/ui';
 import { ListBox, ListBoxItem } from 'shared/ui';
 
 interface CountrySelectProps {
@@ -11,10 +12,11 @@ interface CountrySelectProps {
   value?: Country;
   onChange?: (value: Country) => void;
   readonly?: boolean;
+  direction?: DirectionType;
 }
 
 export const CountrySelect: React.FC<CountrySelectProps> = memo((props) => {
-  const { className, value, onChange, readonly } = props;
+  const { className, value, onChange, readonly, direction = 'top right' } = props;
 
   const { t } = useTranslation();
 
@@ -44,7 +46,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo((props) => {
       readonly={readonly}
       className={classNames('', [className], {})}
       label={t('Country_label')}
-      direction='top right'
+      direction={direction}
     />
   );
 });

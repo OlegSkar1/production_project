@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux';
 
 import { getTab } from '../../model/selectors/filterSelectors';
 
-import { articlesFilterActions } from '../../model/slice/filterSlice';
+import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
 
 import { ArticleType } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Tabs } from 'shared/ui';
 import { TabItem } from 'shared/ui/Tabs';
@@ -17,6 +18,10 @@ interface ArticlesPageTabsProps {
   className?: string;
   onTabClick: (replace: boolean) => void;
 }
+
+const reducers: ReducersList = {
+  articlesFilter: articlesFilterReducer,
+};
 
 export const ArticlesPageTabs: FC<ArticlesPageTabsProps> = memo((props) => {
   const { className, onTabClick } = props;
@@ -58,8 +63,10 @@ export const ArticlesPageTabs: FC<ArticlesPageTabsProps> = memo((props) => {
   );
 
   return (
-    <div className={classNames('', [className], {})}>
-      <Tabs tabs={tabs} onTabClick={onTabHandler} key={tab} value={tab} />
-    </div>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+      <div className={classNames('', [className], {})}>
+        <Tabs tabs={tabs} onTabClick={onTabHandler} key={tab} value={tab} />
+      </div>
+    </DynamicModuleLoader>
   );
 });

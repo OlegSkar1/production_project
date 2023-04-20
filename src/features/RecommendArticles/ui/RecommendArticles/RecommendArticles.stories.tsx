@@ -1,6 +1,37 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import withMock from 'storybook-addon-mock';
+
 import { RecommendArticles } from './RecommendArticles';
+
+import { Article } from 'entities/Article';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+
+const article: Article = {
+  id: '1',
+  title: 'Javascript news',
+  subtitle: 'Что нового в JS за 2022 год?',
+  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  views: 1022,
+  createdAt: '26.02.2022',
+  user: {
+    id: '1',
+    username: 'admin',
+  },
+  type: ['IT'],
+  blocks: [
+    {
+      id: '1',
+      type: 'TEXT',
+      title: 'Заголовок этого блока',
+      paragraph: [
+        'Программа, которую по традиции называ',
+        'JavaScript — это язык, программы на котором можно выполнять в разных ср.',
+        'Существуют и другие способы запуска JS-кода в браузере. Так,',
+      ],
+    },
+  ],
+};
 
 export default {
   title: 'features/RecommendArticles',
@@ -8,84 +39,21 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  args: {
-    recommendArticles: {
-      isLoading: false,
-      error: undefined,
-      limit: 3,
-      articles: [
-        {
-          id: '1',
-          title: 'Javascript news',
-          subtitle: 'Что нового в JS за 2022 год?',
-          img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
-          views: 1022,
-          createdAt: '26.02.2022',
-          user: {
-            id: '1',
-            username: 'admin',
-          },
-          type: ['IT'],
-          blocks: [
-            {
-              id: '1',
-              type: 'TEXT',
-              title: 'Заголовок этого блока',
-              paragraph: [
-                'Программа, которую по традиции называ',
-                'JavaScript — это язык, программы на котором можно выполнять в разных ср.',
-                'Существуют и другие способы запуска JS-кода в браузере. Так,',
-              ],
-            },
-          ],
-        },
-        {
-          id: '2',
-          title: 'Javascript news',
-          subtitle: 'Что нового в JS за 2022 год?',
-          img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
-          views: 1022,
-          createdAt: '26.02.2022',
-          user: {
-            id: '1',
-            username: 'admin',
-          },
-          type: ['IT'],
-          blocks: [
-            {
-              id: '1',
-              type: 'TEXT',
-              title: 'Заголовок этого блока',
-              paragraph: [
-                'Программа, которую по традиции называют «Hello, world!», очень проста. .',
-                'JavaScript — это язык, программы на котором можно выполнять в разныхна настольном компьютере',
-              ],
-            },
-          ],
-        },
-        {
-          id: '3',
-          title: 'Javascript news',
-          subtitle: 'Что нового в JS за 2022 год?',
-          img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
-          views: 1022,
-          createdAt: '26.02.2022',
-          user: {
-            id: '1',
-            username: 'admin',
-          },
-          type: ['IT'],
-          blocks: [
-            {
-              id: '1',
-              type: 'TEXT',
-              title: 'Заголовок этого блока',
-              paragraph: ['Программа, которую по традиции называют «Hello, world!», очень проста.  «Hecript'],
-            },
-          ],
-        },
-      ],
-    },
+  decorators: [withMock],
+  parameters: {
+    mockData: [
+      {
+        url: `${__API__}/articles?_limit=4`,
+        method: 'GET',
+        status: 200,
+        response: [
+          { ...article, id: '1' },
+          { ...article, id: '2' },
+          { ...article, id: '3' },
+          { ...article, id: '4' },
+        ],
+      },
+    ],
   },
 } as ComponentMeta<typeof RecommendArticles>;
 
@@ -93,3 +61,4 @@ const Template: ComponentStory<typeof RecommendArticles> = (args) => <RecommendA
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({})];

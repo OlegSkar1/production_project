@@ -7,10 +7,8 @@ import { addCommentReducer } from 'features/AddNewCommentForm/model/slice/addCom
 import { articlesFilterReducer } from 'features/ArticlePageFilter';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileCardReducer } from 'features/EditableProfileCard/model/slice/profileCardSlice';
-import { scrollSaveReducer } from 'features/ScrollSave';
 import { articleCommentReducer } from 'pages/ArticleDetailsPage/model/slice/articleCommentSlice/articleCommentSlice';
 import { articlesListReducer } from 'pages/ArticlesPage/model/slice/articlesListSlice/articlesListSlice';
-import { rtkApi } from 'shared/api/rtkApi';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
@@ -21,8 +19,6 @@ const defaultAsyncReducers: ReducersList = {
   addCommentForm: addCommentReducer,
   articlesList: articlesListReducer,
   articlesFilter: articlesFilterReducer,
-  scrollSave: scrollSaveReducer,
-  [rtkApi.reducerPath]: rtkApi.reducer,
 };
 
 export const StoreDecorator =

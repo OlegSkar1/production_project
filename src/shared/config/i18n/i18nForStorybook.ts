@@ -2,11 +2,13 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import enAbout from '../../../../public/locales/en/about.json';
+import enAdmin from '../../../../public/locales/en/admin.json';
 import enArticles from '../../../../public/locales/en/articles.json';
 import enMain from '../../../../public/locales/en/main.json';
 import enProfile from '../../../../public/locales/en/profile.json';
 import enTranslation from '../../../../public/locales/en/translation.json';
 import ruAbout from '../../../../public/locales/ru/about.json';
+import ruAdmin from '../../../../public/locales/ru/admin.json';
 import ruArticles from '../../../../public/locales/ru/articles.json';
 import ruMain from '../../../../public/locales/ru/main.json';
 import ruProfile from '../../../../public/locales/ru/profile.json';
@@ -19,6 +21,7 @@ const resources = {
     about: enAbout,
     profile: enProfile,
     articles: enArticles,
+    admin: enAdmin,
   },
   ru: {
     translation: ruTranslation,
@@ -26,6 +29,7 @@ const resources = {
     about: ruAbout,
     profile: ruProfile,
     articles: ruArticles,
+    admin: ruAdmin,
   },
 };
 

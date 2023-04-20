@@ -10,7 +10,7 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div style={{ padding: 100 }}>
+      <div style={{ padding: 150 }}>
         <Story />
       </div>
     ),

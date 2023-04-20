@@ -1,5 +1,7 @@
 import { addDecorator } from '@storybook/react';
 
+import { withRouter } from 'storybook-addon-react-router-v6';
+
 import { Theme } from '../../src/app/providers/ThemeProvider';
 
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
@@ -19,5 +21,6 @@ export const parameters = {
 
 addDecorator(StyleDecorator);
 addDecorator(TranslationDecorator);
-addDecorator(RouterDecorator);
+// addDecorator(RouterDecorator);
+addDecorator(withRouter);
 addDecorator(ThemeDecorator(Theme.LIGHT));

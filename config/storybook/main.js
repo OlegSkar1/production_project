@@ -4,6 +4,8 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    'storybook-addon-mock',
+    '@storybook/addon-queryparams',
     'storybook-addon-react-router-v6',
   ],
   framework: '@storybook/react',

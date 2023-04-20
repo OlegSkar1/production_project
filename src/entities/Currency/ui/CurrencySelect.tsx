@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Currency } from '../model/types/currency';
 
 import { classNames } from 'shared/lib';
+import { DirectionType } from 'shared/types/ui';
 import { ListBox, ListBoxItem } from 'shared/ui';
 
 interface CurrencySelectProps {
@@ -11,6 +12,7 @@ interface CurrencySelectProps {
   value?: Currency;
   onChange?: (value: Currency) => void;
   readonly?: boolean;
+  direction?: DirectionType;
 }
 
 const options: ListBoxItem[] = [
@@ -20,7 +22,7 @@ const options: ListBoxItem[] = [
 ];
 
 export const CurrencySelect: React.FC<CurrencySelectProps> = memo((props) => {
-  const { className, value, onChange, readonly } = props;
+  const { className, value, onChange, readonly, direction = 'top right' } = props;
 
   const { t } = useTranslation();
 
@@ -39,7 +41,7 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo((props) => {
       value={value}
       readonly={readonly}
       className={classNames('', [className], {})}
-      direction='top right'
+      direction={direction}
     />
   );
 });
