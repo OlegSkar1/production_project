@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { withRouter } from 'storybook-addon-react-router-v6';
-
 import { Sidebar } from './Sidebar';
 
 import { Theme } from 'app/providers/ThemeProvider';

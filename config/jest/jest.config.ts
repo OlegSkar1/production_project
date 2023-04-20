@@ -39,7 +39,6 @@ export default {
         publicPath: '<rootDir>/reporters/jest',
         filename: 'report.html',
         openReport: true,
-        inlineSource: true,
       },
     ],
   ],
