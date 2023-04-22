@@ -10,21 +10,27 @@ export default {
   title: 'widgets/Sidebar',
   component: Sidebar,
   argTypes: {},
+  parameters: {
+    reactRouter: {
+      routePath: '/profile/:id',
+      routeParams: { id: '1' },
+    },
+  },
+  decorators: [StoreDecorator({ user: { authData: { id: '1' } } })],
 } as ComponentMeta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({ user: { authData: {} } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } })];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Blue = Template.bind({});
 Blue.args = {};
-Blue.decorators = [ThemeDecorator(Theme.BLUE), StoreDecorator({ user: { authData: {} } })];
+Blue.decorators = [ThemeDecorator(Theme.BLUE)];
 
 export const NoAuth = Template.bind({});
 NoAuth.args = {};

@@ -18,10 +18,16 @@ export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator({})];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: { id: '1', username: 'admin' } } })];
+export const DarkAuth = Template.bind({});
+DarkAuth.args = {};
+DarkAuth.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({ user: { authData: { id: '1', username: 'admin' } } }),
+];
 
-export const Blue = Template.bind({});
-Blue.args = {};
-Blue.decorators = [ThemeDecorator(Theme.BLUE), StoreDecorator({ user: { authData: { id: '1', username: 'admin' } } })];
+export const BlueAuth = Template.bind({});
+BlueAuth.args = {};
+BlueAuth.decorators = [
+  ThemeDecorator(Theme.BLUE),
+  StoreDecorator({ user: { authData: { id: '1', username: 'admin' } } }),
+];

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import withMock from 'storybook-addon-mock';
 
@@ -123,6 +123,21 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDe
 export const Normal = Template.bind({});
 Normal.args = {};
 
+export const NormalCanEdit = Template.bind({});
+NormalCanEdit.args = {};
+NormalCanEdit.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '1',
+      },
+    },
+    article: {
+      data: article,
+    },
+  }),
+];
+
 export const ErrorArticle = Template.bind({});
 ErrorArticle.args = {};
 ErrorArticle.decorators = [StoreDecorator({ article: { error: 'error' } })];
@@ -133,7 +148,12 @@ WithoutComments.decorators = [StoreDecorator({ article: { data: article }, addCo
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({ article: { isLoading: true } })];
+Loading.decorators = [
+  StoreDecorator({
+    article: { isLoading: true },
+    articleComments: { ...comments, isLoading: true },
+  }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
