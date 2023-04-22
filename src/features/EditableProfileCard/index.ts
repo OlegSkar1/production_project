@@ -1,13 +1,3 @@
-export { ProfileHeader } from './ui/ProfileHeader/ProfileHeader';
-export { getProfileData } from './model/selectors/getProfileData/getProfileData';
-export { getProfileError } from './model/selectors/getProfileError/getProfileError';
-export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
-export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
-export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
-export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-export { validateProfileErrors } from './model/services/validateProfileErrors/validateProfileErrors';
-export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
-export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
-export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
+export { ValidateProfileErrors } from './model/consts/consts';
 export type { ProfileCardSchema } from './model/types/ProfileCardSchema';
-export { ValidateProfileErrors } from './model/types/ProfileCardSchema';
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';

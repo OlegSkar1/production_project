@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 import cls from './ProfileHeader.module.scss';
 
-import { updateProfileData } from '../..';
 import { canEdit } from '../../model/selectors/canEdit/canEdit';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileCardActions } from '../../model/slice/profileCardSlice';
 
 import { classNames } from 'shared/lib';
