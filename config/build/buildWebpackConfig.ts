@@ -1,3 +1,4 @@
+import { EsbuildPlugin } from 'esbuild-loader';
 import webpack from 'webpack';
 
 import { buildDevserver } from './buildDevServer';
@@ -18,6 +19,14 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       clean: true,
       assetModuleFilename: 'assets/[contenthash].[ext]',
       publicPath: '/',
+    },
+    optimization: {
+      minimizer: [
+        new EsbuildPlugin({
+          target: 'es2015',
+          css: true,
+        }),
+      ],
     },
     module: {
       rules: buildLoaders(options),

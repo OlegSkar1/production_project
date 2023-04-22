@@ -1,6 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from 'webpack';
 
-export function buildCssLoader(isDev: boolean) {
+export function buildCssLoader(isDev: boolean): RuleSetRule {
   return {
     test: /\.s[ac]ss$/i,
     use: [
@@ -15,6 +16,7 @@ export function buildCssLoader(isDev: boolean) {
           },
         },
       },
+      'sass-loader',
       {
         loader: 'esbuild-loader',
         options: {
@@ -22,7 +24,6 @@ export function buildCssLoader(isDev: boolean) {
           minify: true,
         },
       },
-      'sass-loader',
     ],
   };
 }
