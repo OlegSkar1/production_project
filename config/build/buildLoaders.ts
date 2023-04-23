@@ -4,6 +4,8 @@ import { buildCssLoader } from './loaders/buildCssLoader';
 
 import { BuildOptions } from './types/config';
 
+import removeJSXIdentifierPlugin from '../babel/removeJSXIdentifierPlugin';
+
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const esBuildLoader = {
     test: /\.[jt]sx?$/,
@@ -11,6 +13,22 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     options: {
       target: 'es2015',
       jsx: 'automatic',
+    },
+  };
+
+  const babelLoader: RuleSetRule = {
+    test: /\.[jt]sx$/,
+    exclude: /node_modules/,
+    loader: 'babel-loader',
+    options: {
+      plugins: [
+        !isDev && [
+          removeJSXIdentifierPlugin,
+          {
+            props: ['data-testid'],
+          },
+        ],
+      ].filter(Boolean),
     },
   };
 
@@ -37,5 +55,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
-  return [esBuildLoader, scssLoader, fontLoader, svgLoader, imgLoader];
+  return [esBuildLoader, babelLoader, scssLoader, fontLoader, svgLoader, imgLoader];
 }
