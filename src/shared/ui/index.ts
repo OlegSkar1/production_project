@@ -1,6 +1,7 @@
-export { Dropdown } from './Dropdown/Dropdown';
-export { ListBox } from './ListBox/ListBox';
-export type { ListBoxItem } from './ListBox/ListBox';
+export { Popover } from './Popups/Popover/Popover';
+export { Dropdown } from './Popups/Dropdown/Dropdown';
+export { ListBox } from './Popups/ListBox/ListBox';
+export type { ListBoxItem } from './Popups/ListBox/ListBox';
 export { HStack } from './Stack/HStack/HStack';
 export { VStack } from './Stack/VStack/VStack';
 export { Tabs } from './Tabs/ui/Tabs';

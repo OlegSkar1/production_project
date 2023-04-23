@@ -1,9 +1,11 @@
 import { Menu } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import { FC, Fragment, ReactNode, memo } from 'react';
 
 import cls from './Dropdown.module.scss';
 
-import { AppLink } from '../AppLink/AppLink';
+import { AppLink } from '../../AppLink/AppLink';
+import { mapDirectionClasses } from '../styles/consts';
+import popupCls from '../styles/popup.module.scss';
 
 import { classNames } from 'shared/lib';
 import { DirectionType } from 'shared/types/ui';
@@ -22,28 +24,21 @@ interface DropdownProps {
   direction?: DirectionType;
 }
 
-const mapDirectionClasses: Record<DirectionType, string> = {
-  'top left': cls.directionTopLeft,
-  'top right': cls.directionTopRight,
-  'bottom left': cls.directionBottomLeft,
-  'bottom right': cls.directionBottomRight,
-};
-
-export function Dropdown(props: DropdownProps) {
+export const Dropdown: FC<DropdownProps> = memo((props) => {
   const { items, trigger, className, direction = 'bottom right' } = props;
 
-  const itemsClasses = [mapDirectionClasses[direction]];
+  const itemsClasses = [cls.additional, mapDirectionClasses[direction]];
 
   return (
-    <Menu as='div' className={classNames(cls.dropdown, [className], {})}>
-      <Menu.Button className={cls.trigger}>{trigger}</Menu.Button>
-      <Menu.Items className={classNames(cls.items, itemsClasses, {})}>
+    <Menu as='div' className={classNames(popupCls.wrapper, [className], {})}>
+      <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+      <Menu.Items className={classNames(popupCls.items, itemsClasses, {})}>
         {items.map((item) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               disabled={item.disabled}
               onClick={item.onClick}
-              className={classNames(cls.item, [], { [cls.active]: active, [cls.disable]: item.disabled })}
+              className={classNames(cls.item, [], { [popupCls.active]: active, [popupCls.disable]: item.disabled })}
             >
               {item.content}
             </button>
@@ -66,4 +61,4 @@ export function Dropdown(props: DropdownProps) {
       </Menu.Items>
     </Menu>
   );
-}
+});

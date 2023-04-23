@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Dropdown } from './Dropdown';
 
-import { Avatar } from '../Avatar/Avatar';
+import { Avatar } from '../../Avatar/Avatar';
 
 export default {
   title: 'shared/Dropdown',

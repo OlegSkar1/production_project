@@ -1,20 +1,11 @@
-.dropdown {
+.wrapper {
   position: relative;
 }
 
 .items {
   position: absolute;
   z-index: var(--dropdown-z-index);
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  min-width: 100%;
-  padding: 10px 0;
-
   background: var(--listbox-bg);
-  border-radius: 10px;
   box-shadow: 4px 4px 8px 0 rgb(34 60 80 / 20%);
 }
 
@@ -29,23 +20,9 @@
   outline: none;
 }
 
-.item {
-  cursor: pointer;
-
-  width: 100%;
-  padding: 0 20px;
-
-  color: var(--primary-color);
-
-  background: none;
-  border: none;
-  outline: none;
-}
-
 .active {
   cursor: pointer;
   background: var(--inverted-primary-color);
-  border-radius: 10px;
 }
 
 .disable {

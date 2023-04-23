@@ -10,9 +10,10 @@ import cls from './Navbar.module.scss';
 import { routePath } from 'app/providers/router/config/routeConfig';
 import { getUserAuthData, isAdminRole, isManagerRole, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
+import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { classNames } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, Avatar, Button, Dropdown, HStack, Text } from 'shared/ui';
+import { AppLink, Avatar, Button, Dropdown, HStack, Icon, Popover, Text } from 'shared/ui';
 
 interface NavbarProps {
   className?: string;
@@ -51,28 +52,36 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
         <Text title='Blog App' className={cls.title} />
         <HStack tagname='nav' gap='16' className={cls.links}>
           <AppLink to={routePath.article_create}>{t('Create article')}</AppLink>
-          <Dropdown
-            items={[
-              ...(isUserAvailable
-                ? [
-                    {
-                      content: t('adminPanel'),
-                      href: routePath.admin_panel,
-                    },
-                  ]
-                : []),
-              {
-                content: t('profile'),
-                href: profilePath,
-              },
-              {
-                content: t('Sign out'),
-                onClick: onLogout,
-              },
-            ]}
-            trigger={authData.avatar && <Avatar src={authData.avatar} alt={authData.username} size={30} />}
-            direction='bottom left'
-          />
+          <HStack gap='16'>
+            <Popover trigger={<Icon Svg={NotificationIcon} />}>
+              {/* <span>test1</span>
+              <span>test1</span>
+              <span>test1</span>
+              <span>test1</span> */}
+            </Popover>
+            <Dropdown
+              items={[
+                ...(isUserAvailable
+                  ? [
+                      {
+                        content: t('adminPanel'),
+                        href: routePath.admin_panel,
+                      },
+                    ]
+                  : []),
+                {
+                  content: t('profile'),
+                  href: profilePath,
+                },
+                {
+                  content: t('Sign out'),
+                  onClick: onLogout,
+                },
+              ]}
+              trigger={authData.avatar && <Avatar src={authData.avatar} alt={authData.username} size={30} />}
+              direction='bottom left'
+            />
+          </HStack>
         </HStack>
       </HStack>
     );
