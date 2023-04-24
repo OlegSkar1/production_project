@@ -43,5 +43,6 @@
   "Edit": "Edit",
   "Create article": "Create article",
   "adminPanel": "Admin panel",
-  "not access": "You do not have access to this page"
+  "not access": "You do not have access to this page",
+  "no_data": "Data not specified"
 }

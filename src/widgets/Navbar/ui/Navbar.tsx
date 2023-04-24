@@ -10,10 +10,10 @@ import cls from './Navbar.module.scss';
 import { routePath } from 'app/providers/router/config/routeConfig';
 import { getUserAuthData, isAdminRole, isManagerRole, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import NotificationIcon from 'shared/assets/icons/notification.svg';
+import { NotificationButton } from 'features/NotificationButton';
 import { classNames } from 'shared/lib';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, Avatar, Button, Dropdown, HStack, Icon, Popover, Text } from 'shared/ui';
+import { AppLink, Avatar, Button, Dropdown, HStack, Text } from 'shared/ui';
 
 interface NavbarProps {
   className?: string;
@@ -44,7 +44,6 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
   }, [dispatch]);
 
   if (authData) {
-    console.log(authData.id);
     const profilePath = generatePath(routePath.profile, { id: authData.id });
 
     return (
@@ -53,12 +52,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
         <HStack tagname='nav' gap='16' className={cls.links}>
           <AppLink to={routePath.article_create}>{t('Create article')}</AppLink>
           <HStack gap='16'>
-            <Popover trigger={<Icon Svg={NotificationIcon} />}>
-              {/* <span>test1</span>
-              <span>test1</span>
-              <span>test1</span>
-              <span>test1</span> */}
-            </Popover>
+            <NotificationButton />
             <Dropdown
               items={[
                 ...(isUserAvailable

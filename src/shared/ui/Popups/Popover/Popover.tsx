@@ -1,9 +1,8 @@
 import { Popover as HPopover } from '@headlessui/react';
-import { FC, ReactNode, memo } from 'react';
+import { FC, memo, ReactNode } from 'react';
 
 import cls from './Popover.module.scss';
 
-import { VStack } from '../../Stack/VStack/VStack';
 import { mapDirectionClasses } from '../styles/consts';
 import popupCls from '../styles/popup.module.scss';
 
@@ -15,19 +14,23 @@ interface PopoverProps {
   children: ReactNode;
   trigger: ReactNode;
   direction?: DirectionType;
+  unmount?: boolean;
 }
 
 export const Popover: FC<PopoverProps> = memo((props) => {
-  const { className, children, trigger, direction = 'bottom left' } = props;
+  const { className, children, trigger, direction = 'bottom left', unmount = true } = props;
 
   return (
     <HPopover className={classNames(popupCls.wrapper, [className], {})}>
-      <HPopover.Button className={popupCls.trigger}>{trigger}</HPopover.Button>
+      <HPopover.Button as='div' className={popupCls.trigger}>
+        {trigger}
+      </HPopover.Button>
 
-      <HPopover.Panel className={classNames(popupCls.items, [mapDirectionClasses[direction], cls.popover], {})}>
-        <VStack gap='16' max className={cls.items}>
-          {children}
-        </VStack>
+      <HPopover.Panel
+        unmount={unmount}
+        className={classNames(popupCls.items, [mapDirectionClasses[direction], cls.popover], {})}
+      >
+        {children}
       </HPopover.Panel>
     </HPopover>
   );
