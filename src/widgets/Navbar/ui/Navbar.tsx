@@ -3,17 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
 
-import { generatePath } from 'react-router-dom';
-
 import cls from './Navbar.module.scss';
 
 import { routePath } from 'app/providers/router/config/routeConfig';
-import { getUserAuthData, isAdminRole, isManagerRole, userActions } from 'entities/User';
+import { getUserAuthData } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
+import { AvatarDropdown } from 'features/AvatarDropdown';
 import { NotificationButton } from 'features/NotificationButton';
 import { classNames } from 'shared/lib';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, Avatar, Button, Dropdown, HStack, Text } from 'shared/ui';
+import { AppLink, Button, HStack, Text } from 'shared/ui';
 
 interface NavbarProps {
   className?: string;
@@ -21,15 +19,10 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
-  const authData = useSelector(getUserAuthData);
-
-  const isAdmin = useSelector(isAdminRole);
-  const isManager = useSelector(isManagerRole);
-
-  const isUserAvailable = isAdmin || isManager;
 
   const [isAuthModal, setIsAuthModal] = useState(false);
+
+  const authData = useSelector(getUserAuthData);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -39,13 +32,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
     setIsAuthModal(true);
   }, []);
 
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
   if (authData) {
-    const profilePath = generatePath(routePath.profile, { id: authData.id });
-
     return (
       <HStack max tagname='header' className={classNames(cls.navbar, [className], {})}>
         <Text title='Blog App' className={cls.title} />
@@ -53,28 +40,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
           <AppLink to={routePath.article_create}>{t('Create article')}</AppLink>
           <HStack gap='16'>
             <NotificationButton />
-            <Dropdown
-              items={[
-                ...(isUserAvailable
-                  ? [
-                      {
-                        content: t('adminPanel'),
-                        href: routePath.admin_panel,
-                      },
-                    ]
-                  : []),
-                {
-                  content: t('profile'),
-                  href: profilePath,
-                },
-                {
-                  content: t('Sign out'),
-                  onClick: onLogout,
-                },
-              ]}
-              trigger={authData.avatar && <Avatar src={authData.avatar} alt={authData.username} size={30} />}
-              direction='bottom left'
-            />
+            <AvatarDropdown />
           </HStack>
         </HStack>
       </HStack>
