@@ -1,6 +1,6 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 
-import cls from './Modal.module.scss';
+import cls from './Drawer.module.scss';
 
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
@@ -8,7 +8,7 @@ import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib';
 
-interface ModalProps {
+interface DrawerProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
@@ -16,7 +16,7 @@ interface ModalProps {
   lazy?: boolean;
 }
 
-export const Modal: React.FC<ModalProps> = (props) => {
+export const Drawer: React.FC<DrawerProps> = (props) => {
   const { className, children, isOpen, onClose, lazy } = props;
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -32,6 +32,10 @@ export const Modal: React.FC<ModalProps> = (props) => {
     if (isOpen) {
       setIsMounted(true);
     }
+
+    return () => {
+      setIsClosing(false);
+    };
   }, [isOpen]);
 
   const onCloseHandler = useCallback(() => {
@@ -40,26 +44,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
     }
   }, [onClose]);
 
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onCloseHandler();
-      }
-    },
-    [onCloseHandler]
-  );
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    return () => {
-      setIsClosing(false);
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [isOpen, onKeyDown]);
-
   if (!isMounted && lazy) {
     return null;
   }
@@ -67,7 +51,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   return (
     <Portal>
       <div
-        className={classNames(cls.modal, [className, theme, 'app_modal'], mods)}
+        className={classNames(cls.drawer, [className, theme, 'app_drawer'], mods)}
         onAnimationEnd={isClosing ? onClose : undefined}
       >
         <Overlay onClick={onCloseHandler} />

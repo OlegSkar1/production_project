@@ -13,13 +13,7 @@ interface NotificationsListProps {
 export const NotificationsList: FC<NotificationsListProps> = memo((props) => {
   const { className } = props;
 
-  const {
-    data: items,
-    isLoading,
-    isError,
-  } = useFetchNotificationsQuery(null, {
-    pollingInterval: 5000,
-  });
+  const { data: items, isLoading, isError } = useFetchNotificationsQuery(null);
 
   if (isLoading || isError) {
     return (
