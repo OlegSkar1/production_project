@@ -1,7 +1,8 @@
-import { ReactNode, useCallback, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 
 import cls from './Drawer.module.scss';
 
+import { useModal } from '../../lib/hooks/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
@@ -18,31 +19,15 @@ interface DrawerProps {
 
 export const Drawer: React.FC<DrawerProps> = (props) => {
   const { className, children, isOpen, onClose, lazy } = props;
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
   const { theme } = useTheme();
+
+  const { isClosing, isMounted, onCloseHandler } = useModal({ isOpen, onClose });
 
   const mods: Record<string, boolean | undefined> = {
     [cls.opened]: isOpen,
     [cls.closed]: isClosing,
   };
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-
-    return () => {
-      setIsClosing(false);
-    };
-  }, [isOpen]);
-
-  const onCloseHandler = useCallback(() => {
-    if (onClose) {
-      setIsClosing(true);
-    }
-  }, [onClose]);
 
   if (!isMounted && lazy) {
     return null;
@@ -55,7 +40,9 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
         onAnimationEnd={isClosing ? onClose : undefined}
       >
         <Overlay onClick={onCloseHandler} />
-        <div className={cls.content}>{children}</div>
+        <div className={cls.contentWrapper}>
+          <div className={cls.content}>{children}</div>
+        </div>
       </div>
     </Portal>
   );

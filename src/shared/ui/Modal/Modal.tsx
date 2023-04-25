@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 
 import cls from './Modal.module.scss';
 
@@ -7,6 +7,7 @@ import { Portal } from '../Portal/Portal';
 
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib';
+import { useModal } from 'shared/lib/hooks/useModal';
 
 interface ModalProps {
   className?: string;
@@ -18,8 +19,8 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = (props) => {
   const { className, children, isOpen, onClose, lazy } = props;
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+
+  const { isClosing, isMounted, onCloseHandler } = useModal({ isOpen, onClose });
 
   const { theme } = useTheme();
 
@@ -27,38 +28,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
     [cls.opened]: isOpen,
     [cls.closed]: isClosing,
   };
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
-
-  const onCloseHandler = useCallback(() => {
-    if (onClose) {
-      setIsClosing(true);
-    }
-  }, [onClose]);
-
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onCloseHandler();
-      }
-    },
-    [onCloseHandler]
-  );
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    return () => {
-      setIsClosing(false);
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [isOpen, onKeyDown]);
 
   if (!isMounted && lazy) {
     return null;

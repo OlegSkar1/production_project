@@ -1,10 +1,11 @@
-import { FC, memo, useCallback, useEffect, useState } from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 
 import cls from './NotificationButton.module.scss';
 
 import { NotificationsList } from 'entities/Notification';
 import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useMobile } from 'shared/lib/hooks/useMobile';
 import { Button, Drawer, Icon, Popover } from 'shared/ui';
 
 interface NotificationButtonProps {
@@ -16,11 +17,7 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.matchMedia('(pointer:coarse)').matches);
-  }, []);
+  const isMobile = useMobile();
 
   const openDrawer = useCallback(() => {
     setIsOpen(true);

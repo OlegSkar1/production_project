@@ -8,21 +8,25 @@
   opacity: 0;
 }
 
-.content {
+.content-wrapper {
   position: absolute;
   bottom: 0;
   transform: translateY(100%);
 
-  overflow-y: auto;
-
   width: 100%;
   height: 70%;
   min-height: 100px;
-  padding: 20px;
+  padding: 10px;
 
-  background: var(--bg-color);
+  background: var(--listbox-bg);
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+}
+
+.content {
+  overflow-y: auto;
+  height: 100%;
+  padding: 0 15px;
 }
 
 .opened {
@@ -31,14 +35,14 @@
   opacity: 1;
 }
 
-.opened .content {
+.opened .content-wrapper {
   animation-name: open-drawer;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
 
-.closed .content {
+.closed .content-wrapper {
   animation-name: close-drawer;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
