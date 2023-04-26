@@ -1,32 +1,12 @@
 .drawer {
-  pointer-events: none;
-
   position: fixed;
-  z-index: var(--hide-modal-z-index);
+  z-index: var(--modal-z-index);
   inset: 0;
-
-  opacity: 0;
-}
-
-.content-wrapper {
-  position: absolute;
-  bottom: 0;
-  transform: translateY(100%);
-
-  width: 100%;
-  height: 70%;
-  min-height: 100px;
-  padding: 10px;
-
-  background: var(--listbox-bg);
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
 }
 
 .content {
   overflow-y: auto;
   height: 100%;
-  padding: 0 15px;
 }
 
 .opened {
@@ -35,36 +15,17 @@
   opacity: 1;
 }
 
-.opened .content-wrapper {
-  animation-name: open-drawer;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
+.sheet {
+  touch-action: none;
 
-.closed .content-wrapper {
-  animation-name: close-drawer;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-}
+  position: fixed;
+  z-index: var(--modal-z-index);
+  left: 2vw;
 
-@keyframes open-drawer {
-  0% {
-    transform: translateY(100%);
-  }
+  width: 96vw;
+  height: calc(100vh + 100px);
+  padding: 15px;
 
-  100% {
-    transform: translateY(0%);
-  }
-}
-
-@keyframes close-drawer {
-  0% {
-    transform: translateY(0%);
-  }
-
-  100% {
-    transform: translateY(100%);
-  }
+  background: var(--card-bg);
+  border-radius: 12px 12px 0;
 }
