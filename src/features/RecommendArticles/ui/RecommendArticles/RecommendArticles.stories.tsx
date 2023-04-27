@@ -4,8 +4,8 @@ import withMock from 'storybook-addon-mock';
 
 import { RecommendArticles } from './RecommendArticles';
 
-import { Article } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { Article } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 const article: Article = {
   id: '1',

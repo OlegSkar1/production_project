@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Currency } from '../model/types/currency';
 
-import { classNames } from 'shared/lib';
-import { DirectionType } from 'shared/types/ui';
-import { ListBox, ListBoxItem } from 'shared/ui';
+import { classNames } from '@/shared/lib';
+import { DirectionType } from '@/shared/types/ui';
+import { ListBox, ListBoxItem } from '@/shared/ui';
 
 interface CurrencySelectProps {
   className?: string;

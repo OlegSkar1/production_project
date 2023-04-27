@@ -5,7 +5,7 @@ import cls from './Code.module.scss';
 import CopyIcon from '../../assets/icons/copy-20-20.svg';
 import { Button } from '../Button/Button';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface CodeProps {
   className?: string;

@@ -7,13 +7,13 @@ import { getOrder, getSort } from '../../model/selectors/filterSelectors';
 
 import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
 
-import { SortType } from 'entities/Article';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { OrderType } from 'shared/types';
-import { HStack, Select } from 'shared/ui';
-import { OptionList } from 'shared/ui/Select';
+import { SortType } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { OrderType } from '@/shared/types';
+import { HStack, Select } from '@/shared/ui';
+import { OptionList } from '@/shared/ui/Select';
 
 interface ArticlesPageSortProps {
   className?: string;

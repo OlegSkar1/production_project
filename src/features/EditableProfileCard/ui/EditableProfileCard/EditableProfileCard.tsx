@@ -13,14 +13,14 @@ import { profileCardActions, profileCardReducer } from '../../model/slice/profil
 
 import { ProfileHeader } from '../ProfileHeader/ProfileHeader';
 
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { ProfileCard } from 'entities/Profile';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
 
-import { classNames } from 'shared/lib';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Text } from 'shared/ui';
+import { classNames } from '@/shared/lib';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Text } from '@/shared/ui';
 
 interface EditableProfileCardProps {
   className?: string;

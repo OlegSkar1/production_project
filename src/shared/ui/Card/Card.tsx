@@ -2,7 +2,7 @@ import { FC, HTMLAttributes, ReactNode } from 'react';
 
 import cls from './Card.module.scss';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 type CardVariant = 'normal' | 'outlined';
 

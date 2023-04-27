@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 import { fetchArticles } from './fetchArticles';
 
-import { Article } from 'entities/Article';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Article } from '@/entities/Article';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const data: Article[] = [
   {

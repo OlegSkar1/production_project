@@ -1,6 +1,6 @@
 import { getProfileReadonly } from './getProfileReadonly';
 
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getProfileReadonly', () => {
   it('should return readonly profile', () => {

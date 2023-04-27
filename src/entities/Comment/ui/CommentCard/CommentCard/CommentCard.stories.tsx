@@ -2,8 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { CommentCard } from './CommentCard';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
 export default {
   title: 'shared/CommentCard',

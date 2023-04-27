@@ -7,12 +7,12 @@ import { getTab } from '../../model/selectors/filterSelectors';
 
 import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
 
-import { ArticleType } from 'entities/Article';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Tabs } from 'shared/ui';
-import { TabItem } from 'shared/ui/Tabs';
+import { ArticleType } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Tabs } from '@/shared/ui';
+import { TabItem } from '@/shared/ui/Tabs';
 
 interface ArticlesPageTabsProps {
   className?: string;

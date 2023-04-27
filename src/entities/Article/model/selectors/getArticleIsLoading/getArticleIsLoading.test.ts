@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { getArticleIsLoading } from './getArticleIsLoading';
 
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getArticleIsLoading', () => {
   it('should return article error', () => {

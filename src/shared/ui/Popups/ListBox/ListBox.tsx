@@ -11,8 +11,8 @@ import { HStack } from '../../Stack/HStack/HStack';
 import { mapDirectionClasses } from '../styles/consts';
 import popupCls from '../styles/popup.module.scss';
 
-import { classNames } from 'shared/lib';
-import { DirectionType } from 'shared/types/ui';
+import { classNames } from '@/shared/lib';
+import { DirectionType } from '@/shared/types/ui';
 
 export interface ListBoxItem {
   value: string;

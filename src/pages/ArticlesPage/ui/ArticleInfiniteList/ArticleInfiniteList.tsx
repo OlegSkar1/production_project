@@ -10,9 +10,9 @@ import {
 
 import { articleListSelectors } from '../../model/slice/articlesListSlice/articlesListSlice';
 
-import { ArticleList } from 'entities/Article';
+import { ArticleList } from '@/entities/Article';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface ArticleInfiniteListProps {
   className?: string;

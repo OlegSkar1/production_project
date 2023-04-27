@@ -12,10 +12,10 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
-import { classNames } from 'shared/lib';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, Input, Text, VStack } from 'shared/ui';
+import { classNames } from '@/shared/lib';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, Input, Text, VStack } from '@/shared/ui';
 
 interface LoginFormProps {
   className?: string;

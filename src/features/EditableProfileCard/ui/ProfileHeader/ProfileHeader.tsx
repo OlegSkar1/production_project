@@ -9,9 +9,9 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileCardActions } from '../../model/slice/profileCardSlice';
 
-import { classNames } from 'shared/lib';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, HStack, Text } from 'shared/ui';
+import { classNames } from '@/shared/lib';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, HStack, Text } from '@/shared/ui';
 
 interface ProfileHeaderProps {
   className?: string;

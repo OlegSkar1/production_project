@@ -5,10 +5,10 @@ import { EditableProfileCard } from './EditableProfileCard';
 
 import { profileCardReducer } from '../../model/slice/profileCardSlice';
 
-import { Profile } from 'entities/Profile';
+import { Profile } from '@/entities/Profile';
 
-import { $api } from 'shared/api/api';
-import { ComponentRender } from 'shared/lib/tests/ComponentRender/ComponentRender';
+import { $api } from '@/shared/api/api';
+import { ComponentRender } from '@/shared/lib/tests/ComponentRender/ComponentRender';
 
 const data: Profile = {
   first: 'admin',

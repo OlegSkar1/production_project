@@ -2,9 +2,9 @@ import { validateProfileErrors } from './validateProfileErrors';
 
 import { ValidateProfileErrors } from '../../consts/consts';
 
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { Profile } from 'entities/Profile';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { Profile } from '@/entities/Profile';
 
 const data: Profile = {
   first: 'UserName',

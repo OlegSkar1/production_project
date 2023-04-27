@@ -4,8 +4,8 @@ import cls from './RecommendArticles.module.scss';
 
 import { useFetchArticlesQuery } from '../../api/recommendArticlesApi';
 
-import { ArticleList } from 'entities/Article';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleList } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface RecommendArticlesProps {
   className?: string;

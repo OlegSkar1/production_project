@@ -5,9 +5,9 @@ import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
-import { useTheme } from 'app/providers/ThemeProvider';
-import { classNames } from 'shared/lib';
-import { useModal } from 'shared/lib/hooks/useModal';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { classNames } from '@/shared/lib';
+import { useModal } from '@/shared/lib/hooks/useModal';
 
 interface ModalProps {
   className?: string;

@@ -4,7 +4,7 @@ import { useFetchNotificationsQuery } from '../../api/notificationApi';
 
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
-import { VStack } from 'shared/ui';
+import { VStack } from '@/shared/ui';
 
 interface NotificationsListProps {
   className?: string;

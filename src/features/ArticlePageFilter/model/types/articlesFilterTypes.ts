@@ -1,5 +1,5 @@
-import { ArticleType, SortType } from 'entities/Article';
-import { OrderType } from 'shared/types';
+import { ArticleType, SortType } from '@/entities/Article';
+import { OrderType } from '@/shared/types';
 
 export interface ArticlesFilterSchema {
   sort: SortType;

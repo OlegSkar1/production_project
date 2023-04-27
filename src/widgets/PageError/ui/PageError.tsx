@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import cls from './PageError.module.scss';
 
-import { classNames } from 'shared/lib';
-import { Button, Text, VStack } from 'shared/ui';
+import { classNames } from '@/shared/lib';
+import { Button, Text, VStack } from '@/shared/ui';
 
 interface PageErrorProps {
   className?: string;

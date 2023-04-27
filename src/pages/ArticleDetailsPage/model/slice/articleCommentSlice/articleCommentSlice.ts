@@ -4,8 +4,8 @@ import { addCommentForArticle } from '../../services/addCommentForArticle/addCom
 import { fetchArticleComments } from '../../services/fetchArticleComments/fetchArticleComments';
 import { ArticleCommentSchema } from '../../types/articleCommentSchema';
 
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Comment } from 'entities/Comment';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Comment } from '@/entities/Comment';
 
 export const articleCommentAdapter = createEntityAdapter<Comment>();
 

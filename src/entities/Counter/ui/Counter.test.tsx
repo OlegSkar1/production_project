@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import { Counter } from './Counter';
 
-import { ComponentRender } from 'shared/lib/tests/ComponentRender/ComponentRender';
+import { ComponentRender } from '@/shared/lib/tests/ComponentRender/ComponentRender';
 
 describe('Counter', () => {
   it('should return counter title', () => {

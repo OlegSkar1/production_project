@@ -7,11 +7,11 @@ import cls from './Sidebar.module.scss';
 import { getSidebarItemsList } from '../../model/selectors/getSidebarItemsList';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
-import { LangSwitcher } from 'features/LangSwitcher';
-import { ThemeSwither } from 'features/ThemeSwither';
-import { classNames } from 'shared/lib';
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwither } from '@/features/ThemeSwither';
+import { classNames } from '@/shared/lib';
 
-import { Button, HStack, VStack } from 'shared/ui';
+import { Button, HStack, VStack } from '@/shared/ui';
 
 interface SidebarProps {
   className?: string;

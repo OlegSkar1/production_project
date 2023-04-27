@@ -16,6 +16,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
   if (config.resolve) {
     config.resolve.modules = [paths.src, 'node_modules'];
     config.resolve.extensions?.push('.ts', '.tsx', '.js');
+    config.resolve.alias = {
+      '@': paths.src,
+    };
   }
 
   if (config.module) {

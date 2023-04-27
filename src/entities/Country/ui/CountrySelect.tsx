@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Country } from '../model/types/county';
 
-import { classNames } from 'shared/lib';
-import { DirectionType } from 'shared/types/ui';
-import { ListBox, ListBoxItem } from 'shared/ui';
+import { classNames } from '@/shared/lib';
+import { DirectionType } from '@/shared/types/ui';
+import { ListBox, ListBoxItem } from '@/shared/ui';
 
 interface CountrySelectProps {
   className?: string;

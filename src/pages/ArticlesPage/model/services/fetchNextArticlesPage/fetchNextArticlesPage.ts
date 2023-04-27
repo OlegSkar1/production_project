@@ -9,7 +9,7 @@ import {
 import { articlesListActions } from '../../slice/articlesListSlice/articlesListSlice';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
   'articlesList/fetchNextArticlesPage',

@@ -2,11 +2,11 @@ import { FC, memo } from 'react';
 
 import cls from './ArticleViewChanger.module.scss';
 
-import { ArticleView } from 'entities/Article';
-import ListIcon from 'shared/assets/icons/list.svg';
-import GridIcon from 'shared/assets/icons/tile.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, Icon } from 'shared/ui';
+import { ArticleView } from '@/entities/Article';
+import ListIcon from '@/shared/assets/icons/list.svg';
+import GridIcon from '@/shared/assets/icons/tile.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, Icon } from '@/shared/ui';
 
 interface ArticleViewChangerProps {
   className?: string;

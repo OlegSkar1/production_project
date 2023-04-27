@@ -18,16 +18,16 @@ import {
 
 import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader';
 
-import { ArticleDetails, getArticleError } from 'entities/Article';
-import { CommentList } from 'entities/Comment';
-import { AddNewCommentForm } from 'features/AddNewCommentForm';
+import { ArticleDetails, getArticleError } from '@/entities/Article';
+import { CommentList } from '@/entities/Comment';
+import { AddNewCommentForm } from '@/features/AddNewCommentForm';
 
-import { RecommendArticles } from 'features/RecommendArticles';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
-import { Page } from 'widgets/Page';
+import { RecommendArticles } from '@/features/RecommendArticles';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
+import { Page } from '@/widgets/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;

@@ -8,9 +8,9 @@ import cls from './SidebarItem.module.scss';
 
 import { SidebarItemsType } from '../../model/types/items';
 
-import { getUserAuthData } from 'entities/User';
-import { classNames } from 'shared/lib';
-import { AppLink, HStack } from 'shared/ui';
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib';
+import { AppLink, HStack } from '@/shared/ui';
 
 interface SidebarItemProps {
   item: SidebarItemsType;

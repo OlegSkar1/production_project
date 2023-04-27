@@ -1,6 +1,6 @@
 import { getText } from './getText';
 
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getText', () => {
   it('should return text', () => {

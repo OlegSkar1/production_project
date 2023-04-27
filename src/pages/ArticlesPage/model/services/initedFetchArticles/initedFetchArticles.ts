@@ -6,11 +6,11 @@ import { articlesListInited } from '../../selectors/articlesList/articlesList';
 import { articlesListActions } from '../../slice/articlesListSlice/articlesListSlice';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ArticleType, SortType } from 'entities/Article';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ArticleType, SortType } from '@/entities/Article';
 
-import { articlesFilterActions } from 'features/ArticlePageFilter';
-import { OrderType } from 'shared/types';
+import { articlesFilterActions } from '@/features/ArticlePageFilter';
+import { OrderType } from '@/shared/types';
 
 export const initedFetchArticles = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
   'articlesList/initedFetchArticles',

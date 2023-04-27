@@ -4,8 +4,8 @@ import cls from './ArticleListItem.module.scss';
 
 import { ArticleView } from '../../model/types/article';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Card, HStack, Skeleton, VStack } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Card, HStack, Skeleton, VStack } from '@/shared/ui';
 
 interface ArticleListItemSkeletonProps {
   className?: string;

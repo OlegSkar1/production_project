@@ -7,8 +7,8 @@ import { AppLink } from '../../AppLink/AppLink';
 import { mapDirectionClasses } from '../styles/consts';
 import popupCls from '../styles/popup.module.scss';
 
-import { classNames } from 'shared/lib';
-import { DirectionType } from 'shared/types/ui';
+import { classNames } from '@/shared/lib';
+import { DirectionType } from '@/shared/types/ui';
 
 interface DropdownItem {
   content: string;

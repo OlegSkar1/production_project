@@ -2,7 +2,7 @@ import { CSSProperties, FC } from 'react';
 
 import cls from './Skeleton.module.scss';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 type SkeletonVariants = 'text' | 'title' | 'circle';
 

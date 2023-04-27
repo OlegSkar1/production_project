@@ -13,7 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "*": [
+      "@/*": [
         "./src/*"
       ]
     },

@@ -5,13 +5,13 @@ import { useSelector } from 'react-redux';
 
 import cls from './Navbar.module.scss';
 
-import { routePath } from 'app/providers/router/config/routeConfig';
-import { getUserAuthData } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
-import { AvatarDropdown } from 'features/AvatarDropdown';
-import { NotificationButton } from 'features/NotificationButton';
-import { classNames } from 'shared/lib';
-import { AppLink, Button, HStack, Text } from 'shared/ui';
+import { routePath } from '@/app/providers/router/config/routeConfig';
+import { getUserAuthData } from '@/entities/User';
+import { LoginModal } from '@/features/AuthByUsername';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationButton } from '@/features/NotificationButton';
+import { classNames } from '@/shared/lib';
+import { AppLink, Button, HStack, Text } from '@/shared/ui';
 
 interface NavbarProps {
   className?: string;

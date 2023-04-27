@@ -1,7 +1,7 @@
 import { addCommentForArticle } from './addCommentForArticle';
 
-import { StateSchema } from 'app/providers/StoreProvider';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const comment = {
   articleId: '1',

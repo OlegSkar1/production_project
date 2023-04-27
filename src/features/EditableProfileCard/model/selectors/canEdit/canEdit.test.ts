@@ -1,7 +1,7 @@
 import { canEdit } from './canEdit';
 
-import { Profile } from 'entities/Profile';
-import { User } from 'entities/User';
+import { Profile } from '@/entities/Profile';
+import { User } from '@/entities/User';
 
 describe('canEdit', () => {
   test('should return true', () => {

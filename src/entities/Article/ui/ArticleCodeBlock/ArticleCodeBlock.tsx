@@ -4,8 +4,8 @@ import cls from './ArticleCodeBlock.module.scss';
 
 import { CodeBlock } from '../../model/types/article';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Code } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Code } from '@/shared/ui';
 
 interface ArticleCodeBlockProps {
   className?: string;

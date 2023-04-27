@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { getArticleError } from './getArticleError';
 
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getArticleError', () => {
   it('should return article error', () => {

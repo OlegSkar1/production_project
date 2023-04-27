@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { useParams } from 'react-router-dom';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'widgets/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
   className?: string;

@@ -1,6 +1,6 @@
 import { articleDetailsCommentsError, articleDetailsCommentsIsLoading } from './comments';
 
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('comments', () => {
   test('should return loading', () => {

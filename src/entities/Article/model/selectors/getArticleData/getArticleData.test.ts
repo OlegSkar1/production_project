@@ -3,7 +3,7 @@ import { getArticleData } from './getArticleData';
 
 import { Article } from '../../types/article';
 
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getArticleData', () => {
   it('should return article data', () => {

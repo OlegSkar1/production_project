@@ -5,7 +5,7 @@ import { ArticleDetails } from './ArticleDetails';
 
 import { Article } from '../../model/types/article';
 
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 export default {
   title: 'entities/ArticleDetails',

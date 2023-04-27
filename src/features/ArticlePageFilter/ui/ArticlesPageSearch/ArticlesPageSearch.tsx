@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux';
 import { getSearch } from '../../model/selectors/filterSelectors';
 import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
 
-import { classNames } from 'shared/lib';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { Card, Input } from 'shared/ui';
+import { classNames } from '@/shared/lib';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { Card, Input } from '@/shared/ui';
 
 interface ArticlesPageSearchProps {
   className?: string;

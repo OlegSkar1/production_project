@@ -6,8 +6,8 @@ import cls from './NotificationItem.module.scss';
 
 import { NotificationType } from '../../model/types/notification';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, Card, Skeleton, Text } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink, Card, Skeleton, Text } from '@/shared/ui';
 
 interface NotificationItemProps {
   className?: string;

@@ -3,7 +3,7 @@ import { Link, LinkProps } from 'react-router-dom';
 
 import cls from './AppLink.module.scss';
 
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 
 type AppLinkTheme = 'primary' | 'secondary' | 'invertedPrimary' | 'invertedSecondary' | 'outlined';
 

@@ -5,7 +5,7 @@ import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileCardSchema } from '../types/ProfileCardSchema';
 
-import { Profile } from 'entities/Profile';
+import { Profile } from '@/entities/Profile';
 
 const initialState: ProfileCardSchema = {
   data: undefined,

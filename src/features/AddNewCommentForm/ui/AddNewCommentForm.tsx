@@ -8,10 +8,10 @@ import cls from './AddNewCommentForm.module.scss';
 import { getText } from '../model/selectors/getText/getText';
 import { addCommentActions, addCommentReducer } from '../model/slice/addCommentSlice';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, HStack, Input, Text } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, HStack, Input, Text } from '@/shared/ui';
 
 interface AddNewCommentFormProps {
   className?: string;

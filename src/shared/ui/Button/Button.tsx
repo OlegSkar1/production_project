@@ -2,8 +2,8 @@ import { ButtonHTMLAttributes, memo } from 'react';
 
 import cls from './Button.module.scss';
 
-import { classNames } from 'shared/lib';
-import { Additional, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
+import { Additional, Mods } from '@/shared/lib/classNames/classNames';
 
 type ButtonVariant =
   | 'clear'

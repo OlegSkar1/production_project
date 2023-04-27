@@ -6,8 +6,8 @@ import cls from './Popover.module.scss';
 import { mapDirectionClasses } from '../styles/consts';
 import popupCls from '../styles/popup.module.scss';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DirectionType } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DirectionType } from '@/shared/types/ui';
 
 interface PopoverProps {
   className?: string;

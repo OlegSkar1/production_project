@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { generatePath } from 'react-router-dom';
 
-import { routePath } from 'app/providers/router/config/routeConfig';
-import { getUserAuthData, isAdminRole, isManagerRole, userActions } from 'entities/User';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Avatar, Dropdown } from 'shared/ui';
+import { routePath } from '@/app/providers/router/config/routeConfig';
+import { getUserAuthData, isAdminRole, isManagerRole, userActions } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Avatar, Dropdown } from '@/shared/ui';
 
 interface AvatarDropdownProps {
   className?: string;

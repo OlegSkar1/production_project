@@ -20,13 +20,13 @@ import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
-import { Avatar, HStack, Icon, Skeleton, Text, VStack } from 'shared/ui';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
+import { Avatar, HStack, Icon, Skeleton, Text, VStack } from '@/shared/ui';
 
 interface ArticleDetailsProps {
   className?: string;

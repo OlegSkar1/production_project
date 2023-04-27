@@ -2,11 +2,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ProfileCard } from './ProfileCard';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { avatar } from 'shared/const/imagePaths';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { avatar } from '@/shared/const/imagePaths';
 
 export default {
   title: 'entities/ProfileCard',
