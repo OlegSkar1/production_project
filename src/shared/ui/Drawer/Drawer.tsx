@@ -1,6 +1,4 @@
-import { a, config, useSpring } from '@react-spring/web';
-import { useDrag } from '@use-gesture/react';
-import { ReactNode, useCallback, useEffect } from 'react';
+import { FC, memo, ReactNode, useCallback, useEffect } from 'react';
 
 import cls from './Drawer.module.scss';
 
@@ -9,6 +7,7 @@ import { Portal } from '../Portal/Portal';
 
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib';
+import { useAnimationContext } from 'shared/lib/components/AnimationProvider';
 
 interface DrawerProps {
   className?: string;
@@ -20,12 +19,14 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-export const Drawer: React.FC<DrawerProps> = (props) => {
+const DrawerContent: FC<DrawerProps> = memo((props) => {
   const { className, children, isOpen, onClose } = props;
+
+  const { Gesture, Spring } = useAnimationContext();
 
   const { theme } = useTheme();
 
-  const [{ y }, api] = useSpring(() => ({ y: height }));
+  const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
   const openDrawer = useCallback(() => {
     api.start({
@@ -43,12 +44,12 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
   const close = (velocity = 0) => {
     api.start({
       y: height,
-      config: { ...config.stiff, velocity },
+      config: { ...Spring.config.stiff, velocity },
       onResolve: onClose,
     });
   };
 
-  const bind = useDrag(
+  const bind = Gesture.useDrag(
     ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
       if (my < -70) cancel();
 
@@ -74,10 +75,24 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
     <Portal>
       <div className={classNames(cls.drawer, [className, theme, 'app_drawer'], {})}>
         <Overlay onClick={close} />
-        <a.div className={cls.sheet} style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }} {...bind()}>
+        <Spring.a.div
+          className={cls.sheet}
+          style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+          {...bind()}
+        >
           {children}
-        </a.div>
+        </Spring.a.div>
       </div>
     </Portal>
   );
-};
+});
+
+export const Drawer: FC<DrawerProps> = memo((props) => {
+  const { isLoaded } = useAnimationContext();
+
+  if (!isLoaded) {
+    return null;
+  }
+
+  return <DrawerContent {...props} />;
+});
