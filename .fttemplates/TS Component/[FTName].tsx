@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import cls from './[FTName].module.scss';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 
 interface [FTName]Props {
   className?: string;

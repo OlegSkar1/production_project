@@ -1,16 +1,16 @@
-import { FC, memo } from 'react';
+import { FC, SVGProps, VFC, memo } from 'react';
 
 import cls from './Icon.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-interface IconProps {
+interface IconProps extends SVGProps<SVGSVGElement> {
   className?: string;
-  Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+  Svg: VFC<SVGProps<SVGSVGElement>>;
 }
 
 export const Icon: FC<IconProps> = memo((props) => {
-  const { className, Svg } = props;
+  const { className, Svg, ...otherProps } = props;
 
-  return <Svg className={classNames(cls.icon, [className], {})} />;
+  return <Svg className={classNames(cls.icon, [className], {})} {...otherProps} />;
 });

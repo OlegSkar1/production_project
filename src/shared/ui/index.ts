@@ -1,3 +1,4 @@
+export { StarRating } from './StarRating/StarRating';
 export { Overlay } from './Overlay/Overlay';
 export { Drawer } from './Drawer/Drawer';
 export { Popover } from './Popups/Popover/Popover';
