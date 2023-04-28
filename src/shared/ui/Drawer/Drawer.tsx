@@ -7,7 +7,7 @@ import { Portal } from '../Portal/Portal';
 
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames } from '@/shared/lib';
-import { useAnimationContext } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationContext } from '@/shared/lib/components/AnimationProvider';
 
 interface DrawerProps {
   className?: string;
@@ -87,7 +87,7 @@ const DrawerContent: FC<DrawerProps> = memo((props) => {
   );
 });
 
-export const Drawer: FC<DrawerProps> = memo((props) => {
+const DrawerAsync: FC<DrawerProps> = (props) => {
   const { isLoaded } = useAnimationContext();
 
   if (!isLoaded) {
@@ -95,4 +95,10 @@ export const Drawer: FC<DrawerProps> = memo((props) => {
   }
 
   return <DrawerContent {...props} />;
-});
+};
+
+export const Drawer: FC<DrawerProps> = (props) => (
+  <AnimationProvider>
+    <DrawerAsync {...props} />
+  </AnimationProvider>
+);
