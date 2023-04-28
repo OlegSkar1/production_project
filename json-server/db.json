@@ -1592,6 +1592,12 @@
       "userId": "3",
       "text": "435",
       "id": "9HmHC5d"
+    },
+    {
+      "articleId": "4",
+      "userId": "2",
+      "text": "test comment for user",
+      "id": "8IWm5DM"
     }
   ],
   "users": [
