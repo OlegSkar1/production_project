@@ -46,13 +46,11 @@ export const StarRating: FC<StarRatingProps> = memo((props) => {
     <div className={classNames('', [className], {})}>
       {stars.map((starNumber) => (
         <Icon
+          className={classNames(cls.starRating, [currentStarCount >= starNumber ? cls.hovered : cls.normal], {
+            [cls.selected]: isSelected,
+          })}
           Svg={StarIcon}
           key={starNumber}
-          className={classNames(
-            cls.starRating,
-            [className, currentStarCount >= starNumber ? cls.hovered : cls.normal],
-            {}
-          )}
           width={size}
           height={size}
           onMouseEnter={onHover(starNumber)}

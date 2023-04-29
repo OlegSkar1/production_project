@@ -41,6 +41,7 @@ module.exports = {
           'theme',
           'align',
           'title',
+          'feedbackTitle',
           'text',
           'target',
           'direction',

@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
       <Button variant='clearInverted' className={classNames(cls.links)} onClick={onShowModal}>
         {t('Sign in')}
       </Button>
-      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
+      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
     </HStack>
   );
 });

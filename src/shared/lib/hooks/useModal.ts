@@ -35,6 +35,7 @@ export const useModal = ({ isOpen, onClose }: useModalProps) => {
 
     return () => {
       setIsClosing(false);
+      setIsMounted(false);
       !isMobile && window.removeEventListener('keydown', onKeyDown);
     };
   }, [isMobile, isOpen, onKeyDown]);
