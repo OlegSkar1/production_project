@@ -44,6 +44,6 @@
   "Create article": "Создать статью",
   "adminPanel": "Админ панель",
   "not access": "У вас нет доступа к этой странице",
-  "send": "Отправить",
-  "your_feedpack": "Ваш отзыв"
+  "your_feedback": "Ваш отзыв",
+  "thanks_for_rating": "Спасибо за оценку!"
 }

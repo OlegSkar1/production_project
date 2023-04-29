@@ -22,6 +22,7 @@ import { ArticleDetails, getArticleError } from '@/entities/Article';
 import { CommentList } from '@/entities/Comment';
 import { AddNewCommentForm } from '@/features/AddNewCommentForm';
 
+import { ArticleRateCard } from '@/features/ArticleRateCard';
 import { RecommendArticles } from '@/features/RecommendArticles';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -71,6 +72,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         <ArticleDetails id={id} />
         {!articleError && (
           <>
+            <ArticleRateCard articleId={id} />
             <RecommendArticles />
             <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
             <CommentList comments={comments} isLoading={commentsIsLoading} />

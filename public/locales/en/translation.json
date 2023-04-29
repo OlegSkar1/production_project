@@ -45,6 +45,6 @@
   "adminPanel": "Admin panel",
   "not access": "You do not have access to this page",
   "no_data": "Data not specified",
-  "send": "Send",
-  "your_feedpack": "Your feedback"
+  "your_feedback": "Your feedback",
+  "thanks_for_rating": "Thank you for rating!"
 }

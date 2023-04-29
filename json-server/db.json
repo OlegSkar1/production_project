@@ -33,6 +33,29 @@
       "userId": "2"
     }
   ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "feedback": "Отличная статья",
+      "rate": 5,
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "feedback": "Хорошая статья",
+      "rate": 4,
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "3",
+      "feedback": "Неплохая статья",
+      "rate": 3,
+      "userId": "2",
+      "articleId": "3"
+    }
+  ],
   "posts": [
     {
       "id": "1",

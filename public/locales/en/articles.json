@@ -9,5 +9,8 @@
   "all": "All",
   "it": "IT",
   "science": "Science",
-  "economics": "Economics"
+  "economics": "Economics",
+  "rate_the_article": "Rate the article",
+  "input_rate": "Write a review about the article",
+  "rate_load_error": "Error loading rating"
 }

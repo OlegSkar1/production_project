@@ -12,13 +12,14 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onAccept?: (starCount: number, feedback?: string) => void;
   onCancel?: (starCount: number) => void;
+  rate?: number;
 }
 
 export const RatingCard: FC<RatingCardProps> = memo((props) => {
-  const { className, title, feedbackTitle, hasFeedback, onAccept, onCancel } = props;
+  const { className, title, feedbackTitle, hasFeedback, onAccept, onCancel, rate = 0 } = props;
   const { t } = useTranslation();
 
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useMobile();
@@ -48,15 +49,15 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
   const modalContent = (
     <>
       <Text title={feedbackTitle} tagname='h3' />
-      <Input value={feedback} onChange={setFeedback} placeholder={t('your_feedpack')} />
+      <Input value={feedback} onChange={setFeedback} placeholder={t('your_feedback')} />
     </>
   );
 
   return (
     <Card className={classNames('', [className], {})}>
       <VStack gap={'8'} max>
-        <Text title={title} tagname='h3' />
-        <StarRating size={40} onSelect={onSelectHandler} />
+        <Text title={starsCount ? t('thanks_for_rating') : title} tagname='h3' />
+        <StarRating size={40} onSelect={onSelectHandler} selectedStars={rate} />
       </VStack>
       {!isMobile && (
         <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
@@ -67,7 +68,7 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
                 {t('cancel')}
               </Button>
               <Button variant='outlined' onClick={acceptHandler}>
-                {t('send')}
+                {t('Send')}
               </Button>
             </HStack>
           </VStack>
