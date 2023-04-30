@@ -2,14 +2,11 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import cls from './ProfileHeader.module.scss';
-
 import { canEdit } from '../../model/selectors/canEdit/canEdit';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileCardActions } from '../../model/slice/profileCardSlice';
 
-import { classNames } from '@/shared/lib';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, HStack, Text } from '@/shared/ui';
 
@@ -44,7 +41,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = memo((props) => {
   }, [dispatch]);
 
   return (
-    <HStack tagname='header' justify='between' className={classNames(cls.profileHeader, [className], {})}>
+    <HStack tagname='header' justify='between' className={className}>
       <Text title={t('profile')} />
       {canEditProfile && (
         <div className='btnWrapper'>

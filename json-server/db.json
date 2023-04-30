@@ -56,6 +56,29 @@
       "articleId": "3"
     }
   ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "feedback": "Отличный пользователь",
+      "rate": 5,
+      "userId": "1",
+      "profileId": "2"
+    },
+    {
+      "profileId": "3",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "gdfhfdsh",
+      "id": "SthF7yk"
+    },
+    {
+      "profileId": "1",
+      "userId": "2",
+      "rate": 5,
+      "feedback": "хорошо",
+      "id": "dr7FgEs"
+    }
+  ],
   "posts": [
     {
       "id": "1",

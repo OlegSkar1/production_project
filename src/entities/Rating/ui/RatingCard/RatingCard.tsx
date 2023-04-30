@@ -79,7 +79,7 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
           <VStack max gap='16'>
             {modalContent}
             <Button size='extraLarge' variant='outlined' fullWidth onClick={acceptHandler}>
-              {t('send')}
+              {t('Send')}
             </Button>
           </VStack>
         </Drawer>

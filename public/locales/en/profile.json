@@ -11,5 +11,8 @@
   "incorrect_data": "First and last name are required",
   "incorrect_age": "Incorrect age",
   "no_data": "Data not specifiedData not specified",
-  "server_error": "Server error on save"
+  "server_error": "Server error on save",
+  "rate_the_profile": "Rate profile",
+  "input_rate_profile": "Write a profile review",
+  "Profile not found": "Profile not found"
 }
