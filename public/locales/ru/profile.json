@@ -14,5 +14,6 @@
   "server_error": "Ошибка сервера при сохранении",
   "rate_the_profile": "Оцените профиль",
   "input_rate_profile": "Напишите отзыв о профиле",
-  "Profile not found": "Профиль не найден"
+  "Profile not found": "Профиль не найден",
+  "rate_load_error": "Ошибка при загрузке рейтинга"
 }

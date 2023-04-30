@@ -114,6 +114,13 @@ export default {
           { ...article, id: '4' },
         ],
       },
+      {
+        url: `${__API__}/article-ratings?userId=1&articleId=1`,
+        method: 'GET',
+        delay: '2000',
+        status: 200,
+        response: [{ userId: '1', articleId: '1', rate: 4 }],
+      },
     ],
   },
 } as ComponentMeta<typeof ArticleDetailsPage>;

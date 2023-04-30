@@ -56,16 +56,16 @@ export const ProfileRateCard: FC<ProfileRateCardProps> = memo((props) => {
     [rateDataHandler]
   );
 
+  if (profileId === userData?.id) {
+    return null;
+  }
+
   if (isLoading) {
     return <Skeleton height={120} width={'100%'} />;
   }
 
   if (isError) {
     return <Text text={t('rate_load_error')} theme='error' />;
-  }
-
-  if (profileId === userData?.id) {
-    return null;
   }
 
   return (

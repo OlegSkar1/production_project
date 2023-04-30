@@ -54,6 +54,13 @@
       "rate": 3,
       "userId": "2",
       "articleId": "3"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "rate": 3,
+      "feedback": "",
+      "id": "5hpulto"
     }
   ],
   "profile-ratings": [
