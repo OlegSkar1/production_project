@@ -61,6 +61,19 @@
       "rate": 3,
       "feedback": "",
       "id": "5hpulto"
+    },
+    {
+      "articleId": "12",
+      "userId": "2",
+      "rate": 4,
+      "id": "pxsUepq"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "test",
+      "id": "G_lrIlO"
     }
   ],
   "profile-ratings": [
@@ -1651,6 +1664,12 @@
       "userId": "2",
       "text": "test comment for user",
       "id": "8IWm5DM"
+    },
+    {
+      "articleId": "12",
+      "userId": "2",
+      "text": "12415",
+      "id": "bSecH_B"
     }
   ],
   "users": [

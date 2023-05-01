@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { generatePath, useParams } from 'react-router-dom';
 
 import { routePath } from '@/app/providers/router/config/routeConfig';
-import { getUserIsEditArticle } from '@/entities/Article/model/selectors/getUserIsEditArticle/getUserIsEditArticle';
+import { getUserIsEditArticle } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, HStack } from '@/shared/ui';
 

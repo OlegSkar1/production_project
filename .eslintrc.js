@@ -24,7 +24,8 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import', 'i18next', 'prettier', 'olegskar-fsd-checker'],
   rules: {
-    'olegskar-fsd-checker/paths-checker': 2,
+    'olegskar-fsd-checker/paths-checker': ['error', { alias: '@' }],
+    'olegskar-fsd-checker/public-api-imports': ['error', { alias: '@' }],
     'i18next/no-literal-string': [
       2,
       {
