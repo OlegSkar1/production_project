@@ -1,8 +1,8 @@
 import { getProfileData } from './getProfileData';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country/testing';
+import { Currency } from '@/entities/Currency/testing';
 
 describe('getProfileData', () => {
   it('should return profile data', () => {

@@ -3,7 +3,7 @@ import withMock from 'storybook-addon-mock';
 
 import { NotificationButton } from './NotificationButton';
 
-import { NotificationType } from '@/entities/Notification';
+import { NotificationType } from '@/entities/Notification/testing';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 const notification: NotificationType = {

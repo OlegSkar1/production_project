@@ -4,9 +4,9 @@ import { ProfileCardSchema } from '../types/ProfileCardSchema';
 
 import { profileCardActions, profileCardReducer } from './profileCardSlice';
 
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
-import { Profile } from '@/entities/Profile';
+import { Country } from '@/entities/Country/testing';
+import { Currency } from '@/entities/Currency/testing';
+import { Profile } from '@/entities/Profile/testing';
 
 const data: Profile = {
   first: 'UserName',

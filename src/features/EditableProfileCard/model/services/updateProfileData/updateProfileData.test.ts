@@ -2,9 +2,9 @@ import { ValidateProfileErrors } from '../../consts/consts';
 
 import { updateProfileData } from './updateProfileData';
 
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
-import { Profile } from '@/entities/Profile';
+import { Country } from '@/entities/Country/testing';
+import { Currency } from '@/entities/Currency/testing';
+import { Profile } from '@/entities/Profile/testing';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const data: Profile = {

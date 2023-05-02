@@ -3,7 +3,7 @@ import { ArticleCommentSchema } from '../../types/articleCommentSchema';
 
 import { articleCommentReducer } from './articleCommentSlice';
 
-import { Comment } from '@/entities/Comment';
+import { Comment } from '@/entities/Comment/testing';
 const state: ArticleCommentSchema = {
   ids: [],
   entities: {},

@@ -3,7 +3,7 @@ import { ArticlesListSchema } from '../../types/articles';
 
 import { articlesListActions, articlesListReducer } from './articlesListSlice';
 
-import { Article, ArticleView } from '@/entities/Article';
+import { Article, ArticleView } from '@/entities/Article/testing';
 
 const article: Article = {
   id: '1',

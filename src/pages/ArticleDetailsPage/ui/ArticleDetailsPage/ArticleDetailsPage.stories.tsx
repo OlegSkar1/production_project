@@ -6,7 +6,7 @@ import { ArticleCommentSchema } from '../../model/types/articleCommentSchema';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 
-import { Article } from '@/entities/Article';
+import { Article } from '@/entities/Article/testing';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/types';

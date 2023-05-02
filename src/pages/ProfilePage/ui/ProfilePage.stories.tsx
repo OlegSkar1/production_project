@@ -3,9 +3,9 @@ import withMock from 'storybook-addon-mock';
 
 import ProfilePage from './ProfilePage';
 
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
-import { ValidateProfileErrors } from '@/features/EditableProfileCard';
+import { Country } from '@/entities/Country/testing';
+import { Currency } from '@/entities/Currency/testing';
+import { ValidateProfileErrors } from '@/features/EditableProfileCard/testing';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { avatar } from '@/shared/const/imagePaths';

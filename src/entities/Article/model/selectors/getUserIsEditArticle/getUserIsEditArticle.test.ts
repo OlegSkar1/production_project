@@ -2,7 +2,7 @@ import { Article } from '../../types/article';
 
 import { getUserIsEditArticle } from './getUserIsEditArticle';
 
-import { User } from '@/entities/User';
+import { User } from '@/entities/User/testing';
 
 describe('getUserIsEditArticle', () => {
   it('should return `false` when user or article is not provided', () => {
