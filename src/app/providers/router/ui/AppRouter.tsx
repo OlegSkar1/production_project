@@ -3,7 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 
 import { RequireAuth } from './RequireAuth';
 
-import { AppRoutesProps, routeConfig } from '../config/routeConfig';
+import { routeConfig } from '../config/routeConfig';
+
+import { AppRoutesProps } from '../config/routeTypes';
 
 import { PageLoader } from '@/features/PageLoader';
 

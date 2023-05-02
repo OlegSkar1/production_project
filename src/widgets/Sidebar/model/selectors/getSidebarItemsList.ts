@@ -4,7 +4,7 @@ import { generatePath } from 'react-router-dom';
 
 import { SidebarItemsType } from '../types/items';
 
-import { routePath } from '@/app/providers/router/config/routeConfig';
+import { routePath } from '@/app/providers/router/config/consts';
 import { getUserAuthData } from '@/entities/User';
 import AboutIcon from '@/shared/assets/icons/about_us.svg';
 import ArticlesIcon from '@/shared/assets/icons/article-20-20.svg';

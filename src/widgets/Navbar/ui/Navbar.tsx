@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import cls from './Navbar.module.scss';
 
-import { routePath } from '@/app/providers/router/config/routeConfig';
+import { routePath } from '@/app/providers/router/config/consts';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';

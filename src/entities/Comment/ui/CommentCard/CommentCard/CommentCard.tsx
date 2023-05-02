@@ -6,7 +6,7 @@ import cls from './CommentCard.module.scss';
 
 import { Comment } from '../../../model/types/comment';
 
-import { routePath } from '@/app/providers/router/config/routeConfig';
+import { routePath } from '@/app/providers/router/config/consts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, HStack, Skeleton, Text } from '@/shared/ui';
 

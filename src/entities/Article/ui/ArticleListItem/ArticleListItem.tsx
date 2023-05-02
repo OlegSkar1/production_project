@@ -9,7 +9,7 @@ import { Article, ArticleView, TextBlock } from '../../model/types/article';
 
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
-import { routePath } from '@/app/providers/router/config/routeConfig';
+import { routePath } from '@/app/providers/router/config/consts';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, Card, HStack, Icon, Text } from '@/shared/ui';

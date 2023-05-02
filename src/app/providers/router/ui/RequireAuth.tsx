@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 
-import { routePath } from '../config/routeConfig';
+import { routePath } from '../config/consts';
 
 import { Role, getRoles, getUserAuthData } from '@/entities/User';
 

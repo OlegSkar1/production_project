@@ -1,4 +1,6 @@
-import { RouteProps } from 'react-router-dom';
+import { AppRoutes, routePath } from './consts';
+
+import { AppRoutesProps } from './routeTypes';
 
 import { Role } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
@@ -10,41 +12,6 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-
-export type AppRoutesProps = RouteProps & {
-  authOnly?: boolean;
-  roles?: Role[];
-};
-
-export type AppRoutes = ValueOf<typeof AppRoutes>;
-
-export const AppRoutes = {
-  MAIN: 'main',
-  ABOUT: 'about',
-  ADMIN_PANEL: 'admin_panel',
-  PROFILE: 'profile',
-  ARTICLES: 'articles',
-  ARTICLE_DETAILS: 'article_details',
-  ARTICLE_EDIT: 'article_edit',
-  ARTICLE_CREATE: 'article_create',
-  FORBIDDEN: 'forbidden',
-
-  // несуществующий роут, должен быть последним
-  NOT_FOUND: 'notFound',
-} as const;
-
-export const routePath: Record<AppRoutes, string> = {
-  main: '/',
-  about: '/about',
-  profile: '/profile/:id',
-  notFound: '*',
-  articles: '/articles',
-  article_details: '/articles/:id',
-  article_edit: '/articles/:id/edit',
-  article_create: '/articles/new',
-  admin_panel: '/admin',
-  forbidden: '/forbidden',
-};
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   main: {

@@ -74,6 +74,13 @@
       "rate": 4,
       "feedback": "test",
       "id": "G_lrIlO"
+    },
+    {
+      "articleId": "17",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "cool!",
+      "id": "Sh9I0q0"
     }
   ],
   "profile-ratings": [
@@ -1670,6 +1677,12 @@
       "userId": "2",
       "text": "12415",
       "id": "bSecH_B"
+    },
+    {
+      "articleId": "17",
+      "userId": "2",
+      "text": "test comment",
+      "id": "nHmk4OC"
     }
   ],
   "users": [
