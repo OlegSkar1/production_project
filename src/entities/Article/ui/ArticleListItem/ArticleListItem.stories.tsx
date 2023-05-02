@@ -5,8 +5,8 @@ import { ArticleListItem } from './ArticleListItem';
 
 import { Article } from '../../model/types/article';
 
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/types';
 
 export default {
   title: 'entities/Article/ArticleListItem',

@@ -1,11 +1,7 @@
 import { createContext, FC, useMemo, useState } from 'react';
 
-export type Theme = ValueOf<typeof Theme>;
-export const Theme = {
-  DARK: 'app_theme_dark',
-  LIGHT: 'app_theme_light',
-  BLUE: 'app_theme_blue',
-} as const;
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
+import { Theme } from '@/shared/types';
 
 export interface ThemeContextProps {
   theme: Theme;
@@ -13,8 +9,6 @@ export interface ThemeContextProps {
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps);
-
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
 
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 

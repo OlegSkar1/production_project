@@ -4,8 +4,8 @@ import { CountrySelect } from './CountrySelect';
 
 import { Country } from '../model/types/county';
 
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/types';
 
 export default {
   title: 'entities/CountrySelect',

@@ -2,7 +2,7 @@ import { addDecorator } from '@storybook/react';
 
 import { withRouter } from 'storybook-addon-react-router-v6';
 
-import { Theme } from '../../src/app/providers/ThemeProvider';
+import { Theme } from '../../src/shared/ui/ThemeProvider';
 
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';

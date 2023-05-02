@@ -4,7 +4,6 @@ import withMock from 'storybook-addon-mock';
 
 import ProfilePage from './ProfilePage';
 
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
@@ -12,6 +11,7 @@ import { ValidateProfileErrors } from '@/features/EditableProfileCard';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { avatar } from '@/shared/const/imagePaths';
+import { Theme } from '@/shared/types';
 
 export default {
   title: 'pages/ProfilePage',

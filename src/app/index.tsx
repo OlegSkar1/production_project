@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { AppRouter } from './providers/router';
 
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { getUserInited, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 

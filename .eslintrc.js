@@ -29,6 +29,10 @@ module.exports = {
       'error',
       { alias: '@', testFilesPatterns: ['**/*.test.ts', '**/*.stories.tsx', '**/StoreDecorator.tsx'] },
     ],
+    'olegskar-fsd-checker/layer-imports': [
+      'error',
+      { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/router/**', '**/testing'] },
+    ],
     'i18next/no-literal-string': [
       2,
       {
