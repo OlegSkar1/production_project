@@ -1,23 +1,15 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { useSelector } from 'react-redux';
-
-import cls from './ArticleDetails.module.scss';
 
 import { getArticleData } from '../../model/selectors/getArticleData/getArticleData';
 import { getArticleError } from '../../model/selectors/getArticleError/getArticleError';
 import { getArticleIsLoading } from '../../model/selectors/getArticleIsLoading/getArticleIsLoading';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
-
 import { articleReducer } from '../../model/slice/articleSlice';
-
 import { ArticleBlock } from '../../model/types/article';
-
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
-
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
-
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
@@ -27,6 +19,8 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
 import { Avatar, HStack, Icon, Skeleton, Text, VStack } from '@/shared/ui';
+
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;

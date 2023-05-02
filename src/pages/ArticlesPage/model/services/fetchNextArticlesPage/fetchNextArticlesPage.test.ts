@@ -1,6 +1,6 @@
-import { fetchNextArticlesPage } from './fetchNextArticlesPage';
-
 import { fetchArticles } from '../fetchArticles/fetchArticles';
+
+import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 

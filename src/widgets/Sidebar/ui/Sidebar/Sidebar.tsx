@@ -1,8 +1,5 @@
 import { memo, useMemo, useState } from 'react';
-
 import { useSelector } from 'react-redux';
-
-import cls from './Sidebar.module.scss';
 
 import { getSidebarItemsList } from '../../model/selectors/getSidebarItemsList';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -10,8 +7,9 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwither } from '@/features/ThemeSwither';
 import { classNames } from '@/shared/lib';
-
 import { Button, HStack, VStack } from '@/shared/ui';
+
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;

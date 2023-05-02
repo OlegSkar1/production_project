@@ -1,9 +1,9 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
-import cls from './AppLink.module.scss';
-
 import { classNames } from '@/shared/lib';
+
+import cls from './AppLink.module.scss';
 
 type AppLinkTheme = 'primary' | 'secondary' | 'invertedPrimary' | 'invertedSecondary' | 'outlined';
 

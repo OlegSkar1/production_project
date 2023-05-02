@@ -4,7 +4,6 @@ import { fetchArticleComments } from '../fetchArticleComments/fetchArticleCommen
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { getArticleData } from '@/entities/Article';
-
 import { Comment } from '@/entities/Comment';
 import { getUserAuthData } from '@/entities/User';
 

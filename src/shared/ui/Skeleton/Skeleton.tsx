@@ -1,8 +1,8 @@
 import { CSSProperties, FC } from 'react';
 
-import cls from './Skeleton.module.scss';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import cls from './Skeleton.module.scss';
 
 type SkeletonVariants = 'text' | 'title' | 'circle';
 

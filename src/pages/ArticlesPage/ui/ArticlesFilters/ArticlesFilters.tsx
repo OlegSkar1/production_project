@@ -1,22 +1,18 @@
 import { FC, memo, useCallback } from 'react';
-
 import { useSelector } from 'react-redux';
 
-import cls from './ArticlesFilters.module.scss';
-
 import { articlesListView } from '../../model/selectors/articlesList/articlesList';
-
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
-
 import { articlesListActions } from '../../model/slice/articlesListSlice/articlesListSlice';
 
 import { ArticleView } from '@/entities/Article';
 import { ArticlesPageSearch, ArticlesPageSort, ArticlesPageTabs } from '@/features/ArticlePageFilter';
 import { ArticleViewChanger } from '@/features/ArticleViewChanger';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { HStack } from '@/shared/ui';
+
+import cls from './ArticlesFilters.module.scss';
 
 interface ArticlesFiltersProps {
   className?: string;

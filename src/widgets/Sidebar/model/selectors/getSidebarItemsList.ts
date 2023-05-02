@@ -1,5 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-
 import { generatePath } from 'react-router-dom';
 
 import { SidebarItemsType } from '../types/items';

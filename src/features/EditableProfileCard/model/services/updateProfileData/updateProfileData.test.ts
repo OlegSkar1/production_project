@@ -1,6 +1,6 @@
-import { updateProfileData } from './updateProfileData';
-
 import { ValidateProfileErrors } from '../../consts/consts';
+
+import { updateProfileData } from './updateProfileData';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';

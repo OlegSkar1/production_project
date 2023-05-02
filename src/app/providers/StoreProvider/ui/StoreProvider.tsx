@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 
 import { StateSchema } from '../config/StateSchema';
-
 import { CreateReduxStore } from '../config/store';
 
 interface StoreProviderProps {

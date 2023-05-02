@@ -1,6 +1,5 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { useSelector } from 'react-redux';
 
 import { useFetchRateArticleQuery, useSendRateArticleMutation } from '../../api/articleRateApi';

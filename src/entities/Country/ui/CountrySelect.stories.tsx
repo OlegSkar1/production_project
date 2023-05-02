@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { CountrySelect } from './CountrySelect';
-
 import { Country } from '../model/types/county';
+
+import { CountrySelect } from './CountrySelect';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/types';

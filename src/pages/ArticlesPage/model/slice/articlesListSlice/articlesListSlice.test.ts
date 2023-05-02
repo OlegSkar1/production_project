@@ -1,7 +1,7 @@
-import { articlesListActions, articlesListReducer } from './articlesListSlice';
-
 import { fetchArticles } from '../../services/fetchArticles/fetchArticles';
 import { ArticlesListSchema } from '../../types/articles';
+
+import { articlesListActions, articlesListReducer } from './articlesListSlice';
 
 import { Article, ArticleView } from '@/entities/Article';
 

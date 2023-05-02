@@ -1,7 +1,7 @@
-import { articleCommentReducer } from './articleCommentSlice';
-
 import { fetchArticleComments } from '../../services/fetchArticleComments/fetchArticleComments';
 import { ArticleCommentSchema } from '../../types/articleCommentSchema';
+
+import { articleCommentReducer } from './articleCommentSlice';
 
 import { Comment } from '@/entities/Comment';
 const state: ArticleCommentSchema = {

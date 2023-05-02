@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ArticleListItem } from './ArticleListItem';
-
 import { Article } from '../../model/types/article';
+
+import { ArticleListItem } from './ArticleListItem';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/types';

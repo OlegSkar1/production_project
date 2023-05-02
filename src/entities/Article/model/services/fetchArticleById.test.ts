@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { fetchArticleById } from './fetchArticleById';
-
 import { Article } from '../types/article';
+
+import { fetchArticleById } from './fetchArticleById';
 
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 

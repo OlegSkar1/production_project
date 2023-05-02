@@ -1,13 +1,12 @@
 import { FC, memo } from 'react';
-
 import { useTranslation } from 'react-i18next';
-
-import cls from './NotificationItem.module.scss';
 
 import { NotificationType } from '../../model/types/notification';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Card, Skeleton, Text } from '@/shared/ui';
+
+import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
   className?: string;

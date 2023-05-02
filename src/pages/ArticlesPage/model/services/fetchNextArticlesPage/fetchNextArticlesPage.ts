@@ -5,7 +5,6 @@ import {
   articlesListIsLoading,
   articlesListPage,
 } from '../../selectors/articlesList/articlesList';
-
 import { articlesListActions } from '../../slice/articlesListSlice/articlesListSlice';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 

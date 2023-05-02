@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ValidateProfileErrors } from '../../consts/consts';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
-
 import { validateProfileErrors } from '../validateProfileErrors/validateProfileErrors';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';

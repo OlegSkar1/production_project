@@ -1,10 +1,8 @@
 import { FC, memo, useCallback, useMemo } from 'react';
-
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getTab } from '../../model/selectors/filterSelectors';
-
 import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
 
 import { ArticleType } from '@/entities/Article';

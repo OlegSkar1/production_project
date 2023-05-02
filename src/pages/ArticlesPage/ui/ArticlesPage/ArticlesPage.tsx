@@ -1,18 +1,12 @@
 import { FC, memo, useCallback, useEffect } from 'react';
-
 import { useSelector } from 'react-redux';
-
 import { useSearchParams } from 'react-router-dom';
-
-import cls from './ArticlesPage.module.scss';
 
 import { articlesListError, articlesListIsLoading } from '../../model/selectors/articlesList/articlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initedFetchArticles } from '../../model/services/initedFetchArticles/initedFetchArticles';
 import { articlesListReducer } from '../../model/slice/articlesListSlice/articlesListSlice';
-
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 
 import { getOrder, getSearch, getSort, getTab } from '@/features/ArticlePageFilter';
@@ -21,6 +15,8 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
 import { Page } from '@/widgets/Page';
+
+import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
   className?: string;

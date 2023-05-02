@@ -1,12 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import withMock from 'storybook-addon-mock';
 
 import ProfilePage from './ProfilePage';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-
 import { ValidateProfileErrors } from '@/features/EditableProfileCard';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';

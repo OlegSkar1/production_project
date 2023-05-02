@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 
-import cls from './LoginModal.module.scss';
-
 import { LoginFormAsync } from '../LoginForm/LoginFormAsync';
 
 import { classNames } from '@/shared/lib';
 import { Loader, Modal } from '@/shared/ui';
+
+import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {
   className?: string;

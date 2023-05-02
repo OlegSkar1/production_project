@@ -1,7 +1,6 @@
 import { FC, memo } from 'react';
 
 import { useFetchNotificationsQuery } from '../../api/notificationApi';
-
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 import { VStack } from '@/shared/ui';

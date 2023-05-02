@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import withMock from 'storybook-addon-mock';
 
 import { RecommendArticles } from './RecommendArticles';

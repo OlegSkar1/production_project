@@ -1,14 +1,13 @@
 import { FC, memo } from 'react';
-
 import { generatePath } from 'react-router-dom';
-
-import cls from './CommentCard.module.scss';
 
 import { Comment } from '../../../model/types/comment';
 
 import { routePath } from '@/app/providers/router/config/consts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, HStack, Skeleton, Text } from '@/shared/ui';
+
+import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;

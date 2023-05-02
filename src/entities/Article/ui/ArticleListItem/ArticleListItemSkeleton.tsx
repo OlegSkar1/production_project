@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import cls from './ArticleListItem.module.scss';
-
 import { ArticleView } from '../../model/types/article';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card, HStack, Skeleton, VStack } from '@/shared/ui';
+
+import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
   className?: string;

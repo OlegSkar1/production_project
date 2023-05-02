@@ -1,11 +1,10 @@
 /* eslint-disable max-len */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import withMock from 'storybook-addon-mock';
 
-import ArticleDetailsPage from './ArticleDetailsPage';
-
 import { ArticleCommentSchema } from '../../model/types/articleCommentSchema';
+
+import ArticleDetailsPage from './ArticleDetailsPage';
 
 import { Article } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';

@@ -1,10 +1,8 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { useSelector } from 'react-redux';
 
 import { getOrder, getSort } from '../../model/selectors/filterSelectors';
-
 import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
 
 import { SortType } from '@/entities/Article';

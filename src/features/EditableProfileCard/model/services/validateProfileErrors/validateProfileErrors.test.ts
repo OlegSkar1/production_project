@@ -1,6 +1,6 @@
-import { validateProfileErrors } from './validateProfileErrors';
-
 import { ValidateProfileErrors } from '../../consts/consts';
+
+import { validateProfileErrors } from './validateProfileErrors';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';

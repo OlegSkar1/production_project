@@ -1,8 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { useSelector } from 'react-redux';
-
 import { generatePath, useParams } from 'react-router-dom';
 
 import { routePath } from '@/app/providers/router/config/consts';

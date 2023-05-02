@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-
 import { useSelector } from 'react-redux';
 
 import {
@@ -7,11 +6,9 @@ import {
   articlesListIsLoading,
   articlesListView,
 } from '../../model/selectors/articlesList/articlesList';
-
 import { articleListSelectors } from '../../model/slice/articlesListSlice/articlesListSlice';
 
 import { ArticleList } from '@/entities/Article';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface ArticleInfiniteListProps {

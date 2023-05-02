@@ -1,11 +1,11 @@
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 
-import cls from './Select.module.scss';
-
 import { HStack } from '../../Stack/HStack/HStack';
 import { SelectProps } from '../model/types/select';
 
 import { classNames } from '@/shared/lib';
+
+import cls from './Select.module.scss';
 
 const typedMemo: <T>(cb: T) => T = memo;
 

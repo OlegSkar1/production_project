@@ -1,6 +1,6 @@
-import { getUserIsEditArticle } from './getUserIsEditArticle';
-
 import { Article } from '../../types/article';
+
+import { getUserIsEditArticle } from './getUserIsEditArticle';
 
 import { User } from '@/entities/User';
 

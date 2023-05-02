@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-import cls from './Text.module.scss';
-
 import { classNames } from '@/shared/lib';
+
+import cls from './Text.module.scss';
 
 type TextTheme = 'primary' | 'error';
 type TextAlign = 'left' | 'right' | 'center';

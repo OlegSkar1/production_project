@@ -1,6 +1,6 @@
-import { getLoginUsername } from './getLoginUsername';
-
 import { LoginSchema } from '../../types/LoginSchema';
+
+import { getLoginUsername } from './getLoginUsername';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 

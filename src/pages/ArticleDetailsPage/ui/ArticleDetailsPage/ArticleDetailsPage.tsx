@@ -1,27 +1,20 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import cls from './ArticleDetailsPage.module.scss';
-
 import { articleDetailsCommentsError, articleDetailsCommentsIsLoading } from '../../model/selectors/comments/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-
 import { fetchArticleComments } from '../../model/services/fetchArticleComments/fetchArticleComments';
-
 import {
   articleCommentReducer,
   articleCommentSelectors,
 } from '../../model/slice/articleCommentSlice/articleCommentSlice';
-
 import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader';
 
 import { ArticleDetails, getArticleError } from '@/entities/Article';
 import { CommentList } from '@/entities/Comment';
 import { AddNewCommentForm } from '@/features/AddNewCommentForm';
-
 import { ArticleRateCard } from '@/features/ArticleRateCard';
 import { RecommendArticles } from '@/features/RecommendArticles';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -29,6 +22,8 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
 import { Page } from '@/widgets/Page';
+
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string;

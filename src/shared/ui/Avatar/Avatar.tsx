@@ -1,8 +1,8 @@
 import { CSSProperties, memo, useMemo } from 'react';
 
-import cls from './Avatar.module.scss';
-
 import { classNames } from '@/shared/lib';
+
+import cls from './Avatar.module.scss';
 
 type AvatarSize = 'normal' | 'small';
 

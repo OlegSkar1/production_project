@@ -1,6 +1,6 @@
-import { initedFetchArticles } from './initedFetchArticles';
-
 import { fetchArticles } from '../fetchArticles/fetchArticles';
+
+import { initedFetchArticles } from './initedFetchArticles';
 
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 

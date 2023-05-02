@@ -1,11 +1,11 @@
 import { FC, memo } from 'react';
 
-import cls from './RecommendArticles.module.scss';
-
 import { useFetchArticlesQuery } from '../../api/recommendArticlesApi';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import cls from './RecommendArticles.module.scss';
 
 interface RecommendArticlesProps {
   className?: string;

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { getArticleData } from './getArticleData';
-
 import { Article } from '../../types/article';
+
+import { getArticleData } from './getArticleData';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 

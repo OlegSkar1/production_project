@@ -1,12 +1,12 @@
 import { FC, memo, useCallback, useState } from 'react';
 
-import cls from './NotificationButton.module.scss';
-
 import { NotificationsList } from '@/entities/Notification';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useMobile } from '@/shared/lib/hooks/useMobile';
 import { Button, Drawer, Icon, Popover } from '@/shared/ui';
+
+import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
   className?: string;

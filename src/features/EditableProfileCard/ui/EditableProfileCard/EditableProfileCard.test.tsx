@@ -1,12 +1,11 @@
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 
-import { EditableProfileCard } from './EditableProfileCard';
-
 import { profileCardReducer } from '../../model/slice/profileCardSlice';
 
-import { Profile } from '@/entities/Profile';
+import { EditableProfileCard } from './EditableProfileCard';
 
+import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
 import { ComponentRender } from '@/shared/lib/tests/ComponentRender/ComponentRender';
 

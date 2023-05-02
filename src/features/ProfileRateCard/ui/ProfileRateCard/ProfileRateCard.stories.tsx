@@ -1,9 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 
 import { ProfileRateCard } from './ProfileRateCard';
 
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+
 export default {
-  title: 'shared/ProfileRateCard',
+  title: 'features/ProfileRateCard',
   component: ProfileRateCard,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -13,4 +16,23 @@ export default {
 const Template: ComponentStory<typeof ProfileRateCard> = (args) => <ProfileRateCard {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  profileId: '2',
+};
+Normal.decorators = [withMock, StoreDecorator({ user: { authData: { id: '1' } } })];
+Normal.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/profile-ratings?userId=1&profileId=2`,
+      method: 'GET',
+      status: 200,
+      response: [
+        {
+          profileId: '2',
+          userId: '1',
+          rate: 4,
+        },
+      ],
+    },
+  ],
+};

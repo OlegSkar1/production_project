@@ -1,18 +1,16 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { generatePath } from 'react-router-dom';
 
-import cls from './ArticleListItem.module.scss';
-
 import { Article, ArticleView, TextBlock } from '../../model/types/article';
-
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import { routePath } from '@/app/providers/router/config/consts';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, Card, HStack, Icon, Text } from '@/shared/ui';
+
+import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
   className?: string;

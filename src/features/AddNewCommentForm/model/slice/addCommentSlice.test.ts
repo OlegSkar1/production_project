@@ -1,6 +1,6 @@
-import { addCommentActions, addCommentReducer } from './addCommentSlice';
-
 import { AddCommentSchema } from '../types/AddCommentSchema';
+
+import { addCommentActions, addCommentReducer } from './addCommentSlice';
 
 describe('addCommentSlice', () => {
   it('should set text', () => {

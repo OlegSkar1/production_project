@@ -1,5 +1,4 @@
 import { AppRoutes, routePath } from './consts';
-
 import { AppRoutesProps } from './routeTypes';
 
 import { Role } from '@/entities/User';

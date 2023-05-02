@@ -22,7 +22,16 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import', 'i18next', 'prettier', 'olegskar-fsd-checker'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    'import',
+    'i18next',
+    'prettier',
+    'olegskar-fsd-checker',
+    'unused-imports',
+  ],
   rules: {
     'olegskar-fsd-checker/paths-checker': ['error', { alias: '@' }],
     'olegskar-fsd-checker/public-api-imports': [
@@ -62,8 +71,12 @@ module.exports = {
     ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+    ],
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
@@ -80,14 +93,25 @@ module.exports = {
     'react/prop-types': 0,
     'prettier/prettier': 2,
     'import/order': [
-      2,
+      'error',
       {
-        groups: ['external', 'builtin', 'index', 'sibling', 'parent', 'internal', 'type'],
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: './**.module.*',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+        'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
-          caseInsensitive: true,
+          caseInsensitive: false,
         },
-        'newlines-between': 'always-and-inside-groups',
       },
     ],
     'max-len': [2, { code: 120, ignoreComments: true }],

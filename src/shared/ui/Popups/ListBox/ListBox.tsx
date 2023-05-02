@@ -2,17 +2,15 @@ import { RightOutlined } from '@ant-design/icons';
 import { Listbox as HListbox } from '@headlessui/react';
 import { FC, Fragment, ReactNode, memo } from 'react';
 
-import cls from './ListBox.module.scss';
-
 import { Button } from '../../Button/Button';
-
 import { HStack } from '../../Stack/HStack/HStack';
-
 import { mapDirectionClasses } from '../styles/consts';
 import popupCls from '../styles/popup.module.scss';
 
 import { classNames } from '@/shared/lib';
 import { DirectionType } from '@/shared/types/ui';
+
+import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
   value: string;

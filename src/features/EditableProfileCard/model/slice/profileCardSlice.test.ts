@@ -1,8 +1,8 @@
-import { profileCardActions, profileCardReducer } from './profileCardSlice';
-
 import { ValidateProfileErrors } from '../consts/consts';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileCardSchema } from '../types/ProfileCardSchema';
+
+import { profileCardActions, profileCardReducer } from './profileCardSlice';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';

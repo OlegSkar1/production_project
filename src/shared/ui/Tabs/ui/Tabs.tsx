@@ -1,13 +1,12 @@
 import { memo, useCallback } from 'react';
 
-import cls from './Tabs.module.scss';
-
 import { Button } from '../../Button/Button';
-
 import { HStack } from '../../Stack/HStack/HStack';
 import { TabItem } from '../model/types/tabs';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import cls from './Tabs.module.scss';
 
 interface TabsProps<T extends string> {
   className?: string;
