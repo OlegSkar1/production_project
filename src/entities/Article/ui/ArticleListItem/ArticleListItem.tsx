@@ -7,7 +7,7 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { getRouteArticleDetails } from '@/app/providers/router/config/consts';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, Avatar, Card, HStack, Icon, Text } from '@/shared/ui';
+import { AppImage, AppLink, Avatar, Card, HStack, Icon, Skeleton, Text } from '@/shared/ui';
 
 import cls from './ArticleListItem.module.scss';
 
@@ -43,7 +43,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           </HStack>
           <Text title={article.title} className={cls.title} size='size_l' />
           {types}
-          <img src={article.img} alt={article.title} className={cls.img} />
+          <AppImage src={article.img} alt={article.title} className={cls.img} fallback={<Skeleton height={200} />} />
           <ArticleTextBlock block={block} className={cls.content} />
           <HStack justify='between' className={cls.footer}>
             <AppLink to={getRouteArticleDetails(article.id)} theme='outlined'>
@@ -61,7 +61,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
       <AppLink to={getRouteArticleDetails(article.id)} target={target}>
         <Card>
           <div className={cls.imgWrapper}>
-            <img src={article.img} alt={article.title} className={cls.img} />
+            <AppImage src={article.img} alt={article.title} className={cls.img} fallback={<Skeleton height={200} />} />
             <Text text={article.createdAt} className={cls.date} />
           </div>
           <HStack gap='4' justify='between' className={cls.infoWrapper}>
