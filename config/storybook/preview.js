@@ -15,10 +15,17 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  themes: {
+    default: 'light',
+    list: [
+      { name: 'light', class: Theme.LIGHT, color: '#fff' },
+      { name: 'dark', class: Theme.DARK, color: '#000' },
+      { name: 'blue', class: Theme.BLUE, color: '#00aced' }
+    ],
+  },
 };
 
 addDecorator(StyleDecorator);
 addDecorator(TranslationDecorator);
-// addDecorator(RouterDecorator);
 addDecorator(withRouter);
 addDecorator(ThemeDecorator(Theme.LIGHT));
