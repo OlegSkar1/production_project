@@ -1,11 +1,10 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-import { generatePath } from 'react-router-dom';
 
 import { Article, ArticleView, TextBlock } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
-import { routePath } from '@/app/providers/router/config/consts';
+import { getRouteArticleDetails } from '@/app/providers/router/config/consts';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, Card, HStack, Icon, Text } from '@/shared/ui';
@@ -22,8 +21,6 @@ interface ArticleListItemProps {
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation('articles');
-
-  const pathToArticleDetails = generatePath(routePath.article_details, { id: article.id });
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
@@ -49,7 +46,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           <img src={article.img} alt={article.title} className={cls.img} />
           <ArticleTextBlock block={block} className={cls.content} />
           <HStack justify='between' className={cls.footer}>
-            <AppLink to={pathToArticleDetails} theme='outlined'>
+            <AppLink to={getRouteArticleDetails(article.id)} theme='outlined'>
               {t('read more')}
             </AppLink>
             {views}
@@ -61,7 +58,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   return (
     <div className={classNames('', [className, cls[view]], {})}>
-      <AppLink to={pathToArticleDetails} target={target}>
+      <AppLink to={getRouteArticleDetails(article.id)} target={target}>
         <Card>
           <div className={cls.imgWrapper}>
             <img src={article.img} alt={article.title} className={cls.img} />

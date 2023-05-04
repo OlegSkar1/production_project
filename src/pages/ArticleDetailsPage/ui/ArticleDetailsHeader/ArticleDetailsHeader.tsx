@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { generatePath, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import { routePath } from '@/app/providers/router/config/consts';
+import { getRouteArticleEdit, getRouteArticles } from '@/app/providers/router/config/consts';
 import { getUserIsEditArticle } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, HStack } from '@/shared/ui';
@@ -18,15 +18,13 @@ export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = memo((props) 
   const isEdit = useSelector(getUserIsEditArticle);
   const { id } = useParams<{ id: string }>();
 
-  const pathToEditArticle = generatePath(routePath.article_edit, { id });
-
   return (
     <HStack justify='between' className={classNames('', [className], {})}>
-      <AppLink to={routePath.articles} theme='outlined'>
+      <AppLink to={getRouteArticles()} theme='outlined'>
         {t('back to list', { ns: 'articles' })}
       </AppLink>
-      {isEdit && (
-        <AppLink to={pathToEditArticle} theme='outlined'>
+      {isEdit && id && (
+        <AppLink to={getRouteArticleEdit(id)} theme='outlined'>
           {t('Edit')}
         </AppLink>
       )}

@@ -15,15 +15,13 @@ export const AppRoutes = {
   NOT_FOUND: 'notFound',
 } as const;
 
-export const routePath: Record<AppRoutes, string> = {
-  main: '/',
-  about: '/about',
-  profile: '/profile/:id',
-  notFound: '*',
-  articles: '/articles',
-  article_details: '/articles/:id',
-  article_edit: '/articles/:id/edit',
-  article_create: '/articles/new',
-  admin_panel: '/admin',
-  forbidden: '/forbidden',
-};
+export const getRouteMain = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteNotFound = () => '*';
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteArticleCreate = () => '/articles/new';
+export const getRouteAdminPanel = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';

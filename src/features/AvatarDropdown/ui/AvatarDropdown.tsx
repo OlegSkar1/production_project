@@ -1,9 +1,8 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { generatePath } from 'react-router-dom';
 
-import { routePath } from '@/app/providers/router/config/consts';
+import { getRouteAdminPanel, getRouteProfile } from '@/app/providers/router/config/consts';
 import { getUserAuthData, isAdminRole, isManagerRole, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -29,8 +28,6 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
-  const profilePath = generatePath(routePath.profile, { id: authData?.id });
-
   return (
     <Dropdown
       className={classNames('', [className], {})}
@@ -39,13 +36,13 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
           ? [
               {
                 content: t('adminPanel'),
-                href: routePath.admin_panel,
+                href: getRouteAdminPanel(),
               },
             ]
           : []),
         {
           content: t('profile'),
-          href: profilePath,
+          href: authData && getRouteProfile(authData.id),
         },
         {
           content: t('Sign out'),

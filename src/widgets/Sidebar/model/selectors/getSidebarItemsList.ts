@@ -1,9 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { generatePath } from 'react-router-dom';
 
 import { SidebarItemsType } from '../types/items';
 
-import { routePath } from '@/app/providers/router/config/consts';
+import { getRouteProfile, getRouteMain, getRouteAbout, getRouteArticles } from '@/app/providers/router/config/consts';
 import { getUserAuthData } from '@/entities/User';
 import AboutIcon from '@/shared/assets/icons/about_us.svg';
 import ArticlesIcon from '@/shared/assets/icons/article-20-20.svg';
@@ -13,12 +12,12 @@ import ProfileIcon from '@/shared/assets/icons/profile.svg';
 export const getSidebarItemsList = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemsType[] = [
     {
-      path: routePath.main,
+      path: getRouteMain(),
       text: 'main-link',
       Icon: HomeIcon,
     },
     {
-      path: routePath.about,
+      path: getRouteAbout(),
       text: 'about-link',
       Icon: AboutIcon,
     },
@@ -27,13 +26,13 @@ export const getSidebarItemsList = createSelector(getUserAuthData, (userData) =>
   if (userData) {
     sidebarItemsList.push(
       {
-        path: generatePath(routePath.profile, { id: userData.id }),
+        path: getRouteProfile(userData.id),
         text: 'profile-link',
         Icon: ProfileIcon,
         authOnly: true,
       },
       {
-        path: routePath.articles,
+        path: getRouteArticles(),
         text: 'articles-link',
         Icon: ArticlesIcon,
         authOnly: true,

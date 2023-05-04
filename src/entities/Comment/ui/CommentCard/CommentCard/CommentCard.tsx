@@ -1,9 +1,8 @@
 import { FC, memo } from 'react';
-import { generatePath } from 'react-router-dom';
 
 import { Comment } from '../../../model/types/comment';
 
-import { routePath } from '@/app/providers/router/config/consts';
+import { getRouteProfile } from '@/app/providers/router/config/consts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, HStack, Skeleton, Text } from '@/shared/ui';
 
@@ -34,11 +33,9 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
     return null;
   }
 
-  const pathToProfile = generatePath(routePath.profile, { id: comment.user.id });
-
   return (
     <article className={classNames(cls.commentCard, [className], {})}>
-      <AppLink to={pathToProfile}>
+      <AppLink to={getRouteProfile(comment.user.id)}>
         <HStack gap='8' className={cls.userWrapper}>
           {comment.user.avatar ? <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} /> : null}
           <Text text={comment.user.username} size='size_l' />

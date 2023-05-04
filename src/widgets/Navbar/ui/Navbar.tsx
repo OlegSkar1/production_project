@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { routePath } from '@/app/providers/router/config/consts';
+import { getRouteArticleCreate } from '@/app/providers/router/config/consts';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
       <HStack max tagname='header' className={classNames(cls.navbar, [className], {})}>
         <Text title='Blog App' className={cls.title} />
         <HStack tagname='nav' gap='16' className={cls.links}>
-          <AppLink to={routePath.article_create}>{t('Create article')}</AppLink>
+          <AppLink to={getRouteArticleCreate()}>{t('Create article')}</AppLink>
           <HStack gap='16'>
             <NotificationButton />
             <AvatarDropdown />

@@ -1,4 +1,15 @@
-import { AppRoutes, routePath } from './consts';
+import {
+  AppRoutes,
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
+  getRouteMain,
+  getRouteProfile,
+} from './consts';
 import { AppRoutesProps } from './routeTypes';
 
 import { Role } from '@/entities/User';
@@ -14,52 +25,52 @@ import { ProfilePage } from '@/pages/ProfilePage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   main: {
-    path: routePath.main,
+    path: getRouteMain(),
     element: <MainPage />,
   },
   about: {
-    path: routePath.about,
+    path: getRouteAbout(),
     element: <AboutPage />,
   },
   profile: {
-    path: routePath.profile,
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     authOnly: true,
   },
   articles: {
-    path: routePath.articles,
+    path: getRouteArticles(),
     element: <ArticlesPage />,
     authOnly: true,
   },
   article_details: {
-    path: routePath.article_details,
+    path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   article_edit: {
-    path: routePath.article_edit,
+    path: getRouteArticleEdit(':id'),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   article_create: {
-    path: routePath.article_create,
+    path: getRouteArticleCreate(),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   admin_panel: {
-    path: routePath.admin_panel,
+    path: getRouteAdminPanel(),
     element: <AdminPage />,
     authOnly: true,
     roles: [Role.ADMIN, Role.MANAGER],
   },
   forbidden: {
-    path: routePath.forbidden,
+    path: getRouteForbidden(),
     element: <ForbiddenPage />,
   },
 
   //last
   notFound: {
-    path: routePath.notFound,
+    path: '*',
     element: <NotFoundPage />,
   },
 };
