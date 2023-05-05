@@ -14,6 +14,7 @@ module.exports = {
     'plugin:i18next/recommended',
     'prettier',
   ],
+  ignorePatterns: ['/scripts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {

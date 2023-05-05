@@ -28,7 +28,8 @@
     "sb": "start-storybook -p 6006 -c ./config/storybook",
     "sb:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
-    "generate:slice": "node ./scripts/createSlice/index.js"
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "postinstall": "node ./scripts/clear_cache.js"
   },
   "repository": {
     "type": "git",

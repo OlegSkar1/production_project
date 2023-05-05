@@ -16,14 +16,8 @@ export function buildCssLoader(isDev: boolean): RuleSetRule {
           },
         },
       },
-      'sass-loader',
-      {
-        loader: 'esbuild-loader',
-        options: {
-          loader: 'css',
-          minify: true,
-        },
-      },
+      'sass-loader'
     ],
+    exclude: /node_modules/,
   };
 }

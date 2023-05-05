@@ -33,7 +33,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     },
     resolve: buildResolver(options),
     plugins: buildPlugins(options),
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
     devServer: isDev ? buildDevserver(options) : undefined,
   };
 }

@@ -13,6 +13,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
       target: 'es2015',
       jsx: 'automatic',
     },
+    exclude: /node_modules/,
   };
 
   const babelLoader: RuleSetRule = {
@@ -20,6 +21,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     exclude: /node_modules/,
     loader: 'babel-loader',
     options: {
+      cacheDirectory: true,
       plugins: [
         !isDev && [
           removeJSXIdentifierPlugin,

@@ -13,15 +13,13 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev, apiUrl, project, analyze }: BuildOptions): WebpackPluginInstance[] {
+  const isProd = !isDev;
+
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
     new ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
@@ -30,14 +28,7 @@ export function buildPlugins({ paths, isDev, apiUrl, project, analyze }: BuildOp
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, '..', '..', 'public', 'locales'),
-          to: path.resolve(__dirname, '..', '..', 'build', 'locales'),
-        },
-      ],
-    }),
+
     new ForkTsCheckerWebpackPlugin(),
     new CircularDependencyPlugin({
       exclude: /node_modules/,
@@ -47,6 +38,23 @@ export function buildPlugins({ paths, isDev, apiUrl, project, analyze }: BuildOp
 
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
+  }
+
+  if (isProd) {
+    plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, '..', '..', 'public', 'locales'),
+            to: path.resolve(__dirname, '..', '..', 'build', 'locales'),
+          },
+        ],
+      }),
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+      })
+    );
   }
 
   if (analyze) {
