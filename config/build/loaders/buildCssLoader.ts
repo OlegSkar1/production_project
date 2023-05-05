@@ -16,7 +16,7 @@ export function buildCssLoader(isDev: boolean): RuleSetRule {
           },
         },
       },
-      'sass-loader'
+      'sass-loader',
     ],
     exclude: /node_modules/,
   };
