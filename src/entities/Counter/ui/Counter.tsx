@@ -1,14 +1,13 @@
 /* eslint-disable i18next/no-literal-string */
 
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
+import { useCounterActions } from '../model/slice/counterSlice';
 
-import { useActionCreators } from '@/shared/lib/hooks/useActionCreators';
 import { Button } from '@/shared/ui';
 
 export const Counter: React.FC = () => {
   const counterValue = useCounterValue();
-  const { increment, decrement, add } = useActionCreators(counterActions);
+  const { increment, decrement, add } = useCounterActions();
 
   const handleInc = () => {
     increment();
