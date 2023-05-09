@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Code } from './Code';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/types';
+import { Theme } from '@/shared/const/Theme';
 
 export default {
   title: 'shared/Code',

@@ -5,7 +5,7 @@ import { Text } from '../Text/Text';
 import { Card } from './Card';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/types';
+import { Theme } from '@/shared/const/Theme';
 
 export default {
   title: 'shared/Card',

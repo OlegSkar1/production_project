@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Article, ArticleView, TextBlock } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
-import { getRouteArticleDetails } from '@/app/providers/router/config/consts';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppImage, AppLink, Avatar, Card, HStack, Icon, Skeleton, Text } from '@/shared/ui';
 

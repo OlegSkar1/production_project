@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ArticlesFilterSchema } from '../types/articlesFilterTypes';
 
 import { ArticleType, SortType } from '@/entities/Article';
-import { OrderType } from '@/shared/types';
+import { OrderType } from '@/shared/types/sort';
 
 const initialState: ArticlesFilterSchema = {
   sort: SortType.CREATED_AT,

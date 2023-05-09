@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getRouteArticleEdit, getRouteArticles } from '@/app/providers/router/config/consts';
 import { getUserIsEditArticle } from '@/entities/Article';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, HStack } from '@/shared/ui';
 

@@ -9,7 +9,7 @@ import { fetchArticles } from '../fetchArticles/fetchArticles';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { ArticleType, SortType } from '@/entities/Article';
 import { articlesFilterActions } from '@/features/ArticlePageFilter';
-import { OrderType } from '@/shared/types';
+import { OrderType } from '@/shared/types/sort';
 
 export const initedFetchArticles = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
   'articlesList/initedFetchArticles',

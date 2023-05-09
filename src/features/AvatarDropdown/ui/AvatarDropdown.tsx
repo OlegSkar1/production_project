@@ -2,8 +2,8 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getRouteAdminPanel, getRouteProfile } from '@/app/providers/router/config/consts';
 import { getUserAuthData, isAdminRole, isManagerRole, userActions } from '@/entities/User';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar, Dropdown } from '@/shared/ui';

@@ -1,3 +1,13 @@
+import { Role } from '@/entities/User';
+import { AboutPage } from '@/pages/AboutPage';
+import { AdminPage } from '@/pages/AdminPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { MainPage } from '@/pages/MainPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import {
   AppRoutes,
   getRouteAbout,
@@ -9,19 +19,8 @@ import {
   getRouteForbidden,
   getRouteMain,
   getRouteProfile,
-} from './consts';
-import { AppRoutesProps } from './routeTypes';
-
-import { Role } from '@/entities/User';
-import { AboutPage } from '@/pages/AboutPage';
-import { AdminPage } from '@/pages/AdminPage';
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
-import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
-import { ForbiddenPage } from '@/pages/ForbiddenPage';
-import { MainPage } from '@/pages/MainPage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
-import { ProfilePage } from '@/pages/ProfilePage';
+} from '@/shared/const/router';
+import { AppRoutesProps } from '@/shared/types/routeTypes';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   main: {

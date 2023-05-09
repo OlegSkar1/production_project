@@ -2,9 +2,9 @@ import { memo } from 'react';
 
 import DarkIcon from '@/shared/assets/icons/theme-dark.svg';
 import LightIcon from '@/shared/assets/icons/theme-light.svg';
+import { Theme } from '@/shared/const/Theme';
 import { classNames } from '@/shared/lib';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Theme } from '@/shared/types';
 import { Button } from '@/shared/ui';
 
 interface ThemeSwitherProps {

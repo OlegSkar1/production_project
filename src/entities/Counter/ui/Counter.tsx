@@ -29,7 +29,7 @@ export const Counter: React.FC = () => {
       <Button data-testid='decrement-btn' onClick={handleDec}>
         decrement
       </Button>
-      <Button data-testid='decrement-btn' onClick={handleAdd}>
+      <Button data-testid='increment-add-btn' onClick={handleAdd}>
         add 5
       </Button>
     </div>

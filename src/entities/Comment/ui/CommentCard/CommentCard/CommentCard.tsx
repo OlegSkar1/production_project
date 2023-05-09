@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 
 import { Comment } from '../../../model/types/comment';
 
-import { getRouteProfile } from '@/app/providers/router/config/consts';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, HStack, Skeleton, Text } from '@/shared/ui';
 

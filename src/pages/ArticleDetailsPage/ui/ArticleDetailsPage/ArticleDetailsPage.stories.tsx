@@ -9,7 +9,7 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 import { Article } from '@/entities/Article/testing';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/types';
+import { Theme } from '@/shared/const/Theme';
 
 const article: Article = {
   id: '1',

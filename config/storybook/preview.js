@@ -1,4 +1,4 @@
-import { Theme } from '@/shared/types';
+import { Theme } from "@/shared/const/Theme";
 import { addDecorator } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
 

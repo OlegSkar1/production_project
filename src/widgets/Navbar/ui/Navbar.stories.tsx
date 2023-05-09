@@ -4,7 +4,7 @@ import { Navbar } from './Navbar';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/shared/types';
+import { Theme } from '@/shared/const/Theme';
 
 export default {
   title: 'widgets/Navbar',

@@ -8,8 +8,8 @@ import { Currency } from '@/entities/Currency/testing';
 import { ValidateProfileErrors } from '@/features/EditableProfileCard/testing';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/const/Theme';
 import { avatar } from '@/shared/const/imagePaths';
-import { Theme } from '@/shared/types';
 
 export default {
   title: 'pages/ProfilePage',

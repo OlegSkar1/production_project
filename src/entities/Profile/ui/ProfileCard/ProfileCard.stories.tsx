@@ -5,8 +5,8 @@ import { ProfileCard } from './ProfileCard';
 import { Country } from '@/entities/Country/testing';
 import { Currency } from '@/entities/Currency/testing';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/const/Theme';
 import { avatar } from '@/shared/const/imagePaths';
-import { Theme } from '@/shared/types';
 
 export default {
   title: 'entities/ProfileCard',

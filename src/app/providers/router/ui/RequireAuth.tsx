@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 
-import { getRouteForbidden, getRouteMain } from '../config/consts';
+import { getRouteForbidden, getRouteMain } from '../../../../shared/const/router';
 
 import { Role, getRoles, getUserAuthData } from '@/entities/User';
 

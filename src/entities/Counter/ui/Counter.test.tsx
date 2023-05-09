@@ -22,4 +22,10 @@ describe('Counter', () => {
 
     expect(screen.getByTestId('counter-title')).toHaveTextContent('9');
   });
+  it('counter increment add 5', async () => {
+    ComponentRender(<Counter />, { initialState: { counter: { value: 10 } } });
+    await userEvent.click(screen.getByTestId('increment-add-btn'));
+
+    expect(screen.getByTestId('counter-title')).toHaveTextContent('15');
+  });
 });
