@@ -1,55 +1,14 @@
-# name: linting, testing, building
-
-# on:
-#   push:
-#     branches:
-#       - main
-#       - dev
-#   pull_request:
-#     branches:
-#       - main
-#       - dev
-# jobs:
-#   buildAndTest:
-#     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         node-version: [17.x]
-
-#     steps:
-#       - uses: actions/checkout@v3
-#       - name: Starting Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node-version }}
-#       - name: install modules
-#         run: npm ci
-
-#       - name: build production project
-#         run: npm run build:prod
-#         if: always()
-#       - name: linting ts
-#         run: npm run lint:ts
-#         if: always()
-#       - name: linting css
-#         run: npm run lint:scss
-#         if: always()
-#       - name: unit testing
-#         run: npm run test:unit
-#         if: always()
-#       - name: build storybook
-#         run: npm run sb:build
-#         if: always()
-#       - name: screenshot test
-#         run: npm run test:ui:ci
-#         if: always()
-
 name: linting, testing, building
+
 on:
   push:
-    branches: [ main, dev ]
+    branches:
+      - main
+      - dev
   pull_request:
-    branches: [ main, dev ]
+    branches:
+      - main
+      - dev
 permissions:
   contents: write
   pages: write
@@ -58,7 +17,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 jobs:
-  build-and-ui-testing:
+  buildAndTest:
     runs-on: ubuntu-latest
     concurrency: ci-${{ github.ref }}
     environment:
@@ -66,22 +25,33 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
+
     steps:
       - uses: actions/checkout@v3
-      - name: Staring Node.js ${{ matrix.node-version }}
+      - name: Starting Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm ci --force
+
       - name: build production project
         run: npm run build:prod
+        if: always()
+      - name: linting ts
+        run: npm run lint:ts
+        if: always()
+      - name: linting css
+        run: npm run lint:scss
+        if: always()
+      - name: unit testing
+        run: npm run test:unit
         if: always()
       - name: build storybook
         run: npm run sb:build
         if: always()
-      - name: screenshot testing
+      - name: screenshot test
         run: npm run test:ui:ci
         if: always()
       - name: Generate HTML report
@@ -102,25 +72,3 @@ jobs:
         id: deployment
         if: always()
         uses: actions/deploy-pages@v1
-
-  checks:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
-    steps:
-      - uses: actions/checkout@v3
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci --force
-      - name: linting typescript
-        run: npm run lint:ts
-        if: always()
-      - name: linting css
-        run: npm run lint:scss
-      - name: unit testing
-        if: always()
-        run: npm run test:unit
