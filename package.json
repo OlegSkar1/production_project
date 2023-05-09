@@ -151,14 +151,14 @@
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "docker.app",
+        "target": "chrome.docker",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "docker.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     },
