@@ -34,6 +34,7 @@ module.exports = {
     'unused-imports',
   ],
   rules: {
+    '@typescript-eslint/no-namespace': 'off',
     'olegskar-fsd-checker/paths-checker': ['error', { alias: '@' }],
     'olegskar-fsd-checker/public-api-imports': [
       'error',
