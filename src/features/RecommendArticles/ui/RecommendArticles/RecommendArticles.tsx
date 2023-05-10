@@ -26,7 +26,7 @@ export const RecommendArticles: FC<RecommendArticlesProps> = memo((props) => {
         isError={isError}
         isLoading={isLoading}
         className={cls.articles}
-        target='_blank'
+        target={__PROJECT__ !== 'storybook' ? '_blank' : undefined}
       />
     </div>
   );

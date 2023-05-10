@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import ProfilePage from './ProfilePage';
 
@@ -15,7 +14,7 @@ export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
   argTypes: {},
-  decorators: [withMock, StoreDecorator({ user: { authData: { id: '2' } } })],
+  decorators: [StoreDecorator({ user: { authData: { id: '2' } } })],
   parameters: {
     reactRouter: {
       routePath: '/profile/:id/',
@@ -24,7 +23,7 @@ export default {
     mockData: {
       url: `${__API__}/profile-ratings?userId=1&profileId=2`,
       method: 'GET',
-      delay: '2000',
+      delay: 2000,
       status: 200,
       response: [{ userId: '2', profileId: '1', rate: 4 }],
     },

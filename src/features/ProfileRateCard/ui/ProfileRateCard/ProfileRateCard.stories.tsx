@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { ProfileRateCard } from './ProfileRateCard';
 
@@ -19,7 +18,7 @@ export const Normal = Template.bind({});
 Normal.args = {
   profileId: '2',
 };
-Normal.decorators = [withMock, StoreDecorator({ user: { authData: { id: '1' } } })];
+Normal.decorators = [StoreDecorator({ user: { authData: { id: '1' } } })];
 Normal.parameters = {
   mockData: [
     {

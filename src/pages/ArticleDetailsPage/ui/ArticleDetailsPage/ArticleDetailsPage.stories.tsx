@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { ArticleCommentSchema } from '../../model/types/articleCommentSchema';
 
@@ -94,7 +93,6 @@ export default {
       },
       articleComments: comments,
     }),
-    withMock,
   ],
   parameters: {
     reactRouter: {

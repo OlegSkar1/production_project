@@ -10,5 +10,6 @@
   "stylelint.enable": true,
   "stylelint.validate": ["css", "scss"],
   "cssModules.camelCase": true,
-  "i18n-ally.sourceLanguage": "ru"
+  "i18n-ally.sourceLanguage": "ru",
+  "jest.autoRun": "off"
 }

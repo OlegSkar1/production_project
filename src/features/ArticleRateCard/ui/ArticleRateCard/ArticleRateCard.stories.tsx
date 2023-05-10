@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { ArticleRateCard } from './ArticleRateCard';
 
@@ -11,7 +10,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [withMock, StoreDecorator({ user: { authData: { id: '1' } } })],
+  decorators: [StoreDecorator({ user: { authData: { id: '1' } } })],
 } as ComponentMeta<typeof ArticleRateCard>;
 
 const Template: ComponentStory<typeof ArticleRateCard> = (args) => <ArticleRateCard {...args} />;
@@ -25,7 +24,7 @@ Normal.parameters = {
     {
       url: `${__API__}/article-ratings?userId=1&articleId=1`,
       method: 'GET',
-      delay: '2000',
+      delay: 2000,
       status: 200,
       response: [{ userId: '1', articleId: '1', rate: 4 }],
     },

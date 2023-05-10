@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { NotificationType } from '../../model/types/notification';
 
@@ -20,7 +19,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [withMock, StoreDecorator({})],
+  decorators: [StoreDecorator({})],
   parameters: {
     mockData: [
       {

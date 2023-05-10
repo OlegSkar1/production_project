@@ -87,6 +87,13 @@
       "userId": "1",
       "rate": 4,
       "id": "2zjTUlw"
+    },
+    {
+      "articleId": "14",
+      "userId": "2",
+      "rate": 2,
+      "feedback": "gsgsdg",
+      "id": "XckDQuJ"
     }
   ],
   "profile-ratings": [
@@ -110,6 +117,13 @@
       "rate": 5,
       "feedback": "хорошо",
       "id": "dr7FgEs"
+    },
+    {
+      "profileId": "3",
+      "userId": "2",
+      "rate": 4,
+      "feedback": "",
+      "id": "hi7ElGm"
     }
   ],
   "posts": [

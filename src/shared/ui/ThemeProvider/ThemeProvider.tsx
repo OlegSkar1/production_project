@@ -1,4 +1,4 @@
-import { createContext, FC, useMemo, useState } from 'react';
+import { createContext, FC, ReactNode, useMemo, useState } from 'react';
 
 import { Theme } from '@/shared/const/Theme';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
@@ -14,6 +14,7 @@ const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ||
 
 interface ThemeProviderProps {
   initialTheme?: Theme;
+  children: ReactNode;
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {

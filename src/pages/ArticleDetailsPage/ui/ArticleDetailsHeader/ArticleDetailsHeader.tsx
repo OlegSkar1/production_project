@@ -20,7 +20,7 @@ export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = memo((props) 
 
   return (
     <HStack justify='between' className={classNames('', [className], {})}>
-      <AppLink to={getRouteArticles()} theme='outlined'>
+      <AppLink to={__PROJECT__ !== 'storybook' ? getRouteArticles() : '#'} theme='outlined'>
         {t('back to list', { ns: 'articles' })}
       </AppLink>
       {isEdit && id && (
