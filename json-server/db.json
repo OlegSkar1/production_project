@@ -1738,6 +1738,15 @@
         "manager"
       ],
       "avatar": "https://icons.veryicon.com/png/o/system/dan_system/manager-1.png"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "admin"
+      ],
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
   ],
   "profile": [
@@ -1773,6 +1782,17 @@
       "username": "mr.manager",
       "avatar": "https://icons.veryicon.com/png/o/system/dan_system/manager-1.png",
       "id": "3"
+    },
+    {
+      "first": "Test",
+      "lastname": "User",
+      "age": "20",
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Yekaterinburg",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
+      "id": "4"
     }
   ]
 }
