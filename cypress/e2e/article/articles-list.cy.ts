@@ -7,7 +7,7 @@ describe('Тестирование страницы статей', () => {
     cy.getByTestId('ArticleList').should('exist');
     cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
   });
-  it.only('И Сортирует по просмотрам, порядку, поисковой строке и категории', () => {
+  it('И Сортирует по просмотрам, порядку, поисковой строке и категории', () => {
     const sort = 'views';
     const order = 'desc';
     const search = 'java';
