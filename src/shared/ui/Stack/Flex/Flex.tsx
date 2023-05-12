@@ -60,6 +60,7 @@ export const Flex: FC<FlexProps> = (props) => {
     gap,
     max,
     tagname: TagName = 'div',
+    ...otherProps
   } = props;
 
   const classes = [
@@ -74,5 +75,9 @@ export const Flex: FC<FlexProps> = (props) => {
     [cls.max]: max,
   };
 
-  return <TagName className={classNames(cls.flex, classes, mods)}>{children}</TagName>;
+  return (
+    <TagName className={classNames(cls.flex, classes, mods)} {...otherProps}>
+      {children}
+    </TagName>
+  );
 };

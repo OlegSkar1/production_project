@@ -1,18 +1,16 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
-
 describe('Роутинг', () => {
   describe('пользователь НЕ авторизован', () => {
     it('Должна открыться главная страница', () => {
-      cy.visit('/');
-      cy.get(selectByTestId('MainPage')).should('exist');
+      cy.visit('');
+      cy.getByTestId('MainPage').should('exist');
     });
     it('Должно редиректнуть на главную при попытке посетить маршрут только для авторизованных пользователей', () => {
-      cy.visit('/articles');
-      cy.get(selectByTestId('MainPage')).should('exist');
+      cy.visit('articles');
+      cy.getByTestId('MainPage').should('exist');
     });
     it('Должно редиректнуть на ErrorPage при попытке посетить несуществующий маршрут', () => {
-      cy.visit('/gdfgdfh');
-      cy.get(selectByTestId('NotFoundPage')).should('exist');
+      cy.visit('gdfgdfh');
+      cy.getByTestId('NotFoundPage').should('exist');
     });
   });
   describe('Пользователь авторизован', () => {
@@ -20,12 +18,12 @@ describe('Роутинг', () => {
       cy.login();
     });
     it('Переход открывает страницу статей', () => {
-      cy.visit('/articles');
-      cy.get(selectByTestId('ArticlesPage')).should('exist');
+      cy.visit('articles');
+      cy.getByTestId('ArticlesPage').should('exist');
     });
     it('Переход открывает страницу профиля', () => {
-      cy.visit('/profile/4');
-      cy.get(selectByTestId('ProfilePage')).should('exist');
+      cy.visit('profile/4');
+      cy.getByTestId('ProfilePage').should('exist');
     });
   });
 });

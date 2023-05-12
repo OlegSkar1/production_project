@@ -63,7 +63,7 @@ export const ArticlesPageTabs: FC<ArticlesPageTabsProps> = memo((props) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <div className={classNames('', [className], {})}>
-        <Tabs tabs={tabs} onTabClick={onTabHandler} key={tab} value={tab} />
+        <Tabs tabs={tabs} onTabClick={onTabHandler} key={tab} value={tab} data-testid='ArticlesPageTabs' />
       </div>
     </DynamicModuleLoader>
   );

@@ -1,13 +1,9 @@
-import { login } from './commands/login';
+import * as ArticlesCommands from './commands/articles';
+import * as CommonCommands from './commands/common';
+import * as ProfileCommands from './commands/profile';
 
-Cypress.Commands.add('login', login);
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      login(username?: string, password?: string): Chainable<void>;
-    }
-  }
-}
+Cypress.Commands.addAll(CommonCommands);
+Cypress.Commands.addAll(ProfileCommands);
+Cypress.Commands.addAll(ArticlesCommands);
 
 export {};

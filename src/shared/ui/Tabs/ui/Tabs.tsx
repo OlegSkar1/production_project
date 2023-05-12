@@ -33,6 +33,7 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
           className={cls.tab}
           key={tab.value}
           onClick={onTabHandler(tab)}
+          data-testid={`Tab-${tab.value}`}
         >
           {tab.content}
         </Button>

@@ -35,7 +35,7 @@ export const ArticleViewChanger: FC<ArticleViewChangerProps> = memo((props) => {
   return (
     <div className={classNames('', [className], {})}>
       {viewTypes.map((viewType) => (
-        <Button key={viewType.view} onClick={onClick(viewType.view)}>
+        <Button key={viewType.view} onClick={onClick(viewType.view)} data-testid={`ArticleView-${viewType.view}`}>
           <Icon Svg={viewType.icon} className={classNames('', [], { [cls.notSelected]: viewType.view !== view })} />
         </Button>
       ))}

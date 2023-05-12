@@ -81,9 +81,21 @@ export const ArticlesPageSort: FC<ArticlesPageSortProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <HStack gap='32' className={classNames('', [className], {})}>
-        <Select options={sortOptions} label={t('Sort by')} value={sort} onChange={onSort} />
-        <Select options={orderOptions} label={t('order by')} onChange={onOrder} value={order} />
+      <HStack data-testid='ArticlesPageSort' gap='32' className={classNames('', [className], {})}>
+        <Select
+          data-testid='ArticlesPageSort.sort'
+          options={sortOptions}
+          label={t('Sort by')}
+          value={sort}
+          onChange={onSort}
+        />
+        <Select
+          data-testid='ArticlesPageSort.order'
+          options={orderOptions}
+          label={t('order by')}
+          onChange={onOrder}
+          value={order}
+        />
       </HStack>
     </DynamicModuleLoader>
   );
