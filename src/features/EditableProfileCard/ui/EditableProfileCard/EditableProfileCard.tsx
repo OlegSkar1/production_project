@@ -18,7 +18,7 @@ import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text } from '@/shared/ui';
+import { Text, VStack } from '@/shared/ui';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -110,26 +110,33 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
-      <ProfileHeader />
-      {validateErrors?.length &&
-        validateErrors.map((err) => (
-          <Text key={err} theme='error' text={validateErrorsTranslates[err]} data-testid='EditableProfileCard.Error' />
-        ))}
-      <ProfileCard
-        className={classNames('', [className], {})}
-        data={data}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-        onChangeFirst={onChangeFirst}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatarLink={onChangeAvatarLink}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
+      <VStack gap='8' align='normal'>
+        <ProfileHeader />
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              key={err}
+              theme='error'
+              text={validateErrorsTranslates[err]}
+              data-testid='EditableProfileCard.Error'
+            />
+          ))}
+        <ProfileCard
+          className={classNames('', [className], {})}
+          data={data}
+          isLoading={isLoading}
+          error={error}
+          readonly={readonly}
+          onChangeFirst={onChangeFirst}
+          onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatarLink={onChangeAvatarLink}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </VStack>
     </DynamicModuleLoader>
   );
 });
