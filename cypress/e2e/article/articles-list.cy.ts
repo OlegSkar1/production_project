@@ -19,4 +19,10 @@ describe('Тестирование страницы статей', () => {
     cy.getByTestId('ArticlesPageSearch').should('have.value', search);
     cy.getByTestId(`Tab-${tabValue}`).should('have.text', 'Айти');
   });
+
+  it('тестирование списка статей без подгрузки с сервера(фикстура)', () => {
+    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
+    cy.getByTestId('ArticleList').should('exist');
+    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+  });
 });

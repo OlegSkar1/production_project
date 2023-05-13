@@ -35,4 +35,15 @@ describe('Пользователь открывает страницу со ст
     cy.addRate(rateCount, feedback);
     cy.get('[data-selected=true]').should('have.length', rateCount);
   });
+  it('И ставит оценку, пример со стабом(фикстура)', () => {
+    const rateCount = 4;
+    const feedback = 'good article';
+
+    cy.intercept('GET', '**/articles/*', { fixture: 'articleDetails.json' });
+
+    cy.getByTestId('ArticleDetails.Info');
+    cy.getByTestId('ArticleRateCard').scrollIntoView();
+    cy.addRate(rateCount, feedback);
+    cy.get('[data-selected=true]').should('have.length', rateCount);
+  });
 });
