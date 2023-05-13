@@ -45,9 +45,15 @@ const AddNewCommentForm: FC<AddNewCommentFormProps> = (props) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       {error && <Text theme='error' align='center' text={t('Failed to post comment', { ns: 'translation' })} />}
-      <HStack gap='16' className={classNames(cls.addNewCommentForm, [className], {})}>
-        <Input label={t('Enter comment text')} variant='clear' value={text} onChange={onChange} />
-        <Button variant='outlined' onClick={onSendHandler}>
+      <HStack gap='16' className={classNames(cls.addNewCommentForm, [className], {})} data-testid='AddNewCommentForm'>
+        <Input
+          label={t('Enter comment text')}
+          variant='clear'
+          value={text}
+          onChange={onChange}
+          data-testid='AddNewCommentForm.Input'
+        />
+        <Button variant='outlined' onClick={onSendHandler} data-testid='AddNewCommentForm.Button'>
           {t('Send')}
         </Button>
       </HStack>

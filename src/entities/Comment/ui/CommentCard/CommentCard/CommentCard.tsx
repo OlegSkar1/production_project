@@ -34,7 +34,7 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
   }
 
   return (
-    <article className={classNames(cls.commentCard, [className], {})}>
+    <article className={classNames(cls.commentCard, [className], {})} data-testid={`CommentCard.${comment.text}`}>
       <AppLink to={getRouteProfile(comment.user.id)}>
         <HStack gap='8' className={cls.userWrapper}>
           {comment.user.avatar ? <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} /> : null}

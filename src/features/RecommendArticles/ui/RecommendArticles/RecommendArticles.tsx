@@ -20,7 +20,7 @@ export const RecommendArticles: FC<RecommendArticlesProps> = memo((props) => {
   }
 
   return (
-    <div className={classNames('', [className], {})}>
+    <div className={classNames('', [className], {})} data-testid='RecommendArticles'>
       <ArticleList
         articles={articles}
         isError={isError}

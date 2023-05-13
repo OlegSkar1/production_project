@@ -72,6 +72,7 @@ export const ArticleRateCard: FC<ArticleRateCardProps> = memo((props) => {
       hasFeedback
       onAccept={acceptHandler}
       onCancel={cancelHandler}
+      data-testid='ArticleRateCard'
     />
   );
 });

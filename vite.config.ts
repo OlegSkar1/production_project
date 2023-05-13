@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   plugins: [svgr({ exportAsDefault: true }), react(), checker({ typescript: true })],
-  server: { open: '/' },
+  server: { port: 3000, host: '127.0.0.1' },
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
