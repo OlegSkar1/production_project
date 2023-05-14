@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import { fetchArticleById } from '../services/fetchArticleById';
 import { Article, ArticleSchema } from '../types/article';
 

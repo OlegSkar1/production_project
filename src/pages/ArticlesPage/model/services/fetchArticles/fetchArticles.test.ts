@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { fetchArticles } from './fetchArticles';
 
 import { Article } from '@/entities/Article/testing';

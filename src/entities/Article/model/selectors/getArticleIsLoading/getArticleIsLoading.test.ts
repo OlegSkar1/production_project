@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { getArticleIsLoading } from './getArticleIsLoading';
 
 import { StateSchema } from '@/app/providers/StoreProvider';

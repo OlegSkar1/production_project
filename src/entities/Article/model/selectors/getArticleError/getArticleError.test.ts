@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { getArticleError } from './getArticleError';
 
 import { StateSchema } from '@/app/providers/StoreProvider';

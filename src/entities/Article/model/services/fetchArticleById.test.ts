@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { Article } from '../types/article';
 
 import { fetchArticleById } from './fetchArticleById';

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ArticleCommentSchema } from '../../model/types/articleCommentSchema';

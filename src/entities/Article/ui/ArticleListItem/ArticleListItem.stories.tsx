@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Article } from '../../model/types/article';
