@@ -1,3 +1,5 @@
+import { FeatureFlags } from '@/shared/types/features';
+
 export type Role = ValueOf<typeof Role>;
 
 export const Role = {
@@ -11,6 +13,7 @@ export interface User {
   username: string;
   avatar?: string;
   roles?: Role[];
+  features?: FeatureFlags;
 }
 
 export interface UserSchema {
