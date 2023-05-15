@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const fs = require('fs');
+const http = require('http');
 const https = require('https');
 const path = require('path');
 
@@ -60,9 +61,14 @@ server.use(router);
 // запуск сервера
 
 const httpsServer = https.createServer(options, server);
+const httpServer = http.createServer(server);
 
 const PORT = 8443;
+const HTTP_PORT = 8000;
 
 httpsServer.listen(PORT, () => {
   console.log(`server is running on ${PORT} port`);
+});
+httpServer.listen(HTTP_PORT, () => {
+  console.log(`server is running on ${HTTP_PORT} port`);
 });
