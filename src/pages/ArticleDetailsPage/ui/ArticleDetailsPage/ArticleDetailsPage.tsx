@@ -14,13 +14,12 @@ import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHead
 
 import { ArticleDetails, getArticleError } from '@/entities/Article';
 import { CommentList } from '@/entities/Comment';
-import { Counter } from '@/entities/Counter';
 import { AddNewCommentForm } from '@/features/AddNewCommentForm';
 import { ArticleRateCard } from '@/features/ArticleRateCard';
 import { RecommendArticles } from '@/features/RecommendArticles';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { getFeatureFlags } from '@/shared/lib/featureFlags';
+import { toggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
 import { Page } from '@/widgets/Page';
@@ -58,12 +57,15 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     dispatch(fetchArticleComments(id));
   });
 
-  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
-  const isCounterEnabled = getFeatureFlags('isCounterEnabled');
-
   if (!id) {
     return <div className={classNames(cls.articleDetailsPage, [className], {})}>{t('Article not found')}</div>;
   }
+
+  const ArticleRating = toggleFeature({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRateCard articleId={id} />,
+    off: () => null,
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -72,8 +74,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         <ArticleDetails id={id} />
         {!articleError && (
           <>
-            {isCounterEnabled && <Counter />}
-            {isArticleRatingEnabled && <ArticleRateCard articleId={id} />}
+            {ArticleRating}
             <RecommendArticles />
             <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
             <CommentList comments={comments} isLoading={commentsIsLoading} />
