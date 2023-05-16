@@ -16,5 +16,4 @@ export const rtkApi = createApi({
     },
   }),
   endpoints: () => ({}),
-  tagTypes: ['Articles'],
 });

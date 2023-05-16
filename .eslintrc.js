@@ -38,11 +38,14 @@ module.exports = {
     'olegskar-fsd-checker/paths-checker': ['error', { alias: '@' }],
     'olegskar-fsd-checker/public-api-imports': [
       'error',
-      { alias: '@', testFilesPatterns: ['**/*.test.ts', '**/*.stories.tsx', '**/StoreDecorator.tsx'] },
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.ts', '**/*.stories.tsx', '**/StoreDecorator.tsx'],
+      },
     ],
     'olegskar-fsd-checker/layer-imports': [
       'error',
-      { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/router/**', '**/testing'] },
+      { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/ThemeProvider', '**/router/**', '**/testing'] },
     ],
     'i18next/no-literal-string': [
       2,

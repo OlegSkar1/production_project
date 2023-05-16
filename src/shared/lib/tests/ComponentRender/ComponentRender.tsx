@@ -6,9 +6,9 @@ import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
 import { Theme } from '@/shared/const/Theme';
-import { ThemeProvider } from '@/shared/ui';
 // eslint-disable-next-line olegskar-fsd-checker/layer-imports
 import '@/app/styles/index.scss';
 

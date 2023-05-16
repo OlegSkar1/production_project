@@ -1,5 +1,4 @@
 export { AppImage } from './AppImage/AppImage';
-export { ThemeProvider } from './ThemeProvider/ThemeProvider';
 export { StarRating } from './StarRating/StarRating';
 export { Overlay } from './Overlay/Overlay';
 export { Drawer } from './Drawer/Drawer';
