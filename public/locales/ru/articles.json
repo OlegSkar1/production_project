@@ -14,5 +14,6 @@
   "input_rate": "Напишите отзыв о статье",
   "rate_load_error": "Ошибка при загрузке рейтинга",
   "Welcome to article page": "Добро пожаловать на страницу статей",
-  "articleGreetingMessage": "Здесь можно просматривать и искать статьи на разные темы"
+  "articleGreetingMessage": "Здесь можно просматривать и искать статьи на разные темы",
+  "Here will be the evaluation of the article": "Здесь будет оценка профиля"
 }

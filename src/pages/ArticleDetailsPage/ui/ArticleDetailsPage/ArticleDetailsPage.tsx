@@ -19,9 +19,10 @@ import { ArticleRateCard } from '@/features/ArticleRateCard';
 import { RecommendArticles } from '@/features/RecommendArticles';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { toggleFeature } from '@/shared/lib/featureFlags';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
+import { Card, Text } from '@/shared/ui';
 import { Page } from '@/widgets/Page';
 
 import cls from './ArticleDetailsPage.module.scss';
@@ -61,12 +62,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     return <div className={classNames(cls.articleDetailsPage, [className], {})}>{t('Article not found')}</div>;
   }
 
-  const ArticleRating = toggleFeature({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRateCard articleId={id} />,
-    off: () => null,
-  });
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page data-testid='ArticleDetailsPage' className={classNames(cls.articleDetailsPage, [className], {})}>
@@ -74,7 +69,15 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         <ArticleDetails id={id} />
         {!articleError && (
           <>
-            {ArticleRating}
+            <ToggleFeature
+              name='isArticleRatingEnabled'
+              on={<ArticleRateCard articleId={id} />}
+              off={
+                <Card>
+                  <Text text={t('Here will be the evaluation of the article')} />
+                </Card>
+              }
+            />
             <RecommendArticles />
             <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
             <CommentList comments={comments} isLoading={commentsIsLoading} />

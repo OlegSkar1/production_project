@@ -14,5 +14,6 @@
   "input_rate": "Write a review about the article",
   "rate_load_error": "Error loading rating",
   "Welcome to article page": "Welcome to Articles Page",
-  "articleGreetingMessage": "Here you can view and search for articles on various topics."
+  "articleGreetingMessage": "Here you can view and search for articles on various topics.",
+  "Here will be the evaluation of the article": "Here is the profile score"
 }

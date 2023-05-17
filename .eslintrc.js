@@ -71,6 +71,7 @@ module.exports = {
           'align',
           'gap',
           'tagname',
+          'name',
         ],
       },
     ],
