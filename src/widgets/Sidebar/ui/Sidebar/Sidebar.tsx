@@ -7,6 +7,7 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwither } from '@/features/ThemeSwither';
 import { classNames } from '@/shared/lib';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { Button, HStack, VStack } from '@/shared/ui';
 
 import cls from './Sidebar.module.scss';
@@ -29,24 +30,37 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
   );
 
   return (
-    <div data-testid='sidebar' className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}>
-      <VStack tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
-        {itemsList}
-      </VStack>
-      <Button
-        square
-        size='large'
-        variant='backgroundInverted'
-        data-testid='sidebar-toggle'
-        className={cls.toggleButton}
-        onClick={toggleHandler}
-      >
-        {collapsed ? '>' : '<'}
-      </Button>
-      <HStack max gap='16' justify='center' className={cls.switchers}>
-        <ThemeSwither />
-        <LangSwitcher short={collapsed} />
-      </HStack>
-    </div>
+    <ToggleFeature
+      name='isAppRedesigned'
+      on={
+        <div
+          data-testid='sidebar'
+          className={classNames(cls.sidebarRedesigned, [className], { [cls.collapsed]: collapsed })}
+        >
+          76534223456
+        </div>
+      }
+      off={
+        <div data-testid='sidebar' className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}>
+          <VStack tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
+            {itemsList}
+          </VStack>
+          <Button
+            square
+            size='large'
+            variant='backgroundInverted'
+            data-testid='sidebar-toggle'
+            className={cls.toggleButton}
+            onClick={toggleHandler}
+          >
+            {collapsed ? '>' : '<'}
+          </Button>
+          <HStack max gap='16' justify='center' className={cls.switchers}>
+            <ThemeSwither />
+            <LangSwitcher short={collapsed} />
+          </HStack>
+        </div>
+      }
+    />
   );
 });

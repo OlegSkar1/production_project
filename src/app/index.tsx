@@ -5,7 +5,9 @@ import { AppRouter } from './providers/router';
 
 import { getAuthData, getUserInited } from '@/entities/User';
 import { PageLoader } from '@/features/PageLoader';
+import { MainLayout } from '@/shared/layouts';
 import { classNames } from '@/shared/lib';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { Navbar } from '@/widgets/Navbar';
@@ -27,15 +29,32 @@ const App = () => {
   }
 
   return (
-    <div className={classNames('app', [theme], {})}>
-      <Suspense fallback=''>
-        <Navbar />
-        <main className='content-page'>
-          <Sidebar />
-          {inited && <AppRouter />}
-        </main>
-      </Suspense>
-    </div>
+    <ToggleFeature
+      name='isAppRedesigned'
+      on={
+        <div className={classNames('app_redesigned', [theme], {})}>
+          <Suspense fallback=''>
+            <MainLayout
+              content={<AppRouter />}
+              header={<Navbar />}
+              sidebar={<Sidebar />}
+              toolbar={<div>15348569878564</div>}
+            />
+          </Suspense>
+        </div>
+      }
+      off={
+        <div className={classNames('app', [theme], {})}>
+          <Suspense fallback=''>
+            <Navbar />
+            <main className='content-page'>
+              <Sidebar />
+              <AppRouter />
+            </main>
+          </Suspense>
+        </div>
+      }
+    />
   );
 };
 

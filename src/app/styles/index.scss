@@ -4,6 +4,7 @@
 @import './themes/light';
 @import './themes/dark';
 @import './themes/blue';
+@import './themes/orange';
 
 .app,
 .app_modal,
@@ -15,6 +16,13 @@
 .app {
   min-height: 100vh;
   background: var(--bg-color);
+}
+
+.app_redesigned {
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
+  background: var(--bg-redesigned);
 }
 
 .content-page {

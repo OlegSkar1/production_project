@@ -11,9 +11,7 @@ interface ToggleFeatureOptions {
 }
 
 export function ToggleFeature({ name, on, off }: ToggleFeatureOptions): ReactElement | null {
-  if (getFeatureFlags(name) === undefined) {
-    return null;
-  } else if (getFeatureFlags(name)) {
+  if (getFeatureFlags(name)) {
     return on;
   } else {
     return off;
