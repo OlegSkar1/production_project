@@ -9,6 +9,7 @@ import { articlesListReducer } from '../../model/slice/articlesListSlice/article
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 
+import { ArticleGreeting } from '@/features/ArticleGreeting';
 import { getOrder, getSearch, getSort, getTab } from '@/features/ArticlePageFilter';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -67,6 +68,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       >
         <ArticlesFilters />
         <ArticleInfiniteList />
+        <ArticleGreeting />
       </Page>
     </DynamicModuleLoader>
   );

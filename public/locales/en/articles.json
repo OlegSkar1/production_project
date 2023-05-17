@@ -12,5 +12,7 @@
   "economics": "Economics",
   "rate_the_article": "Rate the article",
   "input_rate": "Write a review about the article",
-  "rate_load_error": "Error loading rating"
+  "rate_load_error": "Error loading rating",
+  "Welcome to article page": "Welcome to Articles Page",
+  "articleGreetingMessage": "Here you can view and search for articles on various topics."
 }
