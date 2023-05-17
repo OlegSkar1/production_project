@@ -8,7 +8,7 @@ interface SetJsonQuery {
   jsonSettings: JsonSettings;
 }
 
-const jsonSettingsApi = rtkApi.injectEndpoints({
+const userApi = rtkApi.injectEndpoints({
   endpoints: (builder) => ({
     setJsonSettings: builder.mutation<User, SetJsonQuery>({
       query: ({ userId, jsonSettings }) => ({
@@ -17,7 +17,14 @@ const jsonSettingsApi = rtkApi.injectEndpoints({
         body: { jsonSettings },
       }),
     }),
+    getAuthData: builder.query<User, string>({
+      query: (userId) => ({
+        url: `/users/${userId}`,
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
-export const setJsonSettingsMutation = jsonSettingsApi.endpoints.setJsonSettings.initiate;
+export const setJsonSettingsMutation = userApi.endpoints.setJsonSettings.initiate;
+export const getAuthDataQuery = userApi.endpoints.getAuthData.initiate;

@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { AppRouter } from './providers/router';
 
-import { getUserInited, userActions } from '@/entities/User';
+import { getAuthData, getUserInited } from '@/entities/User';
+import { PageLoader } from '@/features/PageLoader';
 import { classNames } from '@/shared/lib';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
@@ -18,8 +19,12 @@ const App = () => {
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.getAuthData());
+    dispatch(getAuthData());
   }, [dispatch]);
+
+  if (!inited) {
+    return <PageLoader />;
+  }
 
   return (
     <div className={classNames('app', [theme], {})}>
