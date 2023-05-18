@@ -19,8 +19,17 @@
 }
 
 .rightbar {
+  display: flex;
   grid-area: rightbar;
-  justify-items: end;
+  flex-direction: column;
+  align-items: end;
+}
+
+.sidebar,
+.rightbar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .header {
@@ -29,4 +38,5 @@
 
 .toolbar {
   max-width: 94px;
+  height: 100%;
 }

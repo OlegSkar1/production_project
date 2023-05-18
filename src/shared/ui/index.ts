@@ -1,3 +1,4 @@
+export { AppLogo } from './AppLogo/AppLogo';
 export { AppImage } from './AppImage/AppImage';
 export { StarRating } from './StarRating/StarRating';
 export { Overlay } from './Overlay/Overlay';

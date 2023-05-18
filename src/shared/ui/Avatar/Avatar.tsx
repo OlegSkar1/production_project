@@ -9,13 +9,11 @@ import { classNames } from '@/shared/lib';
 
 import cls from './Avatar.module.scss';
 
-type AvatarSize = 'normal' | 'small';
-
 interface AvatarProps {
   className?: string;
   src: string;
   alt: string;
-  size?: AvatarSize | number;
+  size?: string | number;
 }
 
 export const Avatar: React.FC<AvatarProps> = memo((props) => {
@@ -37,7 +35,7 @@ export const Avatar: React.FC<AvatarProps> = memo((props) => {
     <AppImage
       src={src}
       alt={alt}
-      className={classNames(cls.avatar, [className, cls[size]], {})}
+      className={classNames(cls.avatar, [className], {})}
       style={styles}
       fallback={fallback}
       errorFallback={errorFallback}

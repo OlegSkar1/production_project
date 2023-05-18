@@ -8,7 +8,7 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwither } from '@/features/ThemeSwither';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { Button, HStack, VStack } from '@/shared/ui';
+import { VStack, Button, HStack, AppLogo } from '@/shared/ui';
 
 import cls from './Sidebar.module.scss';
 
@@ -32,14 +32,6 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
   return (
     <ToggleFeature
       name='isAppRedesigned'
-      on={
-        <div
-          data-testid='sidebar'
-          className={classNames(cls.sidebarRedesigned, [className], { [cls.collapsed]: collapsed })}
-        >
-          76534223456
-        </div>
-      }
       off={
         <div data-testid='sidebar' className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}>
           <VStack tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
@@ -59,6 +51,14 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
             <ThemeSwither />
             <LangSwitcher short={collapsed} />
           </HStack>
+        </div>
+      }
+      on={
+        <div
+          data-testid='sidebar'
+          className={classNames(cls.sidebarRedesigned, [className], { [cls.collapsed]: collapsed })}
+        >
+          <AppLogo className={cls.logoRedesigned} />
         </div>
       }
     />

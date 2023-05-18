@@ -29,7 +29,7 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
 
   const trigger = (
     <Button onClick={isMobile ? openDrawer : undefined}>
-      <Icon Svg={NotificationIcon} />
+      <Icon Svg={NotificationIcon} width={20} height={20} />
     </Button>
   );
 

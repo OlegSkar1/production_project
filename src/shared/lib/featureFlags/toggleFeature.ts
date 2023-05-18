@@ -8,10 +8,8 @@ interface ToggleFeatureOptions<T> {
   off: () => T;
 }
 
-export function toggleFeature<T>({ name, on, off }: ToggleFeatureOptions<T>): T | null {
-  if (getFeatureFlags(name) === undefined) {
-    return null;
-  } else if (getFeatureFlags(name)) {
+export function toggleFeature<T>({ name, on, off }: ToggleFeatureOptions<T>): T {
+  if (getFeatureFlags(name)) {
     return on();
   } else {
     return off();

@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getScrollByPath, scrollSaveActions } from '@/features/ScrollSave';
 import { classNames } from '@/shared/lib';
+import { toggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
@@ -45,7 +46,15 @@ export const Page: FC<PageProps> = (props) => {
     <section
       data-testid={props['data-testid'] ?? 'Page'}
       ref={wrapperRef}
-      className={classNames(cls.page, [className], {})}
+      className={classNames(
+        toggleFeature({
+          name: 'isAppRedesigned',
+          on: () => cls.pageRedesigned,
+          off: () => cls.page,
+        }),
+        [className],
+        {}
+      )}
       onScroll={onScroll}
     >
       {children}

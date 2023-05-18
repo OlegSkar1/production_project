@@ -27,7 +27,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo(({ item, collapsed }
   return (
     <AppLink to={item.path} theme='invertedPrimary'>
       <HStack gap='8' className={classNames('', [], { [cls.collapsed]: collapsed })}>
-        <item.Icon className={cls.icon} />
+        <item.Icon className={cls.icon} width={24} height={24} />
         <span className={cls.link}>{t(item.text)}</span>
       </HStack>
     </AppLink>

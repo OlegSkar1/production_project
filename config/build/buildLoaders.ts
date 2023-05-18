@@ -53,7 +53,24 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
   const svgLoader = {
     test: /\.svg$/i,
-    use: ['@svgr/webpack'],
+    use: [
+      {
+        loader: '@svgr/webpack',
+        options: {
+          icon: true,
+          svgoConfig: {
+            plugins: [
+              {
+                name: 'convertColors',
+                params: {
+                  currentColor: true,
+                },
+              },
+            ],
+          },
+        },
+      },
+    ],
   };
 
   return [esBuildLoader, babelLoader, scssLoader, fontLoader, svgLoader, imgLoader];
