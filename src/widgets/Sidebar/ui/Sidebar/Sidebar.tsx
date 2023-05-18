@@ -58,7 +58,10 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
           data-testid='sidebar'
           className={classNames(cls.sidebarRedesigned, [className], { [cls.collapsed]: collapsed })}
         >
-          <AppLogo className={cls.logoRedesigned} />
+          <AppLogo size={50} className={cls.logoRedesigned} />
+          <VStack tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
+            {itemsList}
+          </VStack>
         </div>
       }
     />

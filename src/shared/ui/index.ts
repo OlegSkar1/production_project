@@ -1,4 +1,4 @@
-export { AppLogo } from './AppLogo/AppLogo';
+export { AppLogo } from './redesigned/AppLogo/AppLogo';
 export { AppImage } from './deprecated/AppImage/AppImage';
 export { StarRating } from './deprecated/StarRating/StarRating';
 export { Overlay } from './deprecated/Overlay/Overlay';

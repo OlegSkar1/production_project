@@ -3,6 +3,8 @@
 }
 
 .gradientBig {
+  pointer-events: none;
+
   position: absolute;
 
   width: 300px;
@@ -22,6 +24,8 @@
 }
 
 .gradientSmall {
+  pointer-events: none;
+
   position: absolute;
 
   width: 200px;
