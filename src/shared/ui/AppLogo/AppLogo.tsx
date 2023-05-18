@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 
 import AppSvg from '../../assets/icons/appIcon.svg';
-import { HStack } from '../Stack/HStack/HStack';
+import { HStack } from '../deprecated/Stack/HStack/HStack';
 
 import { classNames } from '@/shared/lib';
 

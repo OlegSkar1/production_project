@@ -11,7 +11,7 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { OrderType } from '@/shared/types/sort';
 import { HStack, Select } from '@/shared/ui';
-import { OptionList } from '@/shared/ui/Select';
+import { OptionList } from '@/shared/ui/deprecated/Select';
 
 interface ArticlesPageSortProps {
   className?: string;
