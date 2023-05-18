@@ -68,7 +68,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
       align='normal'
       className={classNames(cls.profileCard, [className], { [cls.editable]: !readonly })}
     >
-      {data?.avatar && <Avatar src={data.avatar} alt={t('avatar', { ns: 'translation' })} />}
+      {data?.avatar && <Avatar size={100} src={data.avatar} alt={t('avatar', { ns: 'translation' })} />}
       <Input
         variant='clear'
         readonly={readonly}
