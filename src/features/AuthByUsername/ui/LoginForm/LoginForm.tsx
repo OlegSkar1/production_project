@@ -12,7 +12,8 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, Input, Text, VStack } from '@/shared/ui';
+import { Input, Text, VStack } from '@/shared/ui';
+import { Button } from '@/shared/ui/deprecated/Button';
 
 import cls from './LoginForm.module.scss';
 

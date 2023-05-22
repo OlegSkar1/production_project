@@ -5,12 +5,35 @@
 .link {
   margin-right: -50px;
   opacity: 1;
-  transition: all 0.3s;
+  transition: opacity 0.3s;
 }
 
 .collapsed {
   .link {
     pointer-events: none;
     opacity: 0;
+  }
+}
+
+// redesigned
+
+.link_redesigned {
+  margin-right: -60px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.item_redesigned {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  &.collapsed {
+    padding: 0;
+
+    .link_redesigned {
+      pointer-events: none;
+      opacity: 0;
+    }
   }
 }

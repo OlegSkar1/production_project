@@ -1,9 +1,22 @@
 .icon {
-  color: var(--primary-color);
-  fill: var(--primary-color);
+  color: var(--icon-redesigned);
+  transition: all 0.2s;
 }
 
-.inverted {
-  color: var(--inverted-primary-color);
-  fill: var(--inverted-primary-color);
+.button {
+  cursor: pointer;
+
+  margin: 0;
+  padding: 0;
+
+  background: none;
+  border: none;
+  outline: none;
+
+  &:hover {
+    .icon {
+      color: var(--accent-redesigned);
+      transition: all 0.2s;
+    }
+  }
 }

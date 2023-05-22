@@ -4,19 +4,44 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Icon.module.scss';
 
-interface IconProps extends SVGProps<SVGSVGElement> {
+type SvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick'>;
+
+interface IconBaseProps extends SvgProps {
   className?: string;
   Svg: FC<SVGProps<SVGSVGElement>>;
-  inverted?: boolean;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+interface ClickableIconProps extends IconBaseProps {
+  clickable: true;
+  onClick: () => void;
+}
+
+interface NonClickableIconProps extends IconBaseProps {
+  clickable?: false;
+}
+
+type IconProps = ClickableIconProps | NonClickableIconProps;
 
 export const Icon: FC<IconProps> = memo((props) => {
-  const { Svg, className, inverted, ...otherProps } = props;
+  const { Svg, className, width = 32, height = 32, clickable, ...otherProps } = props;
 
-  return <Svg className={classNames(inverted ? cls.inverted : cls.icon, [className], {})} {...otherProps} />;
+  const icon = (
+    <Svg
+      className={classNames(cls.icon, [className], {})}
+      width={width}
+      height={height}
+      {...otherProps}
+      onClick={undefined}
+    />
+  );
+
+  if (clickable) {
+    return (
+      <button type='button' onClick={props.onClick} className={cls.button} style={{ width, height }}>
+        {icon}
+      </button>
+    );
+  }
+
+  return icon;
 });

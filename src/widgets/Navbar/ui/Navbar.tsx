@@ -9,7 +9,8 @@ import { NotificationButton } from '@/features/NotificationButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLink, Button, HStack, Text } from '@/shared/ui';
+import { AppLink, HStack, Text } from '@/shared/ui';
+import { Button } from '@/shared/ui/deprecated/Button';
 
 import cls from './Navbar.module.scss';
 

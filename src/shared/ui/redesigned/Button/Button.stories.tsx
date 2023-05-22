@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from './Button';
+import { Button } from '../../deprecated/Button';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/const/Theme';

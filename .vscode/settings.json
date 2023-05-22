@@ -1,9 +1,6 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "i18n-ally.localesPaths": [
-    "public/locales",
-    "src/shared/config/i18n"
-  ],
+  "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
   "i18n-ally.keystyle": "nested",
   "css.validate": true,
   "scss.validate": true,
@@ -11,5 +8,6 @@
   "stylelint.validate": ["css", "scss"],
   "cssModules.camelCase": true,
   "i18n-ally.sourceLanguage": "ru",
-  "jest.autoRun": "off"
+  "jest.autoRun": "off",
+  "svg.preview.background": "black"
 }

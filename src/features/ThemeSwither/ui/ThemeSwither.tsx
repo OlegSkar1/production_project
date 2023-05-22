@@ -3,9 +3,12 @@ import { memo, useCallback } from 'react';
 import { saveJsonSettings } from '@/entities/User';
 import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
 import { classNames } from '@/shared/lib';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Button, Icon } from '@/shared/ui';
+import { Icon } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 
 interface ThemeSwitherProps {
   className?: string;
@@ -24,8 +27,18 @@ export const ThemeSwither: React.FC<ThemeSwitherProps> = memo((props) => {
   }, [dispatch, toggleTheme]);
 
   return (
-    <Button variant={'clearInverted'} className={classNames('', [className], {})} onClick={toggleClickHandler}>
-      <Icon Svg={ThemeIcon} width={40} height={40} inverted />
-    </Button>
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <ButtonDeprecated
+          variant={'clearInverted'}
+          className={classNames('', [className], {})}
+          onClick={toggleClickHandler}
+        >
+          <IconDeprecated Svg={ThemeIcon} width={40} height={40} inverted />
+        </ButtonDeprecated>
+      }
+      on={<Icon Svg={ThemeIcon} width={40} height={40} clickable onClick={toggleClickHandler} />}
+    />
   );
 });

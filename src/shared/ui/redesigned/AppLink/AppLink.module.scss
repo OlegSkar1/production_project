@@ -1,6 +1,5 @@
 .app-link {
   text-decoration: none;
-  transition: color 0.2s;
 
   &:hover {
     transition: all 0.2s;
@@ -15,8 +14,8 @@
   }
 }
 
-.secondary {
-  color: var(--red-color);
+.red {
+  color: var(--cancel-redesigned);
 
   &:hover {
     opacity: 0.8;

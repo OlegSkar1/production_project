@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib';
 import { useMobile } from '@/shared/lib/hooks/useMobile';
-import { Button, Card, Drawer, HStack, Input, Modal, StarRating, Text, VStack } from '@/shared/ui';
+import { Card, Drawer, HStack, Input, Modal, StarRating, Text, VStack } from '@/shared/ui';
+import { Button } from '@/shared/ui/deprecated/Button';
 
 interface RatingCardProps {
   className?: string;

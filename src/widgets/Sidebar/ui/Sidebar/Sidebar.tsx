@@ -6,9 +6,13 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwither } from '@/features/ThemeSwither';
+import ArrowDown from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { VStack, Button, HStack, AppLogo } from '@/shared/ui';
+import { AppLogo, HStack, Icon } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { HStack as HStackDeprecated } from '@/shared/ui/deprecated/Stack/HStack';
+import { VStack as VStackDeprecated } from '@/shared/ui/deprecated/Stack/VStack';
 
 import cls from './Sidebar.module.scss';
 
@@ -22,7 +26,9 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
 
   const sidebarItemsList = useSelector(getSidebarItemsList);
 
-  const toggleHandler = () => setCollapsed((prev) => !prev);
+  const toggleHandler = () => {
+    setCollapsed((prev) => !prev);
+  };
 
   const itemsList = useMemo(
     () => sidebarItemsList.map((item) => <SidebarItem item={item} key={item.path} collapsed={collapsed} />),
@@ -34,10 +40,10 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
       name='isAppRedesigned'
       off={
         <div data-testid='sidebar' className={classNames(cls.sidebar, [className], { [cls.collapsed]: collapsed })}>
-          <VStack tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
+          <VStackDeprecated tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
             {itemsList}
-          </VStack>
-          <Button
+          </VStackDeprecated>
+          <ButtonDeprecated
             square
             size='large'
             variant='backgroundInverted'
@@ -46,22 +52,33 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
             onClick={toggleHandler}
           >
             {collapsed ? '>' : '<'}
-          </Button>
-          <HStack max gap='16' justify='center' className={cls.switchers}>
+          </ButtonDeprecated>
+          <HStackDeprecated max gap='16' justify='center' className={cls.switchers}>
             <ThemeSwither />
             <LangSwitcher short={collapsed} />
-          </HStack>
+          </HStackDeprecated>
         </div>
       }
       on={
         <div
           data-testid='sidebar'
-          className={classNames(cls.sidebarRedesigned, [className], { [cls.collapsed]: collapsed })}
+          className={classNames(cls.sidebarRedesigned, [className], { [cls.collapsedRedesigned]: collapsed })}
         >
-          <AppLogo size={50} className={cls.logoRedesigned} />
-          <VStack tagname='nav' align='start' gap='16' className={classNames(cls.items)}>
+          <AppLogo size={collapsed ? 30 : 50} className={cls.logoRedesigned} />
+          <VStackDeprecated tagname='nav' align='start' gap='8' className={classNames(cls.itemsRedesigned)}>
             {itemsList}
-          </VStack>
+          </VStackDeprecated>
+          <Icon
+            data-testid='sidebar-toggle'
+            className={cls.toggleButtonRedesigned}
+            onClick={toggleHandler}
+            clickable
+            Svg={ArrowDown}
+          />
+          <HStack max gap='16' justify='center' className={cls.switchers}>
+            <ThemeSwither />
+            <LangSwitcher short={collapsed} />
+          </HStack>
         </div>
       }
     />

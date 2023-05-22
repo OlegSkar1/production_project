@@ -52,7 +52,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   };
 
   const svgLoader = {
-    test: /\.svg$/i,
+    test: /\.svg$/,
     use: [
       {
         loader: '@svgr/webpack',
@@ -73,5 +73,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     ],
   };
 
-  return [esBuildLoader, babelLoader, scssLoader, fontLoader, svgLoader, imgLoader];
+  return [esBuildLoader, babelLoader, scssLoader, svgLoader, fontLoader, imgLoader];
 }

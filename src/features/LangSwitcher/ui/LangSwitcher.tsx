@@ -1,7 +1,9 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { Button } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 
 interface LangSwitcherProps {
   className?: string;
@@ -17,8 +19,14 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = memo((props) => {
     i18n.changeLanguage(i18n.language.includes('ru') ? 'en' : 'ru');
   };
   return (
-    <Button variant='clearInverted' onClick={changeLang}>
-      {t(short ? 'shortLng' : 'language')}
-    </Button>
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <ButtonDeprecated variant='clearInverted' onClick={changeLang}>
+          {t(short ? 'shortLng' : 'language')}
+        </ButtonDeprecated>
+      }
+      on={<Button onClick={changeLang}>{t(short ? 'shortLng' : 'language')}</Button>}
+    />
   );
 });

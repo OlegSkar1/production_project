@@ -8,7 +8,8 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { profileCardActions } from '../../model/slice/profileCardSlice';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, HStack, Text } from '@/shared/ui';
+import { HStack, Text } from '@/shared/ui';
+import { Button } from '@/shared/ui/deprecated/Button';
 
 interface ProfileHeaderProps {
   className?: string;
