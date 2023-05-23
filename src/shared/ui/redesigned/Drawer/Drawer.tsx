@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode, useCallback, useEffect } from 'react';
 
-import { Overlay } from '../Overlay/Overlay';
-import { Portal } from '../Portal/Portal';
+import { Overlay } from '../../deprecated/Overlay/Overlay';
+import { Portal } from '../../deprecated/Portal/Portal';
 
 import { classNames } from '@/shared/lib';
 import { AnimationProvider, useAnimationContext } from '@/shared/lib/components/AnimationProvider';
@@ -18,11 +18,6 @@ interface DrawerProps {
 }
 
 const height = window.innerHeight - 100;
-
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 
 const DrawerContent: FC<DrawerProps> = memo((props) => {
   const { className, children, isOpen, onClose } = props;

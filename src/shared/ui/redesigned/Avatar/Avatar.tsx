@@ -1,9 +1,9 @@
 import { CSSProperties, memo, useMemo } from 'react';
 
 import UserIcon from '../../../assets/icons/user-avatar.svg';
+import { Icon } from '../../deprecated/Icon/Icon';
+import { Skeleton } from '../../deprecated/Skeleton/Skeleton';
 import { AppImage } from '../AppImage/AppImage';
-import { Icon } from '../Icon/Icon';
-import { Skeleton } from '../Skeleton/Skeleton';
 
 import { classNames } from '@/shared/lib';
 
@@ -15,11 +15,6 @@ interface AvatarProps {
   alt: string;
   size?: string | number;
 }
-
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 
 export const Avatar: React.FC<AvatarProps> = memo((props) => {
   const { className, src, size = 'normal', alt } = props;

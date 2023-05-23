@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Avatar } from '../../../redesigned/Avatar/Avatar';
+import { Avatar } from '../../Avatar/Avatar';
 
 import { Dropdown } from './Dropdown';
 
