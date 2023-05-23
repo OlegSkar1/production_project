@@ -10,13 +10,18 @@
   }
 }
 
-.clear {
+.clear,
+.clear-icon {
   margin: 0;
   padding: 0;
 
   background: none;
   border: none;
   outline: none;
+}
+
+.clear-icon {
+  color: var(--icon-redesigned);
 }
 
 .outlined {
@@ -35,6 +40,14 @@
 
 .extra-large {
   font: var(--font-xl-redesigned);
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 .disabled {

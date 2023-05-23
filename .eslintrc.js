@@ -72,6 +72,8 @@ module.exports = {
           'gap',
           'tagname',
           'name',
+          'color',
+          'weight',
         ],
       },
     ],

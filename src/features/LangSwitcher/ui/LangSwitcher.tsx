@@ -26,7 +26,11 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = memo((props) => {
           {t(short ? 'shortLng' : 'language')}
         </ButtonDeprecated>
       }
-      on={<Button onClick={changeLang}>{t(short ? 'shortLng' : 'language')}</Button>}
+      on={
+        <Button variant='clearIcon' weight='bold' onClick={changeLang}>
+          {t('shortLng')}
+        </Button>
+      }
     />
   );
 });

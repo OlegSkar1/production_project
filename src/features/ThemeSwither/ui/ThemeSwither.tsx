@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react';
 
 import { saveJsonSettings } from '@/entities/User';
 import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
+import ThemeIconRedesigned from '@/shared/assets/icons/theme.svg';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -38,7 +39,7 @@ export const ThemeSwither: React.FC<ThemeSwitherProps> = memo((props) => {
           <IconDeprecated Svg={ThemeIcon} width={40} height={40} inverted />
         </ButtonDeprecated>
       }
-      on={<Icon Svg={ThemeIcon} width={40} height={40} clickable onClick={toggleClickHandler} />}
+      on={<Icon Svg={ThemeIconRedesigned} width={40} height={40} clickable onClick={toggleClickHandler} />}
     />
   );
 });

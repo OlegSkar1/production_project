@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 
 import AppSvg from '../../../assets/icons/appIcon.svg';
-import { HStack } from '../../deprecated/Stack/HStack/HStack';
+import { HStack } from '../Stack/HStack/HStack';
 
 import { classNames } from '@/shared/lib';
 
@@ -17,7 +17,7 @@ export const AppLogo: FC<AppLogoProps> = memo((props) => {
 
   return (
     <HStack max justify='center' className={classNames(cls.appLogoWrapper, [className], {})}>
-      <AppSvg width={size} height={size} />
+      <AppSvg width={size} height={size} color='black' />
       <div className={cls.gradientBig} />
       <div className={cls.gradientSmall} />
     </HStack>

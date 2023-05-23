@@ -1,4 +1,5 @@
 .app-link {
+  width: 100%;
   text-decoration: none;
 
   &:hover {
@@ -11,6 +12,12 @@
 
   &:hover {
     color: var(--accent-redesigned);
+  }
+
+  &.active {
+    color: var(--accent-redesigned);
+    background: linear-gradient(89.97deg, rgb(94 211 243 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+    border-left: 2px solid var(--accent-redesigned);
   }
 }
 

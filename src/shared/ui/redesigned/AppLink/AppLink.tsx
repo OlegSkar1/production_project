@@ -1,5 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { LinkProps, NavLink } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib';
 
@@ -17,8 +17,13 @@ export const AppLink: React.FC<AppLinkProps> = memo((props) => {
   const { className, children, to, variant = 'primary', target, ...otherProps } = props;
 
   return (
-    <Link to={to} target={target} className={classNames(cls.appLink, [className, cls[variant]], {})} {...otherProps}>
+    <NavLink
+      to={to}
+      target={target}
+      className={({ isActive }) => classNames(cls.appLink, [className, cls[variant]], { [cls.active]: isActive })}
+      {...otherProps}
+    >
       {children}
-    </Link>
+    </NavLink>
   );
 });

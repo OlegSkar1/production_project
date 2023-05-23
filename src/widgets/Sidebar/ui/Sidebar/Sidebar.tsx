@@ -9,7 +9,7 @@ import { ThemeSwither } from '@/features/ThemeSwither';
 import ArrowDown from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLogo, HStack, Icon } from '@/shared/ui';
+import { AppLogo, HStack, Icon, VStack } from '@/shared/ui';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { HStack as HStackDeprecated } from '@/shared/ui/deprecated/Stack/HStack';
 import { VStack as VStackDeprecated } from '@/shared/ui/deprecated/Stack/VStack';
@@ -65,9 +65,9 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
           className={classNames(cls.sidebarRedesigned, [className], { [cls.collapsedRedesigned]: collapsed })}
         >
           <AppLogo size={collapsed ? 30 : 50} className={cls.logoRedesigned} />
-          <VStackDeprecated tagname='nav' align='start' gap='8' className={classNames(cls.itemsRedesigned)}>
+          <VStack tagname='nav' align='start' gap='8' className={classNames(cls.itemsRedesigned)}>
             {itemsList}
-          </VStackDeprecated>
+          </VStack>
           <Icon
             data-testid='sidebar-toggle'
             className={cls.toggleButtonRedesigned}
@@ -75,7 +75,7 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
             clickable
             Svg={ArrowDown}
           />
-          <HStack max gap='16' justify='center' className={cls.switchers}>
+          <HStack max justify='center' className={cls.switchers}>
             <ThemeSwither />
             <LangSwitcher short={collapsed} />
           </HStack>
