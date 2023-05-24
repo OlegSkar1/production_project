@@ -1,6 +1,7 @@
 import { FC, memo, useCallback, useState } from 'react';
 
 import { NotificationsList } from '@/entities/Notification';
+import NotificationIconDeprecated from '@/shared/assets/icons/notification.svg';
 import NotificationIcon from '@/shared/assets/icons/notificationNew.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
@@ -36,7 +37,7 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
       name='isAppRedesigned'
       off={
         <ButtonDeprecated onClick={isMobile ? openDrawer : undefined}>
-          <IconDeprecated Svg={NotificationIcon} width={20} height={20} />
+          <IconDeprecated Svg={NotificationIconDeprecated} width={20} height={20} />
         </ButtonDeprecated>
       }
       on={<Icon Svg={NotificationIcon} clickable onClick={isMobile ? openDrawer : () => false} />}

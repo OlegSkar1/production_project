@@ -11,16 +11,17 @@ interface AppLinkProps extends LinkProps {
   className?: string;
   variant?: AppLinkVariant;
   target?: HTMLAttributeAnchorTarget;
+  activeClassName?: string;
 }
 
 export const AppLink: React.FC<AppLinkProps> = memo((props) => {
-  const { className, children, to, variant = 'primary', target, ...otherProps } = props;
+  const { className, children, to, variant = 'primary', activeClassName = '', target, ...otherProps } = props;
 
   return (
     <NavLink
       to={to}
       target={target}
-      className={({ isActive }) => classNames(cls.appLink, [className, cls[variant]], { [cls.active]: isActive })}
+      className={({ isActive }) => classNames(cls.appLink, [cls[variant], className], { [activeClassName]: isActive })}
       {...otherProps}
     >
       {children}

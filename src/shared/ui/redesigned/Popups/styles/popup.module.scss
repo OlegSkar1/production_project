@@ -3,15 +3,14 @@
 }
 
 .items {
-  position: absolute;
-  z-index: var(--dropdown-z-index);
-
-  color: var(--text-redesigned);
-
-  background: var(--bg-redesigned);
+  overflow: hidden;
   border: 1px solid var(--accent-redesigned);
   border-radius: 18px;
   box-shadow: 0 3px 10px 0 var(--accent-redesigned);
+
+  .active {
+    background: var(--light-bg-redesigned);
+  }
 }
 
 .trigger {
@@ -23,11 +22,6 @@
   background: none;
   border: none;
   outline: none;
-}
-
-.active {
-  cursor: pointer;
-  background: var(--light-bg-redesigned);
 }
 
 .disable {

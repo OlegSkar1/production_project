@@ -29,6 +29,8 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
     logout();
   }, [logout]);
 
+  if (!authData) return null;
+
   const items = [
     ...(isUserAvailable
       ? [
@@ -55,7 +57,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
         <DropdownDeprecated
           className={classNames('', [className], {})}
           items={items}
-          trigger={authData?.avatar && <Avatar src={authData.avatar} alt={authData.username} size={30} />}
+          trigger={<Avatar src={authData.avatar} alt={authData.username} size={30} />}
           direction='bottom left'
         />
       }
@@ -63,7 +65,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
         <Dropdown
           className={classNames('', [className], {})}
           items={items}
-          trigger={authData?.avatar && <Avatar src={authData.avatar} alt={authData.username} size={30} />}
+          trigger={<Avatar src={authData.avatar} alt={authData.username} size={30} />}
           direction='bottom left'
         />
       }
