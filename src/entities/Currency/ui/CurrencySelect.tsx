@@ -5,7 +5,8 @@ import { Currency } from '../model/types/currency';
 
 import { classNames } from '@/shared/lib';
 import { DirectionType } from '@/shared/types/ui';
-import { ListBox, ListBoxItem } from '@/shared/ui';
+import { ListBoxItem } from '@/shared/ui';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ListBox';
 
 interface CurrencySelectProps {
   className?: string;
@@ -34,7 +35,7 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo((props) => {
   );
 
   return (
-    <ListBox
+    <ListBoxDeprecated
       items={options}
       onChange={onChangeHandler}
       label={t('currency_label')}

@@ -29,11 +29,6 @@ interface ListBoxProps {
   direction?: DirectionType;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
-
 export const ListBox: FC<ListBoxProps> = memo((props) => {
   const { className, value, onChange, items, label, defaultValue, readonly, direction = 'bottom left' } = props;
 

@@ -5,10 +5,13 @@ import { NotificationType } from '../../model/types/notification';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLink, Card, Skeleton, Text } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui';
 import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './NotificationItem.module.scss';
 

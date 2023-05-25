@@ -3,8 +3,12 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib';
 import { useMobile } from '@/shared/lib/hooks/useMobile';
-import { Card, Drawer, HStack, Input, Modal, StarRating, Text, VStack } from '@/shared/ui';
-import { Button } from '@/shared/ui/deprecated/Button';
+import { Input, Modal, StarRating } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 interface RatingCardProps {
   className?: string;
@@ -49,15 +53,15 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
 
   const modalContent = (
     <>
-      <Text title={feedbackTitle} tagname='h3' />
+      <TextDeprecated title={feedbackTitle} tagname='h3' />
       <Input value={feedback} onChange={setFeedback} placeholder={t('your_feedback')} data-testid='RatingCard.Input' />
     </>
   );
 
   return (
-    <Card className={classNames('', [className], {})} {...otherProps}>
+    <CardDeprecated className={classNames('', [className], {})} {...otherProps}>
       <VStack gap={'8'} max>
-        <Text title={starsCount ? t('thanks_for_rating') : title} tagname='h3' />
+        <TextDeprecated title={starsCount ? t('thanks_for_rating') : title} tagname='h3' />
         <StarRating size={40} onSelect={onSelectHandler} selectedStars={rate} />
       </VStack>
       {!isMobile && (
@@ -65,12 +69,12 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
           <VStack max gap='32'>
             {modalContent}
             <HStack max gap='16' justify='end'>
-              <Button variant='ontlinedRed' onClick={cancelHandler} data-testid='RatingCard.Cancel'>
+              <ButtonDeprecated variant='ontlinedRed' onClick={cancelHandler} data-testid='RatingCard.Cancel'>
                 {t('cancel')}
-              </Button>
-              <Button variant='outlined' onClick={acceptHandler} data-testid='RatingCard.Accept'>
+              </ButtonDeprecated>
+              <ButtonDeprecated variant='outlined' onClick={acceptHandler} data-testid='RatingCard.Accept'>
                 {t('Send')}
-              </Button>
+              </ButtonDeprecated>
             </HStack>
           </VStack>
         </Modal>
@@ -79,12 +83,12 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
         <Drawer isOpen={isModalOpen} onClose={cancelHandler}>
           <VStack max gap='16'>
             {modalContent}
-            <Button size='extraLarge' variant='outlined' fullWidth onClick={acceptHandler}>
+            <ButtonDeprecated size='extraLarge' variant='outlined' fullWidth onClick={acceptHandler}>
               {t('Send')}
-            </Button>
+            </ButtonDeprecated>
           </VStack>
         </Drawer>
       )}
-    </Card>
+    </CardDeprecated>
   );
 });

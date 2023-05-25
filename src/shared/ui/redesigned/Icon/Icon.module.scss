@@ -1,6 +1,10 @@
 .icon {
   color: var(--icon-redesigned);
   transition: all 0.2s;
+
+  &:hover {
+    color: var(--accent-redesigned);
+  }
 }
 
 .button {

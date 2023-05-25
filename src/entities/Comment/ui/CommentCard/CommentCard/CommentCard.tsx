@@ -4,7 +4,11 @@ import { Comment } from '../../../model/types/comment';
 
 import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, Avatar, HStack, Skeleton, Text } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './CommentCard.module.scss';
 
@@ -35,13 +39,13 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
 
   return (
     <article className={classNames(cls.commentCard, [className], {})} data-testid={`CommentCard.${comment.text}`}>
-      <AppLink to={getRouteProfile(comment.user.id)}>
+      <AppLinkDeprecated to={getRouteProfile(comment.user.id)}>
         <HStack gap='8' className={cls.userWrapper}>
           {comment.user.avatar ? <Avatar src={comment.user.avatar} alt={comment.user.username} size={30} /> : null}
-          <Text text={comment.user.username} size='size_l' />
+          <TextDeprecated text={comment.user.username} size='size_l' />
         </HStack>
-      </AppLink>
-      <Text text={comment.text} />
+      </AppLinkDeprecated>
+      <TextDeprecated text={comment.text} />
     </article>
   );
 });

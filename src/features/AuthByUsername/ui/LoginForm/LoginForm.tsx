@@ -12,8 +12,10 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Input, Text, VStack } from '@/shared/ui';
-import { Button } from '@/shared/ui/deprecated/Button';
+import { Input } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './LoginForm.module.scss';
 
@@ -62,9 +64,13 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <VStack gap='16' className={classNames('', [className], {})}>
-        <Text title={t('authorization form')} className={cls.formTitle} />
+        <TextDeprecated title={t('authorization form')} className={cls.formTitle} />
         {error && (
-          <Text text={t('You entered an incorrect username or password')} theme='error' className={cls.formError} />
+          <TextDeprecated
+            text={t('You entered an incorrect username or password')}
+            theme='error'
+            className={cls.formError}
+          />
         )}
         <Input onChange={loginHandler} value={username} variant='inverted' label={t('Enter login')} autoFocus />
         <Input
@@ -74,14 +80,14 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
           type='password'
           label={t('Enter password')}
         />
-        <Button
+        <ButtonDeprecated
           disabled={isLoading}
           variant='outlined'
           onClick={onButtonClick}
           className={classNames(cls.loginBtn, [], { [cls.loading]: isLoading })}
         >
           {t('Sign in')}
-        </Button>
+        </ButtonDeprecated>
       </VStack>
     </DynamicModuleLoader>
   );

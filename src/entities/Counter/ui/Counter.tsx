@@ -3,7 +3,7 @@
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { useCounterActions } from '../model/slice/counterSlice';
 
-import { Button } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 
 export const Counter: React.FC = () => {
   const counterValue = useCounterValue();
@@ -23,15 +23,15 @@ export const Counter: React.FC = () => {
   return (
     <div>
       <h1 data-testid='counter-title'>value = {counterValue}</h1>
-      <Button data-testid='increment-btn' onClick={handleInc}>
+      <ButtonDeprecated data-testid='increment-btn' onClick={handleInc}>
         increment
-      </Button>
-      <Button data-testid='decrement-btn' onClick={handleDec}>
+      </ButtonDeprecated>
+      <ButtonDeprecated data-testid='decrement-btn' onClick={handleDec}>
         decrement
-      </Button>
-      <Button data-testid='increment-add-btn' onClick={handleAdd}>
+      </ButtonDeprecated>
+      <ButtonDeprecated data-testid='increment-add-btn' onClick={handleAdd}>
         add 5
-      </Button>
+      </ButtonDeprecated>
     </div>
   );
 };

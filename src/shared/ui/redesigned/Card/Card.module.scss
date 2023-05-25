@@ -1,14 +1,14 @@
 .card {
   border-radius: 32px;
-}
 
-.normal,
-.outlined {
-  background: var(--dark-bg-redesigned);
-}
+  .normal,
+  .outlined {
+    background: var(--dark-bg-redesigned);
+  }
 
-.outlined {
-  border: 1px solid var(--accent-redesigned);
+  .outlined {
+    border: 1px solid var(--accent-redesigned);
+  }
 }
 
 .p_0 {

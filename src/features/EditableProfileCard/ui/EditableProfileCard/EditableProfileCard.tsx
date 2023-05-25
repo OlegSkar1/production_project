@@ -18,7 +18,8 @@ import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text, VStack } from '@/shared/ui';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -114,7 +115,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
         <ProfileHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
-            <Text
+            <TextDeprecated
               key={err}
               theme='error'
               text={validateErrorsTranslates[err]}

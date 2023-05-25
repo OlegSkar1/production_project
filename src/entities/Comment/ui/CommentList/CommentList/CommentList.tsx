@@ -5,7 +5,8 @@ import { Comment } from '../../../model/types/comment';
 import { CommentCard } from '../../CommentCard/CommentCard/CommentCard';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, VStack } from '@/shared/ui';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './CommentList.module.scss';
 
@@ -34,7 +35,7 @@ export const CommentList: FC<CommentListProps> = memo((props) => {
       {comments?.length ? (
         comments?.map((comment) => <CommentCard isLoading={isLoading} key={comment.id} comment={comment} />)
       ) : (
-        <Text title={t('Comments not found')} />
+        <TextDeprecated title={t('Comments not found')} />
       )}
     </VStack>
   );

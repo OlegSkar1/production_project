@@ -18,7 +18,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
-import { Avatar, HStack, Icon, Skeleton, Text, VStack } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleDetails.module.scss';
 
@@ -75,7 +79,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
       </VStack>
     );
   } else if (error) {
-    content = <Text align='center' title={t('an error occurred while loading the article')} theme='error' />;
+    content = <TextDeprecated align='center' title={t('an error occurred while loading the article')} theme='error' />;
   } else if (article) {
     content = (
       <>
@@ -83,15 +87,15 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
           <Avatar size={200} src={article.img} alt={article.title} />
         </HStack>
         <VStack tagname='header' align='start' data-testid='ArticleDetails.Info'>
-          <Text tagname='h1' title={article.title} size='size_l' />
-          <Text tagname='h2' title={article.subtitle} size='size_m' className={cls.articleSubTitle} />
+          <TextDeprecated tagname='h1' title={article.title} size='size_l' />
+          <TextDeprecated tagname='h2' title={article.subtitle} size='size_m' className={cls.articleSubTitle} />
           <HStack gap='4'>
-            <Icon Svg={EyeIcon} />
-            <Text text={String(article.views)} />
+            <IconDeprecated Svg={EyeIcon} />
+            <TextDeprecated text={String(article.views)} />
           </HStack>
           <HStack gap='4' className={cls.calendarWrapper}>
-            <Icon Svg={CalendarIcon} />
-            <Text text={article.createdAt} />
+            <IconDeprecated Svg={CalendarIcon} />
+            <TextDeprecated text={article.createdAt} />
           </HStack>
         </VStack>
         <VStack gap='32' align='start'>

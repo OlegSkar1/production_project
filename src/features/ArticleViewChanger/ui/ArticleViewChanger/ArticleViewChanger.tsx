@@ -4,7 +4,8 @@ import { ArticleView } from '@/entities/Article';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import GridIcon from '@/shared/assets/icons/tile.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, Icon } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 
 import cls from './ArticleViewChanger.module.scss';
 
@@ -35,14 +36,18 @@ export const ArticleViewChanger: FC<ArticleViewChangerProps> = memo((props) => {
   return (
     <div className={classNames('', [className], {})}>
       {viewTypes.map((viewType) => (
-        <Button key={viewType.view} onClick={onClick(viewType.view)} data-testid={`ArticleView-${viewType.view}`}>
-          <Icon
+        <ButtonDeprecated
+          key={viewType.view}
+          onClick={onClick(viewType.view)}
+          data-testid={`ArticleView-${viewType.view}`}
+        >
+          <IconDeprecated
             width={24}
             height={24}
             Svg={viewType.icon}
             className={classNames('', [], { [cls.notSelected]: viewType.view !== view })}
           />
-        </Button>
+        </ButtonDeprecated>
       ))}
     </div>
   );

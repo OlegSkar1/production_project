@@ -1,6 +1,6 @@
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 
-import { HStack } from '../../Stack/HStack/HStack';
+import { HStack } from '../../../redesigned/Stack';
 import { SelectProps } from '../model/types/select';
 
 import { classNames } from '@/shared/lib';

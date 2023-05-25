@@ -6,8 +6,9 @@ import { getUserAuthData, isAdminRole, isManagerRole, useUserActions } from '@/e
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { Avatar, Dropdown } from '@/shared/ui';
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups/Dropdown';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
 
 interface AvatarDropdownProps {
   className?: string;

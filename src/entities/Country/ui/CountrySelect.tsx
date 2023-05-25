@@ -5,7 +5,8 @@ import { Country } from '../model/types/county';
 
 import { classNames } from '@/shared/lib';
 import { DirectionType } from '@/shared/types/ui';
-import { ListBox, ListBoxItem } from '@/shared/ui';
+import { ListBoxItem } from '@/shared/ui';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ListBox';
 
 interface CountrySelectProps {
   className?: string;
@@ -39,7 +40,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo((props) => {
   );
 
   return (
-    <ListBox
+    <ListBoxDeprecated
       items={options}
       onChange={onChangeHandler}
       value={value}

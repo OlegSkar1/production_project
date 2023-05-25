@@ -10,7 +10,7 @@ import { ArticlesPageSearch, ArticlesPageSort, ArticlesPageTabs } from '@/featur
 import { ArticleViewChanger } from '@/features/ArticleViewChanger';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { HStack } from '@/shared/ui';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticlesFilters.module.scss';
 

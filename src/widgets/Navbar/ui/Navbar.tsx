@@ -10,9 +10,12 @@ import CreateArticleIcon from '@/shared/assets/icons/createArticle.svg';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLink, HStack, Icon, Text } from '@/shared/ui';
 import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Button } from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './Navbar.module.scss';
 
@@ -41,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
         name='isAppRedesigned'
         off={
           <HStack max tagname='header' className={classNames(cls.navbar, [className], {})}>
-            <Text title='Blog App' className={cls.title} />
+            <TextDeprecated title='Blog App' className={cls.title} />
             <HStack tagname='nav' gap='16' className={cls.links}>
               <AppLinkDeprecated to={getRouteArticleCreate()}>{t('Create article')}</AppLinkDeprecated>
               <HStack gap='16'>
@@ -53,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
         }
         on={
           <HStack gap='16' tagname='header' className={classNames(cls.navbarRedesigned, [className], {})}>
-            <AppLink to={getRouteArticleCreate()}>
+            <AppLink to={getRouteArticleCreate()} className={cls.createArticleLink}>
               <Icon Svg={CreateArticleIcon} />
             </AppLink>
             <NotificationButton />
@@ -66,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
 
   return (
     <HStack max tagname='header' className={classNames(cls.navbar, [className], {})}>
-      <Text title='Blog App' className={cls.title} />
+      <TextDeprecated title='Blog App' className={cls.title} />
       <Button variant='clearInverted' className={classNames(cls.links)} onClick={onShowModal}>
         {t('Sign in')}
       </Button>

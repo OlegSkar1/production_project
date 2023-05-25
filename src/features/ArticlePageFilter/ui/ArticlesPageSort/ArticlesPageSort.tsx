@@ -10,8 +10,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { OrderType } from '@/shared/types/sort';
-import { HStack, Select } from '@/shared/ui';
+import { Select } from '@/shared/ui';
 import { OptionList } from '@/shared/ui/deprecated/Select';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticlesPageSortProps {
   className?: string;

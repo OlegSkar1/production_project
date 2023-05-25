@@ -1,5 +1,6 @@
 import { classNames } from '@/shared/lib';
-import { HStack, Loader } from '@/shared/ui';
+import { Loader } from '@/shared/ui';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './PageLoader.module.scss';
 

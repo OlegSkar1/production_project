@@ -6,7 +6,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
 import cls from './ArticleList.module.scss';
 
@@ -32,11 +32,11 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
   );
 
   if (isError) {
-    return <Text text={t('article list error')} align='center' size='size_l' theme='error' />;
+    return <TextDeprecated text={t('article list error')} align='center' size='size_l' theme='error' />;
   }
 
   if (!isLoading && articles.length === 0) {
-    return <Text text={t('articles not found')} align='center' size='size_l' />;
+    return <TextDeprecated text={t('articles not found')} align='center' size='size_l' />;
   }
 
   return (

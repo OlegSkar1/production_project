@@ -8,8 +8,9 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { profileCardActions } from '../../model/slice/profileCardSlice';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { HStack, Text } from '@/shared/ui';
-import { Button } from '@/shared/ui/deprecated/Button';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ProfileHeaderProps {
   className?: string;
@@ -43,21 +44,21 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = memo((props) => {
 
   return (
     <HStack tagname='header' justify='between' className={className}>
-      <Text title={t('profile')} />
+      <TextDeprecated title={t('profile')} />
       {canEditProfile && (
         <div className='btnWrapper'>
           {readonly ? (
-            <Button variant='outlined' onClick={onEdit} data-testid='ProfileHeader.editBtn'>
+            <ButtonDeprecated variant='outlined' onClick={onEdit} data-testid='ProfileHeader.editBtn'>
               {t('edit')}
-            </Button>
+            </ButtonDeprecated>
           ) : (
             <HStack gap='16'>
-              <Button variant='outlined' onClick={onSave} data-testid='ProfileHeader.saveBtn'>
+              <ButtonDeprecated variant='outlined' onClick={onSave} data-testid='ProfileHeader.saveBtn'>
                 {t('save')}
-              </Button>
-              <Button variant='ontlinedRed' onClick={onCancel} data-testid='ProfileHeader.cancelBtn'>
+              </ButtonDeprecated>
+              <ButtonDeprecated variant='ontlinedRed' onClick={onCancel} data-testid='ProfileHeader.cancelBtn'>
                 {t('cancel')}
-              </Button>
+              </ButtonDeprecated>
             </HStack>
           )}
         </div>

@@ -6,7 +6,8 @@ import { useFetchRateArticleQuery, useSendRateArticleMutation } from '../../api/
 
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton, Text } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
 interface ArticleRateCardProps {
   className?: string;
@@ -60,7 +61,7 @@ export const ArticleRateCard: FC<ArticleRateCardProps> = memo((props) => {
   }
 
   if (isError) {
-    return <Text text={t('rate_load_error')} theme='error' />;
+    return <TextDeprecated text={t('rate_load_error')} theme='error' />;
   }
 
   return (

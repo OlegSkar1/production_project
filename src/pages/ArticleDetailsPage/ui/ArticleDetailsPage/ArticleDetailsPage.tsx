@@ -22,7 +22,8 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
-import { Card, Text } from '@/shared/ui';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Page } from '@/widgets/Page';
 
 import cls from './ArticleDetailsPage.module.scss';
@@ -73,9 +74,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
               name='isArticleRatingEnabled'
               on={<ArticleRateCard articleId={id} />}
               off={
-                <Card>
-                  <Text text={t('Here will be the evaluation of the article')} />
-                </Card>
+                <CardDeprecated>
+                  <TextDeprecated text={t('Here will be the evaluation of the article')} />
+                </CardDeprecated>
               }
             />
             <RecommendArticles />

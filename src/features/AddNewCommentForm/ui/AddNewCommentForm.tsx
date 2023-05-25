@@ -8,7 +8,10 @@ import { addCommentActions, addCommentReducer } from '../model/slice/addCommentS
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, HStack, Input, Text } from '@/shared/ui';
+import { Input } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './AddNewCommentForm.module.scss';
 
@@ -44,7 +47,9 @@ const AddNewCommentForm: FC<AddNewCommentFormProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      {error && <Text theme='error' align='center' text={t('Failed to post comment', { ns: 'translation' })} />}
+      {error && (
+        <TextDeprecated theme='error' align='center' text={t('Failed to post comment', { ns: 'translation' })} />
+      )}
       <HStack gap='16' className={classNames(cls.addNewCommentForm, [className], {})} data-testid='AddNewCommentForm'>
         <Input
           label={t('Enter comment text')}
@@ -53,9 +58,9 @@ const AddNewCommentForm: FC<AddNewCommentFormProps> = (props) => {
           onChange={onChange}
           data-testid='AddNewCommentForm.Input'
         />
-        <Button variant='outlined' onClick={onSendHandler} data-testid='AddNewCommentForm.Button'>
+        <ButtonDeprecated variant='outlined' onClick={onSendHandler} data-testid='AddNewCommentForm.Button'>
           {t('Send')}
-        </Button>
+        </ButtonDeprecated>
       </HStack>
     </DynamicModuleLoader>
   );

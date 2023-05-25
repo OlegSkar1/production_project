@@ -2,8 +2,8 @@ import { RightOutlined } from '@ant-design/icons';
 import { Listbox as HListbox } from '@headlessui/react';
 import { FC, Fragment, ReactNode, memo } from 'react';
 
-import { Button } from '../../Button/Button';
-import { HStack } from '../../Stack/HStack/HStack';
+import { HStack } from '../../../redesigned/Stack';
+import { Button as ButtonDeprecated } from '../../Button/Button';
 import { mapDirectionClasses } from '../styles/consts';
 import popupCls from '../styles/popup.module.scss';
 
@@ -51,9 +51,9 @@ export const ListBox: FC<ListBoxProps> = memo((props) => {
         disabled={readonly}
       >
         <HListbox.Button as={'div'} className={classNames(popupCls.trigger, [], { [popupCls.disable]: readonly })}>
-          <Button disabled={readonly} variant='backgroundInverted'>
+          <ButtonDeprecated disabled={readonly} variant='backgroundInverted'>
             {value ?? defaultValue}
-          </Button>
+          </ButtonDeprecated>
         </HListbox.Button>
         <HListbox.Options className={classNames(popupCls.items, optionsClasses, {})}>
           {items.map((item) => (

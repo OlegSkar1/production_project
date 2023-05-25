@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 
+import { HStack } from '../../../redesigned/Stack';
 import { Button } from '../../Button/Button';
-import { HStack } from '../../Stack/HStack/HStack';
 import { TabItem } from '../model/types/tabs';
 
 import cls from './Tabs.module.scss';

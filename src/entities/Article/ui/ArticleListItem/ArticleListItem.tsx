@@ -7,8 +7,14 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppImage, Avatar, Card, HStack, Icon, Skeleton, Text } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleListItem.module.scss';
 
@@ -23,11 +29,11 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation('articles');
 
-  const types = <Text text={article.type.join(', ')} className={cls.types} />;
+  const types = <TextDeprecated text={article.type.join(', ')} className={cls.types} />;
   const views = (
     <HStack gap='4'>
-      <Text text={String(article.views)} />
-      <Icon Svg={EyeIcon} />
+      <TextDeprecated text={String(article.views)} />
+      <IconDeprecated Svg={EyeIcon} />
     </HStack>
   );
 
@@ -36,13 +42,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
     return (
       <article className={classNames('', [className, cls[view]], {})} data-testid='ArticleListItem'>
-        <Card>
+        <CardDeprecated>
           <HStack gap='8'>
             {article.user.avatar && <Avatar src={article.user.avatar} alt={article.title} size={30} />}
-            <Text text={article.user.username} className={cls.username} />
-            <Text text={article.createdAt} className={cls.date} />
+            <TextDeprecated text={article.user.username} className={cls.username} />
+            <TextDeprecated text={article.createdAt} className={cls.date} />
           </HStack>
-          <Text title={article.title} className={cls.title} size='size_l' />
+          <TextDeprecated title={article.title} className={cls.title} size='size_l' />
           {types}
           <AppImage src={article.img} alt={article.title} className={cls.img} fallback={<Skeleton height={200} />} />
           <ArticleTextBlock block={block} className={cls.content} />
@@ -52,7 +58,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             </AppLink>
             {views}
           </HStack>
-        </Card>
+        </CardDeprecated>
       </article>
     );
   }
@@ -60,17 +66,17 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   return (
     <div className={classNames('', [className, cls[view]], {})} data-testid='ArticleListItem'>
       <AppLink to={getRouteArticleDetails(article.id)} target={target}>
-        <Card>
+        <CardDeprecated>
           <div className={cls.imgWrapper}>
             <AppImage src={article.img} alt={article.title} className={cls.img} fallback={<Skeleton height={200} />} />
-            <Text text={article.createdAt} className={cls.date} />
+            <TextDeprecated text={article.createdAt} className={cls.date} />
           </div>
           <HStack gap='4' justify='between' className={cls.infoWrapper}>
             {types}
             {views}
           </HStack>
-          <Text title={article.title} className={cls.title} size='size_s' />
-        </Card>
+          <TextDeprecated title={article.title} className={cls.title} size='size_s' />
+        </CardDeprecated>
       </AppLink>
     </div>
   );

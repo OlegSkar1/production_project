@@ -6,8 +6,8 @@ import { useParams } from 'react-router-dom';
 import { getUserIsEditArticle } from '@/entities/Article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '@/shared/ui';
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleDetailsHeaderProps {
   className?: string;
@@ -21,13 +21,13 @@ export const ArticleDetailsHeader: FC<ArticleDetailsHeaderProps> = memo((props) 
 
   return (
     <HStack justify='between' className={classNames('', [className], {})}>
-      <AppLink to={__PROJECT__ !== 'storybook' ? getRouteArticles() : '#'} theme='outlined'>
+      <AppLinkDeprecated to={__PROJECT__ !== 'storybook' ? getRouteArticles() : '#'} theme='outlined'>
         {t('back to list', { ns: 'articles' })}
-      </AppLink>
+      </AppLinkDeprecated>
       {isEdit && id && (
-        <AppLink to={getRouteArticleEdit(id)} theme='outlined'>
+        <AppLinkDeprecated to={getRouteArticleEdit(id)} theme='outlined'>
           {t('Edit')}
-        </AppLink>
+        </AppLinkDeprecated>
       )}
     </HStack>
   );

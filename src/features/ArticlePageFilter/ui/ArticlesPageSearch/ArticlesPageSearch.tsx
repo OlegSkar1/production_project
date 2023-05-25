@@ -9,7 +9,8 @@ import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { Card, Input } from '@/shared/ui';
+import { Input } from '@/shared/ui';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 
 interface ArticlesPageSearchProps {
   className?: string;
@@ -40,7 +41,7 @@ export const ArticlesPageSearch: FC<ArticlesPageSearchProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Card className={classNames('', [className], {})}>
+      <CardDeprecated className={classNames('', [className], {})}>
         <Input
           label={t('search')}
           value={search}
@@ -48,7 +49,7 @@ export const ArticlesPageSearch: FC<ArticlesPageSearchProps> = (props) => {
           variant='outlined'
           data-testid='ArticlesPageSearch'
         />
-      </Card>
+      </CardDeprecated>
     </DynamicModuleLoader>
   );
 };

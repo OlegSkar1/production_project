@@ -3,7 +3,9 @@ import { FC } from 'react';
 import { ArticleView } from '../../model/types/article';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, HStack, Skeleton, VStack } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleListItem.module.scss';
 
@@ -21,7 +23,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
   if (view === ArticleView.LIST) {
     return (
       <div className={classNames('', [className, cls[view]], {})}>
-        <Card>
+        <CardDeprecated>
           <HStack className={cls.headerWrapper}>
             <Skeleton variant='circle' width={30} height={30} />
             <Skeleton width={50} height={16} className={cls.username} />
@@ -44,14 +46,14 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
             <Skeleton width={100} height={25} />
             {views}
           </HStack>
-        </Card>
+        </CardDeprecated>
       </div>
     );
   }
 
   return (
     <div className={classNames('', [className, cls[view]], {})}>
-      <Card>
+      <CardDeprecated>
         <div className={cls.imgWrapper}>
           <Skeleton height={200} />
         </div>
@@ -60,7 +62,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
           {views}
         </HStack>
         <Skeleton variant='title' className={cls.title} />
-      </Card>
+      </CardDeprecated>
     </div>
   );
 };

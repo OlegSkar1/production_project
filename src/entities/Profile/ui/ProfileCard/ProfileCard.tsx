@@ -5,7 +5,10 @@ import { Profile } from '../../model/types/profile';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { classNames } from '@/shared/lib';
-import { Avatar, HStack, Input, Loader, Text, VStack } from '@/shared/ui';
+import { Input, Loader } from '@/shared/ui';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ProfileCard.module.scss';
 
@@ -55,7 +58,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
   if (error) {
     return (
       <VStack justify='center' className={classNames(cls.profileCard, [className, cls.error], {})}>
-        <Text title={t('profile_title_error')} theme='error' text={t('profile_text_error')} align='center' />
+        <TextDeprecated title={t('profile_title_error')} theme='error' text={t('profile_text_error')} align='center' />
       </VStack>
     );
   }

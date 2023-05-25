@@ -7,8 +7,10 @@ import { SidebarItemsType } from '../../model/types/items';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLink, HStack, Icon } from '@/shared/ui';
 import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './SidebarItem.module.scss';
 

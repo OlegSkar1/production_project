@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { ProfileRateCard } from '@/features/ProfileRateCard';
-import { VStack } from '@/shared/ui';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {

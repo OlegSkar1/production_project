@@ -1,9 +1,7 @@
 .app-link {
+  width: 100%;
   text-decoration: none;
-
-  &:hover {
-    transition: all 0.2s;
-  }
+  transition: all 0.2s;
 }
 
 .primary {
