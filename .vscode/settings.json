@@ -9,5 +9,5 @@
   "cssModules.camelCase": true,
   "i18n-ally.sourceLanguage": "ru",
   "jest.autoRun": "off",
-  "svg.preview.background": "black"
+  "svg.preview.background": "white"
 }

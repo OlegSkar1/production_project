@@ -32,7 +32,16 @@ export const Page: FC<PageProps> = (props) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const targetRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  useInfiniteScroll({ targetRef, wrapperRef, callback: onScrollEnd, isLoading });
+  useInfiniteScroll({
+    targetRef,
+    wrapperRef: toggleFeature({
+      name: 'isAppRedesigned',
+      on: () => null,
+      off: () => wrapperRef,
+    }),
+    callback: onScrollEnd,
+    isLoading,
+  });
 
   const onScroll: UIEventHandler<HTMLElement> = useThrottle((e) => {
     dispatch(scrollSaveActions.setScrollPosition({ path: pathname, position: e.currentTarget.scrollTop }));

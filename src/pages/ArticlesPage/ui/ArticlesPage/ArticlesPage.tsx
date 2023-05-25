@@ -11,8 +11,10 @@ import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 
 import { ArticleGreeting } from '@/features/ArticleGreeting';
 import { getOrder, getSearch, getSort, getTab } from '@/features/ArticlePageFilter';
+import { StickyContentLayout } from '@/shared/layouts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
 import { Page } from '@/widgets/Page';
@@ -58,18 +60,43 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     }
   }, [dispatch, error]);
 
+  const content = (
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <Page
+          data-testid='ArticlesPage'
+          isLoading={isLoading}
+          onScrollEnd={onLoadNewArticles}
+          className={classNames(cls.articlesPage, [className], {})}
+        >
+          <ArticlesFilters />
+          <ArticleInfiniteList />
+          <ArticleGreeting />
+        </Page>
+      }
+      on={
+        <StickyContentLayout
+          left={<div>214336</div>}
+          right={<div>214336</div>}
+          content={
+            <Page
+              data-testid='ArticlesPage'
+              isLoading={isLoading}
+              onScrollEnd={onLoadNewArticles}
+              className={classNames(cls.articlesPage, [className], {})}
+            >
+              <ArticleInfiniteList />
+            </Page>
+          }
+        />
+      }
+    />
+  );
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page
-        data-testid='ArticlesPage'
-        isLoading={isLoading}
-        onScrollEnd={onLoadNewArticles}
-        className={classNames(cls.articlesPage, [className], {})}
-      >
-        <ArticlesFilters />
-        <ArticleInfiniteList />
-        <ArticleGreeting />
-      </Page>
+      {content}
     </DynamicModuleLoader>
   );
 };

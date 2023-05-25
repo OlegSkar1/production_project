@@ -7,8 +7,8 @@ import { SidebarItemsType } from '../../model/types/items';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLink as AppLinkDeprecated, HStack, Icon } from '@/shared/ui';
-import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
+import { AppLink, HStack, Icon } from '@/shared/ui';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 
 import cls from './SidebarItem.module.scss';
 

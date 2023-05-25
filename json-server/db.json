@@ -1762,7 +1762,7 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_theme_dark",
+        "theme": "app_theme_light",
         "isFirstVisit": true,
         "articlePageHasBeenOpen": true
       }

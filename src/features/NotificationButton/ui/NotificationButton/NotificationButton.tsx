@@ -61,7 +61,7 @@ export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
       }
       on={
         <Popover unmount={false} trigger={trigger} className={classNames('', [className], {})}>
-          <NotificationsList className={cls.notifications} />
+          <NotificationsList className={cls.notificationsRedesigned} />
         </Popover>
       }
     />

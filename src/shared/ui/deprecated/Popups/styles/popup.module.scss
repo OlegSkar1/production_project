@@ -7,6 +7,11 @@
   z-index: var(--dropdown-z-index);
   background: var(--listbox-bg);
   box-shadow: 4px 4px 8px 0 rgb(34 60 80 / 20%);
+
+  .active {
+    cursor: pointer;
+    background: var(--inverted-primary-color);
+  }
 }
 
 .trigger {
@@ -18,11 +23,6 @@
   background: none;
   border: none;
   outline: none;
-}
-
-.active {
-  cursor: pointer;
-  background: var(--inverted-primary-color);
 }
 
 .disable {

@@ -1,0 +1,28 @@
+.card {
+  border-radius: 32px;
+}
+
+.normal,
+.outlined {
+  background: var(--dark-bg-redesigned);
+}
+
+.outlined {
+  border: 1px solid var(--accent-redesigned);
+}
+
+.p_0 {
+  padding: 0;
+}
+
+.p_8 {
+  padding: 8px;
+}
+
+.p_16 {
+  padding: 16px;
+}
+
+.p_24 {
+  padding: 24px;
+}

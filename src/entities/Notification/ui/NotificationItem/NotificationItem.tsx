@@ -4,7 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { NotificationType } from '../../model/types/notification';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { AppLink, Card, Skeleton, Text } from '@/shared/ui';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
 import cls from './NotificationItem.module.scss';
 
@@ -21,29 +25,66 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props) => {
   const { t } = useTranslation();
 
   const content = (
-    <Card variant='outlined' className={classNames(cls.notificationItem, [className], {})}>
-      <Text title={item?.title} />
-      <Text text={item?.description} />
-    </Card>
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <CardDeprecated variant='outlined' className={classNames(cls.notificationItem, [className], {})}>
+          <TextDeprecated title={item?.title} />
+          <TextDeprecated text={item?.description} />
+        </CardDeprecated>
+      }
+      on={
+        <Card padding='0' className={classNames(cls.notificationItemRedesigned, [className], {})}>
+          <Text title={item?.title} text={item?.description} />
+        </Card>
+      }
+    />
   );
 
   if (isError) {
-    return <Text text={t('error')} className={classNames(cls.notificationItem, [className], {})} />;
+    return (
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={<TextDeprecated text={t('error')} className={classNames(cls.notificationItem, [className], {})} />}
+        on={<Text text={t('error')} className={classNames(cls.notificationItem, [className], {})} />}
+      />
+    );
   }
 
   if (isLoading) {
     return (
-      <Card variant='outlined' className={cls.notificationItem}>
-        <Skeleton variant='title' className={cls.skeleton} />
-        <Skeleton height={50} />
-      </Card>
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={
+          <CardDeprecated variant='outlined' className={cls.notificationItem}>
+            <Skeleton variant='title' className={cls.skeleton} />
+            <Skeleton height={50} />
+          </CardDeprecated>
+        }
+        on={
+          <Card variant='outlined' className={cls.notificationItem}>
+            <Skeleton variant='title' className={cls.skeleton} />
+            <Skeleton height={50} />
+          </Card>
+        }
+      />
     );
   }
   if (item?.href) {
     return (
-      <AppLink className={cls.notificationItem} to={item.href}>
-        {content}
-      </AppLink>
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={
+          <AppLinkDeprecated className={cls.notificationItem} to={item.href}>
+            {content}
+          </AppLinkDeprecated>
+        }
+        on={
+          <AppLink className={cls.notificationItem} to={item.href}>
+            {content}
+          </AppLink>
+        }
+      />
     );
   }
 

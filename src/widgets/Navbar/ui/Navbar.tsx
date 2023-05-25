@@ -6,10 +6,12 @@ import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
+import CreateArticleIcon from '@/shared/assets/icons/createArticle.svg';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLink, HStack, Text } from '@/shared/ui';
+import { AppLink, HStack, Icon, Text } from '@/shared/ui';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Button } from '@/shared/ui/deprecated/Button';
 
 import cls from './Navbar.module.scss';
@@ -41,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
           <HStack max tagname='header' className={classNames(cls.navbar, [className], {})}>
             <Text title='Blog App' className={cls.title} />
             <HStack tagname='nav' gap='16' className={cls.links}>
-              <AppLink to={getRouteArticleCreate()}>{t('Create article')}</AppLink>
+              <AppLinkDeprecated to={getRouteArticleCreate()}>{t('Create article')}</AppLinkDeprecated>
               <HStack gap='16'>
                 <NotificationButton />
                 <AvatarDropdown />
@@ -51,6 +53,9 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
         }
         on={
           <HStack gap='16' tagname='header' className={classNames(cls.navbarRedesigned, [className], {})}>
+            <AppLink to={getRouteArticleCreate()}>
+              <Icon Svg={CreateArticleIcon} />
+            </AppLink>
             <NotificationButton />
             <AvatarDropdown />
           </HStack>

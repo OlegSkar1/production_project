@@ -7,7 +7,8 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppImage, AppLink, Avatar, Card, HStack, Icon, Skeleton, Text } from '@/shared/ui';
+import { AppImage, Avatar, Card, HStack, Icon, Skeleton, Text } from '@/shared/ui';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 
 import cls from './ArticleListItem.module.scss';
 

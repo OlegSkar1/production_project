@@ -6,7 +6,8 @@ import { useParams } from 'react-router-dom';
 import { getUserIsEditArticle } from '@/entities/Article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, HStack } from '@/shared/ui';
+import { HStack } from '@/shared/ui';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 
 interface ArticleDetailsHeaderProps {
   className?: string;

@@ -1,0 +1,49 @@
+.size_s {
+  &.title {
+    font: var(--font-m-redesigned);
+  }
+
+  &.paragraph {
+    font: var(--font-s-redesigned);
+  }
+}
+
+.size_m {
+  &.title {
+    font: var(--font-l-redesigned);
+  }
+
+  &.paragraph {
+    font: var(--font-m-redesigned);
+  }
+}
+
+.size_l {
+  &.title {
+    font: var(--font-xl-redesigned);
+  }
+
+  &.paragraph {
+    font: var(--font-l-redesigned);
+  }
+}
+
+.primary {
+  color: var(--text-redesigned);
+}
+
+.error {
+  color: var(--cancel-redesigned);
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}

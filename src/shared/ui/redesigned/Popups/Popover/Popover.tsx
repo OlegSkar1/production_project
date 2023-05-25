@@ -20,16 +20,15 @@ interface PopoverProps {
 export const Popover: FC<PopoverProps> = memo((props) => {
   const { className, children, trigger, direction = 'bottom left', unmount = true } = props;
 
+  const popoverItems = [mapDirectionClasses[direction], popupCls.items, cls.popover];
+
   return (
     <HPopover className={classNames(popupCls.wrapper, [className], {})}>
       <HPopover.Button as='div' className={popupCls.trigger}>
         {trigger}
       </HPopover.Button>
 
-      <HPopover.Panel
-        unmount={unmount}
-        className={classNames(popupCls.items, [mapDirectionClasses[direction], cls.popover], {})}
-      >
+      <HPopover.Panel unmount={unmount} className={classNames(cls.menu, popoverItems, {})}>
         {children}
       </HPopover.Panel>
     </HPopover>
