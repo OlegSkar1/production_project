@@ -1,13 +1,37 @@
 .button {
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
   padding: 8px 16px;
+
   color: var(--text-redesigned);
+
   transition: all 0.2s;
 
   &:hover {
     color: var(--accent-redesigned);
     transition: all 0.2s;
+
+    .addon-left svg,
+    .addon-right svg {
+      color: var(--accent-redesigned);
+    }
   }
+}
+
+.with-addon-left {
+  padding-left: 8px;
+}
+
+.with-addon-right {
+  padding-right: 8px;
+}
+
+.addon-left,
+.addon-right {
+  display: flex;
 }
 
 .clear,
@@ -28,6 +52,17 @@
   background: none;
   border: 1px solid var(--icon-redesigned);
   border-radius: 16px;
+}
+
+.filled,
+.light {
+  background: var(--bg-redesigned);
+  border: none;
+  border-radius: 34px;
+}
+
+.light {
+  background: var(--light-bg-redesigned);
 }
 
 .small {

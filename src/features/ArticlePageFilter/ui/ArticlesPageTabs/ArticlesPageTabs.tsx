@@ -1,20 +1,19 @@
-import { FC, memo, useCallback, useMemo } from 'react';
+import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 
-import { getTab } from '../../model/selectors/filterSelectors';
-import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
+import { articlesFilterReducer } from '../../model/slice/filterSlice';
 
 import { ArticleType } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Tabs } from '@/shared/ui';
-import { TabItem } from '@/shared/ui/deprecated/Tabs';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
+import { Tabs as TabsDeprecated, TabItem } from '@/shared/ui/deprecated/Tabs';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 interface ArticlesPageTabsProps {
   className?: string;
-  onTabClick: (replace: boolean) => void;
+  tab: ArticleType;
+  onTabHandler: (val: TabItem<string>) => void;
 }
 
 const reducers: ReducersList = {
@@ -22,13 +21,9 @@ const reducers: ReducersList = {
 };
 
 export const ArticlesPageTabs: FC<ArticlesPageTabsProps> = memo((props) => {
-  const { className, onTabClick } = props;
-
-  const dispatch = useAppDispatch();
+  const { className, tab, onTabHandler } = props;
 
   const { t } = useTranslation('articles');
-
-  const tab = useSelector(getTab);
 
   const tabs: TabItem<ArticleType>[] = useMemo(
     () => [
@@ -52,19 +47,25 @@ export const ArticlesPageTabs: FC<ArticlesPageTabsProps> = memo((props) => {
     [t]
   );
 
-  const onTabHandler = useCallback(
-    (tab: TabItem<string>) => {
-      dispatch(articlesFilterActions.setTab(tab.value as ArticleType));
-      onTabClick(true);
-    },
-    [dispatch, onTabClick]
+  const content = (
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <div className={classNames('', [className], {})}>
+          <TabsDeprecated tabs={tabs} onTabClick={onTabHandler} key={tab} value={tab} data-testid='ArticlesPageTabs' />
+        </div>
+      }
+      on={
+        <div className={classNames('', [className], {})}>
+          <Tabs tabs={tabs} onTabClick={onTabHandler} key={tab} value={tab} data-testid='ArticlesPageTabs' />
+        </div>
+      }
+    />
   );
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={classNames('', [className], {})}>
-        <Tabs tabs={tabs} onTabClick={onTabHandler} key={tab} value={tab} data-testid='ArticlesPageTabs' />
-      </div>
+      {content}
     </DynamicModuleLoader>
   );
 });

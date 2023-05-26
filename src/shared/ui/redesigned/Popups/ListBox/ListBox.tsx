@@ -1,42 +1,53 @@
-import { RightOutlined } from '@ant-design/icons';
 import { Listbox as HListbox } from '@headlessui/react';
-import { FC, Fragment, ReactNode, memo } from 'react';
+import { Fragment, ReactNode, memo, useMemo } from 'react';
 
-import { Button } from '../../../deprecated/Button';
+import { Button } from '../../Button';
+import { Icon } from '../../Icon';
 import { HStack } from '../../Stack/HStack/HStack';
 import { mapDirectionClasses } from '../styles/consts';
 import popupCls from '../styles/popup.module.scss';
 
+import DownArrow from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib';
 import { DirectionType } from '@/shared/types/ui';
 
 import cls from './ListBox.module.scss';
 
-export interface ListBoxItem {
-  value: string;
+export interface ListBoxItem<T extends string> {
+  value: T;
   content: ReactNode;
   disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
   className?: string;
-  value?: string;
+  value?: T;
   defaultValue?: string;
-  onChange: <T extends string>(value: T) => void;
-  items: ListBoxItem[];
+  onChange: (value: T) => void;
+  items: ListBoxItem<T>[];
   label?: string;
   readonly?: boolean;
   direction?: DirectionType;
 }
 
-export const ListBox: FC<ListBoxProps> = memo((props) => {
+const typedMemo: <T>(cb: T) => T = memo;
+
+export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
   const { className, value, onChange, items, label, defaultValue, readonly, direction = 'bottom left' } = props;
 
-  const optionsClasses = [cls.additional, mapDirectionClasses[direction]];
+  const optionsClasses = [mapDirectionClasses[direction], popupCls.items];
+
+  const selectedValue = useMemo(() => {
+    return items.find((item) => item.value === value);
+  }, [items, value]);
 
   return (
-    <HStack gap='4'>
-      {label && <label>{label}</label>}
+    <>
+      {label && (
+        <label>
+          <span>{label}</span>
+        </label>
+      )}
       <HListbox
         as='div'
         defaultValue={defaultValue}
@@ -46,20 +57,20 @@ export const ListBox: FC<ListBoxProps> = memo((props) => {
         disabled={readonly}
       >
         <HListbox.Button as={'div'} className={classNames(popupCls.trigger, [], { [popupCls.disable]: readonly })}>
-          <Button disabled={readonly} variant='backgroundInverted'>
-            {value ?? defaultValue}
+          <Button disabled={readonly} variant='light' addonRight={<Icon Svg={DownArrow} className={cls.arrow} />}>
+            <span>{selectedValue?.content ?? defaultValue}</span>
           </Button>
         </HListbox.Button>
-        <HListbox.Options className={classNames(popupCls.items, optionsClasses, {})}>
+        <HListbox.Options className={classNames(cls.menu, optionsClasses, {})}>
           {items.map((item) => (
             <HListbox.Option as={Fragment} key={item.value} value={item.value} disabled={item.disabled}>
               {({ active, selected }) => (
                 <li
                   className={classNames(cls.item, [], { [popupCls.active]: active, [popupCls.disable]: item.disabled })}
                 >
-                  <HStack gap='4' max justify='center'>
-                    {selected && <RightOutlined />}
-                    {item.content}
+                  <HStack gap='8'>
+                    <span>{item.content}</span>
+                    {selected && <Icon Svg={DownArrow} className={cls.arrowLeft} />}
                   </HStack>
                 </li>
               )}
@@ -67,6 +78,6 @@ export const ListBox: FC<ListBoxProps> = memo((props) => {
           ))}
         </HListbox.Options>
       </HListbox>
-    </HStack>
+    </>
   );
 });

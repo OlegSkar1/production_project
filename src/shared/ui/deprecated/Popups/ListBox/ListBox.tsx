@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { Listbox as HListbox } from '@headlessui/react';
-import { FC, Fragment, ReactNode, memo } from 'react';
+import { FC, Fragment, ReactNode, memo, useMemo } from 'react';
 
 import { HStack } from '../../../redesigned/Stack';
 import { Button as ButtonDeprecated } from '../../Button/Button';
@@ -39,6 +39,10 @@ export const ListBox: FC<ListBoxProps> = memo((props) => {
 
   const optionsClasses = [cls.additional, mapDirectionClasses[direction]];
 
+  const selectedValue = useMemo(() => {
+    return items?.find((item) => item.value === value);
+  }, [items, value]);
+
   return (
     <HStack gap='4'>
       {label && <label>{label}</label>}
@@ -52,7 +56,7 @@ export const ListBox: FC<ListBoxProps> = memo((props) => {
       >
         <HListbox.Button as={'div'} className={classNames(popupCls.trigger, [], { [popupCls.disable]: readonly })}>
           <ButtonDeprecated disabled={readonly} variant='backgroundInverted'>
-            {value ?? defaultValue}
+            {selectedValue?.content ?? value}
           </ButtonDeprecated>
         </HListbox.Button>
         <HListbox.Options className={classNames(popupCls.items, optionsClasses, {})}>

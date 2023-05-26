@@ -1,22 +1,24 @@
-import { FC, memo, useCallback, useMemo } from 'react';
+import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 
-import { getOrder, getSort } from '../../model/selectors/filterSelectors';
-import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
+import { articlesFilterReducer } from '../../model/slice/filterSlice';
 
 import { SortType } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { OrderType } from '@/shared/types/sort';
 import { Select } from '@/shared/ui';
 import { OptionList } from '@/shared/ui/deprecated/Select';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticlesPageSortProps {
   className?: string;
-  onChangeSort: (replace: boolean) => void;
+  sort: SortType;
+  order: OrderType;
+  onSort: (val: SortType) => void;
+  onOrder: (val: OrderType) => void;
 }
 
 const reducers: ReducersList = {
@@ -24,14 +26,9 @@ const reducers: ReducersList = {
 };
 
 export const ArticlesPageSort: FC<ArticlesPageSortProps> = memo((props) => {
-  const { className, onChangeSort } = props;
+  const { className, sort, order, onSort, onOrder } = props;
 
   const { t } = useTranslation();
-
-  const dispatch = useAppDispatch();
-
-  const sort = useSelector(getSort);
-  const order = useSelector(getOrder);
 
   const sortOptions = useMemo<OptionList<SortType>[]>(
     () => [
@@ -64,40 +61,42 @@ export const ArticlesPageSort: FC<ArticlesPageSortProps> = memo((props) => {
     ],
     [t]
   );
-  const onSort = useCallback(
-    (val: SortType) => {
-      dispatch(articlesFilterActions.setSort(val));
-      onChangeSort(true);
-    },
-    [dispatch, onChangeSort]
-  );
-
-  const onOrder = useCallback(
-    (val: OrderType) => {
-      dispatch(articlesFilterActions.setOrder(val));
-      onChangeSort(true);
-    },
-    [dispatch, onChangeSort]
-  );
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <HStack data-testid='ArticlesPageSort' gap='32' className={classNames('', [className], {})}>
-        <Select
-          data-testid='ArticlesPageSort.sort'
-          options={sortOptions}
-          label={t('Sort by')}
-          value={sort}
-          onChange={onSort}
-        />
-        <Select
-          data-testid='ArticlesPageSort.order'
-          options={orderOptions}
-          label={t('order by')}
-          onChange={onOrder}
-          value={order}
-        />
-      </HStack>
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={
+          <HStack data-testid='ArticlesPageSort' gap='32' className={classNames('', [className], {})}>
+            <Select
+              data-testid='ArticlesPageSort.sort'
+              options={sortOptions}
+              label={t('Sort by')}
+              value={sort}
+              onChange={onSort}
+            />
+            <Select
+              data-testid='ArticlesPageSort.order'
+              options={orderOptions}
+              label={t('order by')}
+              onChange={onOrder}
+              value={order}
+            />
+          </HStack>
+        }
+        on={
+          <VStack data-testid='ArticlesPageSort' gap='8' align='start' className={classNames('', [className], {})}>
+            <ListBox
+              data-testid='ArticlesPageSort.sort'
+              items={sortOptions}
+              label={t('Sort by')}
+              value={sort}
+              onChange={onSort}
+            />
+            <ListBox data-testid='ArticlesPageSort.order' items={orderOptions} onChange={onOrder} value={order} />
+          </VStack>
+        }
+      />
     </DynamicModuleLoader>
   );
 });

@@ -9,9 +9,12 @@ import {
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { articlesListActions } from '../../model/slice/articlesListSlice/articlesListSlice';
 
-import { ArticleView } from '@/entities/Article';
-import { getSort, getOrder, getSearch, getTab } from '@/features/ArticlePageFilter';
+import { ArticleType, ArticleView, SortType } from '@/entities/Article';
+import { getSort, getOrder, getSearch, getTab, articlesFilterActions } from '@/features/ArticlePageFilter';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { OrderType } from '@/shared/types/sort';
+import { TabItem } from '@/shared/ui/deprecated/Tabs';
 
 export function useArticleFilters() {
   const dispatch = useAppDispatch();
@@ -41,6 +44,40 @@ export function useArticleFilters() {
     [dispatch]
   );
 
+  const onSort = useCallback(
+    (val: SortType) => {
+      dispatch(articlesFilterActions.setSort(val));
+      onChangeSort(true);
+    },
+    [dispatch, onChangeSort]
+  );
+
+  const onOrder = useCallback(
+    (val: OrderType) => {
+      dispatch(articlesFilterActions.setOrder(val));
+      onChangeSort(true);
+    },
+    [dispatch, onChangeSort]
+  );
+
+  const onTabHandler = useCallback(
+    (tab: TabItem<string>) => {
+      dispatch(articlesFilterActions.setTab(tab.value as ArticleType));
+      onChangeSort(true);
+    },
+    [dispatch, onChangeSort]
+  );
+
+  const debouncedSort = useDebounce(onChangeSort, 500);
+
+  const onSearch = useCallback(
+    (val: string) => {
+      dispatch(articlesFilterActions.setSearch(val));
+      debouncedSort(true);
+    },
+    [debouncedSort, dispatch]
+  );
+
   return {
     isLoading,
     error,
@@ -50,6 +87,9 @@ export function useArticleFilters() {
     tab,
     view,
     onChangeView,
-    onChangeSort,
+    onSort,
+    onOrder,
+    onTabHandler,
+    onSearch,
   };
 }

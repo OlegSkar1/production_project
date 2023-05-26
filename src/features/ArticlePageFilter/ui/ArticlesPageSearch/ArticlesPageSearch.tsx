@@ -1,20 +1,21 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 
-import { getSearch } from '../../model/selectors/filterSelectors';
-import { articlesFilterActions, articlesFilterReducer } from '../../model/slice/filterSlice';
+import { articlesFilterReducer } from '../../model/slice/filterSlice';
 
+import SearchIcon from '@/shared/assets/icons/search.svg';
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { Input } from '@/shared/ui';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
+import { Input as InputDeprecated } from '@/shared/ui';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Input } from '@/shared/ui/redesigned/Input';
 
 interface ArticlesPageSearchProps {
   className?: string;
-  onChangeSort: (replace: boolean) => void;
+  onSearch: (val: string) => void;
+  search: string;
 }
 
 const reducers: ReducersList = {
@@ -22,34 +23,39 @@ const reducers: ReducersList = {
 };
 
 export const ArticlesPageSearch: FC<ArticlesPageSearchProps> = (props) => {
-  const { className, onChangeSort } = props;
+  const { className, search, onSearch } = props;
 
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
 
-  const search = useSelector(getSearch);
-
-  const debouncedSort = useDebounce(onChangeSort, 500);
-
-  const onSearch = useCallback(
-    (val: string) => {
-      dispatch(articlesFilterActions.setSearch(val));
-      debouncedSort(true);
-    },
-    [debouncedSort, dispatch]
+  const content = (
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <CardDeprecated className={classNames('', [className], {})}>
+          <InputDeprecated
+            label={t('search')}
+            value={search}
+            onChange={onSearch}
+            variant='outlined'
+            data-testid='ArticlesPageSearch'
+          />
+        </CardDeprecated>
+      }
+      on={
+        <Input
+          value={search}
+          onChange={onSearch}
+          placeholder={t('search')}
+          addonLeft={<Icon Svg={SearchIcon} />}
+          data-testid='ArticlesPageSearch'
+        />
+      }
+    />
   );
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <CardDeprecated className={classNames('', [className], {})}>
-        <Input
-          label={t('search')}
-          value={search}
-          onChange={onSearch}
-          variant='outlined'
-          data-testid='ArticlesPageSearch'
-        />
-      </CardDeprecated>
+      {content}
     </DynamicModuleLoader>
   );
 };

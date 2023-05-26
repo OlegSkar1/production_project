@@ -6,10 +6,29 @@
   overflow: hidden;
   border: 1px solid var(--accent-redesigned);
   border-radius: 18px;
-  box-shadow: 0 3px 10px 0 var(--accent-redesigned);
 
   .active {
     background: var(--light-bg-redesigned);
+  }
+
+  &.direction-top-left {
+    right: 0;
+    bottom: 100%;
+  }
+
+  &.direction-top-right {
+    bottom: 100%;
+    left: 0;
+  }
+
+  &.direction-bottom-left {
+    top: 100%;
+    right: 0;
+  }
+
+  &.direction-bottom-right {
+    top: 100%;
+    left: 0;
   }
 }
 
@@ -27,24 +46,4 @@
 .disable {
   pointer-events: none;
   opacity: 0.7;
-}
-
-.direction-top-left {
-  right: 0;
-  bottom: 100%;
-}
-
-.direction-top-right {
-  bottom: 100%;
-  left: 0;
-}
-
-.direction-bottom-left {
-  top: 100%;
-  right: 0;
-}
-
-.direction-bottom-right {
-  top: 100%;
-  left: 0;
 }

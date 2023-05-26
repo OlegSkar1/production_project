@@ -15,16 +15,16 @@ interface ArticlesFiltersProps {
 
 export const ArticlesFilters: FC<ArticlesFiltersProps> = memo((props) => {
   const { className } = props;
-  const { view, onChangeSort, onChangeView } = useArticleFilters();
+  const { view, order, sort, tab, search, onChangeView, onSort, onOrder, onTabHandler, onSearch } = useArticleFilters();
 
   return (
     <div className={classNames('', [className], {})}>
       <HStack justify='between' className={cls.articlesHeaderWrapper}>
-        <ArticlesPageSort onChangeSort={onChangeSort} />
+        <ArticlesPageSort onOrder={onOrder} onSort={onSort} order={order} sort={sort} />
         <ArticleViewChanger onViewClick={onChangeView} view={view} />
       </HStack>
-      <ArticlesPageSearch onChangeSort={onChangeSort} className={cls.search} />
-      <ArticlesPageTabs onTabClick={onChangeSort} className={cls.tabs} />
+      <ArticlesPageSearch search={search} onSearch={onSearch} className={cls.search} />
+      <ArticlesPageTabs onTabHandler={onTabHandler} tab={tab} className={cls.tabs} />
     </div>
   );
 });

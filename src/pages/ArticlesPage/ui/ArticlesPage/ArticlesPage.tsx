@@ -7,6 +7,7 @@ import { initedFetchArticles } from '../../model/services/initedFetchArticles/in
 import { articlesListReducer } from '../../model/slice/articlesListSlice/articlesListSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
+import { FilterContainer } from '../FilterContainer/FilterContainer';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 
 import { ArticleGreeting } from '@/features/ArticleGreeting';
@@ -70,7 +71,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       on={
         <StickyContentLayout
           left={<ViewSelectorContainer />}
-          right={<div>214336</div>}
+          right={<FilterContainer />}
           content={
             <Page
               data-testid='ArticlesPage'
