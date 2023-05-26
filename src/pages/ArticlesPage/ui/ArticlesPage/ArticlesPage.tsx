@@ -1,16 +1,15 @@
 import { FC, memo, useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { articlesListError, articlesListIsLoading } from '../../model/selectors/articlesList/articlesList';
+import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initedFetchArticles } from '../../model/services/initedFetchArticles/initedFetchArticles';
 import { articlesListReducer } from '../../model/slice/articlesListSlice/articlesListSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 
 import { ArticleGreeting } from '@/features/ArticleGreeting';
-import { getOrder, getSearch, getSort, getTab } from '@/features/ArticlePageFilter';
 import { StickyContentLayout } from '@/shared/layouts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -34,14 +33,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const dispatch = useAppDispatch();
-
-  const isLoading = useSelector(articlesListIsLoading);
-  const error = useSelector(articlesListError);
-
-  const sort = useSelector(getSort);
-  const order = useSelector(getOrder);
-  const search = useSelector(getSearch);
-  const tab = useSelector(getTab);
+  const { sort, order, tab, search, error, isLoading } = useArticleFilters();
 
   useEffect(() => {
     setSearchParams({ sort, order, search, type: tab });
@@ -77,7 +69,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       }
       on={
         <StickyContentLayout
-          left={<div>214336</div>}
+          left={<ViewSelectorContainer />}
           right={<div>214336</div>}
           content={
             <Page

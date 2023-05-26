@@ -74,6 +74,7 @@ module.exports = {
           'name',
           'color',
           'weight',
+          'border',
         ],
       },
     ],

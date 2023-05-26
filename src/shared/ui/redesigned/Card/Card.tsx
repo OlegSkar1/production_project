@@ -7,12 +7,14 @@ import cls from './Card.module.scss';
 type CardVariant = 'normal' | 'outlined';
 
 type CardPadding = '0' | '8' | '16' | '24';
+type CardRound = 'round' | 'normal';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
   variant?: CardVariant;
   padding?: CardPadding;
+  border?: CardRound;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -23,12 +25,12 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 };
 
 export const Card: FC<CardProps> = (props) => {
-  const { className, children, variant = 'normal', padding = '24', ...otherProps } = props;
+  const { className, children, variant = 'normal', padding = '24', border = 'round', ...otherProps } = props;
 
   const paddingClass = mapPaddingToClass[padding];
 
   return (
-    <div className={classNames(cls.card, [className, cls[variant], cls[paddingClass]], {})} {...otherProps}>
+    <div className={classNames('', [className, cls[variant], cls[paddingClass], cls[border]], {})} {...otherProps}>
       {children}
     </div>
   );

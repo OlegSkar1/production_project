@@ -25,16 +25,19 @@ type IconProps = ClickableIconProps | NonClickableIconProps;
 export const Icon: FC<IconProps> = memo((props) => {
   const { Svg, className, width = 32, height = 32, clickable, ...otherProps } = props;
 
-  const icon = <Svg className={cls.icon} width={width} height={height} {...otherProps} onClick={undefined} />;
+  const icon = (
+    <Svg
+      className={classNames(cls.icon, [className], {})}
+      width={width}
+      height={height}
+      {...otherProps}
+      onClick={undefined}
+    />
+  );
 
   if (clickable) {
     return (
-      <button
-        type='button'
-        onClick={props.onClick}
-        className={classNames(cls.button, [className], {})}
-        style={{ width, height }}
-      >
+      <button type='button' onClick={props.onClick} className={cls.button} style={{ width, height }}>
         {icon}
       </button>
     );
