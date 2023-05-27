@@ -3,11 +3,22 @@
   align-items: center;
 
   width: 100%;
-  height: 32px;
   padding: 8px 16px;
 
   border: 2px solid var(--icon-redesigned);
   border-radius: 48px;
+}
+
+.s {
+  height: 32px;
+}
+
+.m {
+  height: 38px;
+}
+
+.l {
+  height: 44px;
 }
 
 .addonLeft,
@@ -41,11 +52,8 @@
   border: none;
   outline: none;
 
-  &::placeholder {
-    color: var(--hint-redesigned);
+  &::placeholder,
+  &.readonly {
+    color: var(--hint-redesigned) !important;
   }
-}
-
-.readonly {
-  opacity: 0.7;
 }

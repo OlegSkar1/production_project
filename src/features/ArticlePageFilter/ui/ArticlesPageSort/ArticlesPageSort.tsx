@@ -87,6 +87,7 @@ export const ArticlesPageSort: FC<ArticlesPageSortProps> = memo((props) => {
         on={
           <VStack data-testid='ArticlesPageSort' gap='8' align='start' className={classNames('', [className], {})}>
             <ListBox
+              size='s'
               data-testid='ArticlesPageSort.sort'
               items={sortOptions}
               label={t('Sort by')}

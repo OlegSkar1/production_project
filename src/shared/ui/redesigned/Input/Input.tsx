@@ -1,11 +1,16 @@
 import { InputHTMLAttributes, ReactNode, memo, useEffect, useRef, useState } from 'react';
 
+import { HStack } from '../Stack';
+import { Text } from '../Text';
+
 import { classNames } from '@/shared/lib';
 import { Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'disabled'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'disabled' | 'size'>;
+
+type InputSize = 's' | 'm' | 'l';
 
 interface InputProps extends HTMLInputProps {
   className?: string;
@@ -15,6 +20,7 @@ interface InputProps extends HTMLInputProps {
   readonly?: boolean;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
+  size?: InputSize;
 }
 
 export const Input: React.FC<InputProps> = memo((props) => {
@@ -29,6 +35,7 @@ export const Input: React.FC<InputProps> = memo((props) => {
     addonLeft,
     addonRight,
     placeholder,
+    size = 'm',
     ...otherProps
   } = props;
   const ref = useRef<HTMLInputElement>(null);
@@ -61,10 +68,9 @@ export const Input: React.FC<InputProps> = memo((props) => {
     setIsFocused(false);
   };
 
-  return (
-    <div className={classNames(cls.inputWrapper, [className], mods)}>
-      {label && <span>{label}</span>}
-      <div className={cls.addonLeft}>{addonLeft}</div>
+  const input = (
+    <div className={classNames(cls.inputWrapper, [className, cls[size]], mods)}>
+      {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
       <input
         placeholder={placeholder}
         ref={ref}
@@ -73,11 +79,22 @@ export const Input: React.FC<InputProps> = memo((props) => {
         onChange={onChangeHandler}
         onFocus={onFocus}
         onBlur={onBlur}
-        className={classNames(cls.input, [className], mods)}
+        className={classNames(cls.input, [], { [cls.readonly]: readonly })}
         disabled={readonly}
         {...otherProps}
       />
-      <div className={cls.addonRight}>{addonRight}</div>
+      {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </div>
   );
+
+  if (label) {
+    return (
+      <HStack gap='8'>
+        <Text text={label} />
+        {input}
+      </HStack>
+    );
+  }
+
+  return input;
 });

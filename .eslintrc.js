@@ -75,6 +75,7 @@ module.exports = {
           'color',
           'weight',
           'border',
+          'labelDirection',
         ],
       },
     ],

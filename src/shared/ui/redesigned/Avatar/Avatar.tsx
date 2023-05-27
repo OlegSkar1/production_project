@@ -1,9 +1,9 @@
 import { CSSProperties, memo, useMemo } from 'react';
 
 import UserIcon from '../../../assets/icons/user-avatar.svg';
-import { Icon } from '../../deprecated/Icon/Icon';
 import { Skeleton } from '../../deprecated/Skeleton/Skeleton';
 import { AppImage } from '../AppImage/AppImage';
+import { Icon } from '../Icon';
 
 import { classNames } from '@/shared/lib';
 

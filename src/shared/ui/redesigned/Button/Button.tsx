@@ -9,11 +9,14 @@ type ButtonVariant = 'clear' | 'outlined' | 'clearIcon' | 'filled' | 'light';
 
 type WeightVariant = 'normal' | 'bold';
 
-type ButtonSize = 'small' | 'large' | 'extraLarge';
+type ButtonFontSize = 'small' | 'large' | 'extraLarge';
+
+type ButtonSize = 's' | 'm' | 'l';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariant;
+  fontSize?: ButtonFontSize;
   size?: ButtonSize;
   weight?: WeightVariant;
   disabled?: boolean;
@@ -28,7 +31,8 @@ export const Button: React.FC<ButtonProps> = memo((props) => {
     children,
     variant = 'clear',
     disabled,
-    size = 'small',
+    fontSize = 'small',
+    size = 'm',
     weight = 'normal',
     fullWidth,
     addonLeft,
@@ -43,13 +47,13 @@ export const Button: React.FC<ButtonProps> = memo((props) => {
     [cls.withAddonRight]: Boolean(addonRight),
   };
 
-  const additional: Additional = [className, cls[variant], cls[size], cls[weight]];
+  const additional: Additional = [className, cls[variant], cls[fontSize], cls[size], cls[weight]];
 
   return (
     <button className={classNames(cls.button, additional, mods)} disabled={disabled} {...otherProps}>
-      <div className={cls.addonLeft}>{addonLeft}</div>
+      {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
       {children}
-      <div className={cls.addonRight}>{addonRight}</div>
+      {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </button>
   );
 });

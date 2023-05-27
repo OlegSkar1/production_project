@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ProfileCard } from './ProfileCard';
+import { ProfileCardDeprecated } from './ProfileCardDeprecated';
 
 import { Country } from '@/entities/Country/testing';
 import { Currency } from '@/entities/Currency/testing';
@@ -9,10 +9,10 @@ import { Theme } from '@/shared/const/Theme';
 import { avatar } from '@/shared/const/imagePaths';
 
 export default {
-  title: 'entities/ProfileCard',
-  component: ProfileCard,
+  title: 'entities/ProfileCardDeprecated',
+  component: ProfileCardDeprecated,
   argTypes: {},
-} as ComponentMeta<typeof ProfileCard>;
+} as ComponentMeta<typeof ProfileCardDeprecated>;
 
 const data = {
   first: 'UserName',
@@ -25,7 +25,7 @@ const data = {
   currency: Currency.RUB,
 };
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCardDeprecated> = (args) => <ProfileCardDeprecated {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

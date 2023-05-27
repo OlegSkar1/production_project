@@ -26,7 +26,7 @@ export const ArticlesFiltersWidget: FC<ArticlesFiltersWidgetProps> = memo((props
   const { className, sort, order, tab, search, onTabHandler, onSort, onOrder, onSearch } = props;
 
   return (
-    <Card>
+    <Card padding='0'>
       <VStack gap='32' align='start' className={classNames(cls.articleFiltersWidget, [className], {})}>
         <ArticlesPageSearch search={search} onSearch={onSearch} />
         <ArticlesPageTabs tab={tab} onTabHandler={onTabHandler} />

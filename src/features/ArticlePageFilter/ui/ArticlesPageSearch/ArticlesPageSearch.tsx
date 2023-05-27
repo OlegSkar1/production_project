@@ -43,6 +43,7 @@ export const ArticlesPageSearch: FC<ArticlesPageSearchProps> = (props) => {
       }
       on={
         <Input
+          size='s'
           value={search}
           onChange={onSearch}
           placeholder={t('search')}

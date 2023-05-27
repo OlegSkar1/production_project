@@ -4,9 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Currency } from '../model/types/currency';
 
 import { classNames } from '@/shared/lib';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { DirectionType } from '@/shared/types/ui';
 import { ListBoxItem } from '@/shared/ui';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ListBox';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CurrencySelectProps {
   className?: string;
@@ -35,14 +37,32 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo((props) => {
   );
 
   return (
-    <ListBoxDeprecated
-      items={options}
-      onChange={onChangeHandler}
-      label={t('currency_label')}
-      value={value}
-      readonly={readonly}
-      className={classNames('', [className], {})}
-      direction={direction}
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <ListBoxDeprecated
+          items={options}
+          onChange={onChangeHandler}
+          label={t('currency_label')}
+          value={value}
+          readonly={readonly}
+          className={classNames('', [className], {})}
+          direction={direction}
+        />
+      }
+      on={
+        <ListBox
+          size='s'
+          items={options}
+          onChange={onChangeHandler}
+          label={t('currency_label')}
+          value={value}
+          readonly={readonly}
+          className={classNames('', [className], {})}
+          direction={direction}
+          labelDirection='row'
+        />
+      }
     />
   );
 });

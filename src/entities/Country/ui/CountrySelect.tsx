@@ -4,9 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Country } from '../model/types/county';
 
 import { classNames } from '@/shared/lib';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { DirectionType } from '@/shared/types/ui';
 import { ListBoxItem } from '@/shared/ui';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ListBox';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CountrySelectProps {
   className?: string;
@@ -40,14 +42,32 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo((props) => {
   );
 
   return (
-    <ListBoxDeprecated
-      items={options}
-      onChange={onChangeHandler}
-      value={value}
-      readonly={readonly}
-      className={classNames('', [className], {})}
-      label={t('Country_label')}
-      direction={direction}
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <ListBoxDeprecated
+          items={options}
+          onChange={onChangeHandler}
+          value={value}
+          readonly={readonly}
+          className={classNames('', [className], {})}
+          label={t('Country_label')}
+          direction={direction}
+        />
+      }
+      on={
+        <ListBox
+          size='s'
+          labelDirection='row'
+          items={options}
+          onChange={onChangeHandler}
+          value={value}
+          readonly={readonly}
+          className={classNames('', [className], {})}
+          label={t('Country_label')}
+          direction={direction}
+        />
+      }
     />
   );
 });

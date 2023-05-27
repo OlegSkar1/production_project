@@ -34,6 +34,14 @@
   display: flex;
 }
 
+.addon-right {
+  padding-left: 8px;
+}
+
+.addon-left {
+  padding-right: 8px;
+}
+
 .clear,
 .clear-icon {
   margin: 0;
@@ -75,6 +83,18 @@
 
 .extra-large {
   font: var(--font-xl-redesigned);
+}
+
+.s {
+  height: 32px;
+}
+
+.m {
+  height: 38px;
+}
+
+.l {
+  height: 44px;
 }
 
 .normal {
