@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Card.module.scss';
 
-type CardVariant = 'normal' | 'outlined';
+type CardVariant = 'normal' | 'outlined' | 'light';
 
 type CardPadding = '0' | '8' | '16' | '24';
 type CardRound = 'round' | 'default';
@@ -15,6 +15,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant;
   padding?: CardPadding;
   border?: CardRound;
+  max?: boolean;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -25,12 +26,15 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 };
 
 export const Card: FC<CardProps> = (props) => {
-  const { className, children, variant = 'normal', padding = '24', border = 'round', ...otherProps } = props;
+  const { className, children, max, variant = 'normal', padding = '24', border = 'round', ...otherProps } = props;
 
   const paddingClass = mapPaddingToClass[padding];
 
   return (
-    <div className={classNames('', [className, cls[variant], cls[paddingClass], cls[border]], {})} {...otherProps}>
+    <div
+      className={classNames('', [className, cls[variant], cls[paddingClass], cls[border]], { [cls.max]: max })}
+      {...otherProps}
+    >
       {children}
     </div>
   );

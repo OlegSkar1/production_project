@@ -5,7 +5,7 @@ import { Additional, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Button.module.scss';
 
-type ButtonVariant = 'clear' | 'outlined' | 'clearIcon' | 'filled' | 'light';
+type ButtonVariant = 'clear' | 'outlined' | 'outlinedSave' | 'outlinedCancel' | 'clearIcon' | 'filled' | 'light';
 
 type WeightVariant = 'normal' | 'bold';
 

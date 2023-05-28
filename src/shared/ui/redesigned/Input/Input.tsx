@@ -89,7 +89,7 @@ export const Input: React.FC<InputProps> = memo((props) => {
 
   if (label) {
     return (
-      <HStack gap='8'>
+      <HStack gap='8' max>
         <Text text={label} />
         {input}
       </HStack>

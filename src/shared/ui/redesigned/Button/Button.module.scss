@@ -56,10 +56,20 @@
   color: var(--icon-redesigned);
 }
 
-.outlined {
+.outlined,
+.outlined_save,
+.outlined_cancel {
   background: none;
   border: 1px solid var(--icon-redesigned);
   border-radius: 16px;
+}
+
+.outlined_save {
+  border: 1px solid var(--save-redesigned);
+}
+
+.outlined_cancel {
+  border: 1px solid var(--cancel-redesigned);
 }
 
 .filled,
@@ -106,6 +116,7 @@
 }
 
 .disabled {
+  pointer-events: none;
   opacity: 0.5;
 }
 

@@ -4,8 +4,11 @@ import { useParams } from 'react-router-dom';
 
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { ProfileRateCard } from '@/features/ProfileRateCard';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/widgets/Page';
+
+import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
   className?: string;
@@ -20,12 +23,25 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
   }
 
   return (
-    <Page data-testid='ProfilePage'>
-      <VStack gap='16' align='normal'>
-        <EditableProfileCard id={id} />
-        <ProfileRateCard profileId={id} />
-      </VStack>
-    </Page>
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <Page data-testid='ProfilePage'>
+          <VStack gap='16' align='normal'>
+            <EditableProfileCard id={id} />
+            <ProfileRateCard profileId={id} />
+          </VStack>
+        </Page>
+      }
+      on={
+        <Page data-testid='ProfilePage' className={cls.profilePageRedesigned}>
+          <VStack gap='16' justify='center'>
+            <EditableProfileCard id={id} />
+            <ProfileRateCard profileId={id} />
+          </VStack>
+        </Page>
+      }
+    />
   );
 };
 

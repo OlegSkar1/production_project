@@ -45,7 +45,7 @@ export const ProfileCardRedesigned: React.FC<ProfileCardProps> = (props) => {
   }
 
   return (
-    <HStack tagname='article' gap='24' justify='center'>
+    <HStack tagname='article' gap='24' justify='center' max>
       <VStack gap='16' align='start' max>
         <Input
           readonly={readonly}

@@ -12,12 +12,12 @@ import cls from './Avatar.module.scss';
 interface AvatarProps {
   className?: string;
   src?: string;
-  alt: string;
+  alt?: string;
   size?: string | number;
 }
 
 export const Avatar: React.FC<AvatarProps> = memo((props) => {
-  const { className, src, size = 'normal', alt } = props;
+  const { className, src, size = 'normal', alt = 'avatar' } = props;
 
   const styles = useMemo<CSSProperties>(
     () => ({
