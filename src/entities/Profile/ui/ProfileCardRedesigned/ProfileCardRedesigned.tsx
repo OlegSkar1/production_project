@@ -4,16 +4,14 @@ import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
-import { Loader } from '@/shared/ui';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 export const ProfileCardRedesigned: React.FC<ProfileCardProps> = (props) => {
   const {
     className,
     data,
-    isLoading,
     error,
     readonly,
     onChangeFirst,
@@ -28,18 +26,10 @@ export const ProfileCardRedesigned: React.FC<ProfileCardProps> = (props) => {
 
   const { t } = useTranslation('profile');
 
-  if (isLoading) {
-    return (
-      <HStack justify='center' className={className}>
-        <Loader />
-      </HStack>
-    );
-  }
-
   if (error) {
     return (
       <VStack justify='center' className={className}>
-        <TextDeprecated title={t('profile_title_error')} theme='error' text={t('profile_text_error')} align='center' />
+        <Text title={t('profile_title_error')} theme='error' text={t('profile_text_error')} align='center' />
       </VStack>
     );
   }

@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib';
 import { useMobile } from '@/shared/lib/hooks/useMobile';
-import { Input, Modal, StarRating } from '@/shared/ui';
+import { Modal, StarRating } from '@/shared/ui';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -54,7 +55,12 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
   const modalContent = (
     <>
       <TextDeprecated title={feedbackTitle} tagname='h3' />
-      <Input value={feedback} onChange={setFeedback} placeholder={t('your_feedback')} data-testid='RatingCard.Input' />
+      <InputDeprecated
+        value={feedback}
+        onChange={setFeedback}
+        placeholder={t('your_feedback')}
+        data-testid='RatingCard.Input'
+      />
     </>
   );
 

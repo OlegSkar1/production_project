@@ -29,7 +29,7 @@ export const Avatar: React.FC<AvatarProps> = memo((props) => {
 
   const fallback = <Skeleton variant='circle' width={size} height={size} />;
 
-  const errorFallback = <Icon Svg={UserIcon} width={size} height={size} />;
+  const errorFallback = <Icon Svg={UserIcon} width={size} height={size} className={className} />;
 
   return (
     <AppImage

@@ -8,8 +8,8 @@ import { addCommentActions, addCommentReducer } from '../model/slice/addCommentS
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Input } from '@/shared/ui';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 
@@ -51,7 +51,7 @@ const AddNewCommentForm: FC<AddNewCommentFormProps> = (props) => {
         <TextDeprecated theme='error' align='center' text={t('Failed to post comment', { ns: 'translation' })} />
       )}
       <HStack gap='16' className={classNames(cls.addNewCommentForm, [className], {})} data-testid='AddNewCommentForm'>
-        <Input
+        <InputDeprecated
           label={t('Enter comment text')}
           variant='clear'
           value={text}

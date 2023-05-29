@@ -14,17 +14,20 @@ export const ProfileHeaderRedesigned: React.FC<ProfileHeaderProps> = memo((props
   const { className, readonly, canEditProfile, isLoading, data, onEdit, onSave, onCancel } = props;
   const { t } = useTranslation();
 
+  if (!data) return null;
+
   return (
     <HStack
       tagname='header'
+      gap='16'
       justify={readonly ? 'end' : 'between'}
       className={classNames(cls.profileHeaderRedesigned, [className], { [cls.gap]: readonly })}
     >
-      {canEditProfile && (
+      {canEditProfile ? (
         <>
           {readonly ? (
             <>
-              <Avatar size={128} src={data?.avatar} className={cls.avatar} />
+              <Avatar size={128} src={data.avatar} className={cls.avatar} />
               <Button variant='outlined' onClick={onEdit} data-testid='ProfileHeader.editBtn' className={cls.button}>
                 {t('edit')}
               </Button>
@@ -39,13 +42,15 @@ export const ProfileHeaderRedesigned: React.FC<ProfileHeaderProps> = memo((props
               >
                 {t('cancel')}
               </Button>
-              <Avatar size={128} src={data?.avatar} />
+              <Avatar size={128} src={data.avatar} />
               <Button disabled={isLoading} variant='outlinedSave' onClick={onSave} data-testid='ProfileHeader.saveBtn'>
                 {t('save')}
               </Button>
             </>
           )}
         </>
+      ) : (
+        <Avatar size={128} src={data.avatar} className={cls.margin} />
       )}
     </HStack>
   );

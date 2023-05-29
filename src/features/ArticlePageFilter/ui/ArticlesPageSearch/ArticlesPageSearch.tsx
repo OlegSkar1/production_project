@@ -7,8 +7,8 @@ import SearchIcon from '@/shared/assets/icons/search.svg';
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { Input as InputDeprecated } from '@/shared/ui';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Input } from '@/shared/ui/redesigned/Input';
 

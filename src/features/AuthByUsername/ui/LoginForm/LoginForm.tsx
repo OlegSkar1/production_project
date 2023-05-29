@@ -12,8 +12,8 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Input } from '@/shared/ui';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
@@ -72,8 +72,14 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
             className={cls.formError}
           />
         )}
-        <Input onChange={loginHandler} value={username} variant='inverted' label={t('Enter login')} autoFocus />
-        <Input
+        <InputDeprecated
+          onChange={loginHandler}
+          value={username}
+          variant='inverted'
+          label={t('Enter login')}
+          autoFocus
+        />
+        <InputDeprecated
           onChange={passwordHandler}
           value={password}
           variant='inverted'

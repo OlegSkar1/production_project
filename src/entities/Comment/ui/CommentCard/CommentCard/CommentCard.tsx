@@ -4,8 +4,8 @@ import { Comment } from '../../../model/types/comment';
 
 import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui';
 import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { HStack } from '@/shared/ui/redesigned/Stack';
@@ -25,10 +25,10 @@ export const CommentCard: FC<CommentCardProps> = memo((props) => {
     return (
       <div className={classNames(cls.commentCard, [className], {})}>
         <HStack gap='8' align='end' className={cls.userWrapper}>
-          <Skeleton variant='circle' width={30} height={30} />
-          <Skeleton variant='title' />
+          <SkeletonDeprecated variant='circle' width={30} height={30} />
+          <SkeletonDeprecated variant='title' />
         </HStack>
-        <Skeleton variant='text' height={50} />
+        <SkeletonDeprecated variant='text' height={50} />
       </div>
     );
   }

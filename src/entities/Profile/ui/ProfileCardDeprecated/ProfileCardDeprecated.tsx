@@ -5,7 +5,8 @@ import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
 import { classNames } from '@/shared/lib';
-import { Input, Loader } from '@/shared/ui';
+import { Loader } from '@/shared/ui';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -55,7 +56,7 @@ export const ProfileCardDeprecated: React.FC<ProfileCardProps> = (props) => {
       className={classNames(cls.profileCardDeprecated, [className], { [cls.editable]: !readonly })}
     >
       {data?.avatar && <Avatar size={100} src={data.avatar} alt={t('avatar', { ns: 'translation' })} />}
-      <Input
+      <InputDeprecated
         variant='clear'
         readonly={readonly}
         value={data?.first}
@@ -63,7 +64,7 @@ export const ProfileCardDeprecated: React.FC<ProfileCardProps> = (props) => {
         onChange={onChangeFirst}
         data-testid='ProfileCardDeprecated.first'
       />
-      <Input
+      <InputDeprecated
         variant='clear'
         readonly={readonly}
         value={data?.lastname}
@@ -71,16 +72,28 @@ export const ProfileCardDeprecated: React.FC<ProfileCardProps> = (props) => {
         onChange={onChangeLastName}
         data-testid='ProfileCardDeprecated.lastname'
       />
-      <Input variant='clear' readonly={readonly} value={data?.age} label={t('yourAge')} onChange={onChangeAge} />
-      <Input variant='clear' readonly={readonly} value={data?.city} label={t('yourCity')} onChange={onChangeCity} />
-      <Input
+      <InputDeprecated
+        variant='clear'
+        readonly={readonly}
+        value={data?.age}
+        label={t('yourAge')}
+        onChange={onChangeAge}
+      />
+      <InputDeprecated
+        variant='clear'
+        readonly={readonly}
+        value={data?.city}
+        label={t('yourCity')}
+        onChange={onChangeCity}
+      />
+      <InputDeprecated
         variant='clear'
         readonly={readonly}
         value={data?.username}
         label={t('yourUsername')}
         onChange={onChangeUsername}
       />
-      <Input
+      <InputDeprecated
         variant='clear'
         readonly={readonly}
         value={data?.avatar}

@@ -7,10 +7,10 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
@@ -50,7 +50,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           </HStack>
           <TextDeprecated title={article.title} className={cls.title} size='size_l' />
           {types}
-          <AppImage src={article.img} alt={article.title} className={cls.img} fallback={<Skeleton height={200} />} />
+          <AppImage
+            src={article.img}
+            alt={article.title}
+            className={cls.img}
+            fallback={<SkeletonDeprecated height={200} />}
+          />
           <ArticleTextBlock block={block} className={cls.content} />
           <HStack justify='between' className={cls.footer}>
             <AppLink to={getRouteArticleDetails(article.id)} theme='outlined'>
@@ -68,7 +73,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
       <AppLink to={getRouteArticleDetails(article.id)} target={target}>
         <CardDeprecated>
           <div className={cls.imgWrapper}>
-            <AppImage src={article.img} alt={article.title} className={cls.img} fallback={<Skeleton height={200} />} />
+            <AppImage
+              src={article.img}
+              alt={article.title}
+              className={cls.img}
+              fallback={<SkeletonDeprecated height={200} />}
+            />
             <TextDeprecated text={article.createdAt} className={cls.date} />
           </div>
           <HStack gap='4' justify='between' className={cls.infoWrapper}>

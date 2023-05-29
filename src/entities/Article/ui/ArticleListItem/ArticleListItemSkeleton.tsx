@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { ArticleView } from '../../model/types/article';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleListItem.module.scss';
@@ -17,33 +17,33 @@ interface ArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
   const { className, view } = props;
 
-  const types = <Skeleton width={100} height={16} className={cls.types} />;
-  const views = <Skeleton width={50} height={16} />;
+  const types = <SkeletonDeprecated width={100} height={16} className={cls.types} />;
+  const views = <SkeletonDeprecated width={50} height={16} />;
 
   if (view === ArticleView.LIST) {
     return (
       <div className={classNames('', [className, cls[view]], {})}>
         <CardDeprecated>
           <HStack className={cls.headerWrapper}>
-            <Skeleton variant='circle' width={30} height={30} />
-            <Skeleton width={50} height={16} className={cls.username} />
-            <Skeleton width={50} height={16} className={cls.date} />
+            <SkeletonDeprecated variant='circle' width={30} height={30} />
+            <SkeletonDeprecated width={50} height={16} className={cls.username} />
+            <SkeletonDeprecated width={50} height={16} className={cls.date} />
           </HStack>
-          <Skeleton variant='title' className={cls.title} />
+          <SkeletonDeprecated variant='title' className={cls.title} />
           {types}
-          <Skeleton height={200} className={cls.img} />
+          <SkeletonDeprecated height={200} className={cls.img} />
           <VStack gap='4'>
-            <Skeleton variant='text' />
-            <Skeleton variant='text' />
-            <Skeleton variant='text' />
-            <Skeleton variant='text' />
-            <Skeleton variant='text' />
-            <Skeleton variant='text' />
-            <Skeleton variant='text' />
+            <SkeletonDeprecated variant='text' />
+            <SkeletonDeprecated variant='text' />
+            <SkeletonDeprecated variant='text' />
+            <SkeletonDeprecated variant='text' />
+            <SkeletonDeprecated variant='text' />
+            <SkeletonDeprecated variant='text' />
+            <SkeletonDeprecated variant='text' />
           </VStack>
 
           <HStack justify='between' className={cls.footer}>
-            <Skeleton width={100} height={25} />
+            <SkeletonDeprecated width={100} height={25} />
             {views}
           </HStack>
         </CardDeprecated>
@@ -55,13 +55,13 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
     <div className={classNames('', [className, cls[view]], {})}>
       <CardDeprecated>
         <div className={cls.imgWrapper}>
-          <Skeleton height={200} />
+          <SkeletonDeprecated height={200} />
         </div>
         <HStack justify='between' className={cls.infoWrapper}>
           {types}
           {views}
         </HStack>
-        <Skeleton variant='title' className={cls.title} />
+        <SkeletonDeprecated variant='title' className={cls.title} />
       </CardDeprecated>
     </div>
   );

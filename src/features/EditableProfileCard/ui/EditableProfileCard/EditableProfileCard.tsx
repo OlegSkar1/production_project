@@ -1,20 +1,15 @@
 import { memo, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useEditableProfileCard } from '../../lib/hooks/useEditableProfileCard';
-import { ValidateProfileErrors } from '../../model/consts/consts';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileCardReducer } from '../../model/slice/profileCardSlice';
-import { ProfileHeader } from '../ProfileHeader/ProfileHeader';
 
-import { ProfileCard } from '@/entities/Profile';
+import { EditableProfileCardDeprecated } from './EditableProfileCardDeprecated';
+import { EditableProfileCardRedesigned } from './EditableProfileCardRedesigned';
+
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/redesigned/Text';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -29,7 +24,6 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
   const { className, id } = props;
 
   const dispatch = useAppDispatch();
-  const { t } = useTranslation('profile');
 
   const {
     data,
@@ -51,13 +45,6 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
     onSave,
   } = useEditableProfileCard();
 
-  const validateErrorsTranslates = {
-    [ValidateProfileErrors.INCORRECT_DATA]: t('incorrect_data'),
-    [ValidateProfileErrors.INCORRECT_AGE]: t('incorrect_age'),
-    [ValidateProfileErrors.NO_DATA]: t('no_data'),
-    [ValidateProfileErrors.SERVER_ERROR]: t('server_error'),
-  };
-
   useEffect(() => {
     if (id && __PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
       dispatch(fetchProfileData(id));
@@ -68,80 +55,48 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = memo((pro
     <ToggleFeature
       name='isAppRedesigned'
       off={
-        <VStack gap='8' align='normal'>
-          <ProfileHeader
-            className={className}
-            readonly={readonly}
-            canEditProfile={canEditProfile}
-            onEdit={onEdit}
-            onSave={onSave}
-            onCancel={onCancel}
-          />
-          {validateErrors?.length &&
-            validateErrors.map((err) => (
-              <TextDeprecated
-                key={err}
-                theme='error'
-                text={validateErrorsTranslates[err]}
-                data-testid='EditableProfileCard.Error'
-              />
-            ))}
-          <ProfileCard
-            className={className}
-            data={data}
-            isLoading={isLoading}
-            error={error}
-            readonly={readonly}
-            onChangeFirst={onChangeFirst}
-            onChangeLastName={onChangeLastName}
-            onChangeAge={onChangeAge}
-            onChangeCity={onChangeCity}
-            onChangeUsername={onChangeUsername}
-            onChangeAvatarLink={onChangeAvatarLink}
-            onChangeCurrency={onChangeCurrency}
-            onChangeCountry={onChangeCountry}
-          />
-        </VStack>
+        <EditableProfileCardDeprecated
+          canEditProfile={canEditProfile}
+          className={className}
+          data={data}
+          error={error}
+          isLoading={isLoading}
+          onCancel={onCancel}
+          onChangeAge={onChangeAge}
+          onChangeAvatarLink={onChangeAvatarLink}
+          onChangeCity={onChangeCity}
+          onChangeCountry={onChangeCountry}
+          onChangeCurrency={onChangeCurrency}
+          onChangeFirst={onChangeFirst}
+          onChangeLastName={onChangeLastName}
+          onChangeUsername={onChangeUsername}
+          onEdit={onEdit}
+          onSave={onSave}
+          readonly={readonly}
+          validateErrors={validateErrors}
+        />
       }
       on={
-        <Card max>
-          <VStack gap='16' align='normal'>
-            {validateErrors?.length &&
-              validateErrors.map((err) => (
-                <Text
-                  key={err}
-                  theme='error'
-                  text={validateErrorsTranslates[err]}
-                  data-testid='EditableProfileCard.Error'
-                />
-              ))}
-            <ProfileHeader
-              className={className}
-              readonly={readonly}
-              canEditProfile={canEditProfile}
-              isLoading={isLoading}
-              onEdit={onEdit}
-              onSave={onSave}
-              onCancel={onCancel}
-              data={data}
-            />
-            <ProfileCard
-              className={className}
-              data={data}
-              isLoading={isLoading}
-              error={error}
-              readonly={readonly}
-              onChangeFirst={onChangeFirst}
-              onChangeLastName={onChangeLastName}
-              onChangeAge={onChangeAge}
-              onChangeCity={onChangeCity}
-              onChangeUsername={onChangeUsername}
-              onChangeAvatarLink={onChangeAvatarLink}
-              onChangeCurrency={onChangeCurrency}
-              onChangeCountry={onChangeCountry}
-            />
-          </VStack>
-        </Card>
+        <EditableProfileCardRedesigned
+          canEditProfile={canEditProfile}
+          className={className}
+          data={data}
+          error={error}
+          isLoading={isLoading}
+          onCancel={onCancel}
+          onChangeAge={onChangeAge}
+          onChangeAvatarLink={onChangeAvatarLink}
+          onChangeCity={onChangeCity}
+          onChangeCountry={onChangeCountry}
+          onChangeCurrency={onChangeCurrency}
+          onChangeFirst={onChangeFirst}
+          onChangeLastName={onChangeLastName}
+          onChangeUsername={onChangeUsername}
+          onEdit={onEdit}
+          onSave={onSave}
+          readonly={readonly}
+          validateErrors={validateErrors}
+        />
       }
     />
   );

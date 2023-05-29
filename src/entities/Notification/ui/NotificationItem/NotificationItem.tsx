@@ -5,9 +5,9 @@ import { NotificationType } from '../../model/types/notification';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { Skeleton } from '@/shared/ui';
 import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -60,14 +60,14 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props) => {
         name='isAppRedesigned'
         off={
           <CardDeprecated variant='outlined' className={cls.notificationItem}>
-            <Skeleton variant='title' className={cls.skeleton} />
-            <Skeleton height={50} />
+            <SkeletonDeprecated variant='title' className={cls.skeleton} />
+            <SkeletonDeprecated height={50} />
           </CardDeprecated>
         }
         on={
           <Card variant='outlined' className={cls.notificationItem}>
-            <Skeleton variant='title' className={cls.skeleton} />
-            <Skeleton height={50} />
+            <SkeletonDeprecated variant='title' className={cls.skeleton} />
+            <SkeletonDeprecated height={50} />
           </Card>
         }
       />

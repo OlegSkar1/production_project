@@ -18,8 +18,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitEffect } from '@/shared/lib/hooks/useInitEffect';
-import { Skeleton } from '@/shared/ui';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -67,15 +67,15 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   if (loading) {
     content = (
       <VStack align='start' gap='16'>
-        <Skeleton variant='circle' className={cls.skeletonCircle} width={200} height={200} />
-        <Skeleton variant='title' height={32} />
-        <Skeleton variant='text' height={24} />
-        <Skeleton variant='text' width={55} />
-        <Skeleton variant='text' width={105} />
-        <Skeleton variant='text' />
-        <Skeleton variant='text' />
-        <Skeleton variant='text' height={50} />
-        <Skeleton variant='text' height={150} />
+        <SkeletonDeprecated variant='circle' className={cls.skeletonCircle} width={200} height={200} />
+        <SkeletonDeprecated variant='title' height={32} />
+        <SkeletonDeprecated variant='text' height={24} />
+        <SkeletonDeprecated variant='text' width={55} />
+        <SkeletonDeprecated variant='text' width={105} />
+        <SkeletonDeprecated variant='text' />
+        <SkeletonDeprecated variant='text' />
+        <SkeletonDeprecated variant='text' height={50} />
+        <SkeletonDeprecated variant='text' height={150} />
       </VStack>
     );
   } else if (error) {

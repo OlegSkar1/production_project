@@ -6,7 +6,7 @@ import { useFetchRateProfileQuery, useSendRateProfileMutation } from '../../api/
 
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 
 interface ProfileRateCardProps {
@@ -61,7 +61,7 @@ export const ProfileRateCard: FC<ProfileRateCardProps> = memo((props) => {
   }
 
   if (isLoading) {
-    return <Skeleton height={120} width={'100%'} />;
+    return <SkeletonDeprecated height={120} width={'100%'} />;
   }
 
   if (isError) {
