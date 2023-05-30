@@ -12,6 +12,16 @@
   }
 }
 
+.outlined {
+  color: var(--text-redesigned);
+  border: 1px solid var(--icon-redesigned);
+
+  &:hover {
+    color: var(--accent-redesigned);
+    border: 1px solid var(--accent-redesigned);
+  }
+}
+
 .red {
   color: var(--cancel-redesigned);
 

@@ -8,14 +8,16 @@ type CardVariant = 'normal' | 'outlined' | 'light';
 
 type CardPadding = '0' | '8' | '16' | '24';
 type CardRound = 'round' | 'default';
+type TagNameType = keyof HTMLElementTagNameMap;
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLAttributes<ValueOf<HTMLElementTagNameMap>> {
   className?: string;
   children: ReactNode;
   variant?: CardVariant;
   padding?: CardPadding;
   border?: CardRound;
   max?: boolean;
+  tagname?: TagNameType;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -26,16 +28,24 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 };
 
 export const Card: FC<CardProps> = (props) => {
-  const { className, children, max, variant = 'normal', padding = '24', border = 'round', ...otherProps } = props;
+  const {
+    className,
+    children,
+    max,
+    variant = 'normal',
+    padding = '24',
+    border = 'round',
+    tagname: Tag = 'div',
+    ...otherProps
+  } = props;
 
   const paddingClass = mapPaddingToClass[padding];
 
+  const additional = [className, cls[variant], cls[paddingClass], cls[border]];
+
   return (
-    <div
-      className={classNames('', [className, cls[variant], cls[paddingClass], cls[border]], { [cls.max]: max })}
-      {...otherProps}
-    >
+    <Tag className={classNames('', additional, { [cls.max]: max })} {...otherProps}>
       {children}
-    </div>
+    </Tag>
   );
 };

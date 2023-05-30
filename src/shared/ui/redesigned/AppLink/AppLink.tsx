@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib';
 
 import cls from './AppLink.module.scss';
 
-type AppLinkVariant = 'primary' | 'red';
+type AppLinkVariant = 'primary' | 'outlined' | 'red';
 
 interface AppLinkProps extends LinkProps {
   className?: string;
