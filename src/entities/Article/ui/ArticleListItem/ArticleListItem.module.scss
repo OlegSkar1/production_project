@@ -18,6 +18,10 @@
     margin-bottom: 8px;
   }
 
+  .title_redesigned {
+    margin-bottom: 12px;
+  }
+
   .img {
     width: 100%;
     max-height: 250px;
@@ -32,6 +36,41 @@
 
   .footer {
     margin-top: 16px;
+  }
+
+  // redesigned
+
+  .img_redesigned {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+  }
+
+  .paragraph {
+    overflow: hidden;
+    max-height: 72px;
+  }
+
+  // skeleton
+
+  &.skeleton-wrapper {
+    height: 100%;
+  }
+
+  .skeleton-img {
+    margin-bottom: 19px;
+  }
+
+  .skeleton-content {
+    margin-bottom: 24px;
+
+    .text {
+      margin-bottom: 6px;
+    }
+  }
+
+  .skeleton-footer {
+    margin-left: auto;
   }
 }
 

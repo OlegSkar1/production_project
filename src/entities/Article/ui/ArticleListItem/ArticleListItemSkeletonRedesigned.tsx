@@ -22,29 +22,23 @@ export const ArticleListItemSkeletonRedesigned: FC<ArticleListItemSkeletonProps>
 
   if (view === ArticleView.LIST) {
     return (
-      <CardRedesigned className={cls[view]}>
+      <CardRedesigned className={classNames(cls[view], [cls.skeletonWrapper], {})}>
         <HStack className={cls.headerWrapper}>
-          <SkeletonRedesigned variant='circle' width={30} height={30} />
-          <SkeletonRedesigned width={50} height={16} className={cls.username} />
-          <SkeletonRedesigned width={50} height={16} className={cls.date} />
+          <SkeletonRedesigned variant='circle' width={32} height={32} />
+          <SkeletonRedesigned width='20%' height={24} borderRadius={32} className={cls.username} />
         </HStack>
-        <SkeletonRedesigned variant='title' className={cls.title} />
-        {types}
-        <SkeletonRedesigned height={200} className={cls.img} />
-        <VStack gap='4'>
-          <SkeletonRedesigned variant='text' />
-          <SkeletonRedesigned variant='text' />
-          <SkeletonRedesigned variant='text' />
-          <SkeletonRedesigned variant='text' />
-          <SkeletonRedesigned variant='text' />
-          <SkeletonRedesigned variant='text' />
-          <SkeletonRedesigned variant='text' />
+        <VStack gap='8' className={cls.titleRedesigned} align='start'>
+          <SkeletonRedesigned variant='title' width='100%' />
+          <SkeletonRedesigned variant='title' width='85%' />
         </VStack>
-
-        <HStack justify='between' className={cls.footer}>
-          <SkeletonRedesigned width={100} height={25} />
-          {views}
-        </HStack>
+        <SkeletonRedesigned width='73%' height={27} borderRadius={8} className={cls.titleRedesigned} />
+        <SkeletonRedesigned height={250} borderRadius={16} className={cls.skeletonImg} />
+        <VStack align='start' className={cls.skeletonContent}>
+          <SkeletonRedesigned variant='text' width='85%' className={cls.text} />
+          <SkeletonRedesigned variant='text' width='80%' className={cls.text} />
+          <SkeletonRedesigned variant='text' width='90%' />
+        </VStack>
+        <SkeletonRedesigned width={56} height={23} borderRadius={22} className={cls.skeletonFooter} />
       </CardRedesigned>
     );
   }

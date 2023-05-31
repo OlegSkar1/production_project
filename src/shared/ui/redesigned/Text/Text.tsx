@@ -17,6 +17,7 @@ interface TextProps {
   size?: Size;
   tagname?: 'h1' | 'h2' | 'h3';
   'data-testid'?: string;
+  bold?: boolean;
 }
 
 export const Text: React.FC<TextProps> = memo((props) => {
@@ -29,13 +30,16 @@ export const Text: React.FC<TextProps> = memo((props) => {
     size = 'size_m',
     tagname: Tag = 'h1',
     'data-testid': dataTestId = 'Text',
+    bold,
   } = props;
+
+  const additional = [className, cls[theme], cls[align], cls[size]];
 
   return (
     <>
       {title && (
         <Tag
-          className={classNames(cls.title, [className, cls[theme], cls[align], cls[size]], {})}
+          className={classNames(cls.title, additional, { [cls.boldTitle]: bold })}
           data-testid={`${dataTestId}.Header`}
         >
           {title}
@@ -43,7 +47,7 @@ export const Text: React.FC<TextProps> = memo((props) => {
       )}
       {text && (
         <p
-          className={classNames(cls.paragraph, [className, cls[theme], cls[align], cls[size]], {})}
+          className={classNames(cls.paragraph, additional, { [cls.boldText]: bold })}
           data-testid={`${dataTestId}.Paragraph`}
         >
           {text}

@@ -17,7 +17,7 @@ interface AvatarProps {
 }
 
 export const Avatar: React.FC<AvatarProps> = memo((props) => {
-  const { className, src, size = 'normal', alt = 'avatar' } = props;
+  const { className, src, size, alt = 'avatar' } = props;
 
   const styles = useMemo<CSSProperties>(
     () => ({
