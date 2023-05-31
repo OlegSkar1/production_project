@@ -22,13 +22,6 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = (props) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation('articles');
 
-  const views = (
-    <HStack gap='8'>
-      <IconRedesigned Svg={EyeIcon} />
-      <TextRedesigned text={String(article.views)} />
-    </HStack>
-  );
-
   if (view === ArticleView.LIST) {
     const textBlock = article.blocks.find((block) => block.type === 'TEXT') as TextBlock | undefined;
     const twoParagraph = textBlock?.paragraph.slice(0, 2).join(' ');
@@ -60,7 +53,10 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = (props) => {
             <AppLink to={getRouteArticleDetails(article.id)}>
               <Button variant='outlined'>{t('read more')}</Button>
             </AppLink>
-            {views}
+            <HStack gap='8'>
+              <IconRedesigned Svg={EyeIcon} />
+              <TextRedesigned text={String(article.views)} />
+            </HStack>
           </HStack>
         </VStack>
       </CardRedesigned>
@@ -68,24 +64,35 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = (props) => {
   }
 
   return (
-    <div className={classNames('', [className, cls[view]], {})} data-testid='ArticleListItem'>
+    <CardRedesigned
+      padding='0'
+      className={classNames(cls.cardRedesigned, [className, cls[view]], {})}
+      data-testid='ArticleListItem'
+    >
       <AppLink to={getRouteArticleDetails(article.id)} target={target}>
-        <CardRedesigned>
-          <div className={cls.imgWrapper}>
-            <AppImage
-              src={article.img}
-              alt={article.title}
-              className={cls.img}
-              fallback={<SkeletonRedesigned height={200} />}
-            />
-            <TextRedesigned text={article.createdAt} className={cls.date} />
-          </div>
-          <HStack gap='4' justify='between' className={cls.infoWrapper}>
-            {views}
-          </HStack>
-          <TextRedesigned title={article.title} className={cls.title} size='size_s' />
-        </CardRedesigned>
+        <AppImage
+          src={article.img}
+          alt={article.title}
+          className={cls.imgRedesigned}
+          fallback={<SkeletonRedesigned height={141} />}
+        />
+        <VStack gap='8' align='start' className={cls.infoWrapperRedesigned}>
+          <TextRedesigned title={article.title} className={cls.titleRedesigned} size='size_s' />
+          <VStack gap='8' max className={cls.footerRedesigned}>
+            <HStack gap='4' justify='between' max>
+              <TextRedesigned text={article.createdAt} />
+              <HStack gap='8'>
+                <IconRedesigned Svg={EyeIcon} />
+                <TextRedesigned text={String(article.views)} />
+              </HStack>
+            </HStack>
+            <HStack gap='4' max>
+              <Avatar size={32} src={article.user.avatar} />
+              <Text text={article.user.username} bold />
+            </HStack>
+          </VStack>
+        </VStack>
       </AppLink>
-    </div>
+    </CardRedesigned>
   );
 };
