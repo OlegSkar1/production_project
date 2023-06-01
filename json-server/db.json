@@ -1763,7 +1763,7 @@
         "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_theme_blue",
+        "theme": "app_theme_light",
         "isFirstVisit": true,
         "articlePageHasBeenOpen": true
       }

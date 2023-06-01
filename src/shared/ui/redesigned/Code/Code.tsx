@@ -28,7 +28,7 @@ export const Code: FC<CodeProps> = memo((props) => {
         <div className={classNames(cls.codeWrapper, [className], {})}>
           <pre className={cls.code}>
             <ButtonDeprecated variant='clear' className={cls.codeBtn} onClick={onCopy}>
-              <CopyIcon className={cls.btnIcon} />
+              <CopyIcon className={cls.btnIcon} width={32} height={32} />
             </ButtonDeprecated>
             <code>{text}</code>
           </pre>
