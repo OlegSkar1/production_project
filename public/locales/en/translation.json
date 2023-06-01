@@ -51,5 +51,7 @@
   "oldDesign": "Old design",
   "newDesign": "New design",
   "interfaceVariant": "Interface option",
-  "settings": "Settings"
+  "settings": "Settings",
+  "countViews_one": "{{count}} view",
+  "countViews_other": "{{count}} views"
 }

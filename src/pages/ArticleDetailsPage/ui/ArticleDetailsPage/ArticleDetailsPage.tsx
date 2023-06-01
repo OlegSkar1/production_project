@@ -10,6 +10,8 @@ import {
   articleCommentReducer,
   articleCommentSelectors,
 } from '../../model/slice/articleCommentSlice/articleCommentSlice';
+import { ArticleAdditionalInfoContainer } from '../ArticleAdditionalInfoContainer/ArticleAdditionalInfoContainer';
+import { ArticleDetailsContainer } from '../ArticleDetailsContainer/ArticleDetailsContainer';
 import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader';
 
 import { ArticleDetails, getArticleError } from '@/entities/Article';
@@ -17,6 +19,7 @@ import { CommentList } from '@/entities/Comment';
 import { AddNewCommentForm } from '@/features/AddNewCommentForm';
 import { ArticleRateCard } from '@/features/ArticleRateCard';
 import { RecommendArticles } from '@/features/RecommendArticles';
+import { StickyContentLayout } from '@/shared/layouts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
@@ -65,26 +68,43 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page data-testid='ArticleDetailsPage' className={classNames(cls.articleDetailsPage, [className], {})}>
-        <ArticleDetailsHeader />
-        <ArticleDetails id={id} />
-        {!articleError && (
-          <>
-            <ToggleFeature
-              name='isArticleRatingEnabled'
-              on={<ArticleRateCard articleId={id} />}
-              off={
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={
+          <Page data-testid='ArticleDetailsPage' className={classNames(cls.articleDetailsPage, [className], {})}>
+            <ArticleDetailsHeader />
+            <ArticleDetails id={id} />
+            {!articleError && (
+              <>
                 <CardDeprecated>
                   <TextDeprecated text={t('Here will be the evaluation of the article')} />
                 </CardDeprecated>
-              }
-            />
-            <RecommendArticles />
-            <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
-            <CommentList comments={comments} isLoading={commentsIsLoading} />
-          </>
-        )}
-      </Page>
+                <RecommendArticles />
+                <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
+                <CommentList comments={comments} isLoading={commentsIsLoading} />
+              </>
+            )}
+          </Page>
+        }
+        on={
+          <StickyContentLayout
+            content={
+              <Page data-testid='ArticleDetailsPage' className={classNames(cls.articleDetailsPage, [className], {})}>
+                <ArticleDetailsContainer />
+                {!articleError && (
+                  <>
+                    <ArticleRateCard articleId={id} />
+                    <RecommendArticles />
+                    <AddNewCommentForm onSendComment={onSendComment} error={commentsError} />
+                    <CommentList comments={comments} isLoading={commentsIsLoading} />
+                  </>
+                )}
+              </Page>
+            }
+            right={<ArticleAdditionalInfoContainer />}
+          />
+        }
+      />
     </DynamicModuleLoader>
   );
 };
