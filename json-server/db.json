@@ -1741,10 +1741,10 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
-        "isAppRedesigned": true
+        "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_theme_light",
+        "theme": "app_theme_dark",
         "isFirstVisit": true,
         "articlePageHasBeenOpen": true
       }
@@ -1763,7 +1763,7 @@
         "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_theme_light",
+        "theme": "app_theme_blue",
         "isFirstVisit": true,
         "articlePageHasBeenOpen": true
       }

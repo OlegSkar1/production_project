@@ -6,7 +6,6 @@ import { Country } from '../model/types/county';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { DirectionType } from '@/shared/types/ui';
-import { ListBoxItem } from '@/shared/ui';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ListBox';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
@@ -30,7 +29,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo((props) => {
     [onChange]
   );
 
-  const options: ListBoxItem[] = useMemo(
+  const options = useMemo(
     () => [
       { value: Country.Russia, content: t('russia') },
       { value: Country.Ukraine, content: t('ukraine') },

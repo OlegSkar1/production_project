@@ -6,7 +6,6 @@ import { Currency } from '../model/types/currency';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { DirectionType } from '@/shared/types/ui';
-import { ListBoxItem } from '@/shared/ui';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ListBox';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 
@@ -18,7 +17,7 @@ interface CurrencySelectProps {
   direction?: DirectionType;
 }
 
-const options: ListBoxItem[] = [
+const options = [
   { value: Currency.RUB, content: Currency.RUB },
   { value: Currency.USD, content: Currency.USD },
   { value: Currency.EUR, content: Currency.EUR },

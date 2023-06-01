@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
 
-import { Overlay } from '../Overlay/Overlay';
+import { Overlay } from '../Overlay';
 import { Portal } from '../Portal/Portal';
 
 import { classNames } from '@/shared/lib';
+import { toggleFeature } from '@/shared/lib/featureFlags';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 
@@ -16,11 +17,6 @@ interface ModalProps {
   onClose?: () => void;
   lazy?: boolean;
 }
-
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 
 export const Modal: React.FC<ModalProps> = (props) => {
   const { className, children, isOpen, onClose, lazy } = props;
@@ -39,9 +35,22 @@ export const Modal: React.FC<ModalProps> = (props) => {
   }
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={classNames(cls.modal, [className, theme, 'app_modal'], mods)}
+        className={classNames(
+          cls.modal,
+          [
+            className,
+            theme,
+            'app_modal',
+            toggleFeature({
+              name: 'isAppRedesigned',
+              off: () => cls.modalOld,
+              on: () => cls.modalNew,
+            }),
+          ],
+          mods
+        )}
         onAnimationEnd={isClosing ? onClose : undefined}
       >
         <Overlay onClick={onCloseHandler} />

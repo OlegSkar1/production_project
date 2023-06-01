@@ -6,11 +6,6 @@ interface PortalProps {
   element?: HTMLElement;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
-
 export const Portal: React.FC<PortalProps> = (props) => {
   const { children, element = document.querySelector('#root') } = props;
 

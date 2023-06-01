@@ -32,14 +32,14 @@ const App = () => {
     <ToggleFeature
       name='isAppRedesigned'
       on={
-        <div className={classNames('app_redesigned', [theme], {})}>
+        <div id='app' className={classNames('app_redesigned', [theme], {})}>
           <Suspense fallback=''>
             <MainLayout content={<AppRouter />} header={<Navbar />} sidebar={<Sidebar />} toolbar={<div>153485</div>} />
           </Suspense>
         </div>
       }
       off={
-        <div className={classNames('app', [theme], {})}>
+        <div id='app' className={classNames('app', [theme], {})}>
           <Suspense fallback=''>
             <Navbar />
             <main className='content-page'>

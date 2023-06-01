@@ -14,8 +14,19 @@
   margin: 20px;
   padding: 20px;
 
-  background: var(--bg-color);
   border-radius: 12px;
+}
+
+.modal-old {
+  .content {
+    background: var(--bg-color);
+  }
+}
+
+.modal-new {
+  .content {
+    background: var(--light-bg-redesigned);
+  }
 }
 
 .opened {

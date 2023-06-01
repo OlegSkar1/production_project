@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { getFeatureFlags, ToggleFeature, updateFeatureFlags } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { ListBoxItem } from '@/shared/ui';
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups/ListBox';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
@@ -26,7 +25,7 @@ export const UiSwitcher: FC<UiSwitcherProps> = memo((props) => {
   const authData = useSelector(getUserAuthData);
   const [isLoading, setIsLoading] = useState(false);
 
-  const items: ListBoxItem[] = [
+  const items = [
     {
       content: t('oldDesign'),
       value: 'old',

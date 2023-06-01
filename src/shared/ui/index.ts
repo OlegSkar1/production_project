@@ -1,8 +1,7 @@
 export { StarRating } from './deprecated/StarRating/StarRating';
-export { Overlay } from './deprecated/Overlay/Overlay';
-export type { ListBoxItem } from './deprecated/Popups/ListBox/ListBox';
+export { Overlay } from './redesigned/Overlay';
 export { Select } from './deprecated/Select/ui/Select';
 export { Code } from './deprecated/Code/Code';
-export { Portal } from './deprecated/Portal/Portal';
-export { Modal } from './deprecated/Modal/Modal';
+export { Portal } from './redesigned/Portal';
+export { Modal } from './redesigned/Modal';
 export { Loader } from './deprecated/Loader/Loader';
