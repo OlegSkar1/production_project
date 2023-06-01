@@ -3,7 +3,7 @@ import { FC, memo } from 'react';
 import { CodeBlock } from '../../model/types/article';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Code } from '@/shared/ui';
+import { Code } from '@/shared/ui/redesigned/Code';
 
 import cls from './ArticleCodeBlock.module.scss';
 

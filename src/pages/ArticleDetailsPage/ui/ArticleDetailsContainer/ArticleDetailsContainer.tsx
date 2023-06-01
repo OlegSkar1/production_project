@@ -13,7 +13,7 @@ export const ArticleDetailsContainer: FC<ArticleDetailsContainerProps> = memo((p
   const { id = '1' } = useParams<{ id: string }>();
 
   return (
-    <Card className={className}>
+    <Card tagname='article' className={className}>
       <ArticleDetails id={id} />
     </Card>
   );
