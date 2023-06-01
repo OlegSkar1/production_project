@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { getFeatureFlags } from '../getSetFeatureFlags';
+import { getFeatureFlags } from '../../lib/getSetFeatureFlags';
 
 import { FeatureFlags } from '@/shared/types/features';
 

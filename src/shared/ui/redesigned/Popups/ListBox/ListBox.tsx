@@ -24,7 +24,7 @@ export interface ListBoxItem<T extends string> {
 
 export type LabelDirection = 'row' | 'column';
 
-type SizeListbox = 's' | 'm' | 'l';
+export type SizeListbox = 's' | 'm' | 'l';
 
 interface ListBoxProps<T extends string> {
   className?: string;

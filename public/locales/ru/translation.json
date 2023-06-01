@@ -45,5 +45,10 @@
   "adminPanel": "Админ панель",
   "not access": "У вас нет доступа к этой странице",
   "your_feedback": "Ваш отзыв",
-  "thanks_for_rating": "Спасибо за оценку!"
+  "thanks_for_rating": "Спасибо за оценку!",
+  "userSettings": "Настройки пользователя",
+  "oldDesign": "Старый дизайн",
+  "newDesign": "Новый дизайн",
+  "interfaceVariant": "Вариант интерфейса",
+  "settings": "Настройки"
 }

@@ -2,6 +2,7 @@ export type AppRoutes = ValueOf<typeof AppRoutes>;
 
 export const AppRoutes = {
   MAIN: 'main',
+  SETTINGS: 'settings',
   ABOUT: 'about',
   ADMIN_PANEL: 'admin_panel',
   PROFILE: 'profile',
@@ -16,6 +17,7 @@ export const AppRoutes = {
 } as const;
 
 export const getRouteMain = () => '/';
+export const getRouteSettings = () => '/settings';
 export const getRouteAbout = () => '/about';
 export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteNotFound = () => '*';

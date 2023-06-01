@@ -46,5 +46,10 @@
   "not access": "You do not have access to this page",
   "no_data": "Data not specified",
   "your_feedback": "Your feedback",
-  "thanks_for_rating": "Thank you for rating!"
+  "thanks_for_rating": "Thank you for rating!",
+  "userSettings": "User Settings",
+  "oldDesign": "Old design",
+  "newDesign": "New design",
+  "interfaceVariant": "Interface option",
+  "settings": "Settings"
 }

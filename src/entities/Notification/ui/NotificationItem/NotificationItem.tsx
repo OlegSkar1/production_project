@@ -11,6 +11,8 @@ import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './NotificationItem.module.scss';
@@ -65,10 +67,10 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props) => {
           </CardDeprecated>
         }
         on={
-          <Card variant='outlined' className={cls.notificationItem}>
-            <SkeletonDeprecated variant='title' className={cls.skeleton} />
-            <SkeletonDeprecated height={50} />
-          </Card>
+          <VStack align='start' className={cls.notificationItemRedesigned}>
+            <SkeletonRedesigned variant='title' width='70%' className={cls.skeleton} />
+            <SkeletonRedesigned variant='text' />
+          </VStack>
         }
       />
     );

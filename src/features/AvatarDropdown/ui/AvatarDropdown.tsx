@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData, isAdminRole, isManagerRole, useUserActions } from '@/entities/User';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile, getRouteSettings } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups/Dropdown';
@@ -44,6 +44,10 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props) => {
     {
       content: t('profile'),
       href: authData && getRouteProfile(authData.id),
+    },
+    {
+      content: t('settings'),
+      href: getRouteSettings(),
     },
     {
       content: t('Sign out'),
