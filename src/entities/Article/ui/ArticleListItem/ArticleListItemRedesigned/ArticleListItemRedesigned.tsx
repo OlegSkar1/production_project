@@ -81,7 +81,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = (props) => {
           <VStack gap='8' max className={cls.footerRedesigned}>
             <HStack gap='4' justify='between' max>
               <TextRedesigned text={article.createdAt} />
-              <HStack gap='8'>
+              <HStack gap='4'>
                 <IconRedesigned Svg={EyeIcon} />
                 <TextRedesigned text={String(article.views)} />
               </HStack>

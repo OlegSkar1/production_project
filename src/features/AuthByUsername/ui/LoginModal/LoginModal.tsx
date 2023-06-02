@@ -3,7 +3,8 @@ import { Suspense } from 'react';
 import { LoginFormAsync } from '../LoginForm/LoginFormAsync';
 
 import { classNames } from '@/shared/lib';
-import { Loader, Modal } from '@/shared/ui';
+import { Loader } from '@/shared/ui';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 import cls from './LoginModal.module.scss';
 

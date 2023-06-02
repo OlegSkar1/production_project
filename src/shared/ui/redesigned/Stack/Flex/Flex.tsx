@@ -8,30 +8,30 @@ export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 
 export type FlexAlign = 'start' | 'center' | 'end' | 'normal';
 
-type FlexDirection = 'row' | 'column';
+export type FlexDirection = 'row' | 'column';
 
 export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
-const justifyClasses: Record<FlexJustify, string> = {
+export const justifyClasses: Record<FlexJustify, string> = {
   start: cls.justifyStart,
   center: cls.justifyCenter,
   end: cls.justifyEnd,
   between: cls.justifyBetween,
 };
 
-const alignClasses: Record<FlexAlign, string> = {
+export const alignClasses: Record<FlexAlign, string> = {
   start: cls.alignStart,
   center: cls.alignCenter,
   end: cls.alignEnd,
   normal: cls.alignNormal,
 };
 
-const directionClasses: Record<FlexDirection, string> = {
+export const directionClasses: Record<FlexDirection, string> = {
   row: cls.directionRow,
   column: cls.directionColumn,
 };
 
-const gapClasses: Record<FlexGap, string> = {
+export const gapClasses: Record<FlexGap, string> = {
   4: cls.gap4,
   8: cls.gap8,
   16: cls.gap16,

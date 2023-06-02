@@ -6,7 +6,9 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticleList.module.scss';
 
@@ -28,15 +30,27 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
   const { t } = useTranslation('articles');
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} view={view} key={article.id} target={target} />
+    <ArticleListItem className={className} article={article} view={view} key={article.id} target={target} />
   );
 
   if (isError) {
-    return <TextDeprecated text={t('article list error')} align='center' size='size_l' theme='error' />;
+    return (
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={<TextDeprecated text={t('article list error')} align='center' size='size_l' theme='error' />}
+        on={<Text text={t('article list error')} align='center' size='size_l' theme='error' />}
+      />
+    );
   }
 
   if (!isLoading && articles.length === 0) {
-    return <TextDeprecated text={t('articles not found')} align='center' size='size_l' />;
+    return (
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={<TextDeprecated text={t('articles not found')} align='center' size='size_l' />}
+        on={<Text text={t('articles not found')} align='center' size='size_l' />}
+      />
+    );
   }
 
   return (

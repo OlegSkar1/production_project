@@ -56,44 +56,31 @@
       "articleId": "3"
     },
     {
-      "articleId": "1",
-      "userId": "2",
-      "rate": 3,
-      "feedback": "",
-      "id": "5hpulto"
+      "articleId": "4",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "отлично",
+      "id": "Im584x3"
     },
     {
-      "articleId": "12",
+      "articleId": "8",
       "userId": "2",
-      "rate": 4,
-      "id": "pxsUepq"
+      "rate": 2,
+      "id": "1LIgXmL"
     },
     {
       "articleId": "7",
       "userId": "2",
-      "rate": 4,
-      "feedback": "test",
-      "id": "G_lrIlO"
+      "rate": 3,
+      "feedback": "fff",
+      "id": "55meYMj"
     },
     {
-      "articleId": "17",
-      "userId": "2",
-      "rate": 4,
-      "feedback": "cool!",
-      "id": "Sh9I0q0"
-    },
-    {
-      "articleId": "14",
+      "articleId": "5",
       "userId": "1",
-      "rate": 4,
-      "id": "2zjTUlw"
-    },
-    {
-      "articleId": "14",
-      "userId": "2",
-      "rate": 2,
-      "feedback": "gsgsdg",
-      "id": "XckDQuJ"
+      "rate": 3,
+      "feedback": "cool",
+      "id": "FWxZvvK"
     }
   ],
   "profile-ratings": [
@@ -107,23 +94,8 @@
     {
       "profileId": "3",
       "userId": "1",
-      "rate": 3,
-      "feedback": "gdfhfdsh",
-      "id": "SthF7yk"
-    },
-    {
-      "profileId": "1",
-      "userId": "2",
-      "rate": 5,
-      "feedback": "хорошо",
-      "id": "dr7FgEs"
-    },
-    {
-      "profileId": "3",
-      "userId": "2",
       "rate": 4,
-      "feedback": "",
-      "id": "hi7ElGm"
+      "id": "rTZim6e"
     }
   ],
   "posts": [
@@ -1727,6 +1699,36 @@
       "userId": "1",
       "text": "gsdgdf",
       "id": "rl23ekR"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "import { FC, memo } from 'react'; import { useTranslation } from 'react-i18next';  import { Comment } from '../../../model/types/comment'; import { CommentCard } from '../../CommentCard/CommentCard/CommentCard';  import { classNames } from '@/shared/lib/classNames/classNames'; import { ToggleFeature } from '@/shared/lib/featureFlags'; import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'; import { VStack } from '@/shared/ui/redesigned/Stack'; import { Text } from '@/shared/ui/redesigned/Text';  import cls from './CommentList.module.scss';  interface CommentListProps {   className?: string;   comments?: Comment[];   isLoading?: boolean; }  export const CommentList: FC<CommentListProps> = memo((props) => {   const { className, comments, isLoading } = props;   const { t } = useTranslation();    if (isLoading) {     return (       <VStack gap='8' align='normal' className={classNames('', [className], {})} data-testid='CommentList.Loading'>         <CommentCard isLoading className={cls.loading} />         <CommentCard isLoading className={cls.loading} />         <CommentCard isLoading className={cls.loading} />       </VStack>     );   }    const text = (     <ToggleFeature       name='isAppRedesigned'       off={<TextDeprecated title={t('Comments not found')} />}       on={<Text title={t('Comments not found')} />}     />   );    return (     <VStack max gap='16' align='normal' className={classNames('', [className], {})} data-testid='CommentList'>       {comments?.length         ? comments?.map((comment) => <CommentCard isLoading={isLoading} key={comment.id} comment={comment} />)         : text}     </VStack>   ); }); Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam qui laudantium, nemo sit placeat repellat nihil delectus aspernatur accusantium expedita deleniti excepturi quisquam alias, consequatur omnis perferendis sint rerum illo! Animi nulla aliquid eaque nesciunt, eum fugit! Dolore numquam maiores repudiandae inventore velit quaerat corporis, ipsam minima magni incidunt sapiente sequi vero, earum facilis quidem recusandae nam voluptatem. Odit, unde! Voluptatem placeat, obcaecati, commodi id iure dignissimos exercitationem, ipsa consectetur repellat distinctio repudiandae sunt molestiae? Atque, at ratione a, veritatis error consequuntur facilis ex quibusdam incidunt fuga dolores eum minus. Ea et fuga commodi totam nemo sunt ipsa, labore nulla non reiciendis. Magni repudiandae iusto facere voluptates ea nam. Ipsum vitae atque cum facilis totam harum quod praesentium cumque laudantium! Reiciendis magni dicta, alias aperiam, eum libero quisquam quia incidunt, ipsum ipsam iure natus doloremque necessitatibus dolorum quasi officia mollitia nisi reprehenderit similique corporis sequi enim voluptates porro aliquam? Tenetur.",
+      "id": "8x5EXqv"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "жесть какая то",
+      "id": "nCnmtYb"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "543245",
+      "id": "ApOCXOs"
+    },
+    {
+      "articleId": "19",
+      "userId": "1",
+      "text": "l;kjhgf",
+      "id": "HHO7tOR"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "first comment",
+      "id": "x4og0-Y"
     }
   ],
   "users": [
@@ -1744,7 +1746,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_theme_dark",
+        "theme": "app_theme_orange",
         "isFirstVisit": true,
         "articlePageHasBeenOpen": true
       }
@@ -1763,7 +1765,7 @@
         "isAppRedesigned": false
       },
       "jsonSettings": {
-        "theme": "app_theme_light",
+        "theme": "app_theme_dark",
         "isFirstVisit": true,
         "articlePageHasBeenOpen": true
       }

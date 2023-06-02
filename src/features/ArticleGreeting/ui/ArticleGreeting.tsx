@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { saveJsonSettings, useJsonSettingsByKey } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useMobile } from '@/shared/lib/hooks/useMobile';
-import { Modal } from '@/shared/ui';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 export const ArticleGreeting: FC = memo(() => {
   const { t } = useTranslation('articles');

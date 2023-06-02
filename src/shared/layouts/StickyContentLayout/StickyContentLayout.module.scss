@@ -12,8 +12,10 @@
 .content {
   grid-area: content;
   justify-self: center;
+
   width: 100%;
-  max-width: 638px;
+  min-width: 638px;
+  max-width: 780px;
 }
 
 .left,
@@ -25,5 +27,6 @@
 
 .right {
   grid-area: right;
+  min-width: 215px;
   max-width: 268px;
 }

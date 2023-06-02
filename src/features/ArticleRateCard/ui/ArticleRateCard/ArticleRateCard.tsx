@@ -6,8 +6,11 @@ import { useFetchRateArticleQuery, useSendRateArticleMutation } from '../../api/
 
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleRateCardProps {
   className?: string;
@@ -57,11 +60,23 @@ export const ArticleRateCard: FC<ArticleRateCardProps> = memo((props) => {
   );
 
   if (isLoading) {
-    return <SkeletonDeprecated height={120} width={'100%'} />;
+    return (
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={<SkeletonDeprecated height={120} width={'100%'} />}
+        on={<Skeleton height={120} width={'100%'} />}
+      />
+    );
   }
 
   if (isError) {
-    return <TextDeprecated text={t('rate_load_error')} theme='error' />;
+    return (
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={<TextDeprecated text={t('rate_load_error')} theme='error' />}
+        on={<Text text={t('rate_load_error')} theme='error' />}
+      />
+    );
   }
 
   return (

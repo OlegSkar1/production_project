@@ -54,5 +54,6 @@
   "countViews_zero": "{{count}} просмотров",
   "countViews_one": "{{count}} просмотр",
   "countViews_few": "{{count}} просмотрa",
-  "countViews_many": "{{count}} просмотров"
+  "countViews_many": "{{count}} просмотров",
+  "addComment": "Написать комментарий..."
 }
