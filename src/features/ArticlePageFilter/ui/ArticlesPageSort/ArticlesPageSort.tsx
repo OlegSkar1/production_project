@@ -8,8 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { OrderType } from '@/shared/types/sort';
-import { Select } from '@/shared/ui';
-import { OptionList } from '@/shared/ui/deprecated/Select';
+import { OptionList, Select } from '@/shared/ui/deprecated/Select';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 

@@ -11,11 +11,16 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Loader } from '@/shared/ui/redesigned/Loader';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './LoginForm.module.scss';
 
@@ -61,40 +66,68 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     }
   }, [dispatch, onSuccess, password, username]);
 
+  const content = (
+    <ToggleFeature
+      name='isAppRedesigned'
+      off={
+        <VStack gap='16' className={classNames('', [className], {})}>
+          <TextDeprecated title={t('authorization form')} className={cls.formTitle} />
+          {error && (
+            <TextDeprecated
+              text={t('You entered an incorrect username or password')}
+              theme='error'
+              className={cls.formError}
+            />
+          )}
+          <InputDeprecated
+            onChange={loginHandler}
+            value={username}
+            variant='inverted'
+            label={t('Enter login')}
+            autoFocus
+          />
+          <InputDeprecated
+            onChange={passwordHandler}
+            value={password}
+            variant='inverted'
+            type='password'
+            label={t('Enter password')}
+          />
+          <ButtonDeprecated
+            disabled={isLoading}
+            variant='outlined'
+            onClick={onButtonClick}
+            className={classNames(cls.loginBtn, [], { [cls.loading]: isLoading })}
+          >
+            {t('Sign in')}
+          </ButtonDeprecated>
+        </VStack>
+      }
+      on={
+        <VStack gap='16' className={classNames('', [className], {})}>
+          <Text title={t('authorization form')} className={cls.formTitle} />
+          {isLoading && <Loader />}
+          {error && (
+            <Text text={t('You entered an incorrect username or password')} theme='error' className={cls.formError} />
+          )}
+          <Input onChange={loginHandler} value={username} label={t('Enter login')} autoFocus />
+          <Input onChange={passwordHandler} value={password} type='password' label={t('Enter password')} />
+          <Button
+            disabled={isLoading}
+            variant='outlined'
+            onClick={onButtonClick}
+            className={classNames(cls.loginBtn, [], { [cls.loading]: isLoading })}
+          >
+            {t('Sign in')}
+          </Button>
+        </VStack>
+      }
+    />
+  );
+
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <VStack gap='16' className={classNames('', [className], {})}>
-        <TextDeprecated title={t('authorization form')} className={cls.formTitle} />
-        {error && (
-          <TextDeprecated
-            text={t('You entered an incorrect username or password')}
-            theme='error'
-            className={cls.formError}
-          />
-        )}
-        <InputDeprecated
-          onChange={loginHandler}
-          value={username}
-          variant='inverted'
-          label={t('Enter login')}
-          autoFocus
-        />
-        <InputDeprecated
-          onChange={passwordHandler}
-          value={password}
-          variant='inverted'
-          type='password'
-          label={t('Enter password')}
-        />
-        <ButtonDeprecated
-          disabled={isLoading}
-          variant='outlined'
-          onClick={onButtonClick}
-          className={classNames(cls.loginBtn, [], { [cls.loading]: isLoading })}
-        >
-          {t('Sign in')}
-        </ButtonDeprecated>
-      </VStack>
+      {content}
     </DynamicModuleLoader>
   );
 });

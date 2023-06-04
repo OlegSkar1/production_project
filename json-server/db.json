@@ -95,7 +95,8 @@
       "profileId": "3",
       "userId": "1",
       "rate": 4,
-      "id": "rTZim6e"
+      "feedback": "хороший менеджер",
+      "id": "ABpa-Ud"
     }
   ],
   "posts": [
@@ -1746,7 +1747,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_theme_orange",
+        "theme": "app_theme_dark",
         "isFirstVisit": true,
         "articlePageHasBeenOpen": true
       }

@@ -5,10 +5,10 @@ import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
 import { classNames } from '@/shared/lib';
-import { Loader } from '@/shared/ui';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Loader } from '@/shared/ui/redesigned/Loader';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ProfileCardDeprecated.module.scss';
