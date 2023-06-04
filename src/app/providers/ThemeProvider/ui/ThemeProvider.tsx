@@ -28,6 +28,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }
     }
   }, [defaultTheme, isThemeInited]);
 
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   const value = useMemo(
     () => ({
       theme,
