@@ -7,7 +7,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 export const getAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
-  '/getAuthData',
+  'user/getAuthData',
 
   async (_, thunkApi) => {
     const { rejectWithValue, dispatch } = thunkApi;
@@ -15,7 +15,7 @@ export const getAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
     const userId = localStorage.getItem(USER_LOCALSTORAGE_KEY);
 
     if (!userId) {
-      return rejectWithValue('');
+      return rejectWithValue('no data');
     }
 
     try {

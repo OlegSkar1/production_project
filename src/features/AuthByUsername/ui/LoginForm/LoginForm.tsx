@@ -13,6 +13,7 @@ import { classNames } from '@/shared/lib';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
@@ -36,6 +37,7 @@ const initialReducers: ReducersList = {
 const LoginForm: React.FC<LoginFormProps> = memo((props) => {
   const { className, onSuccess } = props;
   const dispatch = useAppDispatch();
+  const forceUpdate = useForceUpdate();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -61,10 +63,11 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     if (__PROJECT__ !== 'storybook') {
       const result = await dispatch(loginByUsername({ username, password }));
       if (result.meta.requestStatus === 'fulfilled') {
+        forceUpdate();
         onSuccess();
       }
     }
-  }, [dispatch, onSuccess, password, username]);
+  }, [dispatch, forceUpdate, onSuccess, password, username]);
 
   const content = (
     <ToggleFeature
