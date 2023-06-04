@@ -1,6 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { useAppToolbar } from './lib/useAppToolbar/useAppToolbar';
 import { AppRouter } from './providers/router';
 
 import { getAuthData, getUserInited } from '@/entities/User';
@@ -19,6 +20,8 @@ const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
+  const toolbar = useAppToolbar();
+  console.log(toolbar);
 
   useEffect(() => {
     if (!inited) {
@@ -46,7 +49,7 @@ const App = () => {
       on={
         <div id='app' className={classNames('app_redesigned', [theme], {})}>
           <Suspense fallback=''>
-            <MainLayout content={<AppRouter />} header={<Navbar />} sidebar={<Sidebar />} toolbar={<div>153485</div>} />
+            <MainLayout content={<AppRouter />} header={<Navbar />} sidebar={<Sidebar />} toolbar={toolbar} />
           </Suspense>
         </div>
       }

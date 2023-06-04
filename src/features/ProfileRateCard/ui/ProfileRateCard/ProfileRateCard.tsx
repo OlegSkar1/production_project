@@ -15,10 +15,11 @@ import { Text } from '@/shared/ui/redesigned/Text';
 interface ProfileRateCardProps {
   className?: string;
   profileId: string;
+  error?: string;
 }
 
 export const ProfileRateCard: FC<ProfileRateCardProps> = memo((props) => {
-  const { className, profileId } = props;
+  const { className, profileId, error } = props;
   const { t } = useTranslation('profile');
 
   const userData = useSelector(getUserAuthData);
@@ -82,6 +83,8 @@ export const ProfileRateCard: FC<ProfileRateCardProps> = memo((props) => {
       />
     );
   }
+
+  if (error) return null;
 
   return (
     <RatingCard
