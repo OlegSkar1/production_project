@@ -4,7 +4,7 @@ import { getAuthDataQuery } from '../../../api/userApi';
 import { User } from '../../types/user';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 export const getAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
   'user/getAuthData',
@@ -20,6 +20,8 @@ export const getAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
 
     try {
       const res = await dispatch(getAuthDataQuery(userId)).unwrap();
+
+      localStorage.setItem(LOCAL_STORAGE_LAST_DESIGN_KEY, res.features?.isAppRedesigned ? 'new' : 'old');
 
       return res;
     } catch (error) {

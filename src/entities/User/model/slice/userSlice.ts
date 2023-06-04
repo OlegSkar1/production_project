@@ -4,7 +4,7 @@ import { getAuthData } from '../services/getAuthData/getAuthData';
 import { saveJsonSettings } from '../services/setJsonSettings/saveJsonSettings';
 import { UserSchema, User } from '../types/user';
 
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { setFeatureFlags } from '@/shared/lib/featureFlags';
 import { buildSlice } from '@/shared/lib/store';
 
@@ -19,6 +19,7 @@ export const userSlice = buildSlice({
     setAuthData: (state, { payload }: PayloadAction<User>) => {
       state.authData = payload;
       localStorage.setItem(USER_LOCALSTORAGE_KEY, payload.id);
+      localStorage.setItem(LOCAL_STORAGE_LAST_DESIGN_KEY, payload.features?.isAppRedesigned ? 'new' : 'old');
       setFeatureFlags(payload.features);
     },
     logout: (state) => {

@@ -5,7 +5,7 @@ import { AppRouter } from './providers/router';
 
 import { getAuthData, getUserInited } from '@/entities/User';
 import { PageLoader } from '@/features/PageLoader';
-import { MainLayout } from '@/shared/layouts';
+import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
 import { classNames } from '@/shared/lib';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -27,7 +27,17 @@ const App = () => {
   }, [dispatch, inited]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <ToggleFeature
+        name='isAppRedesigned'
+        off={<PageLoader />}
+        on={
+          <div id='app' className={classNames('app_redesigned', [theme], {})}>
+            <AppLoaderLayout />
+          </div>
+        }
+      />
+    );
   }
 
   return (
