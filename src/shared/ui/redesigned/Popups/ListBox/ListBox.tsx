@@ -76,14 +76,16 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
       className={classNames(popupCls.wrapper, [className], {})}
       disabled={readonly}
     >
-      <HListbox.Button
-        as={Button}
-        size={size}
-        variant='light'
-        addonRight={<Icon Svg={DownArrow} className={cls.arrow} />}
-        className={classNames(popupCls.trigger, [], { [popupCls.disable]: readonly })}
-      >
-        <span>{selectedValue?.content ?? defaultValue}</span>
+      <HListbox.Button as={'div'} className={classNames(popupCls.trigger, [], { [popupCls.disable]: readonly })}>
+        <Button
+          size={size}
+          disabled={readonly}
+          variant='light'
+          addonRight={<Icon Svg={DownArrow} className={cls.arrow} />}
+          className={classNames(popupCls.trigger, [], { [popupCls.disable]: readonly })}
+        >
+          <span>{selectedValue?.content ?? defaultValue}</span>
+        </Button>
       </HListbox.Button>
       <HListbox.Options className={classNames(cls.menu, optionsClasses, {})}>
         {items.map((item) => (
