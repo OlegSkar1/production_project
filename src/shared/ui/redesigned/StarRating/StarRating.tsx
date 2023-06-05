@@ -1,7 +1,7 @@
 import { FC, memo, useState } from 'react';
 
+import StarIcon from '../../../assets/icons/newStarIcon.svg';
 import StarIconOld from '../../../assets/icons/star.svg';
-import StarIcon from '../../../assets/icons/starIcon.svg';
 import { Icon as IconDeprecated } from '../../deprecated/Icon/Icon';
 import { Icon } from '../../redesigned/Icon/Icon';
 
