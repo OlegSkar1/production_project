@@ -82,7 +82,6 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
           disabled={readonly}
           variant='light'
           addonRight={<Icon Svg={DownArrow} className={cls.arrow} />}
-          className={classNames(popupCls.trigger, [], { [popupCls.disable]: readonly })}
         >
           <span>{selectedValue?.content ?? defaultValue}</span>
         </Button>
