@@ -22,7 +22,6 @@ const App = memo(() => {
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
   const toolbar = useAppToolbar();
-  console.log(toolbar);
 
   useEffect(() => {
     if (!inited) {
