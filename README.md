@@ -7,6 +7,27 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ---
 
+> Ознакомиться можно по [ссылке](<[https://](https://prod-project.netlify.app/)>)
+
+```typescript
+//Данные для входа:
+
+    admin: {
+      login: admin,
+      password: 123
+    },
+
+    user: {
+      login: user,
+      password: 123
+    },
+
+    manager: {
+      login: manager,
+      password: 123
+    }
+```
+
 ## Скрипты
 
 - `npm run start` - Запуск frontend проекта на webpack dev server
@@ -31,6 +52,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run storybook:build` - Сборка storybook билда
 - `npm run prepare` - прекоммит хуки
 - `npm run generate:slice` - Скрипт для генерации FSD слайсов
+- `npm run remove-feature` - Скрипт для удаления устаревшего дизайна
 
 ---
 
@@ -40,16 +62,66 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 Ссылка на документацию - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
+В проекте реализовано переключение старого/нового дизайна, а также синхронизация текущего дизайна пользователя с базой.
+
+---
+
+## Работа с изменением темы пользователей
+
+Тема применяется по наличию фича флага юзера с бд.
+Контент отрисовывается динамически с помощью функции `ToggleFeature`, которая смотрит на состояние флага в базе `isAppRedesigned`, если он положении `true`, то пользователю отдается обновленный дизайн.
+
+```ts
+interface User {
+  id: string;
+  username: string;
+  avatar?: string;
+  roles?: Role[];
+  features?: FeatureFlags;
+  jsonSettings?: JsonSettings;
+}
+
+interface FeatureFlags {
+  isArticleRatingEnabled?: boolean;
+  isCounterEnabled?: boolean;
+  isAppRedesigned?: boolean; //фича флаг обновленного дизайна
+}
+```
+
+> В последствии, если будет необходимость отказаться от старого дизайна, достаточно будет запустить скрипт `remove-feature isAppRedesign on`, который пройдет по всему проекту и удалит ненужный код
+
+```jsx
+<ToggleFeature
+      name='isAppRedesigned'
+      off={<TextDeprecated title={t('userSettings')} />}
+      on={<TextRedesigned title={t('userSettings')} />}
+    />
+
+  // скрипт `remove-feature isAppRedesign on` удалит все лишнее, останется только часть кода из props.on
+  <TextRedesigned title={t('userSettings')} />
+
+```
+
+Функция `toggleFeature` работает также, но не с `jsx`, например:
+
+```js
+toggleFeature({
+  name: 'isAppRedesigned',
+  off: () => cls.drawerOld, //css class
+  on: () => cls.drawerNew,
+});
+```
+
 ---
 
 ## Работа с переводами
 
-В проекте используется библиотека i18next для работы с переводами.
+В проекте используется библиотека i18next для работы с переводами и плюральными формами.
 Файлы с переводами хранятся в public/locales.
 
-Для комфортной работы рекомендуем установить плагин для webstorm/vscode
+Для комфортной работы рекомендуем установить плагин для webstorm/vscode([i18n Ally](<[https://](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)>))
 
-Документация i18next - [https://react.i18next.com/](https://react.i18next.com/)
+[Документация i18next](https://react.i18next.com/)
 
 ---
 
@@ -90,7 +162,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Storybook
 
-В проекте для каждого компонента описываются стори-кейсы.
+В проекте для каждого компонента описываются стори-кейсы.  
 Запросы на сервер мокаются с помощью `storybook-addon-mock`.  
 Роутинг мокается с помощью `storybook-addon-react-router-v6`
 
@@ -165,6 +237,13 @@ Clear.args = {
 
 ---
 
+## Deployment
+
+Конфигурация nginx находится в папке `.deploy/nginx.conf`  
+Для упрощения обновления на сервере используется bash скрипт `.deploy/deploy.sh`
+
+---
+
 ### Работа с данными
 
 Взаимодействие с данными осуществляется с помощью redux toolkit.
@@ -177,7 +256,7 @@ Clear.args = {
 
 ---
 
-### Работа с feature-flags
+## Работа с feature-flags
 
 Разрешено использование feature flags только с помощью хелпера toggleFeatures
 
@@ -186,7 +265,7 @@ Clear.args = {
 > {  
 >  `name`: название фича-флага,  
 >  `on`: функция, которая отработает после Включения фичи  
->  `of`: функция, которая отработает после ВЫключения фичи  
+>  `off`: функция, которая отработает после ВЫключения фичи  
 > }
 
 Для автоматического удаления фичи использовать скрипт remove-feature.ts,
