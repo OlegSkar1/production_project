@@ -4,6 +4,7 @@ import { Article } from '../../model/types/article';
 
 import { ArticleListItem } from './ArticleListItem';
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/const/Theme';
 
@@ -77,3 +78,27 @@ ListDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ListBlue = Template.bind({});
 ListBlue.args = { view: 'LIST', article };
 ListBlue.decorators = [ThemeDecorator(Theme.BLUE)];
+
+export const RedesignedGrid = Template.bind({});
+RedesignedGrid.args = { view: 'GRID', article };
+RedesignedGrid.decorators = [NewDesignDecorator];
+
+export const RedesignedGridDark = Template.bind({});
+RedesignedGridDark.args = { view: 'GRID', article };
+RedesignedGridDark.decorators = [ThemeDecorator(Theme.DARK), NewDesignDecorator];
+
+export const RedesignedGridOrange = Template.bind({});
+RedesignedGridOrange.args = { view: 'GRID', article };
+RedesignedGridOrange.decorators = [ThemeDecorator(Theme.ORANGE), NewDesignDecorator];
+
+export const RedesignedList = Template.bind({});
+RedesignedList.args = { view: 'LIST', article };
+RedesignedList.decorators = [NewDesignDecorator];
+
+export const RedesignedListDark = Template.bind({});
+RedesignedListDark.args = { view: 'LIST', article };
+RedesignedListDark.decorators = [ThemeDecorator(Theme.DARK), NewDesignDecorator];
+
+export const RedesignedListOrange = Template.bind({});
+RedesignedListOrange.args = { view: 'LIST', article };
+RedesignedListOrange.decorators = [ThemeDecorator(Theme.ORANGE), NewDesignDecorator];

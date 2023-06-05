@@ -1,1 +1,2 @@
-export { ThemeProvider } from './ui/ThemeProvider';
+export { withTheme } from './hoc/withTheme';
+export { default as ThemeProvider } from './ui/ThemeProvider';

@@ -9,7 +9,7 @@ import { Theme } from '@/shared/const/Theme';
 import { avatar } from '@/shared/const/imagePaths';
 
 export default {
-  title: 'entities/ProfileCardDeprecated',
+  title: 'entities/ProfileCard/Deprecated',
   component: ProfileCardDeprecated,
   argTypes: {},
 } as ComponentMeta<typeof ProfileCardDeprecated>;

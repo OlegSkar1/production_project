@@ -62,7 +62,7 @@ export const ProfileCardDeprecated: React.FC<ProfileCardProps> = (props) => {
         value={data?.first}
         label={t('yourName')}
         onChange={onChangeFirst}
-        data-testid='ProfileCardDeprecated.first'
+        data-testid='ProfileCard.first'
       />
       <InputDeprecated
         variant='clear'
@@ -70,7 +70,7 @@ export const ProfileCardDeprecated: React.FC<ProfileCardProps> = (props) => {
         value={data?.lastname}
         label={t('yourLastname')}
         onChange={onChangeLastName}
-        data-testid='ProfileCardDeprecated.lastname'
+        data-testid='ProfileCard.lastname'
       />
       <InputDeprecated
         variant='clear'

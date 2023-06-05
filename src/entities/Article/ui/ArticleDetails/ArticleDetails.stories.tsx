@@ -4,6 +4,7 @@ import { Article } from '../../model/types/article';
 
 import { ArticleDetails } from './ArticleDetails';
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 export default {
@@ -117,4 +118,35 @@ Error.decorators = [
       error: 'error',
     },
   }),
+];
+
+export const RedesignedNormal = Template.bind({});
+RedesignedNormal.args = {};
+RedesignedNormal.decorators = [
+  StoreDecorator({
+    article: {
+      data: article,
+    },
+  }),
+  NewDesignDecorator,
+];
+export const RedesignedLoading = Template.bind({});
+RedesignedLoading.args = {};
+RedesignedLoading.decorators = [
+  StoreDecorator({
+    article: {
+      isLoading: true,
+    },
+  }),
+  NewDesignDecorator,
+];
+export const RedesignedError = Template.bind({});
+RedesignedError.args = {};
+RedesignedError.decorators = [
+  StoreDecorator({
+    article: {
+      error: 'error',
+    },
+  }),
+  NewDesignDecorator,
 ];

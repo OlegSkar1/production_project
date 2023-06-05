@@ -14,6 +14,7 @@ module.exports = {
     'storybook-addon-themes',
   ],
   framework: '@storybook/react',
+  staticDirs: ['../../public'],
   core: {
     builder: '@storybook/builder-webpack5',
   },
