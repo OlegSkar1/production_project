@@ -75,6 +75,7 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
       off={
         <VStack gap='16' className={classNames('', [className], {})}>
           <TextDeprecated title={t('authorization form')} className={cls.formTitle} />
+          {isLoading && <Loader />}
           {error && (
             <TextDeprecated
               text={t('You entered an incorrect username or password')}
