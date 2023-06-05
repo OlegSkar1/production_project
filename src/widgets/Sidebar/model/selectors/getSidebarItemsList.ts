@@ -7,7 +7,7 @@ import AboutIconDeprecated from '@/shared/assets/icons/about_us.svg';
 import ArticlesIconDeprecated from '@/shared/assets/icons/article-20-20.svg';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
 import HomeIcon from '@/shared/assets/icons/home.svg';
-import InfoIcon from '@/shared/assets/icons/info.svg';
+import InfoIcon from '@/shared/assets/icons/infoIcon.svg';
 import HomeIconDeprecated from '@/shared/assets/icons/main-20-20.svg';
 import ProfileIconDeprecated from '@/shared/assets/icons/profile.svg';
 import ProfileIcon from '@/shared/assets/icons/user-avatar.svg';
