@@ -1,0 +1,23 @@
+.additional {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  min-width: 100%;
+  padding: 10px 0;
+
+  border-radius: 10px;
+}
+
+.item {
+  cursor: pointer;
+
+  width: 100%;
+  padding: 0 20px;
+
+  color: var(--primary-color);
+
+  background: none;
+  border: none;
+  outline: none;
+}

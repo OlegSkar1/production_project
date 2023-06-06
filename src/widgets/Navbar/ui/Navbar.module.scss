@@ -1,0 +1,22 @@
+.navbar {
+  height: var(--navbar-height);
+  padding: 20px;
+  background: var(--inverted-bg-color);
+}
+
+.links {
+  margin-left: auto;
+}
+
+.title {
+  width: var(--sidebar-width);
+  padding-left: 15px;
+}
+
+// redesigned
+
+.navbar-redesigned {
+  .create-article-link {
+    width: fit-content;
+  }
+}

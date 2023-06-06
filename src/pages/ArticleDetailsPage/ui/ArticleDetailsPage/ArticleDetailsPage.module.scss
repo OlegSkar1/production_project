@@ -1,0 +1,12 @@
+.article-details-page,
+.article-details-page_redesigned {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.article-details-page_redesigned {
+  gap: 16px;
+  background: var(--dark-bg-redesigned);
+  border-radius: 32px;
+}

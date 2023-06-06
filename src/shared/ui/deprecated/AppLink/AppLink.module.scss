@@ -1,0 +1,32 @@
+.app-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.secondary {
+  color: var(--secondary-color);
+}
+
+.inverted-primary {
+  color: var(--inverted-primary-color);
+}
+
+.inverted-secondary {
+  color: var(--inverted-secondary-color);
+}
+
+.outlined {
+  padding: 5px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+}

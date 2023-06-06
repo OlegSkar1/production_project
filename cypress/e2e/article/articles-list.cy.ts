@@ -1,0 +1,28 @@
+describe('Тестирование страницы статей', () => {
+  beforeEach(() => {
+    cy.login();
+    cy.visit('articles');
+  });
+  it('Пользователь заходит на страницу статей', () => {
+    cy.getByTestId('ArticleList').should('exist');
+    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+  });
+  it('И Сортирует по просмотрам, порядку, поисковой строке и категории', () => {
+    const sort = 'views';
+    const order = 'desc';
+    const search = 'java';
+    const tabValue = 'IT';
+
+    cy.addSort({ sort, order, search, tabValue });
+    cy.getByTestId('ArticlesPageSort.sort').should('have.value', sort);
+    cy.getByTestId('ArticlesPageSort.order').should('have.value', order);
+    cy.getByTestId('ArticlesPageSearch').should('have.value', search);
+    cy.getByTestId(`Tab-${tabValue}`).should('have.text', 'Айти');
+  });
+
+  it('тестирование списка статей без подгрузки с сервера(фикстура)', () => {
+    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
+    cy.getByTestId('ArticleList').should('exist');
+    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+  });
+});

@@ -1,0 +1,99 @@
+.button {
+  cursor: pointer;
+  padding: 6px 15px;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+    fill-opacity: 70%;
+    transition: 0.2s;
+  }
+}
+
+.clear,
+.clear-inverted {
+  margin: 0;
+  padding: 0;
+
+  color: var(--primary-color);
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.clear-inverted {
+  color: var(--inverted-primary-color);
+}
+
+.outlined {
+  color: var(--primary-color);
+  background: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.ontlined_red {
+  color: var(--red-light);
+  background: none;
+  border: 2px solid var(--red-light);
+  border-radius: 5px;
+}
+
+.outlined_inverted {
+  color: var(--inverted-primary-color);
+  background: none;
+  border: 2px solid var(--inverted-primary-color);
+  border-radius: 5px;
+}
+
+.background {
+  color: var(--primary-color);
+  background: var(--bg-color);
+  border: none;
+}
+
+.background_inverted {
+  color: var(--inverted-primary-color);
+  background: var(--inverted-bg-color);
+  border: none;
+}
+
+.square {
+  padding: 0;
+}
+
+.square.small {
+  width: var(--font-line-m);
+  height: var(--font-line-m);
+}
+
+.square.large {
+  width: var(--font-line-l);
+  height: var(--font-line-l);
+}
+
+.square.extra-large {
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
+}
+
+.small {
+  font: var(--font-m);
+}
+
+.large {
+  font: var(--font-l);
+}
+
+.extra-large {
+  font: var(--font-xl);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.full-width {
+  width: 100%;
+}

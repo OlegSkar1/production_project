@@ -1,0 +1,12 @@
+.login-btn {
+  margin-left: auto;
+
+  &.loading {
+    cursor: progress;
+  }
+}
+
+.form-title,
+.form-error {
+  text-align: center;
+}

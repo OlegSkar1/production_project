@@ -1,0 +1,42 @@
+.inputWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  flex-grow: 1;
+
+  color: var(--primary-color);
+
+  border: none;
+  border-radius: 6px;
+  outline: none;
+
+  &[value] {
+    padding-left: 10px;
+  }
+}
+
+.inverted {
+  color: var(--secondary-color);
+}
+
+.readonly {
+  opacity: 0.7;
+}
+
+.default {
+  background: var(--inverted-bg-color);
+}
+
+.clear {
+  background: none;
+}
+
+.outlined {
+  background: none;
+  border: 1px solid var(--inverted-bg-color);
+  border-radius: 6px;
+}

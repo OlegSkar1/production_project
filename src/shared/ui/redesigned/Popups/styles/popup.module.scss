@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+}
+
+.items {
+  overflow: hidden;
+  border: 1px solid var(--accent-redesigned);
+  border-radius: 18px;
+
+  .active {
+    background: var(--light-bg-redesigned);
+  }
+
+  &.direction-top-left {
+    right: 0;
+    bottom: 100%;
+  }
+
+  &.direction-top-right {
+    bottom: 100%;
+    left: 0;
+  }
+
+  &.direction-bottom-left {
+    top: 100%;
+    right: 0;
+  }
+
+  &.direction-bottom-right {
+    top: 100%;
+    left: 0;
+  }
+}
+
+.trigger {
+  cursor: pointer;
+
+  margin: 0;
+  padding: 0;
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.7;
+}

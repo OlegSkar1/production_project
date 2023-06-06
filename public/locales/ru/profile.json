@@ -1,0 +1,19 @@
+{
+  "profilePage": "Страница профиля",
+  "yourName": "Имя",
+  "yourLastname": "Фамилия",
+  "profile_title_error": "Произошла ошибка при загрузке профиля",
+  "profile_text_error": "Попробуйте обновить страницу",
+  "yourAge": "Возраст",
+  "yourCity": "Город",
+  "yourUsername": "Имя пользователя",
+  "avatar_path": "Ссылка на аватар",
+  "incorrect_data": "Необходимо указать имя и фамилию",
+  "incorrect_age": "Неверный возраст",
+  "no_data": "Данные не указаны",
+  "server_error": "Ошибка сервера при сохранении",
+  "rate_the_profile": "Оцените профиль",
+  "input_rate_profile": "Напишите отзыв о профиле",
+  "Profile not found": "Профиль не найден",
+  "rate_load_error": "Ошибка при загрузке рейтинга"
+}

@@ -1,0 +1,19 @@
+{
+  "articles": "Atricles page",
+  "Article not found": "Article not found",
+  "an error occurred while loading the article": "An error occurred while loading the article",
+  "read more": "read more...",
+  "back to list": "back to list",
+  "article list error": "An error occurred while loading articles, please try again later.",
+  "articles not found": "Articles not found",
+  "all": "All",
+  "it": "IT",
+  "science": "Science",
+  "economics": "Economics",
+  "rate_the_article": "Rate the article",
+  "input_rate": "Write a review about the article",
+  "rate_load_error": "Error loading rating",
+  "Welcome to article page": "Welcome to Articles Page",
+  "articleGreetingMessage": "Here you can view and search for articles on various topics.",
+  "Here will be the evaluation of the article": "Here is the profile score"
+}

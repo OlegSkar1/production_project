@@ -1,0 +1,15 @@
+.articles,
+.articles_redesigned {
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.articles {
+  padding: 10px;
+}
+
+.articles_redesigned {
+  flex: 1 0 min-content;
+}

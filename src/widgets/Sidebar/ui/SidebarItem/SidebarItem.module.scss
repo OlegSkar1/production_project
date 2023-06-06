@@ -1,0 +1,45 @@
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.link {
+  margin-right: -50px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.collapsed {
+  .link {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+// redesigned
+
+.link_redesigned {
+  margin-right: -80px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.item_redesigned {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  &.collapsed {
+    padding: 0;
+
+    .link_redesigned {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+}
+
+.sidebar-item_active {
+  color: var(--accent-redesigned);
+  background: linear-gradient(89.97deg, rgb(94 211 243 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+  border-left: 2px solid var(--accent-redesigned);
+}

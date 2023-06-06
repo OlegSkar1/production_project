@@ -1,0 +1,42 @@
+.drawer {
+  position: fixed;
+  z-index: var(--modal-z-index);
+  inset: 0;
+}
+
+.content {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.opened {
+  pointer-events: auto;
+  z-index: var(--modal-z-index);
+  opacity: 1;
+}
+
+.sheet {
+  touch-action: none;
+
+  position: fixed;
+  z-index: var(--modal-z-index);
+  left: 2vw;
+
+  width: 96vw;
+  height: calc(100vh + 100px);
+  padding: 15px;
+
+  border-radius: 12px 12px 0;
+}
+
+.drawer-old {
+  .sheet {
+    background: var(--bg-color);
+  }
+}
+
+.drawer-new {
+  .sheet {
+    background: var(--light-bg-redesigned);
+  }
+}

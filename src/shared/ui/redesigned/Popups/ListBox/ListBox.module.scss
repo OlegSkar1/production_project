@@ -1,0 +1,39 @@
+.menu {
+  position: absolute;
+  z-index: var(--dropdown-z-index);
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--dark-bg-redesigned);
+}
+
+.item {
+  cursor: pointer;
+
+  width: 100%;
+  padding: 5px 16px;
+
+  color: var(--text-redesigned);
+
+  background: none;
+  border: none;
+  outline: none;
+
+  &:first-child {
+    padding-top: 7px;
+  }
+
+  &:last-child {
+    padding-bottom: 7px;
+  }
+
+  .arrow {
+    color: var(--hint-redesigned);
+  }
+
+  .arrow-left {
+    transform: rotate(90deg);
+    color: var(--hint-redesigned);
+  }
+}

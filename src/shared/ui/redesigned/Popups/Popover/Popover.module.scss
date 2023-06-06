@@ -1,0 +1,15 @@
+.popover {
+  padding: 16px;
+  border-radius: 19px;
+}
+
+.menu {
+  position: absolute;
+  z-index: var(--dropdown-z-index);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  background: var(--bg-redesigned);
+}

@@ -1,0 +1,30 @@
+.menu {
+  position: absolute;
+  z-index: var(--dropdown-z-index);
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg-redesigned);
+}
+
+.item {
+  cursor: pointer;
+
+  width: 100%;
+  padding: 4px 16px;
+
+  color: var(--text-redesigned);
+
+  background: none;
+  border: none;
+  outline: none;
+
+  &:first-child {
+    padding-top: 8px;
+  }
+
+  &:last-child {
+    padding-bottom: 8px;
+  }
+}

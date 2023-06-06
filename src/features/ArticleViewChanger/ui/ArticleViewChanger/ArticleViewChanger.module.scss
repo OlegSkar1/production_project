@@ -1,0 +1,10 @@
+.not-selected {
+  fill: var(--secondary-color);
+}
+
+.article-view-changer_redesigned {
+  .not-selected_redesigned {
+    color: var(--light-bg-redesigned);
+    background: none;
+  }
+}

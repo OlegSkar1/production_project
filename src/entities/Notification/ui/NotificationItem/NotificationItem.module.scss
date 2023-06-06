@@ -1,0 +1,14 @@
+.notification-item {
+  width: 100%;
+}
+
+.skeleton {
+  margin-bottom: 4px;
+}
+
+.notification-item_redesigned {
+  width: 100%;
+  background: transparent;
+  border-bottom: 1px solid var(--light-bg-redesigned);
+  border-radius: 0;
+}

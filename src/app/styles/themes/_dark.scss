@@ -1,0 +1,33 @@
+.app_theme_dark {
+  --bg-color: #222;
+  --inverted-bg-color: #f5f5f5;
+  --primary-color: #31db8c;
+  --secondary-color: #166b43;
+  --inverted-primary-color: #166b43;
+  --inverted-secondary-color: #31db8c96;
+
+  // redesigned
+
+  --dark-bg-redesigned: #090f11;
+  --bg-redesigned: #0c1214;
+  --light-bg-redesigned: #151c1f;
+  --text-redesigned: #dbdbdb;
+  --hint-redesigned: #555;
+  --cancel-redesigned: #d95757;
+  --save-redesigned: #6cd98b;
+  --icon-redesigned: #74a2b2;
+  --accent-redesigned: #5ed3f3;
+
+  // skeleton
+  --skeleton-color: #9993;
+  --skeleton-shadow: rgb(143 166 184 / 50%);
+
+  // code
+  --code-bg: #4d4b4b;
+
+  // card
+  --card-bg: #424242;
+
+  // listbox
+  --listbox-bg: #424242;
+}
