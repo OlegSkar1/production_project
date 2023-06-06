@@ -7,7 +7,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ---
 
-Ознакомиться можно по [ссылке](https://prod-project.netlify.app/)
+Ознакомиться можно по [ссылке](https://prod-project.netlify.app/) (при первом запуске возвожна длительная задержка из-за бесплатного сервиса для json-server)
 
 ```typescript
 //Данные для входа:
